@@ -22,7 +22,7 @@ namespace SHARP_INK
             double FatorLogo = (picBackgorund.Height * 0.75);
             this.picBackgorund.Padding = new Padding(0,Convert.ToInt32(FatorLogo), 0, 0);
 
-            new Classe_Tema().Tema_frmPrincipal(this);
+            new Classe_Tema().TEMA_frmPrincipal(this);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -111,6 +111,10 @@ namespace SHARP_INK
             txtRelogio.Text = DateTime.Now.ToLongTimeString();
         }
 
-       
+        private void btnOrdemServico_Click(object sender, EventArgs e)
+        {
+            frmListaOS ListaOS = new frmListaOS();
+            ListaOS.ShowDialog();
+        }
     }
 }

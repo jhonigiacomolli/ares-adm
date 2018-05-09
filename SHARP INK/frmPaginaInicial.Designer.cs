@@ -223,6 +223,7 @@
             this.btnOrdemServico.Size = new System.Drawing.Size(200, 90);
             this.btnOrdemServico.TabIndex = 3;
             this.btnOrdemServico.TabStop = false;
+            this.btnOrdemServico.Click += new System.EventHandler(this.btnOrdemServico_Click);
             this.btnOrdemServico.MouseEnter += new System.EventHandler(this.btnOrdemServico_MouseEnter);
             this.btnOrdemServico.MouseLeave += new System.EventHandler(this.btnOrdemServico_MouseLeave_1);
             // 
