@@ -68,13 +68,27 @@
   <ItemGroup>
     <Compile Include="Classes\Classes_Conexao.cs" />
     <Compile Include="Classes\Classe_Listviews.cs" />
+    <Compile Include="Classes\Classe_Mensagem.cs" />
+    <Compile Include="Classes\Classe_OrdemServico.cs" />
     <Compile Include="Classes\Classe_Tema.cs" />
     <Compile Include="Classes\Classe_Veiculos.cs" />
+    <Compile Include="frmCadastroOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroOS.Designer.cs">
+      <DependentUpon>frmCadastroOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListaOS.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmListaOS.Designer.cs">
       <DependentUpon>frmListaOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMensagemBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMensagemBox.Designer.cs">
+      <DependentUpon>frmMensagemBox.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPaginaInicial.cs">
       <SubType>Form</SubType>
@@ -84,8 +98,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCadastroOS.resx">
+      <DependentUpon>frmCadastroOS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaOS.resx">
       <DependentUpon>frmListaOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMensagemBox.resx">
+      <DependentUpon>frmMensagemBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaginaInicial.resx">
       <DependentUpon>frmPaginaInicial.cs</DependentUpon>
@@ -167,6 +187,9 @@
     <Content Include="Database\Database.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Imagens\Icone_Interogação.png" />
+    <None Include="Imagens\Icone_Exclamação.png" />
+    <None Include="Imagens\Icone_Critico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

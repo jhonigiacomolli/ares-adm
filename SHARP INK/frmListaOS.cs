@@ -14,6 +14,7 @@ namespace SHARP_INK
     {
         bool mouseDown;
         Point lastLocation;
+        public int ItemSelecionado;
 
         public frmListaOS()
         {
@@ -87,5 +88,48 @@ namespace SHARP_INK
             }
         }
 
+        private void frmListaOS_Click(object sender, EventArgs e)
+        {
+            pnMenuOS.Height = 0;
+        }
+
+        private void pnCabecalho_Click(object sender, EventArgs e)
+        {
+            pnMenuOS.Height = 0;
+        }
+
+        private void lstVeiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pnMenuOS.Height = 0;
+            ItemSelecionado =int.Parse(lstVeiculos.FocusedItem.Text);
+        }
+
+        private void lstVeiculos_MouseDown(object sender, MouseEventArgs e)
+        {
+            pnMenuOS.Height = 0;
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            pnMenuOS.Height = 0;
+
+            frmCadastroOS cadastro = new frmCadastroOS(this);
+            cadastro.ShowDialog();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            string id = lstVeiculos.FocusedItem.Text.TrimEnd();
+            string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text.TrimEnd();
+            string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text.TrimEnd();
+            string Placa = lstVeiculos.FocusedItem.SubItems[3].Text.TrimEnd();
+            string Cor = lstVeiculos.FocusedItem.SubItems[4].Text.TrimEnd();
+            string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
+
+            Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão de item", "Deseja realmente excluir a OS Nº " + id + "\n" + "Proprietario: " + Proprietario + "\nVeiculo: " + Veiculo + "\nPlaca: " + Placa);
+            messagebox.ShowDialog();
+
+
+        }
     }
 }

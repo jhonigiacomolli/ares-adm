@@ -56,7 +56,14 @@ namespace SHARP_INK.Classes
         {
             //Corpo
             Form.BackColor = COR_Primaria;
+            Form.btnAbrir.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
+            Form.btnAbrir.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
+            Form.btnFinalizar.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
+            Form.btnFinalizar.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
+
+            //Cabeçalho
             Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
 
             //Menu Strip
             Form.btnOS.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
@@ -66,10 +73,21 @@ namespace SHARP_INK.Classes
             Form.btnEditar.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
             Form.btnEditar.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
             Form.btnExcluir.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
-            Form.btnExcluir.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
+            Form.btnExcluir.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;          
 
-
+            //Pesquisa
+            Form.lblTipoPesquisa.ForeColor = COR_Titulos;
+            Form.lblPesquisa.ForeColor = COR_Titulos;
         }
 
+        public void TEMA_frmCadastroOS(frmCadastroOS Form)
+        {
+            //Corpo
+            Form.BackColor = COR_Primaria;
+
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+        }
     }
 }

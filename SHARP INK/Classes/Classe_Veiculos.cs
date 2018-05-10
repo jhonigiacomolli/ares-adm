@@ -37,6 +37,24 @@ namespace SHARP_INK.Classes
             DT.Dispose();
         }
 
+        public void Listar_Veiculos(frmCadastroOS Form, string SQL)
+        {
+            DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
+
+            for (int i = 0; i < DT.Rows.Count; i++)
+            {
+                DataRow DR = DT.Rows[i];
+                if (DR.RowState != DataRowState.Deleted)
+                {
+                    Form.txtProprietario.Text = DR["Proprietario"].ToString();
+                    Form.txtVeiculo.Text= DR["Veiculo"].ToString();
+                    Form.txtPLaca.Text= DR["Placa"].ToString();
+                    Form.txtCor.Text= DR["Cor"].ToString();
+                    Form.txtTamanho.Text= DR["Tamanho"].ToString();
+                }
+            }
+            DT.Dispose();
+        }
         public void Adicionar_Veiculos()
         {
 

@@ -163,6 +163,36 @@ namespace SHARP_INK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icone_Critico {
+            get {
+                object obj = ResourceManager.GetObject("Icone_Critico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icone_Exclamação {
+            get {
+                object obj = ResourceManager.GetObject("Icone_Exclamação", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icone_Interogação {
+            get {
+                object obj = ResourceManager.GetObject("Icone_Interogação", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icone_OS {
             get {
                 object obj = ResourceManager.GetObject("Icone_OS", resourceCulture);

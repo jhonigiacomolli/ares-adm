@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblTituloForm = new System.Windows.Forms.Label();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +40,11 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.cboTipoPesquisa = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblTipoPesquisa = new System.Windows.Forms.Label();
+            this.lblPesquisa = new System.Windows.Forms.Label();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.pnMenuOS.SuspendLayout();
@@ -61,16 +65,6 @@
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
             // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = global::SHARP_INK.Properties.Resources.FavIcon_25px_;
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
-            // 
             // pnCabecalho
             // 
             this.pnCabecalho.BackColor = System.Drawing.Color.Black;
@@ -82,6 +76,7 @@
             this.pnCabecalho.Name = "pnCabecalho";
             this.pnCabecalho.Size = new System.Drawing.Size(1180, 35);
             this.pnCabecalho.TabIndex = 1;
+            this.pnCabecalho.Click += new System.EventHandler(this.pnCabecalho_Click);
             this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
             this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
             this.pnCabecalho.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseUp);
@@ -113,18 +108,21 @@
             // 
             // lstVeiculos
             // 
+            this.lstVeiculos.HideSelection = false;
             this.lstVeiculos.Location = new System.Drawing.Point(0, 76);
             this.lstVeiculos.Name = "lstVeiculos";
             this.lstVeiculos.Size = new System.Drawing.Size(1180, 392);
             this.lstVeiculos.TabIndex = 2;
             this.lstVeiculos.UseCompatibleStateImageBehavior = false;
+            this.lstVeiculos.SelectedIndexChanged += new System.EventHandler(this.lstVeiculos_SelectedIndexChanged);
+            this.lstVeiculos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstVeiculos_MouseDown);
             // 
             // btnFinalizar
             // 
             this.btnFinalizar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizar.ForeColor = System.Drawing.Color.Silver;
-            this.btnFinalizar.Location = new System.Drawing.Point(172, 483);
+            this.btnFinalizar.Location = new System.Drawing.Point(161, 477);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(143, 44);
             this.btnFinalizar.TabIndex = 7;
@@ -136,7 +134,7 @@
             this.btnAbrir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnAbrir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrir.ForeColor = System.Drawing.Color.Silver;
-            this.btnAbrir.Location = new System.Drawing.Point(12, 483);
+            this.btnAbrir.Location = new System.Drawing.Point(12, 477);
             this.btnAbrir.Name = "btnAbrir";
             this.btnAbrir.Size = new System.Drawing.Size(143, 44);
             this.btnAbrir.TabIndex = 6;
@@ -179,6 +177,7 @@
             this.btnExcluir.TabIndex = 12;
             this.btnExcluir.Text = "Excluir veículo";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
@@ -205,13 +204,66 @@
             this.btnAdicionar.TabIndex = 10;
             this.btnAdicionar.Text = "Adicionar veículo";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // cboTipoPesquisa
+            // 
+            this.cboTipoPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cboTipoPesquisa.FormattingEnabled = true;
+            this.cboTipoPesquisa.Location = new System.Drawing.Point(329, 500);
+            this.cboTipoPesquisa.Name = "cboTipoPesquisa";
+            this.cboTipoPesquisa.Size = new System.Drawing.Size(176, 24);
+            this.cboTipoPesquisa.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(511, 499);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(643, 26);
+            this.textBox1.TabIndex = 11;
+            // 
+            // lblTipoPesquisa
+            // 
+            this.lblTipoPesquisa.AutoSize = true;
+            this.lblTipoPesquisa.ForeColor = System.Drawing.Color.Silver;
+            this.lblTipoPesquisa.Location = new System.Drawing.Point(329, 480);
+            this.lblTipoPesquisa.Name = "lblTipoPesquisa";
+            this.lblTipoPesquisa.Size = new System.Drawing.Size(123, 13);
+            this.lblTipoPesquisa.TabIndex = 12;
+            this.lblTipoPesquisa.Text = "Selecione o tipo de Filtro";
+            // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.ForeColor = System.Drawing.Color.Silver;
+            this.lblPesquisa.Location = new System.Drawing.Point(508, 480);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(204, 13);
+            this.lblPesquisa.TabIndex = 13;
+            this.lblPesquisa.Text = "Digite a palavra passe para sua pesquisa:";
+            // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = global::SHARP_INK.Properties.Resources.FavIcon_25px_;
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
             // 
             // frmListaOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(1180, 546);
+            this.ClientSize = new System.Drawing.Size(1180, 541);
+            this.Controls.Add(this.lblPesquisa);
+            this.Controls.Add(this.lblTipoPesquisa);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cboTipoPesquisa);
             this.Controls.Add(this.pnMenuOS);
             this.Controls.Add(this.btnOS);
             this.Controls.Add(this.btnFinalizar);
@@ -222,12 +274,14 @@
             this.Name = "frmListaOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListaOS";
+            this.Click += new System.EventHandler(this.frmListaOS_Click);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);
             this.btnFechar.PerformLayout();
             this.pnMenuOS.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -239,12 +293,16 @@
         public System.Windows.Forms.Panel btnFechar;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ListView lstVeiculos;
-        private System.Windows.Forms.Button btnFinalizar;
-        private System.Windows.Forms.Button btnAbrir;
         public System.Windows.Forms.Panel pnMenuOS;
         public System.Windows.Forms.Button btnExcluir;
         public System.Windows.Forms.Button btnEditar;
         public System.Windows.Forms.Button btnAdicionar;
         public System.Windows.Forms.Button btnOS;
+        public System.Windows.Forms.ComboBox cboTipoPesquisa;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Label lblTipoPesquisa;
+        public System.Windows.Forms.Label lblPesquisa;
+        public System.Windows.Forms.Button btnFinalizar;
+        public System.Windows.Forms.Button btnAbrir;
     }
 }

@@ -14,6 +14,7 @@ namespace SHARP_INK.Classes
             LST.FullRowSelect = true;
             LST.AllowColumnReorder = true;
             LST.View = View.Details;
+            LST.HideSelection = false;
 
             LST.Columns.Add("Numero OS", 100);
             LST.Columns.Add("Proprietário", 200);
