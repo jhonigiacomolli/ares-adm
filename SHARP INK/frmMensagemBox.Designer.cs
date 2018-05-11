@@ -167,6 +167,7 @@
             this.txtMensagem.Size = new System.Drawing.Size(59, 13);
             this.txtMensagem.TabIndex = 12;
             this.txtMensagem.Text = "Mensagem";
+            this.txtMensagem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmMensagemBox
             // 

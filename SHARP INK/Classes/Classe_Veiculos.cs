@@ -46,26 +46,59 @@ namespace SHARP_INK.Classes
                 DataRow DR = DT.Rows[i];
                 if (DR.RowState != DataRowState.Deleted)
                 {
-                    Form.txtProprietario.Text = DR["Proprietario"].ToString();
-                    Form.txtVeiculo.Text= DR["Veiculo"].ToString();
-                    Form.txtPLaca.Text= DR["Placa"].ToString();
-                    Form.txtCor.Text= DR["Cor"].ToString();
-                    Form.txtTamanho.Text= DR["Tamanho"].ToString();
+                    Form.txtProprietario.Text = DR["Proprietario"].ToString().TrimEnd();
+                    Form.txtVeiculo.Text= DR["Veiculo"].ToString().TrimEnd();
+                    Form.txtPLaca.Text= DR["Placa"].ToString().TrimEnd();
+                    Form.txtCor.SelectedIndex = Form.txtCor.FindString(DR["Cor"].ToString());
+                    Form.txtTamanho.SelectedIndex = Form.txtTamanho.FindString(DR["Tamanho"].ToString());
                 }
             }
             DT.Dispose();
         }
-        public void Adicionar_Veiculos()
+        public void Adicionar_Veiculo (string Proprietario, string Veiculo, string Placa, string Cor, string Tamanho, DateTime DataCadastro, string Situacao)
         {
+            SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
 
+            string comandoSQL = "INSERT INTO Veiculos(Proprietario,Veiculo,Placa,Cor,Tamanho,Data_Cadastro,Situacao)" +
+                        " VALUES ('" + Proprietario + "','" + Veiculo + "','" + Placa + "','" + Cor + "','" + Tamanho + "','" + DataCadastro + "','" + Situacao + "')";
+
+            SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
+
+            CONN.Open();
+            CMD.ExecuteNonQuery();
+            CONN.Close();
         }
-        public void Editar_Veiculos()
+        public void Editar_Veiculos(int ID, string Proprietario, string Veiculo, string Placa, string Cor, string Tamanho, DateTime DataCadastro, string Situacao)
         {
+            SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
 
+            string comandoSQL = "UPDATE Veiculos SET Proprietario='" + Proprietario.Replace("'", "''") + "', Veiculo='" + Veiculo + "', Placa='" + Placa + "', Cor='" + Cor + "', Tamanho='" + Tamanho + "' WHERE id='" + ID + "'";
+
+            SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
+
+            CONN.Open();
+            CMD.ExecuteNonQuery();
+            CONN.Close();
         }
-        public void Excluir_Veiculos()
+        public void Excluir_Veiculos(int ID)
         {
+            SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
 
+            string comandoSQL = "DELETE FROM Veiculos WHERE id=" + ID + "";
+            SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
+
+            CONN.Open();
+            CMD.ExecuteNonQuery();
+            CONN.Close();
+        }
+        public void Pesquisar_Veiculos(ListView LST, string Criterio, string Pesquisa)
+        {
+            string ComandoSQL=string.Empty;
+
+            if (Criterio.Equals("Todos")) { ComandoSQL = "SELECT * FROM Veiculos"; }
+            if (Criterio.Equals("Numero OS")) { ComandoSQL = "SELECT * FROM Veiculos WHERE id='" + Pesquisa + "'"; }
+
+            Listar_Veiculos(LST, ComandoSQL);
         }
     }
 }

@@ -15,17 +15,36 @@ namespace SHARP_INK
         bool mouseDown;
         Point lastLocation;
         frmListaOS FormListaOS = new frmListaOS();
+        public int ID;
 
         public string TIPO;
 
-        public frmCadastroOS(frmListaOS ListaOS)
+        public frmCadastroOS(int ID, frmListaOS ListaOS)
         {
             InitializeComponent();
+
+            new Classe_Tema().TEMA_frmCadastroOS(this);
+
             FormListaOS = ListaOS;
+            this.ID = ID;
 
             new Classes_Conexao().Get_Cores(txtCor);
             new Classes_Conexao().Get_Tamanho(txtTamanho);
             new Classes_Conexao().Get_Proprietario(txtProprietario);
+
+            if (ID.Equals(0))
+            {
+                btnGravar.Text = "CADASTRAR";
+            }
+            else
+            {
+                btnGravar.Text = "ATUALIZAR";
+                txtProprietario.BackColor = Classe_Tema.TextBox_Edicao;
+                txtVeiculo.BackColor = Classe_Tema.TextBox_Edicao;
+                txtPLaca.BackColor = Classe_Tema.TextBox_Edicao;
+                txtCor.BackColor = Classe_Tema.TextBox_Edicao;
+                txtTamanho.BackColor = Classe_Tema.TextBox_Edicao;
+            }
 
             txtNumeroOS.Enabled = false;
             txtProprietario.Enabled = true;
@@ -33,27 +52,40 @@ namespace SHARP_INK
             txtPLaca.Enabled = true;
             txtCor.Enabled = true;
             txtTamanho.Enabled = true;
-        }
+        }               
 
-        public frmCadastroOS(string Tipo, frmListaOS ListaOS)
+        private void btnGravar_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            FormListaOS = ListaOS;
-            TIPO = Tipo;
+            string proprietario = txtProprietario.Text.TrimEnd();
+            string veiculo = txtVeiculo.Text.TrimEnd();
+            string placa = txtPLaca.Text.TrimEnd();
+            string cor = txtCor.Text.TrimEnd();
+            string tamanho = txtTamanho.Text.TrimEnd();
+            DateTime datacadastro = DateTime.Now;
+            string situacao = "ABERTA";
 
-            new Classes_Conexao().Get_Cores(txtCor);
-            new Classes_Conexao().Get_Tamanho(txtTamanho);
-            new Classes_Conexao().Get_Proprietario(txtProprietario);
-
-            txtNumeroOS.Enabled = true;
-            txtProprietario.Enabled = false;
-            txtVeiculo.Enabled = false;
-            txtPLaca.Enabled = false;
-            txtCor.Enabled = false;
-            txtTamanho.Enabled = false;
+            if (ID != 0)
+            {
+                new Classe_Veiculos().Editar_Veiculos(ID, proprietario, veiculo, placa, cor, tamanho, datacadastro, situacao);
+                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos,"SELECT * FROM Veiculos");
+                this.Close();
+            }
+            else
+            {            
+                new Classe_Veiculos().Adicionar_Veiculo(proprietario, veiculo, placa, cor, tamanho, datacadastro, situacao);
+                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos, "SELECT * FROM Veiculos");
+                this.Close();
+            }
             
         }
 
+        private void txtNumeroOS_Validated(object sender, EventArgs e)
+        {
+            int ID = int.Parse(txtNumeroOS.Text);
+
+            new Classe_Veiculos().Listar_Veiculos(this,"SELECT * FROM Veiculos WHERE id='" + ID + "'");
+
+        }
         private void label1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -102,29 +134,6 @@ namespace SHARP_INK
         private void lblTituloForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-        }
-
-        private void btnGravar_Click(object sender, EventArgs e)
-        {
-            string proprietario = txtProprietario.Text;
-            string veiculo = txtVeiculo.Text;
-            string placa = txtPLaca.Text;
-            string cor = txtCor.Text;
-            string tamanho = txtTamanho.Text;
-            DateTime datacadastro = DateTime.Now;
-            string situacao = "ABERTA";
-
-            new Classe_OrdemServico().Incluir_OrdemServico(proprietario, veiculo, placa, cor, tamanho, datacadastro, situacao);
-            new Classe_Veiculos().Listar_Veiculos( FormListaOS.lstVeiculos,"SELECT * FROM Veiculos");
-            this.Close();
-        }
-
-        private void txtNumeroOS_Validated(object sender, EventArgs e)
-        {
-            int ID = int.Parse(txtNumeroOS.Text);
-
-            new Classe_Veiculos().Listar_Veiculos(this,"SELECT * FROM Veiculos WHERE id='" + ID + "'");
-
         }
     }
 }

@@ -13,11 +13,11 @@ namespace SHARP_INK.Classes
         public static Color Botao_Desativado = Color.Black;
         public static Color MenuBotao_Normal= Color.FromArgb(26, 26, 26);
         public static Color MenuBotao_Sobre = Color.FromArgb(64, 64, 64);
+        public static Color TextBox_Edicao = Color.YellowGreen;
         private Color COR_Primaria = Color.FromArgb(26, 26, 26);
         private Color COR_Titulos = Color.Silver;
         private Color COR_Subtitulos = Color.Gray;
-
-        
+        private Color COR_FontePrimaria = Color.Black;     
 
         public void TEMA_frmPrincipal(frmPaginaInicial Form)
         {
@@ -78,16 +78,52 @@ namespace SHARP_INK.Classes
             //Pesquisa
             Form.lblTipoPesquisa.ForeColor = COR_Titulos;
             Form.lblPesquisa.ForeColor = COR_Titulos;
+            Form.txtPesquisa.BackColor = Color.White;
         }
 
         public void TEMA_frmCadastroOS(frmCadastroOS Form)
         {
             //Corpo
             Form.BackColor = COR_Primaria;
+            Form.lblID.ForeColor = COR_Titulos;
+            Form.lblProprietario.ForeColor = COR_Titulos;
+            Form.lblVeiculo.ForeColor = COR_Titulos;
+            Form.lblPlaca.ForeColor = COR_Titulos;
+            Form.lblCor.ForeColor = COR_Titulos;
+            Form.lblTamanho.ForeColor = COR_Titulos;
+            Form.btnGravar.BackColor = COR_Primaria;
+
+            Form.txtNumeroOS.ForeColor = COR_FontePrimaria;
+            Form.txtProprietario.ForeColor = COR_FontePrimaria;
+            Form.txtVeiculo.ForeColor = COR_FontePrimaria;
+            Form.txtPLaca.ForeColor = COR_FontePrimaria;
+            Form.txtCor.ForeColor = COR_FontePrimaria;
+            Form.txtTamanho.ForeColor = COR_FontePrimaria;
+
+            Form.btnGravar.BackColor = COR_Primaria;
+
 
             //Cabeçalho
             Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;            
+        }
+
+        public void TEMA_frmMensagemBox(frmMensagemBox Form)
+        {
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
             Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpo
+            Form.btnNo.BackColor = COR_Primaria;
+            Form.btnOk.BackColor = COR_Primaria;
+            Form.btnYes.BackColor = COR_Primaria;
+
+            Form.btnNo.ForeColor = COR_Titulos;
+            Form.btnOk.ForeColor = COR_Titulos;
+            Form.btnYes.ForeColor = COR_Titulos;
+
+            Form.txtMensagem.ForeColor = COR_Titulos;
         }
     }
 }

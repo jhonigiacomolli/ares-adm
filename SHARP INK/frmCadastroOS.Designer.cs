@@ -30,15 +30,15 @@
         {
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.lblID = new System.Windows.Forms.Label();
             this.lblProprietario = new System.Windows.Forms.Label();
             this.lblVeiculo = new System.Windows.Forms.Label();
             this.lblPlaca = new System.Windows.Forms.Label();
             this.lblCor = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTamanho = new System.Windows.Forms.Label();
             this.txtNumeroOS = new System.Windows.Forms.TextBox();
             this.txtVeiculo = new System.Windows.Forms.TextBox();
             this.txtProprietario = new System.Windows.Forms.ComboBox();
@@ -80,6 +80,16 @@
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
             // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = global::SHARP_INK.Properties.Resources.FavIcon_25px_;
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
+            // 
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -104,16 +114,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "X";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = global::SHARP_INK.Properties.Resources.FavIcon_25px_;
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
             // 
             // lblID
             // 
@@ -165,15 +165,15 @@
             this.lblCor.TabIndex = 7;
             this.lblCor.Text = "Cor";
             // 
-            // label2
+            // lblTamanho
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(12, 212);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Tamanho";
+            this.lblTamanho.AutoSize = true;
+            this.lblTamanho.ForeColor = System.Drawing.Color.Silver;
+            this.lblTamanho.Location = new System.Drawing.Point(12, 212);
+            this.lblTamanho.Name = "lblTamanho";
+            this.lblTamanho.Size = new System.Drawing.Size(52, 13);
+            this.lblTamanho.TabIndex = 8;
+            this.lblTamanho.Text = "Tamanho";
             // 
             // txtNumeroOS
             // 
@@ -200,6 +200,9 @@
             // 
             // txtCor
             // 
+            this.txtCor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtCor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txtCor.Cursor = System.Windows.Forms.Cursors.No;
             this.txtCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtCor.FormattingEnabled = true;
             this.txtCor.Location = new System.Drawing.Point(93, 173);
@@ -209,6 +212,8 @@
             // 
             // txtTamanho
             // 
+            this.txtTamanho.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtTamanho.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.txtTamanho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTamanho.FormattingEnabled = true;
             this.txtTamanho.Location = new System.Drawing.Point(93, 205);
@@ -250,7 +255,7 @@
             this.Controls.Add(this.txtProprietario);
             this.Controls.Add(this.txtVeiculo);
             this.Controls.Add(this.txtNumeroOS);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTamanho);
             this.Controls.Add(this.lblCor);
             this.Controls.Add(this.lblPlaca);
             this.Controls.Add(this.lblVeiculo);
@@ -277,18 +282,18 @@
         public System.Windows.Forms.Panel pnFavIcon;
         public System.Windows.Forms.Panel btnFechar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label lblProprietario;
-        private System.Windows.Forms.Label lblVeiculo;
-        private System.Windows.Forms.Label lblPlaca;
-        private System.Windows.Forms.Label lblCor;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNumeroOS;
         public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.TextBox txtVeiculo;
         public System.Windows.Forms.ComboBox txtProprietario;
         public System.Windows.Forms.ComboBox txtCor;
         public System.Windows.Forms.ComboBox txtTamanho;
         public System.Windows.Forms.MaskedTextBox txtPLaca;
+        public System.Windows.Forms.Label lblID;
+        public System.Windows.Forms.Label lblProprietario;
+        public System.Windows.Forms.Label lblVeiculo;
+        public System.Windows.Forms.Label lblPlaca;
+        public System.Windows.Forms.Label lblCor;
+        public System.Windows.Forms.Label lblTamanho;
+        public System.Windows.Forms.TextBox txtNumeroOS;
     }
 }

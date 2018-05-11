@@ -23,6 +23,7 @@ namespace SHARP_INK
 
             new Classe_Tema().TEMA_frmListaOS(this);
             new Classe_Listviews().Criar_LST_Veiculos(lstVeiculos);
+            new Classe_Listviews().Criar_CamposPesquisa(cboTipoPesquisa);
             new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos");
         }
 
@@ -113,12 +114,14 @@ namespace SHARP_INK
         {
             pnMenuOS.Height = 0;
 
-            frmCadastroOS cadastro = new frmCadastroOS(this);
+            frmCadastroOS cadastro = new frmCadastroOS(0 ,this);
             cadastro.ShowDialog();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            pnMenuOS.Height = 0;
+
             string id = lstVeiculos.FocusedItem.Text.TrimEnd();
             string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text.TrimEnd();
             string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text.TrimEnd();
@@ -127,9 +130,66 @@ namespace SHARP_INK
             string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
 
             Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão de item", "Deseja realmente excluir a OS Nº " + id + "\n" + "Proprietario: " + Proprietario + "\nVeiculo: " + Veiculo + "\nPlaca: " + Placa);
-            messagebox.ShowDialog();
+            DialogResult Resposta=messagebox.ShowDialog();
+
+            if (Resposta.Equals(DialogResult.OK))
+            {
+                new Classe_Veiculos().Excluir_Veiculos(int.Parse(id));
+                new Classe_Veiculos().Listar_Veiculos(lstVeiculos,"SELECT * FROM Veiculos");
+            }
+            else
+            {
+                return;
+            }
 
 
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            pnMenuOS.Height = 0;
+
+            string id = lstVeiculos.FocusedItem.Text.TrimEnd();
+            string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text.TrimEnd();
+            string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text.TrimEnd();
+            string Placa = lstVeiculos.FocusedItem.SubItems[3].Text.TrimEnd();
+            string Cor = lstVeiculos.FocusedItem.SubItems[4].Text.TrimEnd();
+            string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
+
+            frmCadastroOS Edicao = new frmCadastroOS(int.Parse(id),this);
+            Edicao.txtNumeroOS.Text = id;
+            new Classe_Veiculos().Listar_Veiculos(Edicao, "SELECT * FROM Veiculos WHERE id='" + id + "'");            
+            Edicao.ShowDialog();
+
+
+        }
+
+        private void txtPesquisa_Enter(object sender, EventArgs e)
+        {
+            txtPesquisa.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtPesquisa_Leave(object sender, EventArgs e)
+        {
+            txtPesquisa.BackColor = Color.White;
+        }
+
+        private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                new Classe_Veiculos().Pesquisar_Veiculos(lstVeiculos, cboTipoPesquisa.Text, txtPesquisa.Text);
+            }
+        }
+
+        private void txtPesquisa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtPesquisa.Clear();
+        }
+
+        private void cboTipoPesquisa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtPesquisa.Clear();
         }
     }
 }

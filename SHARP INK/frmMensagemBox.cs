@@ -19,7 +19,7 @@ namespace SHARP_INK
         public frmMensagemBox(string CAtegoria, string Titulo, string Mensagem)
         {
             InitializeComponent();
-
+            new Classe_Tema().TEMA_frmMensagemBox(this);
             new Classe_Mensagem().Mensagem(this, CAtegoria, Titulo, Mensagem);
         }
 

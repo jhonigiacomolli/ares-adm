@@ -27,5 +27,20 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Situação", 100);    
         }
 
+        public void Criar_CamposPesquisa(ComboBox TipoPesquisa)
+        {
+            TipoPesquisa.Items.Add("Todos");
+            TipoPesquisa.Items.Add("Numero OS");
+            TipoPesquisa.Items.Add("Proprietário");
+            TipoPesquisa.Items.Add("Veículo");
+            TipoPesquisa.Items.Add("Placa");
+            TipoPesquisa.Items.Add("Cor");
+            TipoPesquisa.Items.Add("Tamanho");
+            TipoPesquisa.Items.Add("Data Cadastro");
+            TipoPesquisa.Items.Add("Data Entrega");
+            TipoPesquisa.SelectedIndex = 0;
+        }
+
+        
     }
 }

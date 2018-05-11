@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaOS));
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnCabecalho = new System.Windows.Forms.Panel();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lstVeiculos = new System.Windows.Forms.ListView();
@@ -41,10 +43,9 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.cboTipoPesquisa = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblTipoPesquisa = new System.Windows.Forms.Label();
             this.lblPesquisa = new System.Windows.Forms.Label();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.pnMenuOS.SuspendLayout();
@@ -80,6 +81,16 @@
             this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
             this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
             this.pnCabecalho.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseUp);
+            // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
             // 
             // btnFechar
             // 
@@ -191,6 +202,7 @@
             this.btnEditar.TabIndex = 11;
             this.btnEditar.Text = "Editar veículo";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAdicionar
             // 
@@ -215,14 +227,19 @@
             this.cboTipoPesquisa.Name = "cboTipoPesquisa";
             this.cboTipoPesquisa.Size = new System.Drawing.Size(176, 24);
             this.cboTipoPesquisa.TabIndex = 10;
+            this.cboTipoPesquisa.SelectedIndexChanged += new System.EventHandler(this.cboTipoPesquisa_SelectedIndexChanged);
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(511, 499);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(643, 26);
-            this.textBox1.TabIndex = 11;
+            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtPesquisa.Location = new System.Drawing.Point(511, 499);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(643, 26);
+            this.txtPesquisa.TabIndex = 11;
+            this.txtPesquisa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPesquisa_MouseClick);
+            this.txtPesquisa.Enter += new System.EventHandler(this.txtPesquisa_Enter);
+            this.txtPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPesquisa_KeyDown);
+            this.txtPesquisa.Leave += new System.EventHandler(this.txtPesquisa_Leave);
             // 
             // lblTipoPesquisa
             // 
@@ -244,16 +261,6 @@
             this.lblPesquisa.TabIndex = 13;
             this.lblPesquisa.Text = "Digite a palavra passe para sua pesquisa:";
             // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = global::SHARP_INK.Properties.Resources.FavIcon_25px_;
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
-            // 
             // frmListaOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,7 +269,7 @@
             this.ClientSize = new System.Drawing.Size(1180, 541);
             this.Controls.Add(this.lblPesquisa);
             this.Controls.Add(this.lblTipoPesquisa);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.cboTipoPesquisa);
             this.Controls.Add(this.pnMenuOS);
             this.Controls.Add(this.btnOS);
@@ -299,7 +306,7 @@
         public System.Windows.Forms.Button btnAdicionar;
         public System.Windows.Forms.Button btnOS;
         public System.Windows.Forms.ComboBox cboTipoPesquisa;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txtPesquisa;
         public System.Windows.Forms.Label lblTipoPesquisa;
         public System.Windows.Forms.Label lblPesquisa;
         public System.Windows.Forms.Button btnFinalizar;
