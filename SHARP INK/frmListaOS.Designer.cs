@@ -59,9 +59,9 @@
             this.lblTituloForm.ForeColor = System.Drawing.Color.Silver;
             this.lblTituloForm.Location = new System.Drawing.Point(56, 8);
             this.lblTituloForm.Name = "lblTituloForm";
-            this.lblTituloForm.Size = new System.Drawing.Size(259, 20);
+            this.lblTituloForm.Size = new System.Drawing.Size(238, 20);
             this.lblTituloForm.TabIndex = 1;
-            this.lblTituloForm.Text = "SHARP INK - Listagem de Veiculos";
+            this.lblTituloForm.Text = "SHARP INK - Ordens de Serivço";
             this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
@@ -123,9 +123,10 @@
             this.lstVeiculos.Location = new System.Drawing.Point(0, 76);
             this.lstVeiculos.Name = "lstVeiculos";
             this.lstVeiculos.Size = new System.Drawing.Size(1180, 392);
-            this.lstVeiculos.TabIndex = 2;
+            this.lstVeiculos.TabIndex = 0;
             this.lstVeiculos.UseCompatibleStateImageBehavior = false;
             this.lstVeiculos.SelectedIndexChanged += new System.EventHandler(this.lstVeiculos_SelectedIndexChanged);
+            this.lstVeiculos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstVeiculos_KeyDown);
             this.lstVeiculos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstVeiculos_MouseDown);
             // 
             // btnFinalizar
@@ -139,6 +140,7 @@
             this.btnFinalizar.TabIndex = 7;
             this.btnFinalizar.Text = "Finalizar OS";
             this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnFinalizar_KeyDown);
             // 
             // btnAbrir
             // 
@@ -151,6 +153,8 @@
             this.btnAbrir.TabIndex = 6;
             this.btnAbrir.Text = "Ver Detalhes";
             this.btnAbrir.UseVisualStyleBackColor = true;
+            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
+            this.btnAbrir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnAbrir_KeyDown);
             // 
             // btnOS
             // 
@@ -165,6 +169,7 @@
             this.btnOS.Text = "Ordem de Serviço";
             this.btnOS.UseVisualStyleBackColor = true;
             this.btnOS.Click += new System.EventHandler(this.btnOS_Click);
+            this.btnOS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnOS_KeyDown);
             // 
             // pnMenuOS
             // 
@@ -186,9 +191,10 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(143, 26);
             this.btnExcluir.TabIndex = 12;
-            this.btnExcluir.Text = "Excluir veículo";
+            this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.btnExcluir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnExcluir_KeyDown);
             // 
             // btnEditar
             // 
@@ -200,9 +206,10 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(143, 26);
             this.btnEditar.TabIndex = 11;
-            this.btnEditar.Text = "Editar veículo";
+            this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnEditar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnEditar_KeyDown);
             // 
             // btnAdicionar
             // 
@@ -214,9 +221,10 @@
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(143, 25);
             this.btnAdicionar.TabIndex = 10;
-            this.btnAdicionar.Text = "Adicionar veículo";
+            this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            this.btnAdicionar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnAdicionar_KeyDown);
             // 
             // cboTipoPesquisa
             // 
@@ -282,6 +290,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListaOS";
             this.Click += new System.EventHandler(this.frmListaOS_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmListaOS_KeyDown);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);

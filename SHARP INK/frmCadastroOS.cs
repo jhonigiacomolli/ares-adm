@@ -39,6 +39,7 @@ namespace SHARP_INK
             else
             {
                 btnGravar.Text = "ATUALIZAR";
+                txtNumeroOS.BackColor = Classe_Tema.TextBox_Edicao;
                 txtProprietario.BackColor = Classe_Tema.TextBox_Edicao;
                 txtVeiculo.BackColor = Classe_Tema.TextBox_Edicao;
                 txtPLaca.BackColor = Classe_Tema.TextBox_Edicao;
@@ -62,18 +63,21 @@ namespace SHARP_INK
             string cor = txtCor.Text.TrimEnd();
             string tamanho = txtTamanho.Text.TrimEnd();
             DateTime datacadastro = DateTime.Now;
-            string situacao = "ABERTA";
+            string situacao;
 
             if (ID != 0)
-            {
-                new Classe_Veiculos().Editar_Veiculos(ID, proprietario, veiculo, placa, cor, tamanho, datacadastro, situacao);
-                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos,"SELECT * FROM Veiculos");
+            {                
+                new Classe_Veiculos().Editar_Veiculos(ID, proprietario, veiculo, placa, cor, tamanho);
+                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos,"SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                new Classe_Listviews().ColorirLinhas_veiculos(FormListaOS.lstVeiculos);
                 this.Close();
             }
             else
-            {            
+            {
+                situacao = "AGUARDANDO";
                 new Classe_Veiculos().Adicionar_Veiculo(proprietario, veiculo, placa, cor, tamanho, datacadastro, situacao);
-                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos, "SELECT * FROM Veiculos");
+                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                new Classe_Listviews().ColorirLinhas_veiculos(FormListaOS.lstVeiculos);
                 this.Close();
             }
             
@@ -134,6 +138,122 @@ namespace SHARP_INK
         private void lblTituloForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void txtNumeroOS_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtProprietario_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtVeiculo_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtPLaca_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtCor_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtTamanho_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnGravar_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void frmCadastroOS_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
         }
     }
 }

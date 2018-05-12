@@ -14,6 +14,10 @@ namespace SHARP_INK.Classes
         public static Color MenuBotao_Normal= Color.FromArgb(26, 26, 26);
         public static Color MenuBotao_Sobre = Color.FromArgb(64, 64, 64);
         public static Color TextBox_Edicao = Color.YellowGreen;
+        public static Color Linha_OSAberta = Color.Green;
+        public static Color Linha_OSFechada = Color.FromArgb(60,60,60);
+        public static Color Linha_OSAguardando = Color.Black;
+
         private Color COR_Primaria = Color.FromArgb(26, 26, 26);
         private Color COR_Titulos = Color.Silver;
         private Color COR_Subtitulos = Color.Gray;

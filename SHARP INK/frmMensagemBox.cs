@@ -87,5 +87,45 @@ namespace SHARP_INK
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void frmMensagemBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnOk_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnYes_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
     }
 }

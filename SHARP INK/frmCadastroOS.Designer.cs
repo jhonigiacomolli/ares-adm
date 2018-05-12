@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroOS));
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnFavIcon = new System.Windows.Forms.Panel();
@@ -73,9 +74,9 @@
             this.lblTituloForm.ForeColor = System.Drawing.Color.Silver;
             this.lblTituloForm.Location = new System.Drawing.Point(56, 8);
             this.lblTituloForm.Name = "lblTituloForm";
-            this.lblTituloForm.Size = new System.Drawing.Size(325, 20);
+            this.lblTituloForm.Size = new System.Drawing.Size(173, 20);
             this.lblTituloForm.TabIndex = 1;
-            this.lblTituloForm.Text = "SHARP INK - Cadastro de Ordem de Serviço";
+            this.lblTituloForm.Text = "SHARP INK - Cadastro";
             this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
@@ -83,7 +84,7 @@
             // pnFavIcon
             // 
             this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = global::SHARP_INK.Properties.Resources.FavIcon_25px_;
+            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
             this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
             this.pnFavIcon.Name = "pnFavIcon";
@@ -181,22 +182,28 @@
             this.txtNumeroOS.Name = "txtNumeroOS";
             this.txtNumeroOS.Size = new System.Drawing.Size(128, 20);
             this.txtNumeroOS.TabIndex = 0;
+            this.txtNumeroOS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumeroOS_KeyDown);
             this.txtNumeroOS.Validated += new System.EventHandler(this.txtNumeroOS_Validated);
             // 
             // txtVeiculo
             // 
             this.txtVeiculo.Location = new System.Drawing.Point(93, 111);
             this.txtVeiculo.Name = "txtVeiculo";
+            this.txtVeiculo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtVeiculo.Size = new System.Drawing.Size(335, 20);
             this.txtVeiculo.TabIndex = 2;
+            this.txtVeiculo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVeiculo_KeyDown);
             // 
             // txtProprietario
             // 
+            this.txtProprietario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtProprietario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtProprietario.FormattingEnabled = true;
             this.txtProprietario.Location = new System.Drawing.Point(93, 79);
             this.txtProprietario.Name = "txtProprietario";
             this.txtProprietario.Size = new System.Drawing.Size(335, 21);
             this.txtProprietario.TabIndex = 1;
+            this.txtProprietario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProprietario_KeyDown);
             // 
             // txtCor
             // 
@@ -204,22 +211,26 @@
             this.txtCor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.txtCor.Cursor = System.Windows.Forms.Cursors.No;
             this.txtCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtCor.FormattingEnabled = true;
             this.txtCor.Location = new System.Drawing.Point(93, 173);
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(335, 21);
             this.txtCor.TabIndex = 4;
+            this.txtCor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCor_KeyDown);
             // 
             // txtTamanho
             // 
             this.txtTamanho.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTamanho.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.txtTamanho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtTamanho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtTamanho.FormattingEnabled = true;
             this.txtTamanho.Location = new System.Drawing.Point(93, 205);
             this.txtTamanho.Name = "txtTamanho";
             this.txtTamanho.Size = new System.Drawing.Size(335, 21);
             this.txtTamanho.TabIndex = 5;
+            this.txtTamanho.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTamanho_KeyDown);
             // 
             // txtPLaca
             // 
@@ -228,6 +239,7 @@
             this.txtPLaca.Name = "txtPLaca";
             this.txtPLaca.Size = new System.Drawing.Size(128, 20);
             this.txtPLaca.TabIndex = 3;
+            this.txtPLaca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPLaca_KeyDown);
             // 
             // btnGravar
             // 
@@ -241,6 +253,7 @@
             this.btnGravar.Text = "Cadastrar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            this.btnGravar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnGravar_KeyDown);
             // 
             // frmCadastroOS
             // 
@@ -266,6 +279,7 @@
             this.Name = "frmCadastroOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroOS";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCadastroOS_KeyDown);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);

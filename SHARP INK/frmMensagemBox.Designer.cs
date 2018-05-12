@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMensagemBox));
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.picIcone = new System.Windows.Forms.PictureBox();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.txtMensagem = new System.Windows.Forms.Label();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
@@ -72,6 +73,16 @@
             this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
+            // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
             // 
             // btnFechar
             // 
@@ -110,6 +121,7 @@
             this.btnYes.Text = "SIM";
             this.btnYes.UseVisualStyleBackColor = true;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
+            this.btnYes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnYes_KeyDown);
             // 
             // btnNo
             // 
@@ -123,6 +135,7 @@
             this.btnNo.Text = "Não";
             this.btnNo.UseVisualStyleBackColor = true;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
+            this.btnNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnNo_KeyDown);
             // 
             // btnOk
             // 
@@ -136,26 +149,17 @@
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOk.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnOk_KeyDown);
             // 
             // picIcone
             // 
-            this.picIcone.BackgroundImage = global::SHARP_INK.Properties.Resources.Icone_Exclamação;
+            this.picIcone.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picIcone.BackgroundImage")));
             this.picIcone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picIcone.Location = new System.Drawing.Point(12, 54);
             this.picIcone.Name = "picIcone";
             this.picIcone.Size = new System.Drawing.Size(66, 66);
             this.picIcone.TabIndex = 4;
             this.picIcone.TabStop = false;
-            // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = global::SHARP_INK.Properties.Resources.FavIcon_25px_;
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
             // 
             // txtMensagem
             // 
@@ -185,6 +189,7 @@
             this.Name = "frmMensagemBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMensagemBox";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMensagemBox_KeyDown);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);

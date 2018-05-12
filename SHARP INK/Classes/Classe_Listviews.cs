@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SHARP_INK.Classes
@@ -18,13 +18,13 @@ namespace SHARP_INK.Classes
 
             LST.Columns.Add("Numero OS", 100);
             LST.Columns.Add("Proprietário", 200);
-            LST.Columns.Add("Veículo", 150);
+            LST.Columns.Add("Veículo", 100);
             LST.Columns.Add("Placa", 100);
             LST.Columns.Add("Cor",200);
-            LST.Columns.Add("Tamanho", 100);
-            LST.Columns.Add("Data Cadastro", 100);
-            LST.Columns.Add("Data Entrega", 100);
-            LST.Columns.Add("Situação", 100);    
+            LST.Columns.Add("Tamanho", 150);
+            LST.Columns.Add("Cadastro", 100);
+            LST.Columns.Add("Entrega", 100);
+            LST.Columns.Add("Status OS", 100);    
         }
 
         public void Criar_CamposPesquisa(ComboBox TipoPesquisa)
@@ -41,6 +41,23 @@ namespace SHARP_INK.Classes
             TipoPesquisa.SelectedIndex = 0;
         }
 
-        
+        public void ColorirLinhas_veiculos(ListView LST)
+        {
+            foreach (ListViewItem Item in LST.Items)
+            {
+                if (Item.SubItems[8].Text.TrimEnd() == "ABERTA")
+                {
+                    Item.ForeColor = Classe_Tema.Linha_OSAberta;
+                }
+                if (Item.SubItems[8].Text == "FECHADA")
+                {
+                    Item.ForeColor = Classe_Tema.Linha_OSFechada;
+                }
+                if (Item.SubItems[8].Text == "AGUARDANDO")
+                {
+                    Item.ForeColor = Classe_Tema.Linha_OSAguardando;
+                }
+            }
+        }
     }
 }

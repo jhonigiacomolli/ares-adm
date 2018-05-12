@@ -24,7 +24,8 @@ namespace SHARP_INK
             new Classe_Tema().TEMA_frmListaOS(this);
             new Classe_Listviews().Criar_LST_Veiculos(lstVeiculos);
             new Classe_Listviews().Criar_CamposPesquisa(cboTipoPesquisa);
-            new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos");
+            new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+            new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
         }
 
         private void pnCabecalho_MouseDown(object sender, MouseEventArgs e)
@@ -129,13 +130,14 @@ namespace SHARP_INK
             string Cor = lstVeiculos.FocusedItem.SubItems[4].Text.TrimEnd();
             string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
 
-            Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão de item", "Deseja realmente excluir a OS Nº " + id + "\n" + "Proprietario: " + Proprietario + "\nVeiculo: " + Veiculo + "\nPlaca: " + Placa);
+            Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente excluir a OS Nº " + id + "\n" + "Proprietario: " + Proprietario + "\nVeiculo: " + Veiculo + "\nPlaca: " + Placa);
             DialogResult Resposta=messagebox.ShowDialog();
 
             if (Resposta.Equals(DialogResult.OK))
             {
                 new Classe_Veiculos().Excluir_Veiculos(int.Parse(id));
-                new Classe_Veiculos().Listar_Veiculos(lstVeiculos,"SELECT * FROM Veiculos");
+                new Classe_Veiculos().Listar_Veiculos(lstVeiculos,"SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
             }
             else
             {
@@ -158,7 +160,8 @@ namespace SHARP_INK
 
             frmCadastroOS Edicao = new frmCadastroOS(int.Parse(id),this);
             Edicao.txtNumeroOS.Text = id;
-            new Classe_Veiculos().Listar_Veiculos(Edicao, "SELECT * FROM Veiculos WHERE id='" + id + "'");            
+            new Classe_Veiculos().Listar_Veiculos(Edicao, "SELECT * FROM Veiculos WHERE id='" + id + "'");
+            Edicao.lblTituloForm.Text = "SHARP INK - Edição";         
             Edicao.ShowDialog();
 
 
@@ -176,6 +179,13 @@ namespace SHARP_INK
 
         private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
         {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    txtPesquisa.Clear();
+                    lstVeiculos.Focus();
+                    break;
+            }
             if (e.KeyCode == Keys.Enter)
             {
                 new Classe_Veiculos().Pesquisar_Veiculos(lstVeiculos, cboTipoPesquisa.Text, txtPesquisa.Text);
@@ -190,6 +200,102 @@ namespace SHARP_INK
         private void cboTipoPesquisa_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtPesquisa.Clear();
+        }
+
+        private void frmListaOS_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnAbrir_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnFinalizar_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void lstVeiculos_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnOS_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnAdicionar_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnEditar_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnExcluir_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void btnAbrir_Click(object sender, EventArgs e)
+        {
+            if (lstVeiculos.FocusedItem.SubItems[8].Text == "AGUARDANDO")
+            {
+                Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Ordem Serviço", "A Ordem de Serviço selecionada ainda não foi aberta.\n\nDeseja abri-la para ver os detalhes?");
+                DialogResult Resposta = messagebox.ShowDialog();
+
+                if (Resposta == DialogResult.OK)
+                {
+                    new Classe_Veiculos().Abrir_OS(int.Parse(lstVeiculos.FocusedItem.Text));
+                    new Classe_Veiculos().Listar_Veiculos(lstVeiculos,"SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                    new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+                }
+            }
         }
     }
 }
