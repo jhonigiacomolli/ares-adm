@@ -11,7 +11,7 @@ namespace SHARP_INK.Classes
     {
         private static  string Password_DB = "++060188jhoni.fg";
         public static string strConnDatabase = @"Data Source=D:\Projeto Auto Sharp\SHARP INK\SHARP INK\Database\Database.sdf;Password=" + Password_DB + "";
-
+        public static string CaminhoLogo = @"D:\Projeto Auto Sharp\SHARP INK\SHARP INK\Logo\Logo.png";
         public static DataTable Preenche_DataTable (string SQL)
         {
             DataTable Data_Table;

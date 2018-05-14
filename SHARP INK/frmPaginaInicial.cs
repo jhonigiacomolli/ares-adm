@@ -23,6 +23,7 @@ namespace SHARP_INK
             this.picBackgorund.Padding = new Padding(0,Convert.ToInt32(FatorLogo), 0, 0);
 
             new Classe_Tema().TEMA_frmPrincipal(this);
+            new Classe_Empresa().Empresa();
         }
 
         private void label1_Click(object sender, EventArgs e)

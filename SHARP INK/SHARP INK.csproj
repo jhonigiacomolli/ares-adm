@@ -56,6 +56,7 @@
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,16 +68,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Classes_Conexao.cs" />
+    <Compile Include="Classes\Classe_Empresa.cs" />
     <Compile Include="Classes\Classe_Listviews.cs" />
     <Compile Include="Classes\Classe_Mensagem.cs" />
     <Compile Include="Classes\Classe_OrdemServico.cs" />
     <Compile Include="Classes\Classe_Tema.cs" />
     <Compile Include="Classes\Classe_Veiculos.cs" />
+    <Compile Include="Classes\LST_Column_Reorder.cs" />
     <Compile Include="frmCadastroOS.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCadastroOS.Designer.cs">
       <DependentUpon>frmCadastroOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIncluirItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIncluirItem.Designer.cs">
+      <DependentUpon>frmIncluirItem.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListaOS.cs">
       <SubType>Form</SubType>
@@ -90,6 +99,12 @@
     <Compile Include="frmMensagemBox.Designer.cs">
       <DependentUpon>frmMensagemBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrdemServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrdemServico.Designer.cs">
+      <DependentUpon>frmOrdemServico.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPaginaInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,11 +116,17 @@
     <EmbeddedResource Include="frmCadastroOS.resx">
       <DependentUpon>frmCadastroOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmIncluirItem.resx">
+      <DependentUpon>frmIncluirItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaOS.resx">
       <DependentUpon>frmListaOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMensagemBox.resx">
       <DependentUpon>frmMensagemBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrdemServico.resx">
+      <DependentUpon>frmOrdemServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaginaInicial.resx">
       <DependentUpon>frmPaginaInicial.cs</DependentUpon>

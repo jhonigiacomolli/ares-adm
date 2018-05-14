@@ -159,7 +159,7 @@ namespace SHARP_INK.Classes
                 string ComandoSQL = string.Empty;
 
                 if (Criterio.Equals("Todos")) { ComandoSQL = "SELECT * FROM Veiculos"; }
-                if (Criterio.Equals("Numero OS")) { ComandoSQL = "SELECT * FROM Veiculos WHERE id='" + Pesquisa + "'"; }
+                if (Criterio.Equals("Numero OS")) { ComandoSQL = "SELECT * FROM Veiculos WHERE id like '" + Pesquisa + "%'"; }
                 if (Criterio.Equals("Proprietário")) { ComandoSQL = "SELECT * FROM Veiculos WHERE Proprietario like '" + Pesquisa + "%'"; }
                 if (Criterio.Equals("Veículo")) { ComandoSQL = "SELECT * FROM Veiculos WHERE Veiculo like '" + Pesquisa + "%'"; }
                 if (Criterio.Equals("Placa")) { ComandoSQL = "SELECT * FROM Veiculos WHERE Placa like '" + Pesquisa + "%'"; }
@@ -169,6 +169,7 @@ namespace SHARP_INK.Classes
                 if (Criterio.Equals("Data Entrega")) { ComandoSQL = "SELECT * FROM Veiculos WHERE Data_Entrega like '" + Pesquisa + "%'"; }
 
                 Listar_Veiculos(LST, ComandoSQL);
+                new Classe_Listviews().ColorirLinhas_veiculos(LST);
             }
             catch (SqlCeException ex)
             {

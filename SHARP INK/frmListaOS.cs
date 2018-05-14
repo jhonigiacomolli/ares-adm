@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using SHARP_INK.Classes;
 
@@ -15,11 +14,16 @@ namespace SHARP_INK
         bool mouseDown;
         Point lastLocation;
         public int ItemSelecionado;
+        private ListViewColumnSorter lvwColumnSorter;
 
         public frmListaOS()
         {
             InitializeComponent();
             pnMenuOS.Height = 0;
+
+            //Reordenar Colunas List view 
+            lvwColumnSorter = new ListViewColumnSorter();
+            this.lstVeiculos.ListViewItemSorter = lvwColumnSorter;
 
             new Classe_Tema().TEMA_frmListaOS(this);
             new Classe_Listviews().Criar_LST_Veiculos(lstVeiculos);
@@ -200,6 +204,12 @@ namespace SHARP_INK
         private void cboTipoPesquisa_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtPesquisa.Clear();
+
+            if (cboTipoPesquisa.Text.Equals("Todos"))
+            {
+                new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+            }
         }
 
         private void frmListaOS_KeyDown(object sender, KeyEventArgs e)
@@ -284,7 +294,7 @@ namespace SHARP_INK
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            if (lstVeiculos.FocusedItem.SubItems[8].Text == "AGUARDANDO")
+            if (lstVeiculos.FocusedItem.SubItems[8].Text.Equals("AGUARDANDO"))
             {
                 Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Ordem Serviço", "A Ordem de Serviço selecionada ainda não foi aberta.\n\nDeseja abri-la para ver os detalhes?");
                 DialogResult Resposta = messagebox.ShowDialog();
@@ -296,6 +306,46 @@ namespace SHARP_INK
                     new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
                 }
             }
+
+            if (lstVeiculos.FocusedItem.SubItems[8].Text.Equals("ABERTA"))
+            {
+                string NOS = lstVeiculos.FocusedItem.SubItems[0].Text;
+                string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text;
+                string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text;
+                string Placa = lstVeiculos.FocusedItem.SubItems[3].Text;
+                string Cor = lstVeiculos.FocusedItem.SubItems[4].Text;
+                string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text;
+                
+                frmOrdemServico OS = new frmOrdemServico(NOS,Proprietario,Veiculo,Placa,Cor,Tamanho);
+                OS.ShowDialog();
+            }
+
+        }
+
+        private void lstVeiculos_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+            this.lstVeiculos.Sort();
+        }
+
+        private void lstVeiculos_DoubleClick(object sender, EventArgs e)
+        {
+            btnAbrir.PerformClick();
         }
     }
 }

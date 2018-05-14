@@ -8,6 +8,8 @@ namespace SHARP_INK.Classes
 {
     class Classe_Listviews
     {
+        // LST_Veiculos
+
         public void Criar_LST_Veiculos(ListView LST)
         {
             LST.GridLines = true;
@@ -59,5 +61,27 @@ namespace SHARP_INK.Classes
                 }
             }
         }
+
+
+        // LST_Itens da OS
+        public void Criar_LST_ItensOS(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = false;
+
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("ID Veículo", 0);
+            LST.Columns.Add("Código", 70);
+            LST.Columns.Add("Categoria", 0);
+            LST.Columns.Add("Descrição", 350);
+            LST.Columns.Add("Quantidade", 80);
+            LST.Columns.Add("Unitário", 80);
+            LST.Columns.Add("Total", 80);
+        }
+
+
     }
 }

@@ -129,5 +129,70 @@ namespace SHARP_INK.Classes
 
             Form.txtMensagem.ForeColor = COR_Titulos;
         }
+
+        public void TEMA_frmOrdemServico(frmOrdemServico Form)
+        {
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
+
+            //Dados OS
+            Form.lblTituloNOS.ForeColor = COR_Subtitulos;
+            Form.lblTituloProprietario.ForeColor = COR_Subtitulos;
+            Form.lblTituloVeiculo.ForeColor = COR_Subtitulos;
+            Form.lblTituloPlaca.ForeColor = COR_Subtitulos;
+            Form.lblTituloCor.ForeColor = COR_Subtitulos;
+            Form.lblTituloTamanho.ForeColor = COR_Subtitulos;
+
+            Form.txtNos.ForeColor = COR_Titulos;
+            Form.txtProprietario.ForeColor = COR_Titulos;
+            Form.txtVeiculo.ForeColor = COR_Titulos;
+            Form.txtPlaca.ForeColor = COR_Titulos;
+            Form.txtCor.ForeColor = COR_Titulos;
+            Form.txtTamanho.ForeColor = COR_Titulos;
+            Form.txtNos.BackColor = Color.FromArgb(30, 30, 30);
+            Form.txtProprietario.BackColor = Color.FromArgb(30, 30, 30);
+            Form.txtVeiculo.BackColor = Color.FromArgb(30, 30, 30);
+            Form.txtPlaca.BackColor = Color.FromArgb(30, 30, 30);
+            Form.txtCor.BackColor = Color.FromArgb(30, 30, 30);
+            Form.txtTamanho.BackColor = Color.FromArgb(30, 30, 30);
+
+            Form.lblRazaoSocial.ForeColor = COR_Titulos;
+            Form.lblTelefone.ForeColor = COR_Titulos;
+            Form.lblCNPJ.ForeColor = COR_Subtitulos;
+            Form.lblEndereço.ForeColor = COR_Subtitulos;
+            Form.lblEmail.ForeColor = COR_Subtitulos;
+
+            //Painel Itens OS
+
+            Form.pnItensOS.BackColor = Color.FromArgb(40, 40, 40);
+
+            Form.lblTicket.ForeColor = COR_Subtitulos;
+            Form.lblN_Pecas.ForeColor = COR_Subtitulos;
+            Form.lblMediaPecas.ForeColor = COR_Subtitulos;
+            Form.lblAbrasivos.ForeColor = COR_Subtitulos;
+            Form.lblCatalise.ForeColor = COR_Subtitulos;
+            Form.lblTinta.ForeColor = COR_Subtitulos;
+            Form.lblPolidores.ForeColor = COR_Subtitulos;
+            Form.lblDIversos.ForeColor = COR_Subtitulos;
+
+            Form.txtTicket.ForeColor = COR_Titulos;
+            Form.txtN_Pecas.ForeColor = COR_Titulos;
+            Form.txtMediaPeca.ForeColor = COR_Titulos;
+            Form.txtSomaAbrasivos.ForeColor = COR_Titulos;
+            Form.txtSomaCatalises.ForeColor = COR_Titulos;
+            Form.txtSomaTinta.ForeColor = COR_Titulos;
+            Form.txtSomaPolidores.ForeColor = COR_Titulos;
+            Form.txtSomaDiversos.ForeColor = COR_Titulos;
+
+            Form.btnTinta.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnCatalise.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnProdutos.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnEditar.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnExcluir.BackColor = Color.FromArgb(40, 40, 40);
+        }
     }
 }

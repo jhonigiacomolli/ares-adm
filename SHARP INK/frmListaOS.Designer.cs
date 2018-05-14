@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaOS));
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnCabecalho = new System.Windows.Forms.Panel();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lstVeiculos = new System.Windows.Forms.ListView();
@@ -46,6 +45,7 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblTipoPesquisa = new System.Windows.Forms.Label();
             this.lblPesquisa = new System.Windows.Forms.Label();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.pnMenuOS.SuspendLayout();
@@ -82,16 +82,6 @@
             this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
             this.pnCabecalho.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseUp);
             // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
-            // 
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -125,7 +115,9 @@
             this.lstVeiculos.Size = new System.Drawing.Size(1180, 392);
             this.lstVeiculos.TabIndex = 0;
             this.lstVeiculos.UseCompatibleStateImageBehavior = false;
+            this.lstVeiculos.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstVeiculos_ColumnClick);
             this.lstVeiculos.SelectedIndexChanged += new System.EventHandler(this.lstVeiculos_SelectedIndexChanged);
+            this.lstVeiculos.DoubleClick += new System.EventHandler(this.lstVeiculos_DoubleClick);
             this.lstVeiculos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstVeiculos_KeyDown);
             this.lstVeiculos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstVeiculos_MouseDown);
             // 
@@ -268,6 +260,16 @@
             this.lblPesquisa.Size = new System.Drawing.Size(204, 13);
             this.lblPesquisa.TabIndex = 13;
             this.lblPesquisa.Text = "Digite a palavra passe para sua pesquisa:";
+            // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
             // 
             // frmListaOS
             // 
