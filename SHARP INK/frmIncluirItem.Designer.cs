@@ -46,6 +46,7 @@
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnPesquisa = new System.Windows.Forms.Button();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +62,9 @@
             this.pnCabecalho.Name = "pnCabecalho";
             this.pnCabecalho.Size = new System.Drawing.Size(351, 35);
             this.pnCabecalho.TabIndex = 3;
+            this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
+            this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
+            this.pnCabecalho.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseUp);
             // 
             // lblTituloForm
             // 
@@ -73,6 +77,9 @@
             this.lblTituloForm.Size = new System.Drawing.Size(186, 20);
             this.lblTituloForm.TabIndex = 1;
             this.lblTituloForm.Text = "SHARP INK - Incluir Item";
+            this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
+            this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
+            this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
             // 
             // pnFavIcon
             // 
@@ -92,7 +99,8 @@
             this.btnFechar.Location = new System.Drawing.Point(316, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(35, 35);
-            this.btnFechar.TabIndex = 1;
+            this.btnFechar.TabIndex = 7;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // label1
             // 
@@ -106,6 +114,7 @@
             this.label1.Size = new System.Drawing.Size(21, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "X";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblCodigo
             // 
@@ -159,39 +168,65 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigo.Location = new System.Drawing.Point(76, 51);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(189, 20);
-            this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.Enter += new System.EventHandler(this.txtCodigo_Enter);
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
+            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // txtDescricao
             // 
+            this.txtDescricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescricao.Location = new System.Drawing.Point(76, 82);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(263, 20);
-            this.txtDescricao.TabIndex = 9;
+            this.txtDescricao.TabIndex = 1;
+            this.txtDescricao.Enter += new System.EventHandler(this.txtDescricao_Enter);
+            this.txtDescricao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescricao_KeyDown);
+            this.txtDescricao.Leave += new System.EventHandler(this.txtDescricao_Leave);
             // 
             // txtQuantidade
             // 
+            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQuantidade.Location = new System.Drawing.Point(76, 113);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(189, 20);
-            this.txtQuantidade.TabIndex = 10;
+            this.txtQuantidade.TabIndex = 2;
+            this.txtQuantidade.Enter += new System.EventHandler(this.txtQuantidade_Enter);
+            this.txtQuantidade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQuantidade_KeyDown);
+            this.txtQuantidade.Leave += new System.EventHandler(this.txtQuantidade_Leave);
             // 
             // txtValorUnitario
             // 
+            this.txtValorUnitario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValorUnitario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValorUnitario.Location = new System.Drawing.Point(76, 144);
             this.txtValorUnitario.Name = "txtValorUnitario";
             this.txtValorUnitario.Size = new System.Drawing.Size(189, 20);
-            this.txtValorUnitario.TabIndex = 11;
+            this.txtValorUnitario.TabIndex = 3;
+            this.txtValorUnitario.Enter += new System.EventHandler(this.txtValorUnitario_Enter);
+            this.txtValorUnitario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValorUnitario_KeyDown);
+            this.txtValorUnitario.Leave += new System.EventHandler(this.txtValorUnitario_Leave);
             this.txtValorUnitario.Validated += new System.EventHandler(this.txtValorUnitario_Validated);
             // 
             // txtValorTotal
             // 
+            this.txtValorTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValorTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValorTotal.Location = new System.Drawing.Point(76, 175);
             this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.ReadOnly = true;
             this.txtValorTotal.Size = new System.Drawing.Size(189, 20);
-            this.txtValorTotal.TabIndex = 12;
+            this.txtValorTotal.TabIndex = 4;
+            this.txtValorTotal.Enter += new System.EventHandler(this.txtValorTotal_Enter);
+            this.txtValorTotal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValorTotal_KeyDown);
+            this.txtValorTotal.Leave += new System.EventHandler(this.txtValorTotal_Leave);
             // 
             // btnGravar
             // 
@@ -202,10 +237,11 @@
             this.btnGravar.Location = new System.Drawing.Point(77, 205);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(189, 34);
-            this.btnGravar.TabIndex = 13;
+            this.btnGravar.TabIndex = 5;
             this.btnGravar.Text = "Incluir";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            this.btnGravar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnGravar_KeyDown);
             // 
             // btnPesquisa
             // 
@@ -216,9 +252,21 @@
             this.btnPesquisa.Location = new System.Drawing.Point(272, 50);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(67, 22);
-            this.btnPesquisa.TabIndex = 14;
+            this.btnPesquisa.TabIndex = 6;
             this.btnPesquisa.Text = "Pesquisar";
             this.btnPesquisa.UseVisualStyleBackColor = true;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
+            this.btnPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnPesquisa_KeyDown);
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCategoria.Location = new System.Drawing.Point(316, 214);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(23, 20);
+            this.txtCategoria.TabIndex = 8;
+            this.txtCategoria.Visible = false;
             // 
             // frmIncluirItem
             // 
@@ -226,6 +274,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(351, 251);
+            this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.btnPesquisa);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.txtValorTotal);
@@ -241,7 +290,9 @@
             this.Controls.Add(this.pnCabecalho);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmIncluirItem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIncluirItem";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmIncluirItem_KeyDown);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);
@@ -258,11 +309,6 @@
         public System.Windows.Forms.Panel pnFavIcon;
         public System.Windows.Forms.Panel btnFechar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.Label lblDescricao;
-        private System.Windows.Forms.Label lblQuantidade;
-        private System.Windows.Forms.Label lblValorUnitario;
-        private System.Windows.Forms.Label lblValorTotal;
         public System.Windows.Forms.Button btnGravar;
         public System.Windows.Forms.Button btnPesquisa;
         public System.Windows.Forms.TextBox txtCodigo;
@@ -270,5 +316,11 @@
         public System.Windows.Forms.TextBox txtQuantidade;
         public System.Windows.Forms.TextBox txtValorUnitario;
         public System.Windows.Forms.TextBox txtValorTotal;
+        public System.Windows.Forms.Label lblCodigo;
+        public System.Windows.Forms.Label lblDescricao;
+        public System.Windows.Forms.Label lblQuantidade;
+        public System.Windows.Forms.Label lblValorUnitario;
+        public System.Windows.Forms.Label lblValorTotal;
+        public System.Windows.Forms.TextBox txtCategoria;
     }
 }

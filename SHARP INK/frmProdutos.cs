@@ -10,25 +10,36 @@ using SHARP_INK.Classes;
 
 namespace SHARP_INK
 {
-    public partial class frmMensagemBox : Form
+    public partial class frmProdutos : Form
     {
         bool mouseDown;
         Point lastLocation;
 
-
-        public frmMensagemBox(string CAtegoria, string Titulo, string Mensagem)
+        public frmProdutos()
         {
             InitializeComponent();
-            new Classe_Tema().TEMA_frmMensagemBox(this);
-            new Classe_Mensagem().Mensagem(this, CAtegoria, Titulo, Mensagem);
+            new Classe_Tema().TEMA_frmProdutos(this);
+            new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
+            new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
+            new Classe_Produtos().Listar_Produtos(lstProdutos, "SELECT * FROM Produtos ORDER BY Descricao ASC");
         }
 
-        private void btnFechar_Click(object sender, EventArgs e)
+        private void txtPesquisa_Enter(object sender, EventArgs e)
+        {
+            txtPesquisa.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtPesquisa_Leave(object sender, EventArgs e)
+        {
+            txtPesquisa.BackColor = Classe_Tema.TextBox_Normal;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -73,25 +84,7 @@ namespace SHARP_INK
             mouseDown = false;
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void btnNo_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void btnYes_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void frmMensagemBox_KeyDown(object sender, KeyEventArgs e)
+        private void frmProdutos_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -101,7 +94,7 @@ namespace SHARP_INK
             }
         }
 
-        private void btnNo_KeyDown(object sender, KeyEventArgs e)
+        private void btnExcluir_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -111,7 +104,7 @@ namespace SHARP_INK
             }
         }
 
-        private void btnOk_KeyDown(object sender, KeyEventArgs e)
+        private void btnEditar_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -121,13 +114,48 @@ namespace SHARP_INK
             }
         }
 
-        private void btnYes_KeyDown(object sender, KeyEventArgs e)
+        private void btnIncluir_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Escape:
                     this.Close();
                     break;
+            }
+        }
+
+        private void cboCampo_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void lstProdutos_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    txtPesquisa.Clear();
+                    break;
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
             }
         }
     }

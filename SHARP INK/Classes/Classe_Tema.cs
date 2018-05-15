@@ -14,14 +14,16 @@ namespace SHARP_INK.Classes
         public static Color MenuBotao_Normal= Color.FromArgb(26, 26, 26);
         public static Color MenuBotao_Sobre = Color.FromArgb(64, 64, 64);
         public static Color TextBox_Edicao = Color.YellowGreen;
+        public static Color TextBox_Normal = Color.White;
+        public static Color TextBox_Desativado = Color.FromArgb(80,80,80);
         public static Color Linha_OSAberta = Color.Green;
         public static Color Linha_OSFechada = Color.FromArgb(60,60,60);
         public static Color Linha_OSAguardando = Color.Black;
 
-        private Color COR_Primaria = Color.FromArgb(26, 26, 26);
-        private Color COR_Titulos = Color.Silver;
-        private Color COR_Subtitulos = Color.Gray;
-        private Color COR_FontePrimaria = Color.Black;     
+        public Color COR_Primaria = Color.FromArgb(26, 26, 26);
+        public Color COR_Titulos = Color.Silver;
+        public Color COR_Subtitulos = Color.Gray;
+        public Color COR_FontePrimaria = Color.Black;     
 
         public void TEMA_frmPrincipal(frmPaginaInicial Form)
         {
@@ -193,6 +195,27 @@ namespace SHARP_INK.Classes
             Form.btnProdutos.BackColor = Color.FromArgb(40, 40, 40);
             Form.btnEditar.BackColor = Color.FromArgb(40, 40, 40);
             Form.btnExcluir.BackColor = Color.FromArgb(40, 40, 40);
+        }
+
+        public void TEMA_frmProdutos(frmProdutos Form)
+        {
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
+
+            Form.btnIncluir.BackColor = MenuBotao_Normal;
+            Form.btnEditar.BackColor = MenuBotao_Normal;
+            Form.btnExcluir.BackColor = MenuBotao_Normal;
+
+            Form.btnIncluir.ForeColor = COR_Titulos;
+            Form.btnEditar.ForeColor = COR_Titulos;
+            Form.btnExcluir.ForeColor = COR_Titulos;
+
+            Form.lblPalavraChave.ForeColor = COR_Titulos;
+            Form.lblCampo.ForeColor = COR_Titulos;
         }
     }
 }

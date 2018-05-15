@@ -182,7 +182,9 @@
             this.txtNumeroOS.Name = "txtNumeroOS";
             this.txtNumeroOS.Size = new System.Drawing.Size(128, 20);
             this.txtNumeroOS.TabIndex = 0;
+            this.txtNumeroOS.Enter += new System.EventHandler(this.txtNumeroOS_Enter);
             this.txtNumeroOS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumeroOS_KeyDown);
+            this.txtNumeroOS.Leave += new System.EventHandler(this.txtNumeroOS_Leave);
             this.txtNumeroOS.Validated += new System.EventHandler(this.txtNumeroOS_Validated);
             // 
             // txtVeiculo
@@ -192,7 +194,9 @@
             this.txtVeiculo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtVeiculo.Size = new System.Drawing.Size(335, 20);
             this.txtVeiculo.TabIndex = 2;
+            this.txtVeiculo.Enter += new System.EventHandler(this.txtVeiculo_Enter);
             this.txtVeiculo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVeiculo_KeyDown);
+            this.txtVeiculo.Leave += new System.EventHandler(this.txtVeiculo_Leave);
             // 
             // txtProprietario
             // 
@@ -203,7 +207,9 @@
             this.txtProprietario.Name = "txtProprietario";
             this.txtProprietario.Size = new System.Drawing.Size(335, 21);
             this.txtProprietario.TabIndex = 1;
+            this.txtProprietario.Enter += new System.EventHandler(this.txtProprietario_Enter);
             this.txtProprietario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProprietario_KeyDown);
+            this.txtProprietario.Leave += new System.EventHandler(this.txtProprietario_Leave);
             // 
             // txtCor
             // 
@@ -217,7 +223,9 @@
             this.txtCor.Name = "txtCor";
             this.txtCor.Size = new System.Drawing.Size(335, 21);
             this.txtCor.TabIndex = 4;
+            this.txtCor.Enter += new System.EventHandler(this.txtCor_Enter);
             this.txtCor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCor_KeyDown);
+            this.txtCor.Leave += new System.EventHandler(this.txtCor_Leave);
             // 
             // txtTamanho
             // 
@@ -230,7 +238,9 @@
             this.txtTamanho.Name = "txtTamanho";
             this.txtTamanho.Size = new System.Drawing.Size(335, 21);
             this.txtTamanho.TabIndex = 5;
+            this.txtTamanho.Enter += new System.EventHandler(this.txtTamanho_Enter);
             this.txtTamanho.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTamanho_KeyDown);
+            this.txtTamanho.Leave += new System.EventHandler(this.txtTamanho_Leave);
             // 
             // txtPLaca
             // 
@@ -239,7 +249,9 @@
             this.txtPLaca.Name = "txtPLaca";
             this.txtPLaca.Size = new System.Drawing.Size(128, 20);
             this.txtPLaca.TabIndex = 3;
+            this.txtPLaca.Enter += new System.EventHandler(this.txtPLaca_Enter);
             this.txtPLaca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPLaca_KeyDown);
+            this.txtPLaca.Leave += new System.EventHandler(this.txtPLaca_Leave);
             // 
             // btnGravar
             // 

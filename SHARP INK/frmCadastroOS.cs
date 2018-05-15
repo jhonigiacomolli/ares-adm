@@ -255,5 +255,65 @@ namespace SHARP_INK
                     break;
             }
         }
+
+        private void txtNumeroOS_Enter(object sender, EventArgs e)
+        {
+            txtNumeroOS.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtNumeroOS_Leave(object sender, EventArgs e)
+        {
+            txtNumeroOS.BackColor = Classe_Tema.TextBox_Normal;
+        }
+
+        private void txtProprietario_Enter(object sender, EventArgs e)
+        {
+            txtProprietario.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtProprietario_Leave(object sender, EventArgs e)
+        {
+            txtProprietario.BackColor = Classe_Tema.TextBox_Normal;
+        }
+
+        private void txtVeiculo_Enter(object sender, EventArgs e)
+        {
+            txtVeiculo.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtVeiculo_Leave(object sender, EventArgs e)
+        {
+            txtVeiculo.BackColor = Classe_Tema.TextBox_Normal;
+        }
+
+        private void txtPLaca_Enter(object sender, EventArgs e)
+        {
+            txtPLaca.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtPLaca_Leave(object sender, EventArgs e)
+        {
+            txtPLaca.BackColor = Classe_Tema.TextBox_Normal;
+        }
+
+        private void txtCor_Enter(object sender, EventArgs e)
+        {
+            txtCor.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtCor_Leave(object sender, EventArgs e)
+        {
+            txtCor.BackColor = Classe_Tema.TextBox_Normal;
+        }
+
+        private void txtTamanho_Enter(object sender, EventArgs e)
+        {
+            txtTamanho.BackColor = Classe_Tema.TextBox_Edicao;
+        }
+
+        private void txtTamanho_Leave(object sender, EventArgs e)
+        {
+            txtTamanho.BackColor = Classe_Tema.TextBox_Normal;
+        }
     }
 }

@@ -106,6 +106,9 @@ namespace SHARP_INK
         private void btnTinta_Click(object sender, EventArgs e)
         {
             frmIncluirItem Tinta = new frmIncluirItem(this,"Tinta",Convert.ToInt32(txtNos.Text));
+            Tinta.txtCodigo.Enabled = false;
+            Tinta.txtCodigo.BackColor = Classe_Tema.TextBox_Desativado;
+            Tinta.lblCodigo.ForeColor = new Classe_Tema().COR_Subtitulos;
             Tinta.Show();
         }
 
@@ -123,15 +126,16 @@ namespace SHARP_INK
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            string Tipo = lstItensOS.FocusedItem.SubItems[3].Text;
-            int ID = Convert.ToInt32(lstItensOS.FocusedItem.SubItems[1].Text);
+            string Tipo = "Editar";
+            int IDProduto = Convert.ToInt32(lstItensOS.FocusedItem.SubItems[0].Text);
+            string COdigo= lstItensOS.FocusedItem.SubItems[2].Text;
             string Descricao =lstItensOS.FocusedItem.SubItems[4].Text;
             double Quantidade =Convert.ToDouble(lstItensOS.FocusedItem.SubItems[5].Text);
             double ValorUnitario = Convert.ToDouble(lstItensOS.FocusedItem.SubItems[6].Text);
             double ValorTotal = Convert.ToDouble(lstItensOS.FocusedItem.SubItems[7].Text);
             int IDVEiculo= Convert.ToInt32(txtNos.Text);
 
-            new Classe_OrdemServico().Preenche_FormEdicao(ID,IDVEiculo,Descricao,Quantidade,ValorUnitario,ValorTotal);
+            new Classe_OrdemServico().Preenche_FormEdicao(this,Tipo,IDProduto,IDVEiculo,COdigo,Descricao,Quantidade,ValorUnitario,ValorTotal);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

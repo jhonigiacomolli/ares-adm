@@ -254,6 +254,7 @@
             this.btnProdutos.Size = new System.Drawing.Size(200, 90);
             this.btnProdutos.TabIndex = 4;
             this.btnProdutos.TabStop = false;
+            this.btnProdutos.Click += new System.EventHandler(this.btnProdutos_Click);
             this.btnProdutos.MouseEnter += new System.EventHandler(this.btnProdutos_MouseEnter);
             this.btnProdutos.MouseLeave += new System.EventHandler(this.btnProdutos_MouseLeave_1);
             // 

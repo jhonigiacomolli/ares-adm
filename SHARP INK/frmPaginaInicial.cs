@@ -117,5 +117,11 @@ namespace SHARP_INK
             frmListaOS ListaOS = new frmListaOS();
             ListaOS.ShowDialog();
         }
+
+        private void btnProdutos_Click(object sender, EventArgs e)
+        {
+            frmProdutos Produtos = new frmProdutos();
+            Produtos.ShowDialog();
+        }
     }
 }

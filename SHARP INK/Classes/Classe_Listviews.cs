@@ -9,7 +9,6 @@ namespace SHARP_INK.Classes
     class Classe_Listviews
     {
         // LST_Veiculos
-
         public void Criar_LST_Veiculos(ListView LST)
         {
             LST.GridLines = true;
@@ -77,11 +76,37 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Código", 70);
             LST.Columns.Add("Categoria", 0);
             LST.Columns.Add("Descrição", 350);
-            LST.Columns.Add("Quantidade", 80);
-            LST.Columns.Add("Unitário", 80);
-            LST.Columns.Add("Total", 80);
+            LST.Columns.Add("Quantidade", 80, HorizontalAlignment.Right);
+            LST.Columns.Add("Unitário", 80,HorizontalAlignment.Right);
+            LST.Columns.Add("Total", 80, HorizontalAlignment.Right);
         }
 
+        //LST_Produtos
+        public void Criar_LST_Produtos(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = false;
 
+            LST.Columns.Add("Código", 90);
+            LST.Columns.Add("Código de Fábrica", 90);
+            LST.Columns.Add("Fornecedor", 100);
+            LST.Columns.Add("Grupo", 170);
+            LST.Columns.Add("Descrição", 335);
+            LST.Columns.Add("Quantidade", 100, HorizontalAlignment.Right);
+            LST.Columns.Add("Valor de Custo", 150,HorizontalAlignment.Right);
+            LST.Columns.Add("Valor de Venda", 150, HorizontalAlignment.Right);
+        }
+        public void Criar_CamposPesquisaProdutos(ComboBox TipoPesquisa)
+        {
+            TipoPesquisa.Items.Add("Código");
+            TipoPesquisa.Items.Add("Código de Fábrica");
+            TipoPesquisa.Items.Add("Grupo");
+            TipoPesquisa.Items.Add("Fornecedor");
+            TipoPesquisa.Items.Add("Descrição");
+            TipoPesquisa.SelectedIndex = 4;
+        }
     }
 }

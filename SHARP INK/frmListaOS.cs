@@ -178,7 +178,7 @@ namespace SHARP_INK
 
         private void txtPesquisa_Leave(object sender, EventArgs e)
         {
-            txtPesquisa.BackColor = Color.White;
+            txtPesquisa.BackColor = Classe_Tema.TextBox_Normal;
         }
 
         private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
