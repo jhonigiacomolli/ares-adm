@@ -21,6 +21,7 @@ namespace SHARP_INK.Classes
         public static Color Linha_OSAguardando = Color.Black;
 
         public Color COR_Primaria = Color.FromArgb(26, 26, 26);
+        public Color COR_Background_Listview = Color.FromArgb(224, 224, 224);
         public Color COR_Titulos = Color.Silver;
         public Color COR_Subtitulos = Color.Gray;
         public Color COR_FontePrimaria = Color.Black;     
@@ -66,6 +67,7 @@ namespace SHARP_INK.Classes
             Form.btnAbrir.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
             Form.btnFinalizar.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
             Form.btnFinalizar.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
+            Form.lstVeiculos.BackColor = COR_Background_Listview;
 
             //Cabeçalho
             Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
@@ -140,6 +142,7 @@ namespace SHARP_INK.Classes
 
             //Corpor
             Form.BackColor = COR_Primaria;
+            Form.lstItensOS.BackColor = COR_Background_Listview;
 
             //Dados OS
             Form.lblTituloNOS.ForeColor = COR_Subtitulos;
@@ -205,6 +208,7 @@ namespace SHARP_INK.Classes
 
             //Corpor
             Form.BackColor = COR_Primaria;
+            Form.lstProdutos.BackColor = COR_Background_Listview;
 
             Form.btnIncluir.BackColor = MenuBotao_Normal;
             Form.btnEditar.BackColor = MenuBotao_Normal;

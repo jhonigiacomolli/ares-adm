@@ -64,5 +64,14 @@ namespace SHARP_INK.Classes
                 Messagebox.Show();
             }
         }
+        public void Criar_CamposCategorias(ComboBox TipoPesquisa)
+        {
+            TipoPesquisa.Items.Add("Código");
+            TipoPesquisa.Items.Add("Código de Fábrica");
+            TipoPesquisa.Items.Add("Grupo");
+            TipoPesquisa.Items.Add("Fornecedor");
+            TipoPesquisa.Items.Add("Descrição");
+            TipoPesquisa.SelectedIndex = 4;
+        }
     }
 }

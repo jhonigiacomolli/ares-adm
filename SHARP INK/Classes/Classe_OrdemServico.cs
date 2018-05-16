@@ -11,6 +11,19 @@ namespace SHARP_INK.Classes
 {
     class Classe_OrdemServico
     {
+        public void Atualizar_DadosOS(frmOrdemServico Form,ListView LST,string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
+        {
+            new Classe_Listviews().Criar_LST_ItensOS(LST);
+            Listar_ItensOS(LST, SQL);
+
+            Abrasivos.Text = Soma_Categorias(nos, "ABRASIVOS").ToString("N2");
+            Catalises.Text = Soma_Categorias(nos, "CATALISES").ToString("N2");
+            Diversos.Text = Soma_Categorias(nos, "DIVERSOS").ToString("N2");
+            Polimentos.Text = Soma_Categorias(nos, "POLIDORES").ToString("N2");
+            Tintas.Text = Soma_Categorias(nos, "TINTAS").ToString("N2");
+            Ticket.Text = Soma_TicketVeiculo(nos).ToString("N2");
+        }
+
         public void Cabecalho_OrdemServico(frmOrdemServico Form, string nos, string proprietario, string veiculo, string placa, string cor, string tamanho)
         {
             Form.txtNos.Text = nos;
@@ -29,21 +42,22 @@ namespace SHARP_INK.Classes
             Form.lblTituloForm.Text = "SHARP INK | OS Nº " + nos;
         }
 
-        public void Preenche_FormEdicao(frmOrdemServico frmOrdem, string Tipo, int IDProduto,int IDVeiculo,string Codigo,string Descricao, double quantidade, double ValorUnitario, double ValorTotal)
+        public void Preenche_FormEdicao(frmOrdemServico frmOrdem, string Tipo, int IDProduto, int IDVeiculo,string Categoria, string Codigo, string Descricao, double quantidade, double ValorUnitario, double ValorTotal)
         {
-            frmIncluirItem Form = new frmIncluirItem(frmOrdem,Tipo,IDVeiculo, IDProduto);
+            frmIncluirItem Form = new frmIncluirItem(frmOrdem, Tipo, IDVeiculo, IDProduto);
 
             Form.txtCodigo.Text = Codigo.ToString();
             Form.txtDescricao.Text = Descricao;
             Form.txtQuantidade.Text = quantidade.ToString();
             Form.txtValorUnitario.Text = ValorUnitario.ToString();
             Form.txtValorTotal.Text = ValorTotal.ToString();
+            Form.txtCategoria.Text = Categoria.ToString();
 
             Form.txtCodigo.BackColor = Classe_Tema.TextBox_Edicao;
-            Form.txtDescricao.BackColor= Classe_Tema.TextBox_Edicao;
-            Form.txtQuantidade.BackColor= Classe_Tema.TextBox_Edicao;
-            Form.txtValorUnitario.BackColor= Classe_Tema.TextBox_Edicao;
-            Form.txtValorTotal.BackColor= Classe_Tema.TextBox_Edicao;
+            Form.txtDescricao.BackColor = Classe_Tema.TextBox_Edicao;
+            Form.txtQuantidade.BackColor = Classe_Tema.TextBox_Edicao;
+            Form.txtValorUnitario.BackColor = Classe_Tema.TextBox_Edicao;
+            Form.txtValorTotal.BackColor = Classe_Tema.TextBox_Edicao;
 
             Form.ShowDialog();
         }
@@ -80,11 +94,11 @@ namespace SHARP_INK.Classes
                 Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
                 Messagebox.Show();
             }
-        }       
+        }
 
-        public void Incluir_Item(frmIncluirItem Form,string TIPO, int IDVeiculo,string Categoria, string Codigo, string Descricao, double QNT, double ValorUnitario, double ValorTotal)
+        public void Incluir_Item(frmIncluirItem Form, string TIPO, int IDVeiculo, string Categoria, string Codigo, string Descricao, double QNT, double ValorUnitario, double ValorTotal)
         {
-            if (TIPO.Equals("Tinta")) { Categoria = "TINTA"; }
+            if (TIPO.Equals("Tinta")) { Categoria = "TINTAS"; }
 
             try
             {
@@ -102,7 +116,7 @@ namespace SHARP_INK.Classes
                 Form Messagebox2 = new frmMensagemBox(Classe_Mensagem.ALERTA, "Inclusão", "o Item foi incluido com sucesso!");
                 Messagebox2.ShowDialog();
 
-            Form.Close();
+                Form.Close();
             }
             catch (SqlCeException ex)
             {
@@ -151,6 +165,77 @@ namespace SHARP_INK.Classes
                 Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
                 Messagebox.Show();
             }
+        }
+
+        public double Soma_Categorias(string IDVeiculo, string Categoria)
+        {
+            double SOMA = 0;
+
+            try
+            {
+                DataTable DT = Classes_Conexao.Preenche_DataTable("SELECT * FROM OrdemServico_Itens WHERE Categoria='" + Categoria + "' AND ID_Veiculo='" + IDVeiculo + "'");
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        SOMA = SOMA + Convert.ToDouble(DR["ValorTotal"]);
+                    }
+                }
+                DT.Dispose();
+                return SOMA;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+                return 0;
+            }
+        }
+        public double Soma_TicketVeiculo(string IDVeiculo)
+        {
+            double SOMA = 0;
+
+            try
+            {
+                DataTable DT = Classes_Conexao.Preenche_DataTable("SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo='" + IDVeiculo + "'");
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        SOMA = SOMA + Convert.ToDouble(DR["ValorTotal"]);
+                    }
+                }
+                DT.Dispose();
+                return SOMA;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+                return 0;
+            }
+        }
+
+        public void GraficoOS(frmOrdemServico Form)
+        {
+            decimal ABRASIVOS = Convert.ToDecimal(Form.txtSomaAbrasivos.Text);
+            decimal CATALISADOS = Convert.ToDecimal(Form.txtSomaCatalises.Text);
+            decimal TINTA = Convert.ToDecimal(Form.txtSomaTinta.Text);
+            decimal POLIDORES = Convert.ToDecimal(Form.txtSomaPolidores.Text);
+            decimal DIVERSOS = Convert.ToDecimal(Form.txtSomaDiversos.Text);
+            decimal TOTAL = ABRASIVOS + CATALISADOS + TINTA + POLIDORES + DIVERSOS;
+
+
+            Form.Grafico_Dados.Series["Dados"].Points.Clear();
+            Form.Grafico_Dados.Series["Dados"].Points.AddXY("Abrasivos", ABRASIVOS / TOTAL);
+            Form.Grafico_Dados.Series["Dados"].Points.AddXY("Catalisados", CATALISADOS / TOTAL);
+            Form.Grafico_Dados.Series["Dados"].Points.AddXY("Tinta", TINTA / TOTAL);
+            Form.Grafico_Dados.Series["Dados"].Points.AddXY("Polidores", POLIDORES / TOTAL);
+            Form.Grafico_Dados.Series["Dados"].Points.AddXY("Diversos", DIVERSOS / TOTAL);
         }
     }
 }

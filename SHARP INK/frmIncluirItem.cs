@@ -18,6 +18,7 @@ namespace SHARP_INK
         public int IDVeiculo;
         public int IDProduto;
         frmOrdemServico frmordemservico;
+
         public frmIncluirItem(frmOrdemServico FRMORDEMSERVICO, string Tipo, int ID_Veiculo)
         {
             InitializeComponent();
@@ -55,8 +56,7 @@ namespace SHARP_INK
                 {
                     new Classe_OrdemServico().Incluir_Item(this, TIPO, IDVeiculo, Categoria, Codigo, Descricao, qnt, ValorUni, ValorTotal);
                 }
-
-                new Classe_OrdemServico().Listar_ItensOS(frmordemservico.lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + IDVeiculo + "'");
+                frmordemservico.AtualizaDadosOS();
             }
             else
             {
@@ -318,7 +318,12 @@ namespace SHARP_INK
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
-            frmProdutos produtos = new frmProdutos();
+            string Grupo1 = "ABRASIVOS";
+            string Grupo2 = "DIVERSOS";
+            string Grupo3 = "POLIDORES";
+            string SQL = "SELECT * FROM Produtos WHERE Grupo='" + Grupo1 + "' OR Grupo='" + Grupo2 + "' OR Grupo='" + Grupo3 + "'";
+            frmProdutos produtos = new frmProdutos(this,SQL );
+            txtQuantidade.Select();
             produtos.ShowDialog();
         }
     }

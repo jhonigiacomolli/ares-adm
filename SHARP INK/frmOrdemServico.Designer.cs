@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdemServico));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnFavIcon = new System.Windows.Forms.Panel();
@@ -49,42 +49,57 @@
             this.txtPlaca = new System.Windows.Forms.Label();
             this.txtCor = new System.Windows.Forms.Label();
             this.txtTamanho = new System.Windows.Forms.Label();
-            this.picLogoEmpresa = new System.Windows.Forms.PictureBox();
             this.pnItensOS = new System.Windows.Forms.Panel();
-            this.Grafico_Dados = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.txtRateio = new System.Windows.Forms.Label();
+            this.lblRateio = new System.Windows.Forms.Label();
             this.txtSomaDiversos = new System.Windows.Forms.Label();
             this.txtSomaAbrasivos = new System.Windows.Forms.Label();
-            this.txtMediaPeca = new System.Windows.Forms.Label();
-            this.lblTicket = new System.Windows.Forms.Label();
             this.txtSomaPolidores = new System.Windows.Forms.Label();
-            this.lblN_Pecas = new System.Windows.Forms.Label();
             this.txtSomaTinta = new System.Windows.Forms.Label();
             this.lblPolidores = new System.Windows.Forms.Label();
-            this.txtN_Pecas = new System.Windows.Forms.Label();
             this.lblDIversos = new System.Windows.Forms.Label();
             this.lblTinta = new System.Windows.Forms.Label();
             this.txtSomaCatalises = new System.Windows.Forms.Label();
-            this.lblMediaPecas = new System.Windows.Forms.Label();
-            this.txtTicket = new System.Windows.Forms.Label();
             this.lblCatalise = new System.Windows.Forms.Label();
             this.lblAbrasivos = new System.Windows.Forms.Label();
+            this.lstItensOS = new System.Windows.Forms.ListView();
+            this.txtMediaPeca = new System.Windows.Forms.Label();
+            this.lblTicket = new System.Windows.Forms.Label();
+            this.lblN_Pecas = new System.Windows.Forms.Label();
+            this.txtN_Pecas = new System.Windows.Forms.Label();
+            this.lblMediaPecas = new System.Windows.Forms.Label();
+            this.txtTicket = new System.Windows.Forms.Label();
             this.btnTinta = new System.Windows.Forms.Button();
             this.btnCatalise = new System.Windows.Forms.Button();
             this.btnProdutos = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lstItensOS = new System.Windows.Forms.ListView();
+            this.cboGrupos = new System.Windows.Forms.ComboBox();
+            this.pnLogo = new System.Windows.Forms.Panel();
+            this.pnGraficos = new System.Windows.Forms.Panel();
+            this.Grafico_Dados = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnPainelGeral = new System.Windows.Forms.Button();
             this.lblRazaoSocial = new System.Windows.Forms.Label();
             this.lblCNPJ = new System.Windows.Forms.Label();
             this.lblEndereço = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
+            this.picLogoEmpresa = new System.Windows.Forms.PictureBox();
+            this.btnPainelGrafico = new System.Windows.Forms.Button();
+            this.btnPainelPecas = new System.Windows.Forms.Button();
+            this.btnPainelFuncionarios = new System.Windows.Forms.Button();
+            this.pnPecas = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pnFuncionarios = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).BeginInit();
             this.pnItensOS.SuspendLayout();
+            this.pnGraficos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico_Dados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).BeginInit();
+            this.pnPecas.SuspendLayout();
+            this.pnFuncionarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnCabecalho
@@ -296,101 +311,66 @@
             this.txtTamanho.Text = "Grande";
             this.txtTamanho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // picLogoEmpresa
-            // 
-            this.picLogoEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picLogoEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLogoEmpresa.Location = new System.Drawing.Point(435, 46);
-            this.picLogoEmpresa.Name = "picLogoEmpresa";
-            this.picLogoEmpresa.Size = new System.Drawing.Size(197, 71);
-            this.picLogoEmpresa.TabIndex = 15;
-            this.picLogoEmpresa.TabStop = false;
-            // 
             // pnItensOS
             // 
             this.pnItensOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnItensOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.pnItensOS.Controls.Add(this.Grafico_Dados);
+            this.pnItensOS.Controls.Add(this.txtRateio);
+            this.pnItensOS.Controls.Add(this.lblRateio);
             this.pnItensOS.Controls.Add(this.txtSomaDiversos);
             this.pnItensOS.Controls.Add(this.txtSomaAbrasivos);
-            this.pnItensOS.Controls.Add(this.txtMediaPeca);
-            this.pnItensOS.Controls.Add(this.lblTicket);
             this.pnItensOS.Controls.Add(this.txtSomaPolidores);
-            this.pnItensOS.Controls.Add(this.lblN_Pecas);
             this.pnItensOS.Controls.Add(this.txtSomaTinta);
             this.pnItensOS.Controls.Add(this.lblPolidores);
-            this.pnItensOS.Controls.Add(this.txtN_Pecas);
             this.pnItensOS.Controls.Add(this.lblDIversos);
             this.pnItensOS.Controls.Add(this.lblTinta);
             this.pnItensOS.Controls.Add(this.txtSomaCatalises);
-            this.pnItensOS.Controls.Add(this.lblMediaPecas);
-            this.pnItensOS.Controls.Add(this.txtTicket);
             this.pnItensOS.Controls.Add(this.lblCatalise);
             this.pnItensOS.Controls.Add(this.lblAbrasivos);
+            this.pnItensOS.Controls.Add(this.lstItensOS);
+            this.pnItensOS.Controls.Add(this.txtMediaPeca);
+            this.pnItensOS.Controls.Add(this.lblTicket);
+            this.pnItensOS.Controls.Add(this.lblN_Pecas);
+            this.pnItensOS.Controls.Add(this.txtN_Pecas);
+            this.pnItensOS.Controls.Add(this.lblMediaPecas);
+            this.pnItensOS.Controls.Add(this.txtTicket);
             this.pnItensOS.Controls.Add(this.btnTinta);
             this.pnItensOS.Controls.Add(this.btnCatalise);
             this.pnItensOS.Controls.Add(this.btnProdutos);
             this.pnItensOS.Controls.Add(this.btnEditar);
             this.pnItensOS.Controls.Add(this.btnExcluir);
-            this.pnItensOS.Controls.Add(this.comboBox1);
-            this.pnItensOS.Controls.Add(this.lstItensOS);
+            this.pnItensOS.Controls.Add(this.cboGrupos);
+            this.pnItensOS.Controls.Add(this.pnLogo);
             this.pnItensOS.Location = new System.Drawing.Point(0, 230);
             this.pnItensOS.Name = "pnItensOS";
             this.pnItensOS.Size = new System.Drawing.Size(671, 478);
             this.pnItensOS.TabIndex = 16;
             // 
-            // Grafico_Dados
+            // txtRateio
             // 
-            this.Grafico_Dados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Grafico_Dados.BackColor = System.Drawing.Color.Transparent;
-            this.Grafico_Dados.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea9.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea9.Area3DStyle.Enable3D = true;
-            chartArea9.Area3DStyle.Inclination = 50;
-            chartArea9.Area3DStyle.IsRightAngleAxes = false;
-            chartArea9.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-            chartArea9.Area3DStyle.Rotation = 60;
-            chartArea9.AxisX.IsLabelAutoFit = false;
-            chartArea9.AxisX.LabelStyle.Format = "%";
-            chartArea9.BackColor = System.Drawing.Color.Transparent;
-            chartArea9.Name = "ChartArea1";
-            this.Grafico_Dados.ChartAreas.Add(chartArea9);
-            legend9.Alignment = System.Drawing.StringAlignment.Center;
-            legend9.BackColor = System.Drawing.Color.Transparent;
-            legend9.ForeColor = System.Drawing.Color.White;
-            legend9.Name = "Legend1";
-            this.Grafico_Dados.Legends.Add(legend9);
-            this.Grafico_Dados.Location = new System.Drawing.Point(478, 4);
-            this.Grafico_Dados.Name = "Grafico_Dados";
-            this.Grafico_Dados.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.Grafico_Dados.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Purple,
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192))))),
-        System.Drawing.Color.Yellow,
-        System.Drawing.Color.Red,
-        System.Drawing.Color.Lime};
-            series9.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series9.Color = System.Drawing.Color.Transparent;
-            series9.CustomProperties = "CollectedColor=Transparent";
-            series9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series9.IsValueShownAsLabel = true;
-            series9.IsXValueIndexed = true;
-            series9.LabelBackColor = System.Drawing.Color.Transparent;
-            series9.LabelFormat = "{0:#0.##%}";
-            series9.Legend = "Legend1";
-            series9.MarkerColor = System.Drawing.Color.White;
-            series9.Name = "Dados";
-            series9.ShadowColor = System.Drawing.Color.WhiteSmoke;
-            series9.YValuesPerPoint = 3;
-            this.Grafico_Dados.Series.Add(series9);
-            this.Grafico_Dados.Size = new System.Drawing.Size(190, 118);
-            this.Grafico_Dados.TabIndex = 128;
-            this.Grafico_Dados.Text = "chart1";
+            this.txtRateio.BackColor = System.Drawing.Color.Transparent;
+            this.txtRateio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRateio.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtRateio.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtRateio.Location = new System.Drawing.Point(308, 82);
+            this.txtRateio.Name = "txtRateio";
+            this.txtRateio.Size = new System.Drawing.Size(94, 20);
+            this.txtRateio.TabIndex = 130;
+            this.txtRateio.Text = "0,00";
+            this.txtRateio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblRateio
+            // 
+            this.lblRateio.BackColor = System.Drawing.Color.Transparent;
+            this.lblRateio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblRateio.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblRateio.Location = new System.Drawing.Point(216, 86);
+            this.lblRateio.Name = "lblRateio";
+            this.lblRateio.Size = new System.Drawing.Size(63, 13);
+            this.lblRateio.TabIndex = 129;
+            this.lblRateio.Text = "Rateio";
             // 
             // txtSomaDiversos
             // 
@@ -398,7 +378,7 @@
             this.txtSomaDiversos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSomaDiversos.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtSomaDiversos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaDiversos.Location = new System.Drawing.Point(372, 102);
+            this.txtSomaDiversos.Location = new System.Drawing.Point(559, 102);
             this.txtSomaDiversos.Name = "txtSomaDiversos";
             this.txtSomaDiversos.Size = new System.Drawing.Size(100, 20);
             this.txtSomaDiversos.TabIndex = 120;
@@ -411,36 +391,12 @@
             this.txtSomaAbrasivos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSomaAbrasivos.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtSomaAbrasivos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaAbrasivos.Location = new System.Drawing.Point(372, 4);
+            this.txtSomaAbrasivos.Location = new System.Drawing.Point(559, 4);
             this.txtSomaAbrasivos.Name = "txtSomaAbrasivos";
             this.txtSomaAbrasivos.Size = new System.Drawing.Size(100, 20);
             this.txtSomaAbrasivos.TabIndex = 112;
             this.txtSomaAbrasivos.Text = "Soma Abrasivos";
             this.txtSomaAbrasivos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtMediaPeca
-            // 
-            this.txtMediaPeca.BackColor = System.Drawing.Color.Transparent;
-            this.txtMediaPeca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMediaPeca.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtMediaPeca.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtMediaPeca.Location = new System.Drawing.Point(107, 54);
-            this.txtMediaPeca.Name = "txtMediaPeca";
-            this.txtMediaPeca.Size = new System.Drawing.Size(119, 20);
-            this.txtMediaPeca.TabIndex = 127;
-            this.txtMediaPeca.Text = "Média p/ Peça";
-            this.txtMediaPeca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblTicket
-            // 
-            this.lblTicket.BackColor = System.Drawing.Color.Transparent;
-            this.lblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblTicket.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTicket.Location = new System.Drawing.Point(15, 8);
-            this.lblTicket.Name = "lblTicket";
-            this.lblTicket.Size = new System.Drawing.Size(85, 13);
-            this.lblTicket.TabIndex = 122;
-            this.lblTicket.Text = "Ticket do Veículo";
             // 
             // txtSomaPolidores
             // 
@@ -448,24 +404,12 @@
             this.txtSomaPolidores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSomaPolidores.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtSomaPolidores.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaPolidores.Location = new System.Drawing.Point(372, 78);
+            this.txtSomaPolidores.Location = new System.Drawing.Point(559, 78);
             this.txtSomaPolidores.Name = "txtSomaPolidores";
             this.txtSomaPolidores.Size = new System.Drawing.Size(100, 20);
             this.txtSomaPolidores.TabIndex = 119;
             this.txtSomaPolidores.Text = "Soma Polidores";
             this.txtSomaPolidores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblN_Pecas
-            // 
-            this.lblN_Pecas.BackColor = System.Drawing.Color.Transparent;
-            this.lblN_Pecas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblN_Pecas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblN_Pecas.Location = new System.Drawing.Point(14, 33);
-            this.lblN_Pecas.Name = "lblN_Pecas";
-            this.lblN_Pecas.Size = new System.Drawing.Size(65, 13);
-            this.lblN_Pecas.TabIndex = 123;
-            this.lblN_Pecas.Text = "Nº de Peças";
-            this.lblN_Pecas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtSomaTinta
             // 
@@ -473,7 +417,7 @@
             this.txtSomaTinta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSomaTinta.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtSomaTinta.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaTinta.Location = new System.Drawing.Point(372, 54);
+            this.txtSomaTinta.Location = new System.Drawing.Point(559, 54);
             this.txtSomaTinta.Name = "txtSomaTinta";
             this.txtSomaTinta.Size = new System.Drawing.Size(100, 20);
             this.txtSomaTinta.TabIndex = 121;
@@ -485,31 +429,18 @@
             this.lblPolidores.BackColor = System.Drawing.Color.Transparent;
             this.lblPolidores.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblPolidores.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblPolidores.Location = new System.Drawing.Point(241, 82);
+            this.lblPolidores.Location = new System.Drawing.Point(428, 82);
             this.lblPolidores.Name = "lblPolidores";
             this.lblPolidores.Size = new System.Drawing.Size(126, 13);
             this.lblPolidores.TabIndex = 118;
             this.lblPolidores.Text = "Gastos com POLIDORES";
-            // 
-            // txtN_Pecas
-            // 
-            this.txtN_Pecas.BackColor = System.Drawing.Color.Transparent;
-            this.txtN_Pecas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtN_Pecas.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtN_Pecas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtN_Pecas.Location = new System.Drawing.Point(107, 29);
-            this.txtN_Pecas.Name = "txtN_Pecas";
-            this.txtN_Pecas.Size = new System.Drawing.Size(119, 20);
-            this.txtN_Pecas.TabIndex = 126;
-            this.txtN_Pecas.Text = "N Pecas";
-            this.txtN_Pecas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblDIversos
             // 
             this.lblDIversos.BackColor = System.Drawing.Color.Transparent;
             this.lblDIversos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblDIversos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblDIversos.Location = new System.Drawing.Point(241, 106);
+            this.lblDIversos.Location = new System.Drawing.Point(428, 106);
             this.lblDIversos.Name = "lblDIversos";
             this.lblDIversos.Size = new System.Drawing.Size(119, 13);
             this.lblDIversos.TabIndex = 117;
@@ -520,7 +451,7 @@
             this.lblTinta.BackColor = System.Drawing.Color.Transparent;
             this.lblTinta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTinta.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTinta.Location = new System.Drawing.Point(241, 58);
+            this.lblTinta.Location = new System.Drawing.Point(428, 58);
             this.lblTinta.Name = "lblTinta";
             this.lblTinta.Size = new System.Drawing.Size(92, 13);
             this.lblTinta.TabIndex = 116;
@@ -532,19 +463,105 @@
             this.txtSomaCatalises.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSomaCatalises.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtSomaCatalises.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaCatalises.Location = new System.Drawing.Point(372, 29);
+            this.txtSomaCatalises.Location = new System.Drawing.Point(559, 29);
             this.txtSomaCatalises.Name = "txtSomaCatalises";
             this.txtSomaCatalises.Size = new System.Drawing.Size(100, 20);
             this.txtSomaCatalises.TabIndex = 115;
             this.txtSomaCatalises.Text = "Soma Catalises";
             this.txtSomaCatalises.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lblCatalise
+            // 
+            this.lblCatalise.BackColor = System.Drawing.Color.Transparent;
+            this.lblCatalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCatalise.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblCatalise.Location = new System.Drawing.Point(428, 33);
+            this.lblCatalise.Name = "lblCatalise";
+            this.lblCatalise.Size = new System.Drawing.Size(121, 13);
+            this.lblCatalise.TabIndex = 114;
+            this.lblCatalise.Text = "Gastos com CATALISES";
+            // 
+            // lblAbrasivos
+            // 
+            this.lblAbrasivos.BackColor = System.Drawing.Color.Transparent;
+            this.lblAbrasivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblAbrasivos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblAbrasivos.Location = new System.Drawing.Point(428, 8);
+            this.lblAbrasivos.Name = "lblAbrasivos";
+            this.lblAbrasivos.Size = new System.Drawing.Size(125, 13);
+            this.lblAbrasivos.TabIndex = 113;
+            this.lblAbrasivos.Text = "Gastos com ABRASIVOS";
+            // 
+            // lstItensOS
+            // 
+            this.lstItensOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstItensOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lstItensOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.lstItensOS.HideSelection = false;
+            this.lstItensOS.Location = new System.Drawing.Point(0, 125);
+            this.lstItensOS.Name = "lstItensOS";
+            this.lstItensOS.Size = new System.Drawing.Size(669, 306);
+            this.lstItensOS.TabIndex = 0;
+            this.lstItensOS.UseCompatibleStateImageBehavior = false;
+            this.lstItensOS.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstItensOS_ColumnClick);
+            // 
+            // txtMediaPeca
+            // 
+            this.txtMediaPeca.BackColor = System.Drawing.Color.Transparent;
+            this.txtMediaPeca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMediaPeca.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtMediaPeca.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtMediaPeca.Location = new System.Drawing.Point(308, 58);
+            this.txtMediaPeca.Name = "txtMediaPeca";
+            this.txtMediaPeca.Size = new System.Drawing.Size(94, 20);
+            this.txtMediaPeca.TabIndex = 127;
+            this.txtMediaPeca.Text = "0,00";
+            this.txtMediaPeca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTicket
+            // 
+            this.lblTicket.BackColor = System.Drawing.Color.Transparent;
+            this.lblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTicket.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTicket.Location = new System.Drawing.Point(216, 12);
+            this.lblTicket.Name = "lblTicket";
+            this.lblTicket.Size = new System.Drawing.Size(85, 13);
+            this.lblTicket.TabIndex = 122;
+            this.lblTicket.Text = "Ticket do Veículo";
+            // 
+            // lblN_Pecas
+            // 
+            this.lblN_Pecas.BackColor = System.Drawing.Color.Transparent;
+            this.lblN_Pecas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblN_Pecas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblN_Pecas.Location = new System.Drawing.Point(215, 37);
+            this.lblN_Pecas.Name = "lblN_Pecas";
+            this.lblN_Pecas.Size = new System.Drawing.Size(65, 13);
+            this.lblN_Pecas.TabIndex = 123;
+            this.lblN_Pecas.Text = "Nº de Peças";
+            this.lblN_Pecas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtN_Pecas
+            // 
+            this.txtN_Pecas.BackColor = System.Drawing.Color.Transparent;
+            this.txtN_Pecas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtN_Pecas.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtN_Pecas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtN_Pecas.Location = new System.Drawing.Point(308, 33);
+            this.txtN_Pecas.Name = "txtN_Pecas";
+            this.txtN_Pecas.Size = new System.Drawing.Size(94, 20);
+            this.txtN_Pecas.TabIndex = 126;
+            this.txtN_Pecas.Text = "0,00";
+            this.txtN_Pecas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // lblMediaPecas
             // 
             this.lblMediaPecas.BackColor = System.Drawing.Color.Transparent;
             this.lblMediaPecas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblMediaPecas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblMediaPecas.Location = new System.Drawing.Point(15, 58);
+            this.lblMediaPecas.Location = new System.Drawing.Point(216, 62);
             this.lblMediaPecas.Name = "lblMediaPecas";
             this.lblMediaPecas.Size = new System.Drawing.Size(63, 13);
             this.lblMediaPecas.TabIndex = 124;
@@ -556,34 +573,12 @@
             this.txtTicket.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTicket.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtTicket.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtTicket.Location = new System.Drawing.Point(107, 4);
+            this.txtTicket.Location = new System.Drawing.Point(308, 8);
             this.txtTicket.Name = "txtTicket";
-            this.txtTicket.Size = new System.Drawing.Size(119, 20);
+            this.txtTicket.Size = new System.Drawing.Size(94, 20);
             this.txtTicket.TabIndex = 125;
-            this.txtTicket.Text = "Ticket";
+            this.txtTicket.Text = "0,00";
             this.txtTicket.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCatalise
-            // 
-            this.lblCatalise.BackColor = System.Drawing.Color.Transparent;
-            this.lblCatalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCatalise.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblCatalise.Location = new System.Drawing.Point(241, 33);
-            this.lblCatalise.Name = "lblCatalise";
-            this.lblCatalise.Size = new System.Drawing.Size(121, 13);
-            this.lblCatalise.TabIndex = 114;
-            this.lblCatalise.Text = "Gastos com CATALISES";
-            // 
-            // lblAbrasivos
-            // 
-            this.lblAbrasivos.BackColor = System.Drawing.Color.Transparent;
-            this.lblAbrasivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblAbrasivos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblAbrasivos.Location = new System.Drawing.Point(241, 8);
-            this.lblAbrasivos.Name = "lblAbrasivos";
-            this.lblAbrasivos.Size = new System.Drawing.Size(125, 13);
-            this.lblAbrasivos.TabIndex = 113;
-            this.lblAbrasivos.Text = "Gastos com ABRASIVOS";
             // 
             // btnTinta
             // 
@@ -655,28 +650,111 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // comboBox1
+            // cboGrupos
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 444);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "Selecione a categoria";
+            this.cboGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cboGrupos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGrupos.FormattingEnabled = true;
+            this.cboGrupos.Location = new System.Drawing.Point(12, 444);
+            this.cboGrupos.Name = "cboGrupos";
+            this.cboGrupos.Size = new System.Drawing.Size(180, 21);
+            this.cboGrupos.TabIndex = 1;
+            this.cboGrupos.SelectedIndexChanged += new System.EventHandler(this.cboGrupos_SelectedIndexChanged);
             // 
-            // lstItensOS
+            // pnLogo
             // 
-            this.lstItensOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnLogo.BackgroundImage = global::SHARP_INK.Properties.Resources.Logo_Sharp_INK;
+            this.pnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnLogo.Location = new System.Drawing.Point(136, 216);
+            this.pnLogo.Name = "pnLogo";
+            this.pnLogo.Size = new System.Drawing.Size(206, 64);
+            this.pnLogo.TabIndex = 128;
+            // 
+            // pnGraficos
+            // 
+            this.pnGraficos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstItensOS.HideSelection = false;
-            this.lstItensOS.Location = new System.Drawing.Point(0, 125);
-            this.lstItensOS.Name = "lstItensOS";
-            this.lstItensOS.Size = new System.Drawing.Size(669, 306);
-            this.lstItensOS.TabIndex = 0;
-            this.lstItensOS.UseCompatibleStateImageBehavior = false;
-            this.lstItensOS.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstItensOS_ColumnClick);
+            this.pnGraficos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.pnGraficos.Controls.Add(this.Grafico_Dados);
+            this.pnGraficos.Location = new System.Drawing.Point(0, 230);
+            this.pnGraficos.Name = "pnGraficos";
+            this.pnGraficos.Size = new System.Drawing.Size(671, 478);
+            this.pnGraficos.TabIndex = 128;
+            this.pnGraficos.Visible = false;
+            // 
+            // Grafico_Dados
+            // 
+            this.Grafico_Dados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Grafico_Dados.BackColor = System.Drawing.Color.Transparent;
+            this.Grafico_Dados.BorderlineColor = System.Drawing.Color.Transparent;
+            this.Grafico_Dados.BorderlineWidth = 0;
+            chartArea6.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea6.Area3DStyle.Enable3D = true;
+            chartArea6.Area3DStyle.Inclination = 50;
+            chartArea6.Area3DStyle.IsRightAngleAxes = false;
+            chartArea6.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea6.Area3DStyle.Rotation = 60;
+            chartArea6.AxisX.IsLabelAutoFit = false;
+            chartArea6.AxisX.LabelStyle.Format = "%";
+            chartArea6.BackColor = System.Drawing.Color.Transparent;
+            chartArea6.Name = "ChartArea1";
+            this.Grafico_Dados.ChartAreas.Add(chartArea6);
+            this.Grafico_Dados.IsSoftShadows = false;
+            legend6.Alignment = System.Drawing.StringAlignment.Center;
+            legend6.BackColor = System.Drawing.Color.Transparent;
+            legend6.ForeColor = System.Drawing.Color.White;
+            legend6.Name = "Legend1";
+            this.Grafico_Dados.Legends.Add(legend6);
+            this.Grafico_Dados.Location = new System.Drawing.Point(275, 8);
+            this.Grafico_Dados.Margin = new System.Windows.Forms.Padding(0);
+            this.Grafico_Dados.Name = "Grafico_Dados";
+            this.Grafico_Dados.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.Grafico_Dados.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Purple,
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192))))),
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Lime};
+            series6.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series6.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series6.BorderWidth = 0;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Color = System.Drawing.Color.Transparent;
+            series6.CustomProperties = "CollectedColor=Transparent";
+            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series6.IsValueShownAsLabel = true;
+            series6.IsXValueIndexed = true;
+            series6.LabelBackColor = System.Drawing.Color.Transparent;
+            series6.LabelBorderWidth = 0;
+            series6.LabelFormat = "{0:#0.##%}";
+            series6.Legend = "Legend1";
+            series6.MarkerColor = System.Drawing.Color.White;
+            series6.MarkerSize = 3;
+            series6.Name = "Dados";
+            series6.ShadowColor = System.Drawing.Color.WhiteSmoke;
+            this.Grafico_Dados.Series.Add(series6);
+            this.Grafico_Dados.Size = new System.Drawing.Size(387, 242);
+            this.Grafico_Dados.TabIndex = 128;
+            this.Grafico_Dados.Text = "chart1";
+            this.Grafico_Dados.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
+            // 
+            // btnPainelGeral
+            // 
+            this.btnPainelGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelGeral.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPainelGeral.ForeColor = System.Drawing.Color.Silver;
+            this.btnPainelGeral.Location = new System.Drawing.Point(2, 200);
+            this.btnPainelGeral.Name = "btnPainelGeral";
+            this.btnPainelGeral.Size = new System.Drawing.Size(90, 30);
+            this.btnPainelGeral.TabIndex = 129;
+            this.btnPainelGeral.Text = "Geral";
+            this.btnPainelGeral.UseVisualStyleBackColor = true;
+            this.btnPainelGeral.Click += new System.EventHandler(this.btnItens_Click);
             // 
             // lblRazaoSocial
             // 
@@ -743,12 +821,116 @@
             this.lblTelefone.Text = "Telefone";
             this.lblTelefone.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // picLogoEmpresa
+            // 
+            this.picLogoEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picLogoEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLogoEmpresa.Location = new System.Drawing.Point(435, 46);
+            this.picLogoEmpresa.Name = "picLogoEmpresa";
+            this.picLogoEmpresa.Size = new System.Drawing.Size(197, 71);
+            this.picLogoEmpresa.TabIndex = 15;
+            this.picLogoEmpresa.TabStop = false;
+            // 
+            // btnPainelGrafico
+            // 
+            this.btnPainelGrafico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelGrafico.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPainelGrafico.ForeColor = System.Drawing.Color.Silver;
+            this.btnPainelGrafico.Location = new System.Drawing.Point(272, 200);
+            this.btnPainelGrafico.Name = "btnPainelGrafico";
+            this.btnPainelGrafico.Size = new System.Drawing.Size(90, 30);
+            this.btnPainelGrafico.TabIndex = 130;
+            this.btnPainelGrafico.Text = "Graficos";
+            this.btnPainelGrafico.UseVisualStyleBackColor = true;
+            this.btnPainelGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
+            // 
+            // btnPainelPecas
+            // 
+            this.btnPainelPecas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelPecas.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPainelPecas.ForeColor = System.Drawing.Color.Silver;
+            this.btnPainelPecas.Location = new System.Drawing.Point(92, 200);
+            this.btnPainelPecas.Name = "btnPainelPecas";
+            this.btnPainelPecas.Size = new System.Drawing.Size(90, 30);
+            this.btnPainelPecas.TabIndex = 131;
+            this.btnPainelPecas.Text = "Peças";
+            this.btnPainelPecas.UseVisualStyleBackColor = true;
+            this.btnPainelPecas.Click += new System.EventHandler(this.btnPainelPecas_Click);
+            // 
+            // btnPainelFuncionarios
+            // 
+            this.btnPainelFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelFuncionarios.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPainelFuncionarios.ForeColor = System.Drawing.Color.Silver;
+            this.btnPainelFuncionarios.Location = new System.Drawing.Point(182, 200);
+            this.btnPainelFuncionarios.Name = "btnPainelFuncionarios";
+            this.btnPainelFuncionarios.Size = new System.Drawing.Size(90, 30);
+            this.btnPainelFuncionarios.TabIndex = 132;
+            this.btnPainelFuncionarios.Text = "Funcionarios";
+            this.btnPainelFuncionarios.UseVisualStyleBackColor = true;
+            this.btnPainelFuncionarios.Click += new System.EventHandler(this.btnPainelFuncionarios_Click);
+            // 
+            // pnPecas
+            // 
+            this.pnPecas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnPecas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.pnPecas.Controls.Add(this.label2);
+            this.pnPecas.Location = new System.Drawing.Point(0, 230);
+            this.pnPecas.Name = "pnPecas";
+            this.pnPecas.Size = new System.Drawing.Size(671, 478);
+            this.pnPecas.TabIndex = 129;
+            this.pnPecas.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(289, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 133;
+            this.label2.Text = "peças";
+            // 
+            // pnFuncionarios
+            // 
+            this.pnFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.pnFuncionarios.Controls.Add(this.label3);
+            this.pnFuncionarios.Location = new System.Drawing.Point(0, 230);
+            this.pnFuncionarios.Name = "pnFuncionarios";
+            this.pnFuncionarios.Size = new System.Drawing.Size(671, 478);
+            this.pnFuncionarios.TabIndex = 130;
+            this.pnFuncionarios.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(305, 233);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Funconarios";
+            // 
             // frmOrdemServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(671, 707);
+            this.Controls.Add(this.btnPainelFuncionarios);
+            this.Controls.Add(this.btnPainelPecas);
+            this.Controls.Add(this.btnPainelGrafico);
+            this.Controls.Add(this.btnPainelGeral);
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblEndereço);
@@ -769,6 +951,9 @@
             this.Controls.Add(this.lblTituloProprietario);
             this.Controls.Add(this.lblTituloNOS);
             this.Controls.Add(this.pnCabecalho);
+            this.Controls.Add(this.pnFuncionarios);
+            this.Controls.Add(this.pnPecas);
+            this.Controls.Add(this.pnGraficos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrdemServico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -777,9 +962,14 @@
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);
             this.btnFechar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).EndInit();
             this.pnItensOS.ResumeLayout(false);
+            this.pnGraficos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grafico_Dados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).EndInit();
+            this.pnPecas.ResumeLayout(false);
+            this.pnPecas.PerformLayout();
+            this.pnFuncionarios.ResumeLayout(false);
+            this.pnFuncionarios.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -809,7 +999,7 @@
         public System.Windows.Forms.Label lblEndereço;
         public System.Windows.Forms.Label lblEmail;
         public System.Windows.Forms.Label lblTelefone;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboGrupos;
         public System.Windows.Forms.Button btnTinta;
         public System.Windows.Forms.Button btnCatalise;
         public System.Windows.Forms.Button btnProdutos;
@@ -835,5 +1025,17 @@
         public System.Windows.Forms.Label lblAbrasivos;
         public System.Windows.Forms.DataVisualization.Charting.Chart Grafico_Dados;
         public System.Windows.Forms.Panel pnItensOS;
+        public System.Windows.Forms.Panel pnGraficos;
+        public System.Windows.Forms.Button btnPainelGeral;
+        public System.Windows.Forms.Button btnPainelGrafico;
+        private System.Windows.Forms.Panel pnLogo;
+        public System.Windows.Forms.Label txtRateio;
+        public System.Windows.Forms.Label lblRateio;
+        public System.Windows.Forms.Button btnPainelPecas;
+        public System.Windows.Forms.Button btnPainelFuncionarios;
+        public System.Windows.Forms.Panel pnPecas;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Panel pnFuncionarios;
+        public System.Windows.Forms.Label label3;
     }
 }

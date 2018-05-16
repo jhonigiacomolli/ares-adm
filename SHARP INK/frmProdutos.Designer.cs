@@ -121,6 +121,7 @@
             this.lstProdutos.Size = new System.Drawing.Size(1200, 457);
             this.lstProdutos.TabIndex = 4;
             this.lstProdutos.UseCompatibleStateImageBehavior = false;
+            this.lstProdutos.DoubleClick += new System.EventHandler(this.lstProdutos_DoubleClick);
             this.lstProdutos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstProdutos_KeyDown);
             // 
             // btnIncluir
@@ -247,7 +248,6 @@
         public System.Windows.Forms.Panel pnFavIcon;
         public System.Windows.Forms.Panel btnFechar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView lstProdutos;
         public System.Windows.Forms.Button btnIncluir;
         public System.Windows.Forms.Button btnEditar;
         public System.Windows.Forms.Button btnExcluir;
@@ -255,5 +255,6 @@
         public System.Windows.Forms.Label lblPalavraChave;
         private System.Windows.Forms.ComboBox cboCampo;
         public System.Windows.Forms.Label lblCampo;
+        public System.Windows.Forms.ListView lstProdutos;
     }
 }

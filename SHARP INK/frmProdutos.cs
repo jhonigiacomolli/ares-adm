@@ -14,6 +14,7 @@ namespace SHARP_INK
     {
         bool mouseDown;
         Point lastLocation;
+        frmIncluirItem frmIncluir;
 
         public frmProdutos()
         {
@@ -22,6 +23,16 @@ namespace SHARP_INK
             new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
             new Classe_Produtos().Listar_Produtos(lstProdutos, "SELECT * FROM Produtos ORDER BY Descricao ASC");
+        }
+
+        public frmProdutos(frmIncluirItem FormIncluirItem, string SQL) 
+        {
+            InitializeComponent();
+            frmIncluir = FormIncluirItem;
+            new Classe_Tema().TEMA_frmProdutos(this);
+            new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
+            new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
+            new Classe_Produtos().Listar_Produtos(lstProdutos, SQL);
         }
 
         private void txtPesquisa_Enter(object sender, EventArgs e)
@@ -157,6 +168,19 @@ namespace SHARP_INK
             {
                 new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
             }
+        }
+
+        private void lstProdutos_DoubleClick(object sender, EventArgs e)
+        {
+            if (frmIncluir!=null)
+            {
+                frmIncluir.txtCodigo.Text = lstProdutos.FocusedItem.SubItems[0].Text;
+                frmIncluir.txtDescricao.Text = lstProdutos.FocusedItem.SubItems[4].Text;
+                frmIncluir.txtValorUnitario.Text = lstProdutos.FocusedItem.SubItems[7].Text;
+                frmIncluir.txtCategoria.Text = lstProdutos.FocusedItem.SubItems[3].Text;
+                this.Close();
+                frmIncluir.txtQuantidade.Select();
+            }           
         }
     }
 }

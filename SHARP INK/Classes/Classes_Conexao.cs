@@ -50,7 +50,7 @@ namespace SHARP_INK.Classes
                 for (int i = 0; i < Data_Table.Rows.Count; i++)
                 {
                     DataRow DR = Data_Table.Rows[i];
-                    CBO.Items.Add(DR["Cor"].ToString());
+                    CBO.Items.Add(DR["Cor"].ToString().TrimEnd());
                 }
             }
             catch (SqlCeException ex)
@@ -75,8 +75,36 @@ namespace SHARP_INK.Classes
                 for (int i = 0; i < Data_Table.Rows.Count; i++)
                 {
                     DataRow DR = Data_Table.Rows[i];
-                    CBO.Items.Add(DR["Tamanho"].ToString());
+                    CBO.Items.Add(DR["Tamanho"].ToString().TrimEnd());
                 }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_Grupos(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT * FROM Produtos_Grupos";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                CBO.Items.Add("Selecione o grupo");
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Grupo"].ToString().TrimEnd());
+                }
+                CBO.SelectedIndex = 0;
             }
             catch (SqlCeException ex)
             {
@@ -99,7 +127,7 @@ namespace SHARP_INK.Classes
                 for (int i = 0; i < Data_Table.Rows.Count; i++)
                 {
                     DataRow DR = Data_Table.Rows[i];
-                    CBO.Items.Add(DR["Nome"].ToString());
+                    CBO.Items.Add(DR["Nome"].ToString().TrimEnd());
                 }
             }
             catch (SqlCeException ex)

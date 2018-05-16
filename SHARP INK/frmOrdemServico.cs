@@ -13,6 +13,7 @@ namespace SHARP_INK
     public partial class frmOrdemServico : Form
     {
         bool mouseDown;
+        public string ID;
         Point lastLocation;
 
         private ListViewColumnSorter lvwColumnSorter;
@@ -20,16 +21,24 @@ namespace SHARP_INK
         public frmOrdemServico(string nos, string proprietario, string veiculo, string placa, string cor, string tamanho)
         {
             InitializeComponent();
- 
+            ID = nos;
+
+            pnItensOS.Visible = true;
+
             //Reordenar Colunas List view 
             lvwColumnSorter = new ListViewColumnSorter();
             this.lstItensOS.ListViewItemSorter = lvwColumnSorter;
 
             picLogoEmpresa.ImageLocation = Classes_Conexao.CaminhoLogo;
+            new Classes_Conexao().Get_Grupos(cboGrupos);
             new Classe_Tema().TEMA_frmOrdemServico(this);
-            new Classe_Listviews().Criar_LST_ItensOS(lstItensOS);
+
             new Classe_OrdemServico().Cabecalho_OrdemServico(this, nos, proprietario, veiculo, placa, cor, tamanho);
-            new Classe_OrdemServico().Listar_ItensOS(lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + nos + "'");            
+            AtualizaDadosOS();              
+        }
+        public void AtualizaDadosOS()
+        {
+            new Classe_OrdemServico().Atualizar_DadosOS(this, lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + ID + "'", ID, txtSomaAbrasivos, txtSomaCatalises, txtSomaTinta, txtSomaPolidores, txtSomaDiversos, txtTicket);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -105,22 +114,22 @@ namespace SHARP_INK
 
         private void btnTinta_Click(object sender, EventArgs e)
         {
-            frmIncluirItem Tinta = new frmIncluirItem(this,"Tinta",Convert.ToInt32(txtNos.Text));
+            frmIncluirItem Tinta = new frmIncluirItem(this, "Tinta", Convert.ToInt32(txtNos.Text));
             Tinta.txtCodigo.Enabled = false;
             Tinta.txtCodigo.BackColor = Classe_Tema.TextBox_Desativado;
             Tinta.lblCodigo.ForeColor = new Classe_Tema().COR_Subtitulos;
+            Tinta.btnPesquisa.Visible = false;
             Tinta.Show();
         }
 
         private void btnCatalise_Click(object sender, EventArgs e)
         {
-            frmIncluirItem Tinta = new frmIncluirItem(this,"Catalise", Convert.ToInt32(txtNos.Text));
-            Tinta.Show();
+
         }
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
-            frmIncluirItem Tinta = new frmIncluirItem(this,"Produtos", Convert.ToInt32(txtNos.Text));
+            frmIncluirItem Tinta = new frmIncluirItem(this, "Produtos", Convert.ToInt32(txtNos.Text));
             Tinta.Show();
         }
 
@@ -128,14 +137,15 @@ namespace SHARP_INK
         {
             string Tipo = "Editar";
             int IDProduto = Convert.ToInt32(lstItensOS.FocusedItem.SubItems[0].Text);
-            string COdigo= lstItensOS.FocusedItem.SubItems[2].Text;
-            string Descricao =lstItensOS.FocusedItem.SubItems[4].Text;
-            double Quantidade =Convert.ToDouble(lstItensOS.FocusedItem.SubItems[5].Text);
+            string COdigo = lstItensOS.FocusedItem.SubItems[2].Text;
+            string Categoria = lstItensOS.FocusedItem.SubItems[3].Text;
+            string Descricao = lstItensOS.FocusedItem.SubItems[4].Text;
+            double Quantidade = Convert.ToDouble(lstItensOS.FocusedItem.SubItems[5].Text);
             double ValorUnitario = Convert.ToDouble(lstItensOS.FocusedItem.SubItems[6].Text);
             double ValorTotal = Convert.ToDouble(lstItensOS.FocusedItem.SubItems[7].Text);
-            int IDVEiculo= Convert.ToInt32(txtNos.Text);
+            int IDVEiculo = Convert.ToInt32(txtNos.Text);
 
-            new Classe_OrdemServico().Preenche_FormEdicao(this,Tipo,IDProduto,IDVEiculo,COdigo,Descricao,Quantidade,ValorUnitario,ValorTotal);
+            new Classe_OrdemServico().Preenche_FormEdicao(this, Tipo, IDProduto, IDVEiculo, Categoria, COdigo, Descricao, Quantidade, ValorUnitario, ValorTotal);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -148,8 +158,55 @@ namespace SHARP_INK
                 int ID = Convert.ToInt32(lstItensOS.FocusedItem.SubItems[0].Text);
 
                 new Classe_OrdemServico().Excluir_Item(ID);
-                new Classe_OrdemServico().Listar_ItensOS(lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + txtNos.Text + "'");
+                AtualizaDadosOS();
             }
+        }
+
+        private void cboGrupos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboGrupos.Text.Equals("Selecione o grupo"))
+            {
+                new Classe_OrdemServico().Listar_ItensOS(lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo='" + txtNos.Text + "'");
+
+            }
+            else
+            {
+                new Classe_OrdemServico().Listar_ItensOS(lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE Categoria='" + cboGrupos.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
+            }
+        }
+
+        private void btnItens_Click(object sender, EventArgs e)
+        {
+            pnItensOS.Visible = true;
+            pnPecas.Visible = false;
+            pnFuncionarios.Visible = false;
+            pnGraficos.Visible = false;            
+        }
+
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            new Classe_OrdemServico().GraficoOS(this);
+
+            pnItensOS.Visible = false;
+            pnPecas.Visible = false;
+            pnFuncionarios.Visible = false;
+            pnGraficos.Visible = true;
+        }
+
+        private void btnPainelFuncionarios_Click(object sender, EventArgs e)
+        {
+            pnItensOS.Visible = false;
+            pnPecas.Visible = false;
+            pnFuncionarios.Visible = true;
+            pnGraficos.Visible = false;
+        }
+
+        private void btnPainelPecas_Click(object sender, EventArgs e)
+        {
+            pnItensOS.Visible = false;
+            pnPecas.Visible = true;
+            pnFuncionarios.Visible = false;
+            pnGraficos.Visible = false;
         }
     }
 }
