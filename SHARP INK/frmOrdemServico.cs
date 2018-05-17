@@ -38,7 +38,7 @@ namespace SHARP_INK
         }
         public void AtualizaDadosOS()
         {
-            new Classe_OrdemServico().Atualizar_DadosOS(this, lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + ID + "'", ID, txtSomaAbrasivos, txtSomaCatalises, txtSomaTinta, txtSomaPolidores, txtSomaDiversos, txtTicket);
+            new Classe_OrdemServico().Atualizar_DadosOS(this, lstItensOS,lstFuncionarios, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + ID + "'", ID, txtSomaAbrasivos, txtSomaCatalises, txtSomaTinta, txtSomaPolidores, txtSomaDiversos, txtTicket);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -207,6 +207,21 @@ namespace SHARP_INK
             pnPecas.Visible = true;
             pnFuncionarios.Visible = false;
             pnGraficos.Visible = false;
+        }
+
+        private void btnApontar_Click(object sender, EventArgs e)
+        {
+            frmApontamentoFunc apontar = new frmApontamentoFunc();
+            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+            {
+                apontar.Height = 250;
+            }
+            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+            {
+                apontar.Height = 190;
+            }
+            
+            apontar.Show();
         }
     }
 }

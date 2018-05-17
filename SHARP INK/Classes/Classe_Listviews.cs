@@ -21,11 +21,11 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Proprietário", 200);
             LST.Columns.Add("Veículo", 100);
             LST.Columns.Add("Placa", 100);
-            LST.Columns.Add("Cor",200);
+            LST.Columns.Add("Cor", 200);
             LST.Columns.Add("Tamanho", 150);
             LST.Columns.Add("Cadastro", 100);
             LST.Columns.Add("Entrega", 100);
-            LST.Columns.Add("Status OS", 100);    
+            LST.Columns.Add("Status OS", 100);
         }
 
         public void Criar_CamposPesquisa(ComboBox TipoPesquisa)
@@ -77,7 +77,7 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Categoria", 0);
             LST.Columns.Add("Descrição", 350);
             LST.Columns.Add("Quantidade", 80, HorizontalAlignment.Right);
-            LST.Columns.Add("Unitário", 80,HorizontalAlignment.Right);
+            LST.Columns.Add("Unitário", 80, HorizontalAlignment.Right);
             LST.Columns.Add("Total", 80, HorizontalAlignment.Right);
         }
 
@@ -96,7 +96,7 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Grupo", 170);
             LST.Columns.Add("Descrição", 335);
             LST.Columns.Add("Quantidade", 100, HorizontalAlignment.Right);
-            LST.Columns.Add("Valor de Custo", 150,HorizontalAlignment.Right);
+            LST.Columns.Add("Valor de Custo", 150, HorizontalAlignment.Right);
             LST.Columns.Add("Valor de Venda", 150, HorizontalAlignment.Right);
         }
         public void Criar_CamposPesquisaProdutos(ComboBox TipoPesquisa)
@@ -107,6 +107,57 @@ namespace SHARP_INK.Classes
             TipoPesquisa.Items.Add("Fornecedor");
             TipoPesquisa.Items.Add("Descrição");
             TipoPesquisa.SelectedIndex = 4;
+        }
+
+        //LST_Funcionarios
+        public void Criar_LST_FuncionariosAlocados(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = false;
+
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("Funcionário", 150);
+            LST.Columns.Add("Função", 100);
+            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+            {
+                LST.Columns.Add("Horario Entrada", 100);
+                LST.Columns.Add("Horario Saida", 100);
+                LST.Columns.Add("Tempo Trabalho", 100);
+                LST.Columns.Add("Custo", 100);
+            }
+        }
+
+        public void Criar_LST_Funcionarios(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = false;
+
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("Nome", 300);
+            LST.Columns.Add("Endereço", 260);
+            LST.Columns.Add("Telefone", 100);
+            LST.Columns.Add("Email", 200);
+            LST.Columns.Add("Sexo", 80);
+            LST.Columns.Add("Cargo", 150);
+            LST.Columns.Add("Salario", 0);
+            LST.Columns.Add("Comissão", 0);
+            LST.Columns.Add("CargaHoraria", 0);
+            LST.Columns.Add("Valor Hora", 0);
+        }
+
+        public void Criar_CamposPesquisaFuncionarios(ComboBox TipoPesquisa)
+        {
+            TipoPesquisa.Items.Add("Nome");
+            TipoPesquisa.Items.Add("Endereço");
+            TipoPesquisa.Items.Add("Sexo");
+            TipoPesquisa.Items.Add("Função");
+            TipoPesquisa.SelectedIndex = 0;
         }
     }
 }

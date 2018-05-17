@@ -12,6 +12,7 @@ namespace SHARP_INK.Classes
         private static  string Password_DB = "++060188jhoni.fg";
         public static string strConnDatabase = @"Data Source=D:\Projeto Auto Sharp\SHARP INK\SHARP INK\Database\Database.sdf;Password=" + Password_DB + "";
         public static string CaminhoLogo = @"D:\Projeto Auto Sharp\SHARP INK\SHARP INK\Logo\Logo.png";
+        public static string Tipo_BancoHoras;
         public static DataTable Preenche_DataTable (string SQL)
         {
             DataTable Data_Table;
@@ -29,7 +30,7 @@ namespace SHARP_INK.Classes
             }
             catch (SqlCeException ex)
             {
-                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
                 return null;           
             }
@@ -55,7 +56,7 @@ namespace SHARP_INK.Classes
             }
             catch (SqlCeException ex)
             {
-                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
             }
         }
@@ -80,7 +81,7 @@ namespace SHARP_INK.Classes
             }
             catch (SqlCeException ex)
             {
-                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
             }
         }
@@ -108,7 +109,7 @@ namespace SHARP_INK.Classes
             }
             catch (SqlCeException ex)
             {
-                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
             }
         }
@@ -132,7 +133,55 @@ namespace SHARP_INK.Classes
             }
             catch (SqlCeException ex)
             {
-                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+        public void Get_Funcao(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT * FROM Funcionarios_Funcao ORDER BY Funcao ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Funcao"].ToString().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+        public void Get_TipoBanco()
+        {
+            try
+            {
+                string SQL = "SELECT TipoBancoHoras FROM Configuracoes";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                   Tipo_BancoHoras= DR["TipoBancoHoras"].ToString().TrimEnd();
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
             }
         }

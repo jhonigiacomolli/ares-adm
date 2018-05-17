@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Data.SqlServerCe;
 using System.Data;
 using SHARP_INK.Classes;
@@ -11,9 +9,10 @@ namespace SHARP_INK.Classes
 {
     class Classe_OrdemServico
     {
-        public void Atualizar_DadosOS(frmOrdemServico Form,ListView LST,string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
+        public void Atualizar_DadosOS(frmOrdemServico Form,ListView LST,ListView LST2,string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
         {
             new Classe_Listviews().Criar_LST_ItensOS(LST);
+            new Classe_Listviews().Criar_LST_FuncionariosAlocados(LST2);
             Listar_ItensOS(LST, SQL);
 
             Abrasivos.Text = Soma_Categorias(nos, "ABRASIVOS").ToString("N2");

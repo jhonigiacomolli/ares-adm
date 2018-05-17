@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Classes\Classes_Conexao.cs" />
     <Compile Include="Classes\Classe_Empresa.cs" />
+    <Compile Include="Classes\Classe_Funcionario.cs" />
     <Compile Include="Classes\Classe_Listviews.cs" />
     <Compile Include="Classes\Classe_Mensagem.cs" />
     <Compile Include="Classes\Classe_OrdemServico.cs" />
@@ -76,6 +77,12 @@
     <Compile Include="Classes\Classe_Tema.cs" />
     <Compile Include="Classes\Classe_Veiculos.cs" />
     <Compile Include="Classes\LST_Column_Reorder.cs" />
+    <Compile Include="frmApontamentoFunc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmApontamentoFunc.Designer.cs">
+      <DependentUpon>frmApontamentoFunc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +127,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmApontamentoFunc.resx">
+      <DependentUpon>frmApontamentoFunc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroOS.resx">
       <DependentUpon>frmCadastroOS.cs</DependentUpon>
     </EmbeddedResource>

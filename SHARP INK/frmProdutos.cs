@@ -15,24 +15,51 @@ namespace SHARP_INK
         bool mouseDown;
         Point lastLocation;
         frmIncluirItem frmIncluir;
+        frmApontamentoFunc frmapontamento;
+        public string Genero;
 
-        public frmProdutos()
+        public frmProdutos(string Genero)
         {
             InitializeComponent();
+            this.Genero = Genero;
+
             new Classe_Tema().TEMA_frmProdutos(this);
-            new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
-            new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
-            new Classe_Produtos().Listar_Produtos(lstProdutos, "SELECT * FROM Produtos ORDER BY Descricao ASC");
+
+            if (Genero.Equals("PRODUTO"))
+            {
+                lblTituloForm.Text = "SHARP INK - Produtos";
+                new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
+                new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
+                new Classe_Produtos().Listar_Produtos(lstProdutos, "SELECT * FROM Produtos ORDER BY Descricao ASC");
+            }
+            if (Genero.Equals("FUNCIONARIO"))
+            {
+                lblTituloForm.Text = "SHARP INK - Funcionarios";
+                new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
+                new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
+                new Classe_Funcionario().Listar_Funcionarios(lstProdutos, "SELECT * FROM Funcionarios ORDER BY Nome ASC");
+            }
         }
 
         public frmProdutos(frmIncluirItem FormIncluirItem, string SQL) 
         {
             InitializeComponent();
+            lblTituloForm.Text = "SHARP INK - Produtos";
             frmIncluir = FormIncluirItem;
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
             new Classe_Produtos().Listar_Produtos(lstProdutos, SQL);
+        }
+        public frmProdutos(frmApontamentoFunc frmApontamento, string SQL)
+        {
+            InitializeComponent();
+            lblTituloForm.Text = "SHARP INK - Funcionarios";
+            frmapontamento = frmApontamento;
+            new Classe_Tema().TEMA_frmProdutos(this);
+            new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
+            new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
+            new Classe_Funcionario().Listar_Funcionarios(lstProdutos, SQL);
         }
 
         private void txtPesquisa_Enter(object sender, EventArgs e)
@@ -160,13 +187,38 @@ namespace SHARP_INK
             switch (e.KeyCode)
             {
                 case Keys.Escape:
-                    txtPesquisa.Clear();
+                    if (txtPesquisa.Text != string.Empty)
+                    {
+                        txtPesquisa.Clear();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                     break;
             }
 
             if (e.KeyCode == Keys.Enter)
             {
-                new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                if (frmIncluir != null)
+                {
+                    new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                }                
+                if (frmapontamento != null)
+                {
+                    new Classe_Funcionario().Pesquisa_Funcionario(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                }
+                if (Genero != null)
+                {
+                    if (Genero.Equals("PRODUTO"))
+                    {
+                        new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                    }
+                    if (Genero.Equals("FUNCIONARIO"))
+                    {
+                        new Classe_Funcionario().Pesquisa_Funcionario(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                    }
+                }
             }
         }
 
@@ -180,7 +232,23 @@ namespace SHARP_INK
                 frmIncluir.txtCategoria.Text = lstProdutos.FocusedItem.SubItems[3].Text;
                 this.Close();
                 frmIncluir.txtQuantidade.Select();
-            }           
+            }
+
+            if (frmapontamento != null)
+            {
+                frmapontamento.txtCodigo.Text = lstProdutos.FocusedItem.SubItems[0].Text;
+                frmapontamento.txtFuncionario.Text = lstProdutos.FocusedItem.SubItems[1].Text;
+                frmapontamento.txtValorHora.Text = lstProdutos.FocusedItem.SubItems[10].Text;
+                this.Close();
+                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+                {
+                    frmapontamento.txtEntrada.Select();
+                }
+                else
+                {
+                    frmapontamento.cboFuncao.Select();
+                }
+            }        
         }
     }
 }

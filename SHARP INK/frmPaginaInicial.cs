@@ -24,6 +24,7 @@ namespace SHARP_INK
 
             new Classe_Tema().TEMA_frmPrincipal(this);
             new Classe_Empresa().Empresa();
+            new Classes_Conexao().Get_TipoBanco();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -120,7 +121,7 @@ namespace SHARP_INK
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
-            frmProdutos Produtos = new frmProdutos();
+            frmProdutos Produtos = new frmProdutos("PRODUTO");
             Produtos.ShowDialog();
         }
     }

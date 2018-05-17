@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdemServico));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnFavIcon = new System.Windows.Forms.Panel();
@@ -91,7 +91,11 @@
             this.pnPecas = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnFuncionarios = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnApontar = new System.Windows.Forms.Button();
+            this.btnLiberar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lstFuncionarios = new System.Windows.Forms.ListView();
+            this.btnEditarApontamento = new System.Windows.Forms.Button();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.pnItensOS.SuspendLayout();
@@ -691,23 +695,23 @@
             this.Grafico_Dados.BackColor = System.Drawing.Color.Transparent;
             this.Grafico_Dados.BorderlineColor = System.Drawing.Color.Transparent;
             this.Grafico_Dados.BorderlineWidth = 0;
-            chartArea6.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea6.Area3DStyle.Enable3D = true;
-            chartArea6.Area3DStyle.Inclination = 50;
-            chartArea6.Area3DStyle.IsRightAngleAxes = false;
-            chartArea6.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-            chartArea6.Area3DStyle.Rotation = 60;
-            chartArea6.AxisX.IsLabelAutoFit = false;
-            chartArea6.AxisX.LabelStyle.Format = "%";
-            chartArea6.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.Name = "ChartArea1";
-            this.Grafico_Dados.ChartAreas.Add(chartArea6);
+            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Area3DStyle.Inclination = 50;
+            chartArea1.Area3DStyle.IsRightAngleAxes = false;
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea1.Area3DStyle.Rotation = 60;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Format = "%";
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.Grafico_Dados.ChartAreas.Add(chartArea1);
             this.Grafico_Dados.IsSoftShadows = false;
-            legend6.Alignment = System.Drawing.StringAlignment.Center;
-            legend6.BackColor = System.Drawing.Color.Transparent;
-            legend6.ForeColor = System.Drawing.Color.White;
-            legend6.Name = "Legend1";
-            this.Grafico_Dados.Legends.Add(legend6);
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.Name = "Legend1";
+            this.Grafico_Dados.Legends.Add(legend1);
             this.Grafico_Dados.Location = new System.Drawing.Point(275, 8);
             this.Grafico_Dados.Margin = new System.Windows.Forms.Padding(0);
             this.Grafico_Dados.Name = "Grafico_Dados";
@@ -718,25 +722,25 @@
         System.Drawing.Color.Yellow,
         System.Drawing.Color.Red,
         System.Drawing.Color.Lime};
-            series6.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series6.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series6.BorderWidth = 0;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.Color = System.Drawing.Color.Transparent;
-            series6.CustomProperties = "CollectedColor=Transparent";
-            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series6.IsValueShownAsLabel = true;
-            series6.IsXValueIndexed = true;
-            series6.LabelBackColor = System.Drawing.Color.Transparent;
-            series6.LabelBorderWidth = 0;
-            series6.LabelFormat = "{0:#0.##%}";
-            series6.Legend = "Legend1";
-            series6.MarkerColor = System.Drawing.Color.White;
-            series6.MarkerSize = 3;
-            series6.Name = "Dados";
-            series6.ShadowColor = System.Drawing.Color.WhiteSmoke;
-            this.Grafico_Dados.Series.Add(series6);
+            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.BorderWidth = 0;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Color = System.Drawing.Color.Transparent;
+            series1.CustomProperties = "CollectedColor=Transparent";
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.IsXValueIndexed = true;
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.LabelBorderWidth = 0;
+            series1.LabelFormat = "{0:#0.##%}";
+            series1.Legend = "Legend1";
+            series1.MarkerColor = System.Drawing.Color.White;
+            series1.MarkerSize = 3;
+            series1.Name = "Dados";
+            series1.ShadowColor = System.Drawing.Color.WhiteSmoke;
+            this.Grafico_Dados.Series.Add(series1);
             this.Grafico_Dados.Size = new System.Drawing.Size(387, 242);
             this.Grafico_Dados.TabIndex = 128;
             this.Grafico_Dados.Text = "chart1";
@@ -903,23 +907,74 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.pnFuncionarios.Controls.Add(this.label3);
+            this.pnFuncionarios.Controls.Add(this.btnEditarApontamento);
+            this.pnFuncionarios.Controls.Add(this.btnApontar);
+            this.pnFuncionarios.Controls.Add(this.btnLiberar);
+            this.pnFuncionarios.Controls.Add(this.comboBox1);
+            this.pnFuncionarios.Controls.Add(this.lstFuncionarios);
             this.pnFuncionarios.Location = new System.Drawing.Point(0, 230);
             this.pnFuncionarios.Name = "pnFuncionarios";
             this.pnFuncionarios.Size = new System.Drawing.Size(671, 478);
             this.pnFuncionarios.TabIndex = 130;
             this.pnFuncionarios.Visible = false;
             // 
-            // label3
+            // btnApontar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(305, 233);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Funconarios";
+            this.btnApontar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApontar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnApontar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApontar.ForeColor = System.Drawing.Color.Silver;
+            this.btnApontar.Location = new System.Drawing.Point(210, 438);
+            this.btnApontar.Name = "btnApontar";
+            this.btnApontar.Size = new System.Drawing.Size(90, 30);
+            this.btnApontar.TabIndex = 15;
+            this.btnApontar.Text = "Apontar";
+            this.btnApontar.UseVisualStyleBackColor = true;
+            this.btnApontar.Click += new System.EventHandler(this.btnApontar_Click);
+            // 
+            // btnLiberar
+            // 
+            this.btnLiberar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLiberar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnLiberar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLiberar.ForeColor = System.Drawing.Color.Silver;
+            this.btnLiberar.Location = new System.Drawing.Point(389, 438);
+            this.btnLiberar.Name = "btnLiberar";
+            this.btnLiberar.Size = new System.Drawing.Size(90, 30);
+            this.btnLiberar.TabIndex = 14;
+            this.btnLiberar.Text = "Liberar";
+            this.btnLiberar.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(10, 444);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(180, 21);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // lstFuncionarios
+            // 
+            this.lstFuncionarios.Location = new System.Drawing.Point(0, 125);
+            this.lstFuncionarios.Name = "lstFuncionarios";
+            this.lstFuncionarios.Size = new System.Drawing.Size(669, 306);
+            this.lstFuncionarios.TabIndex = 0;
+            this.lstFuncionarios.UseCompatibleStateImageBehavior = false;
+            // 
+            // btnEditarApontamento
+            // 
+            this.btnEditarApontamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarApontamento.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditarApontamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarApontamento.ForeColor = System.Drawing.Color.Silver;
+            this.btnEditarApontamento.Location = new System.Drawing.Point(299, 438);
+            this.btnEditarApontamento.Name = "btnEditarApontamento";
+            this.btnEditarApontamento.Size = new System.Drawing.Size(90, 30);
+            this.btnEditarApontamento.TabIndex = 16;
+            this.btnEditarApontamento.Text = "Editar";
+            this.btnEditarApontamento.UseVisualStyleBackColor = true;
             // 
             // frmOrdemServico
             // 
@@ -927,6 +982,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(671, 707);
+            this.Controls.Add(this.pnFuncionarios);
             this.Controls.Add(this.btnPainelFuncionarios);
             this.Controls.Add(this.btnPainelPecas);
             this.Controls.Add(this.btnPainelGrafico);
@@ -951,7 +1007,6 @@
             this.Controls.Add(this.lblTituloProprietario);
             this.Controls.Add(this.lblTituloNOS);
             this.Controls.Add(this.pnCabecalho);
-            this.Controls.Add(this.pnFuncionarios);
             this.Controls.Add(this.pnPecas);
             this.Controls.Add(this.pnGraficos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -969,7 +1024,6 @@
             this.pnPecas.ResumeLayout(false);
             this.pnPecas.PerformLayout();
             this.pnFuncionarios.ResumeLayout(false);
-            this.pnFuncionarios.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1036,6 +1090,10 @@
         public System.Windows.Forms.Panel pnPecas;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Panel pnFuncionarios;
-        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.ListView lstFuncionarios;
+        public System.Windows.Forms.Button btnApontar;
+        public System.Windows.Forms.Button btnLiberar;
+        private System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.Button btnEditarApontamento;
     }
 }

@@ -174,6 +174,7 @@ namespace SHARP_INK.Classes
             //Painel Itens OS
 
             Form.pnItensOS.BackColor = Color.FromArgb(40, 40, 40);
+            Form.lstItensOS.BackColor = COR_Background_Listview;
 
             Form.lblTicket.ForeColor = COR_Subtitulos;
             Form.lblN_Pecas.ForeColor = COR_Subtitulos;
@@ -198,6 +199,10 @@ namespace SHARP_INK.Classes
             Form.btnProdutos.BackColor = Color.FromArgb(40, 40, 40);
             Form.btnEditar.BackColor = Color.FromArgb(40, 40, 40);
             Form.btnExcluir.BackColor = Color.FromArgb(40, 40, 40);
+
+            //Painell Funcionarios
+            Form.lstFuncionarios.BackColor = Color.FromArgb(40, 40, 40);
+            Form.lstFuncionarios.BackColor = COR_Background_Listview;
         }
 
         public void TEMA_frmProdutos(frmProdutos Form)
@@ -220,6 +225,24 @@ namespace SHARP_INK.Classes
 
             Form.lblPalavraChave.ForeColor = COR_Titulos;
             Form.lblCampo.ForeColor = COR_Titulos;
+        }
+
+        public void TEMA_frmApontamentoFunc(frmApontamentoFunc Form)
+        {
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
+            Form.lblCodigo.ForeColor = COR_Titulos;
+            Form.lblFuncionario.ForeColor = COR_Titulos;
+            Form.lblFuncao.ForeColor = COR_Titulos;
+            Form.lblEntrada.ForeColor = COR_Titulos;
+            Form.lblSaida.ForeColor = COR_Titulos;
+
+            Form.btnGravar.BackColor = MenuBotao_Normal;
+            Form.btnPesquisa.BackColor = MenuBotao_Normal;
         }
     }
 }

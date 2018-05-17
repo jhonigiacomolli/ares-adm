@@ -57,28 +57,36 @@ namespace SHARP_INK
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string proprietario = txtProprietario.Text.TrimEnd();
-            string veiculo = txtVeiculo.Text.TrimEnd();
-            string placa = txtPLaca.Text.TrimEnd();
-            string cor = txtCor.Text.TrimEnd();
-            string tamanho = txtTamanho.Text.TrimEnd();
-            DateTime datacadastro = DateTime.Now;
-            string situacao;
+            if (txtProprietario.Text != string.Empty && txtVeiculo.Text != string.Empty && txtPLaca.Text != string.Empty && txtCor.Text != string.Empty && txtTamanho.Text != string.Empty)
+            {
+                string proprietario = txtProprietario.Text.TrimEnd();
+                string veiculo = txtVeiculo.Text.TrimEnd();
+                string placa = txtPLaca.Text.TrimEnd();
+                string cor = txtCor.Text.TrimEnd();
+                string tamanho = txtTamanho.Text.TrimEnd();
+                DateTime datacadastro = DateTime.Now;
+                string situacao;
 
-            if (ID != 0)
-            {                
-                new Classe_Veiculos().Editar_Veiculos(ID, proprietario, veiculo, placa, cor, tamanho);
-                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos,"SELECT * FROM Veiculos ORDER BY Situacao ASC");
-                new Classe_Listviews().ColorirLinhas_veiculos(FormListaOS.lstVeiculos);
-                this.Close();
+                if (ID != 0)
+                {
+                    new Classe_Veiculos().Editar_Veiculos(ID, proprietario, veiculo, placa, cor, tamanho);
+                    new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                    new Classe_Listviews().ColorirLinhas_veiculos(FormListaOS.lstVeiculos);
+                    this.Close();
+                }
+                else
+                {
+                    situacao = "AGUARDANDO";
+                    new Classe_Veiculos().Adicionar_Veiculo(proprietario, veiculo, placa, cor, tamanho, datacadastro, situacao);
+                    new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                    new Classe_Listviews().ColorirLinhas_veiculos(FormListaOS.lstVeiculos);
+                    this.Close();
+                }
             }
             else
             {
-                situacao = "AGUARDANDO";
-                new Classe_Veiculos().Adicionar_Veiculo(proprietario, veiculo, placa, cor, tamanho, datacadastro, situacao);
-                new Classe_Veiculos().Listar_Veiculos(FormListaOS.lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
-                new Classe_Listviews().ColorirLinhas_veiculos(FormListaOS.lstVeiculos);
-                this.Close();
+                Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Dados imcompletos", "Dados imcompletos, favor preencher todos os campos!");
+                messagebox.Show();
             }
             
         }
@@ -263,7 +271,10 @@ namespace SHARP_INK
 
         private void txtNumeroOS_Leave(object sender, EventArgs e)
         {
-            txtNumeroOS.BackColor = Classe_Tema.TextBox_Normal;
+            if(ID.Equals(0))
+            {
+                txtNumeroOS.BackColor = Classe_Tema.TextBox_Normal;
+            }
         }
 
         private void txtProprietario_Enter(object sender, EventArgs e)
@@ -273,7 +284,10 @@ namespace SHARP_INK
 
         private void txtProprietario_Leave(object sender, EventArgs e)
         {
-            txtProprietario.BackColor = Classe_Tema.TextBox_Normal;
+            if (ID.Equals(0))
+            {
+                txtProprietario.BackColor = Classe_Tema.TextBox_Normal;
+            }
         }
 
         private void txtVeiculo_Enter(object sender, EventArgs e)
@@ -283,7 +297,10 @@ namespace SHARP_INK
 
         private void txtVeiculo_Leave(object sender, EventArgs e)
         {
-            txtVeiculo.BackColor = Classe_Tema.TextBox_Normal;
+            if (ID.Equals(0))
+            {
+                txtVeiculo.BackColor = Classe_Tema.TextBox_Normal;
+            }
         }
 
         private void txtPLaca_Enter(object sender, EventArgs e)
@@ -293,7 +310,10 @@ namespace SHARP_INK
 
         private void txtPLaca_Leave(object sender, EventArgs e)
         {
-            txtPLaca.BackColor = Classe_Tema.TextBox_Normal;
+            if (ID.Equals(0))
+            {
+                txtPLaca.BackColor = Classe_Tema.TextBox_Normal;
+            }
         }
 
         private void txtCor_Enter(object sender, EventArgs e)
@@ -303,7 +323,10 @@ namespace SHARP_INK
 
         private void txtCor_Leave(object sender, EventArgs e)
         {
-            txtCor.BackColor = Classe_Tema.TextBox_Normal;
+            if (ID.Equals(0))
+            {
+                txtCor.BackColor = Classe_Tema.TextBox_Normal;
+            }
         }
 
         private void txtTamanho_Enter(object sender, EventArgs e)
@@ -313,7 +336,10 @@ namespace SHARP_INK
 
         private void txtTamanho_Leave(object sender, EventArgs e)
         {
-            txtTamanho.BackColor = Classe_Tema.TextBox_Normal;
+            if (ID.Equals(0))
+            {
+                txtTamanho.BackColor = Classe_Tema.TextBox_Normal;
+            }
         }
     }
 }
