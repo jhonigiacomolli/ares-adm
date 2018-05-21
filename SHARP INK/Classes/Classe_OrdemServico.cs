@@ -9,10 +9,10 @@ namespace SHARP_INK.Classes
 {
     class Classe_OrdemServico
     {
-        public void Atualizar_DadosOS(frmOrdemServico Form,ListView LST,ListView LST2,string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
+        public void Atualizar_DadosGeral(frmOrdemServico Form,ListView LST,string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
         {
+            LST.Clear();
             new Classe_Listviews().Criar_LST_ItensOS(LST);
-            new Classe_Listviews().Criar_LST_FuncionariosAlocados(LST2);
             Listar_ItensOS(LST, SQL);
 
             Abrasivos.Text = Soma_Categorias(nos, "ABRASIVOS").ToString("N2");
@@ -21,6 +21,13 @@ namespace SHARP_INK.Classes
             Polimentos.Text = Soma_Categorias(nos, "POLIDORES").ToString("N2");
             Tintas.Text = Soma_Categorias(nos, "TINTAS").ToString("N2");
             Ticket.Text = Soma_TicketVeiculo(nos).ToString("N2");
+        }
+        public void Atualizar_DadosFuncionarios(ListView LSTFunc, string ID_Veiculo)
+        {
+            LSTFunc.Clear();
+            new Classe_Listviews().Criar_LST_FuncionariosAlocados(LSTFunc);
+            new Classe_BancoHoras().Listar_ApontamentosOS(LSTFunc, "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID_Veiculo + "'");
+
         }
 
         public void Cabecalho_OrdemServico(frmOrdemServico Form, string nos, string proprietario, string veiculo, string placa, string cor, string tamanho)
@@ -235,6 +242,36 @@ namespace SHARP_INK.Classes
             Form.Grafico_Dados.Series["Dados"].Points.AddXY("Tinta", TINTA / TOTAL);
             Form.Grafico_Dados.Series["Dados"].Points.AddXY("Polidores", POLIDORES / TOTAL);
             Form.Grafico_Dados.Series["Dados"].Points.AddXY("Diversos", DIVERSOS / TOTAL);
+        }
+
+        public void HabilitarBotoesApontamento(frmOrdemServico Form)
+        {
+            string status = Form.lstFuncionarios.FocusedItem.SubItems[6].Text;
+
+            if (Form.lstFuncionarios.SelectedItems.Count.Equals(0) || Form.lstFuncionarios.SelectedItems.Equals(false))
+            {
+                Form.btnApontar.Enabled = true;
+                Form.btnLiberar.Enabled = false;
+                Form.btnExcluirApontamento.Enabled = false;
+                Form.btnEditarApontamento.Enabled = false;
+            }
+            else
+            {
+                if (status.Equals(string.Empty))
+                {
+                    Form.btnApontar.Enabled = false;
+                    Form.btnLiberar.Enabled = true;
+                    Form.btnExcluirApontamento.Enabled = false;
+                    Form.btnEditarApontamento.Enabled = false;
+                }
+                else
+                {
+                    Form.btnApontar.Enabled = false;
+                    Form.btnLiberar.Enabled = false;
+                    Form.btnExcluirApontamento.Enabled = true;
+                    Form.btnEditarApontamento.Enabled = true;
+                }
+            }
         }
     }
 }

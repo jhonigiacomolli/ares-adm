@@ -94,6 +94,7 @@
             this.btnGravar.TabIndex = 7;
             this.btnGravar.Text = "Incluir";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             this.btnGravar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnGravar_KeyDown);
             // 
             // pnCabecalho
@@ -269,7 +270,6 @@
             // 
             // txtSaida
             // 
-            this.txtSaida.Checked = false;
             this.txtSaida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtSaida.Location = new System.Drawing.Point(93, 168);
             this.txtSaida.Name = "txtSaida";

@@ -9,11 +9,11 @@ namespace SHARP_INK.Classes
 {
     public class Classes_Conexao
     {
-        private static  string Password_DB = "++060188jhoni.fg";
+        private static string Password_DB = "++060188jhoni.fg";
         public static string strConnDatabase = @"Data Source=D:\Projeto Auto Sharp\SHARP INK\SHARP INK\Database\Database.sdf;Password=" + Password_DB + "";
         public static string CaminhoLogo = @"D:\Projeto Auto Sharp\SHARP INK\SHARP INK\Logo\Logo.png";
         public static string Tipo_BancoHoras;
-        public static DataTable Preenche_DataTable (string SQL)
+        public static DataTable Preenche_DataTable(string SQL)
         {
             DataTable Data_Table;
 
@@ -32,7 +32,7 @@ namespace SHARP_INK.Classes
             {
                 Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
-                return null;           
+                return null;
             }
         }
 
@@ -137,6 +137,56 @@ namespace SHARP_INK.Classes
                 Messagebox.Show();
             }
         }
+        public void Get_FiltroApontamento(ComboBox CBO, string Filtro)
+        {
+            CBO.Items.Clear();
+            try
+            {
+                if (Filtro.Equals("Funcionário"))
+                {
+                    string SQL = "SELECT Nome FROM Funcionarios ORDER BY Nome ASC";
+                    SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                    DataSet DS = new DataSet();
+                    SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                    DA.Fill(DS);
+                    DataTable Data_Table = DS.Tables[0];
+
+                    CBO.Items.Add("Selecione o funcionário");
+
+                    for (int i = 0; i < Data_Table.Rows.Count; i++)
+                    {
+                        DataRow DR = Data_Table.Rows[i];
+                        CBO.Items.Add(DR["Nome"].ToString().TrimEnd());
+                    }
+                }
+                if (Filtro.Equals("Função"))
+                {
+                    string SQL = "SELECT * FROM Funcionarios_Funcao ORDER BY Funcao ASC";
+                    SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                    DataSet DS = new DataSet();
+                    SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                    DA.Fill(DS);
+                    DataTable Data_Table = DS.Tables[0];
+
+                    CBO.Items.Add("Selecione a função");
+
+                    for (int i = 0; i < Data_Table.Rows.Count; i++)
+                    {
+                        DataRow DR = Data_Table.Rows[i];
+                        CBO.Items.Add(DR["Funcao"].ToString().TrimEnd());
+                    }
+                }
+                CBO.SelectedIndex = 0;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
         public void Get_Funcao(ComboBox CBO)
         {
             try
@@ -149,11 +199,14 @@ namespace SHARP_INK.Classes
                 DA.Fill(DS);
                 DataTable Data_Table = DS.Tables[0];
 
+                CBO.Items.Add("Selecione a função");
+
                 for (int i = 0; i < Data_Table.Rows.Count; i++)
                 {
                     DataRow DR = Data_Table.Rows[i];
                     CBO.Items.Add(DR["Funcao"].ToString().TrimEnd());
                 }
+                CBO.SelectedIndex = 0;
             }
             catch (SqlCeException ex)
             {
@@ -161,6 +214,35 @@ namespace SHARP_INK.Classes
                 Messagebox.Show();
             }
         }
+        public void Get_Funcionario(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Nome FROM Funcionarios ORDER BY Nome ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                CBO.Items.Add("Selecione o campo de filtro");
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Funcao"].ToString().TrimEnd());
+                }
+
+                CBO.SelectedIndex = 0;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
         public void Get_TipoBanco()
         {
             try
@@ -176,7 +258,7 @@ namespace SHARP_INK.Classes
                 for (int i = 0; i < Data_Table.Rows.Count; i++)
                 {
                     DataRow DR = Data_Table.Rows[i];
-                   Tipo_BancoHoras= DR["TipoBancoHoras"].ToString().TrimEnd();
+                    Tipo_BancoHoras = DR["TipoBancoHoras"].ToString().TrimEnd();
                 }
             }
             catch (SqlCeException ex)

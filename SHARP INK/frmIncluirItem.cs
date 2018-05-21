@@ -56,7 +56,7 @@ namespace SHARP_INK
                 {
                     new Classe_OrdemServico().Incluir_Item(this, TIPO, IDVeiculo, Categoria, Codigo, Descricao, qnt, ValorUni, ValorTotal);
                 }
-                frmordemservico.AtualizaDadosOS();
+                frmordemservico.AtualizaDadosGeral();
             }
             else
             {

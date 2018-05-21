@@ -77,6 +77,7 @@
     <Compile Include="Classes\Classe_Tema.cs" />
     <Compile Include="Classes\Classe_Veiculos.cs" />
     <Compile Include="Classes\LST_Column_Reorder.cs" />
+    <Compile Include="Classe_BancoHoras.cs" />
     <Compile Include="frmApontamentoFunc.cs">
       <SubType>Form</SubType>
     </Compile>

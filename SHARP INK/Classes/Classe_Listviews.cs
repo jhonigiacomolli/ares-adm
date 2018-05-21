@@ -116,9 +116,11 @@ namespace SHARP_INK.Classes
             LST.FullRowSelect = true;
             LST.AllowColumnReorder = true;
             LST.View = View.Details;
-            LST.HideSelection = false;
+            LST.HideSelection = true;
 
             LST.Columns.Add("ID", 0);
+            LST.Columns.Add("ID_Funcionario", 0);
+            LST.Columns.Add("ID_Veiculo", 0);
             LST.Columns.Add("Funcionário", 150);
             LST.Columns.Add("Função", 100);
             if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
@@ -127,6 +129,7 @@ namespace SHARP_INK.Classes
                 LST.Columns.Add("Horario Saida", 100);
                 LST.Columns.Add("Tempo Trabalho", 100);
                 LST.Columns.Add("Custo", 100);
+                LST.Columns.Add("MO", 0);
             }
         }
 

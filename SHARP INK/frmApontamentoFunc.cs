@@ -14,10 +14,37 @@ namespace SHARP_INK
     {
         bool mouseDown;
         Point lastLocation;
-        public frmApontamentoFunc()
+        int ID;
+        public string ID_Funcionario;
+        public string ID_Veiculo;
+        public string Nome;
+        public string Funcao;
+        public string Entrada;
+        public string Saida;
+        public string Valor;
+        public string Tempo;
+        public string MO;
+        public string TIPO;
+        frmOrdemServico frmOrdemServico;
+
+        public frmApontamentoFunc(frmOrdemServico frmOS, string ID_Veiculo)
         {
             InitializeComponent();
+            this.ID_Veiculo = ID_Veiculo;
+            this.TIPO = "INCLUSÃO";
+            frmOrdemServico = frmOS;
+
             new Classes_Conexao().Get_Funcao(cboFuncao);
+
+        }
+
+        public frmApontamentoFunc(frmOrdemServico frmOS, int ID, string ID_Veiculo)
+        {
+            InitializeComponent();
+            frmOrdemServico = frmOS;
+            this.ID_Veiculo = ID_Veiculo;
+            this.ID = ID;
+            TIPO = "EDIÇÃO";
         }
 
         private void frmApontamentoFunc_Resize(object sender, EventArgs e)
@@ -98,10 +125,16 @@ namespace SHARP_INK
             }
             if (e.KeyCode == Keys.Enter)
             {
+                Classe_Funcionario func = new Classe_Funcionario();
+                func.Get_Funcionario(txtCodigo.Text);
+                txtFuncionario.Text = func.Nome;
+                txtValorHora.Text = func.ValorHora;
+
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
+
         }
 
         private void txtFuncionario_KeyDown(object sender, KeyEventArgs e)
@@ -118,7 +151,7 @@ namespace SHARP_INK
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
-        }       
+        }
 
         private void cboFuncao_KeyDown(object sender, KeyEventArgs e)
         {
@@ -136,7 +169,7 @@ namespace SHARP_INK
             }
         }
 
-        
+
 
         private void txtHoraEntrada_KeyDown(object sender, KeyEventArgs e)
         {
@@ -212,7 +245,7 @@ namespace SHARP_INK
 
         private void txtFuncionario_Enter(object sender, EventArgs e)
         {
-            txtFuncionario.BackColor= Classe_Tema.TextBox_Edicao;
+            txtFuncionario.BackColor = Classe_Tema.TextBox_Edicao;
         }
 
         private void txtFuncionario_Leave(object sender, EventArgs e)
@@ -230,7 +263,7 @@ namespace SHARP_INK
             cboFuncao.BackColor = Classe_Tema.TextBox_Normal;
         }
 
-        
+
 
         private void txtHoraEntrada_Enter(object sender, EventArgs e)
         {
@@ -274,17 +307,125 @@ namespace SHARP_INK
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
-            frmProdutos Funcionarios = new frmProdutos(this,"SELECT * FROM Funcionarios ORDER BY Nome ASC");
-            if(Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
-            {
-                txtEntrada.Select();
-            }
-            else
-            {
-                cboFuncao.Select();
-            }
-            
+            frmProdutos Funcionarios = new frmProdutos(this, "SELECT * FROM Funcionarios ORDER BY Nome ASC");
+
+            cboFuncao.Select();
+
             Funcionarios.Show();
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            string IDFuncionario = txtCodigo.Text;
+            string Nome = txtFuncionario.Text;
+            string Funcao = cboFuncao.Text;
+            string Entrada = string.Concat(txtEntrada.Text, " ", txtHoraEntrada.Text);
+            string Saida = string.Concat(txtSaida.Text, " ", txtHoraSaida.Text);
+            string Valor = txtValorHora.Text;
+
+            if (TIPO.Equals("INCLUSÃO"))
+            {
+                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+                {
+                    if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty && txtEntrada.Text != string.Empty && txtHoraEntrada.Text != string.Empty)
+                    {
+                        if (new Classe_BancoHoras().VerificaApontamento(this, IDFuncionario).Equals(false))
+                        {
+                            new Classe_BancoHoras().Apontar_Funcionario(ID_Veiculo, IDFuncionario, Nome, Funcao, Entrada, Saida, Convert.ToDouble(Valor));
+                            frmOrdemServico.AtualizaDadosFuncionario();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Dados incompletos", "Favor preencher todos os dados!");
+                        messagebox.ShowDialog();
+
+                        txtCodigo.Select();
+                    }
+                }
+                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+                {
+                    if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty)
+                    {
+                        if (new Classe_BancoHoras().VerificaApontamento(this, IDFuncionario).Equals(false))
+                        {
+                            new Classe_BancoHoras().Apontar_Funcionario(ID_Veiculo, IDFuncionario, Nome, Funcao, DateTime.Now.ToString(), Valor);
+                            frmOrdemServico.AtualizaDadosFuncionario();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Dados incompletos", "Favor preencher todos os dados!");
+                        messagebox.ShowDialog();
+
+                        txtCodigo.Select();
+                    }
+                }
+                if (Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+                {
+                    if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty)
+                    {
+                        {
+                            new Classe_BancoHoras().Apontar_Funcionario(ID_Veiculo, IDFuncionario, Nome, Funcao, string.Empty, string.Empty);
+                            frmOrdemServico.AtualizaDadosFuncionario();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Dados incompletos", "Favor preencher todos os dados!");
+                        messagebox.ShowDialog();
+
+                        txtCodigo.Select();
+                    }
+                }
+            }
+
+            if (TIPO.Equals("EDIÇÃO"))
+            {
+
+                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+                {
+                    if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty && txtEntrada.Text != string.Empty && txtHoraEntrada.Text != string.Empty)
+                    {
+                        {
+                            new Classe_BancoHoras().Editar_Apontamento(ID.ToString(), IDFuncionario, ID_Veiculo, Nome, Funcao, Entrada, Saida, Convert.ToDouble(Valor));
+                            frmOrdemServico.AtualizaDadosFuncionario();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Dados incompletos", "Favor preencher todos os dados!");
+                        messagebox.ShowDialog();
+
+                        txtCodigo.Select();
+                    }
+                }
+                
+                if (Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+                {
+                    if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty)
+                    {
+                        {
+                            new Classe_BancoHoras().Editar_Apontamento(ID.ToString(), IDFuncionario, ID_Veiculo, Nome, Funcao, string.Empty, string.Empty, 0);
+                            frmOrdemServico.AtualizaDadosFuncionario();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Dados incompletos", "Favor preencher todos os dados!");
+                        messagebox.ShowDialog();
+
+                        txtCodigo.Select();
+                    }
+                }
+            }
         }
     }
 }
+
+

@@ -28,19 +28,27 @@ namespace SHARP_INK
             //Reordenar Colunas List view 
             lvwColumnSorter = new ListViewColumnSorter();
             this.lstItensOS.ListViewItemSorter = lvwColumnSorter;
+            this.lstFuncionarios.ListViewItemSorter = lvwColumnSorter;
 
             picLogoEmpresa.ImageLocation = Classes_Conexao.CaminhoLogo;
             new Classes_Conexao().Get_Grupos(cboGrupos);
             new Classe_Tema().TEMA_frmOrdemServico(this);
 
             new Classe_OrdemServico().Cabecalho_OrdemServico(this, nos, proprietario, veiculo, placa, cor, tamanho);
-            AtualizaDadosOS();              
+            AtualizaDadosGeral();
         }
-        public void AtualizaDadosOS()
+        public void AtualizaDadosGeral()
         {
-            new Classe_OrdemServico().Atualizar_DadosOS(this, lstItensOS,lstFuncionarios, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + ID + "'", ID, txtSomaAbrasivos, txtSomaCatalises, txtSomaTinta, txtSomaPolidores, txtSomaDiversos, txtTicket);
+            new Classe_OrdemServico().Atualizar_DadosGeral(this, lstItensOS, "SELECT * FROM OrdemServico_Itens WHERE ID_Veiculo like '" + ID + "'", ID, txtSomaAbrasivos, txtSomaCatalises, txtSomaTinta, txtSomaPolidores, txtSomaDiversos, txtTicket);
         }
-
+        public void AtualizaDadosFuncionario()
+        {
+            new Classe_OrdemServico().Atualizar_DadosFuncionarios(lstFuncionarios, txtNos.Text);
+        }
+        public void AtualizaDadosGrafico()
+        {
+            new Classe_OrdemServico().GraficoOS(this);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -158,7 +166,7 @@ namespace SHARP_INK
                 int ID = Convert.ToInt32(lstItensOS.FocusedItem.SubItems[0].Text);
 
                 new Classe_OrdemServico().Excluir_Item(ID);
-                AtualizaDadosOS();
+                AtualizaDadosGeral();
             }
         }
 
@@ -180,12 +188,12 @@ namespace SHARP_INK
             pnItensOS.Visible = true;
             pnPecas.Visible = false;
             pnFuncionarios.Visible = false;
-            pnGraficos.Visible = false;            
+            pnGraficos.Visible = false;
         }
 
         private void btnGrafico_Click(object sender, EventArgs e)
         {
-            new Classe_OrdemServico().GraficoOS(this);
+            AtualizaDadosGrafico();
 
             pnItensOS.Visible = false;
             pnPecas.Visible = false;
@@ -195,10 +203,28 @@ namespace SHARP_INK
 
         private void btnPainelFuncionarios_Click(object sender, EventArgs e)
         {
+            AtualizaDadosFuncionario();
+
+            cboFiltroApontamento.SelectedIndex = 0;
+            new Classes_Conexao().Get_FiltroApontamento(cboFuncao, cboFiltroApontamento.Text);
+
+            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+            {
+                btnLiberar.Visible = true;
+            }
+            else
+            {
+                btnLiberar.Visible = false;
+                btnApontar.Location = btnLiberar.Location;
+            }
+
+
             pnItensOS.Visible = false;
             pnPecas.Visible = false;
             pnFuncionarios.Visible = true;
             pnGraficos.Visible = false;
+
+            lstFuncionarios.Select();
         }
 
         private void btnPainelPecas_Click(object sender, EventArgs e)
@@ -211,7 +237,8 @@ namespace SHARP_INK
 
         private void btnApontar_Click(object sender, EventArgs e)
         {
-            frmApontamentoFunc apontar = new frmApontamentoFunc();
+            frmApontamentoFunc apontar = new frmApontamentoFunc(this, txtNos.Text);
+
             if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
             {
                 apontar.Height = 250;
@@ -220,8 +247,131 @@ namespace SHARP_INK
             {
                 apontar.Height = 190;
             }
+
+            apontar.ShowDialog();
+        }
+
+        private void btnEditarApontamento_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(lstFuncionarios.FocusedItem.SubItems[0].Text);
+            string ID_Funcionario = lstFuncionarios.FocusedItem.SubItems[1].Text;
+            string ID_Veiculo = lstFuncionarios.FocusedItem.SubItems[2].Text;
+            string Nome = lstFuncionarios.FocusedItem.SubItems[3].Text;
+            string Funcao = lstFuncionarios.FocusedItem.SubItems[4].Text;
+            frmApontamentoFunc func = new frmApontamentoFunc(this, ID, ID_Veiculo);
+
+            if (Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+            {
+                func.Height = 190;
+                new Classe_BancoHoras().CarregaEdicaoApontamento(func, ID_Funcionario, ID_Veiculo, Nome, Funcao, null, null, null);
+            }
+            else
+            {
+                string Entrada = lstFuncionarios.FocusedItem.SubItems[5].Text;
+                string Saida = lstFuncionarios.FocusedItem.SubItems[6].Text;
+                string Valor = lstFuncionarios.FocusedItem.SubItems[8].Text;
+                string Tempo = lstFuncionarios.FocusedItem.SubItems[7].Text;
+                string MO = lstFuncionarios.FocusedItem.SubItems[9].Text;                
+
+                new Classe_BancoHoras().CarregaEdicaoApontamento(func, ID_Funcionario, ID_Veiculo, Nome, Funcao, Entrada, Saida, MO);
+            }
+        }
+
+        private void lstFuncionarios_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+            this.lstFuncionarios.Sort();
+        }
+
+        private void btnLiberar_Click(object sender, EventArgs e)
+        {
+            string ID = lstFuncionarios.FocusedItem.SubItems[0].Text;
+            string Entrada = lstFuncionarios.FocusedItem.SubItems[5].Text;
+            double MO = Convert.ToDouble(lstFuncionarios.FocusedItem.SubItems[9].Text);
+
+            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+            {
+                new Classe_BancoHoras().Liberar_Funcionario(ID, Entrada, DateTime.Now.ToString(), MO);
+            }
+            AtualizaDadosFuncionario();
+        }
+
+        private void btnExcluirApontamento_Click(object sender, EventArgs e)
+        {
+            int ID =Convert.ToInt32(lstFuncionarios.FocusedItem.SubItems[0].Text);
             
-            apontar.Show();
+            Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente excluir permanentemento o apontamento selecionado?");
+            DialogResult Resposta = messagebox.ShowDialog();
+
+            if (Resposta.Equals(DialogResult.OK))
+            {
+                new Classe_BancoHoras().Exluir_Apontamento(ID);
+                AtualizaDadosFuncionario();
+            }
+        }
+
+        private void lstFuncionarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            new Classe_OrdemServico().HabilitarBotoesApontamento(this);
+        }
+
+        private void pnFuncionarios_Click(object sender, EventArgs e)
+        {
+            lstFuncionarios.SelectedItems.Clear();
+            new Classe_OrdemServico().HabilitarBotoesApontamento(this);
+        }
+
+        private void frmOrdemServico_Click(object sender, EventArgs e)
+        {
+            lstFuncionarios.SelectedItems.Clear();
+            new Classe_OrdemServico().HabilitarBotoesApontamento(this);
+        }
+
+        private void cboFiltroApontamento_SelectedValueChanged(object sender, EventArgs e)
+        {
+            new Classes_Conexao().Get_FiltroApontamento(cboFuncao, cboFiltroApontamento.Text);
+        }
+
+        private void cboFuncao_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string SQL = "";
+
+            if (cboFuncao.SelectedIndex != 0)
+            {                
+                if (cboFiltroApontamento.Text.Equals("Funcionário"))
+                {
+                    SQL = "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID + "' AND Nome='" + cboFuncao.Text + "' ORDER BY id ASC";
+                }
+                if (cboFiltroApontamento.Text.Equals("Função"))
+                {
+                    SQL = "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID + "' AND Funcao='" + cboFuncao.Text + "' ORDER BY id ASC";
+                }                
+            }
+            else
+            {
+                SQL = "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID + "' ORDER BY id ASC";
+            }
+            new Classe_BancoHoras().Listar_ApontamentosOS(lstFuncionarios, SQL);
+        }
+
+        private void cboFuncao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

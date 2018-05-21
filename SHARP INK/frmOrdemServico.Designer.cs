@@ -91,11 +91,43 @@
             this.pnPecas = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnFuncionarios = new System.Windows.Forms.Panel();
+            this.cboFiltroApontamento = new System.Windows.Forms.ComboBox();
+            this.btnExcluirApontamento = new System.Windows.Forms.Button();
+            this.btnEditarApontamento = new System.Windows.Forms.Button();
             this.btnApontar = new System.Windows.Forms.Button();
             this.btnLiberar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboFuncao = new System.Windows.Forms.ComboBox();
             this.lstFuncionarios = new System.Windows.Forms.ListView();
-            this.btnEditarApontamento = new System.Windows.Forms.Button();
+            this.lblSomaAlinhamento = new System.Windows.Forms.Label();
+            this.lblSomaSolda = new System.Windows.Forms.Label();
+            this.lblSomaMontagem = new System.Windows.Forms.Label();
+            this.lblSomaDesmontagem = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblSomaFunilaria = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblSomaLavação = new System.Windows.Forms.Label();
+            this.lblSomaEletrica = new System.Windows.Forms.Label();
+            this.lblSomaHgienizacao = new System.Windows.Forms.Label();
+            this.lblSomaPolimento = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblSomaPintura = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblSomaEstofaria = new System.Windows.Forms.Label();
+            this.lblSomaRetrabalho = new System.Windows.Forms.Label();
+            this.lblSomaMecanica = new System.Windows.Forms.Label();
+            this.lblSomaGeometria = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblSomaPreparacao = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.pnItensOS.SuspendLayout();
@@ -646,7 +678,7 @@
             this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.ForeColor = System.Drawing.Color.Silver;
-            this.btnExcluir.Location = new System.Drawing.Point(576, 438);
+            this.btnExcluir.Location = new System.Drawing.Point(575, 438);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(90, 30);
             this.btnExcluir.TabIndex = 8;
@@ -907,16 +939,92 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.pnFuncionarios.Controls.Add(this.lblSomaEstofaria);
+            this.pnFuncionarios.Controls.Add(this.lblSomaRetrabalho);
+            this.pnFuncionarios.Controls.Add(this.lblSomaMecanica);
+            this.pnFuncionarios.Controls.Add(this.lblSomaGeometria);
+            this.pnFuncionarios.Controls.Add(this.label15);
+            this.pnFuncionarios.Controls.Add(this.label18);
+            this.pnFuncionarios.Controls.Add(this.label19);
+            this.pnFuncionarios.Controls.Add(this.lblSomaPreparacao);
+            this.pnFuncionarios.Controls.Add(this.label21);
+            this.pnFuncionarios.Controls.Add(this.label22);
+            this.pnFuncionarios.Controls.Add(this.lblSomaLavação);
+            this.pnFuncionarios.Controls.Add(this.lblSomaEletrica);
+            this.pnFuncionarios.Controls.Add(this.lblSomaHgienizacao);
+            this.pnFuncionarios.Controls.Add(this.lblSomaPolimento);
+            this.pnFuncionarios.Controls.Add(this.label10);
+            this.pnFuncionarios.Controls.Add(this.label13);
+            this.pnFuncionarios.Controls.Add(this.label14);
+            this.pnFuncionarios.Controls.Add(this.lblSomaPintura);
+            this.pnFuncionarios.Controls.Add(this.label16);
+            this.pnFuncionarios.Controls.Add(this.label17);
+            this.pnFuncionarios.Controls.Add(this.lblSomaAlinhamento);
+            this.pnFuncionarios.Controls.Add(this.lblSomaSolda);
+            this.pnFuncionarios.Controls.Add(this.lblSomaMontagem);
+            this.pnFuncionarios.Controls.Add(this.lblSomaDesmontagem);
+            this.pnFuncionarios.Controls.Add(this.label7);
+            this.pnFuncionarios.Controls.Add(this.label8);
+            this.pnFuncionarios.Controls.Add(this.label9);
+            this.pnFuncionarios.Controls.Add(this.lblSomaFunilaria);
+            this.pnFuncionarios.Controls.Add(this.label11);
+            this.pnFuncionarios.Controls.Add(this.label12);
+            this.pnFuncionarios.Controls.Add(this.cboFiltroApontamento);
+            this.pnFuncionarios.Controls.Add(this.btnExcluirApontamento);
             this.pnFuncionarios.Controls.Add(this.btnEditarApontamento);
             this.pnFuncionarios.Controls.Add(this.btnApontar);
             this.pnFuncionarios.Controls.Add(this.btnLiberar);
-            this.pnFuncionarios.Controls.Add(this.comboBox1);
+            this.pnFuncionarios.Controls.Add(this.cboFuncao);
             this.pnFuncionarios.Controls.Add(this.lstFuncionarios);
             this.pnFuncionarios.Location = new System.Drawing.Point(0, 230);
             this.pnFuncionarios.Name = "pnFuncionarios";
             this.pnFuncionarios.Size = new System.Drawing.Size(671, 478);
             this.pnFuncionarios.TabIndex = 130;
             this.pnFuncionarios.Visible = false;
+            this.pnFuncionarios.Click += new System.EventHandler(this.pnFuncionarios_Click);
+            // 
+            // cboFiltroApontamento
+            // 
+            this.cboFiltroApontamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cboFiltroApontamento.DisplayMember = "0";
+            this.cboFiltroApontamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFiltroApontamento.FormattingEnabled = true;
+            this.cboFiltroApontamento.Items.AddRange(new object[] {
+            "Funcionário",
+            "Função"});
+            this.cboFiltroApontamento.Location = new System.Drawing.Point(12, 444);
+            this.cboFiltroApontamento.Name = "cboFiltroApontamento";
+            this.cboFiltroApontamento.Size = new System.Drawing.Size(109, 21);
+            this.cboFiltroApontamento.TabIndex = 18;
+            this.cboFiltroApontamento.SelectedValueChanged += new System.EventHandler(this.cboFiltroApontamento_SelectedValueChanged);
+            // 
+            // btnExcluirApontamento
+            // 
+            this.btnExcluirApontamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcluirApontamento.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnExcluirApontamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirApontamento.ForeColor = System.Drawing.Color.Silver;
+            this.btnExcluirApontamento.Location = new System.Drawing.Point(575, 438);
+            this.btnExcluirApontamento.Name = "btnExcluirApontamento";
+            this.btnExcluirApontamento.Size = new System.Drawing.Size(90, 30);
+            this.btnExcluirApontamento.TabIndex = 17;
+            this.btnExcluirApontamento.Text = "Excluir";
+            this.btnExcluirApontamento.UseVisualStyleBackColor = true;
+            this.btnExcluirApontamento.Click += new System.EventHandler(this.btnExcluirApontamento_Click);
+            // 
+            // btnEditarApontamento
+            // 
+            this.btnEditarApontamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarApontamento.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditarApontamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarApontamento.ForeColor = System.Drawing.Color.Silver;
+            this.btnEditarApontamento.Location = new System.Drawing.Point(485, 438);
+            this.btnEditarApontamento.Name = "btnEditarApontamento";
+            this.btnEditarApontamento.Size = new System.Drawing.Size(90, 30);
+            this.btnEditarApontamento.TabIndex = 16;
+            this.btnEditarApontamento.Text = "Editar";
+            this.btnEditarApontamento.UseVisualStyleBackColor = true;
+            this.btnEditarApontamento.Click += new System.EventHandler(this.btnEditarApontamento_Click);
             // 
             // btnApontar
             // 
@@ -924,7 +1032,7 @@
             this.btnApontar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnApontar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnApontar.ForeColor = System.Drawing.Color.Silver;
-            this.btnApontar.Location = new System.Drawing.Point(210, 438);
+            this.btnApontar.Location = new System.Drawing.Point(291, 438);
             this.btnApontar.Name = "btnApontar";
             this.btnApontar.Size = new System.Drawing.Size(90, 30);
             this.btnApontar.TabIndex = 15;
@@ -938,22 +1046,25 @@
             this.btnLiberar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnLiberar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLiberar.ForeColor = System.Drawing.Color.Silver;
-            this.btnLiberar.Location = new System.Drawing.Point(389, 438);
+            this.btnLiberar.Location = new System.Drawing.Point(381, 438);
             this.btnLiberar.Name = "btnLiberar";
             this.btnLiberar.Size = new System.Drawing.Size(90, 30);
             this.btnLiberar.TabIndex = 14;
             this.btnLiberar.Text = "Liberar";
             this.btnLiberar.UseVisualStyleBackColor = true;
+            this.btnLiberar.Click += new System.EventHandler(this.btnLiberar_Click);
             // 
-            // comboBox1
+            // cboFuncao
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 444);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(180, 21);
-            this.comboBox1.TabIndex = 13;
+            this.cboFuncao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cboFuncao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFuncao.FormattingEnabled = true;
+            this.cboFuncao.Location = new System.Drawing.Point(127, 444);
+            this.cboFuncao.Name = "cboFuncao";
+            this.cboFuncao.Size = new System.Drawing.Size(153, 21);
+            this.cboFuncao.TabIndex = 13;
+            this.cboFuncao.SelectedIndexChanged += new System.EventHandler(this.cboFuncao_SelectedIndexChanged);
+            this.cboFuncao.SelectedValueChanged += new System.EventHandler(this.cboFuncao_SelectedValueChanged);
             // 
             // lstFuncionarios
             // 
@@ -962,19 +1073,368 @@
             this.lstFuncionarios.Size = new System.Drawing.Size(669, 306);
             this.lstFuncionarios.TabIndex = 0;
             this.lstFuncionarios.UseCompatibleStateImageBehavior = false;
+            this.lstFuncionarios.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstFuncionarios_ColumnClick);
+            this.lstFuncionarios.SelectedIndexChanged += new System.EventHandler(this.lstFuncionarios_SelectedIndexChanged);
             // 
-            // btnEditarApontamento
+            // lblSomaAlinhamento
             // 
-            this.btnEditarApontamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditarApontamento.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnEditarApontamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarApontamento.ForeColor = System.Drawing.Color.Silver;
-            this.btnEditarApontamento.Location = new System.Drawing.Point(299, 438);
-            this.btnEditarApontamento.Name = "btnEditarApontamento";
-            this.btnEditarApontamento.Size = new System.Drawing.Size(90, 30);
-            this.btnEditarApontamento.TabIndex = 16;
-            this.btnEditarApontamento.Text = "Editar";
-            this.btnEditarApontamento.UseVisualStyleBackColor = true;
+            this.lblSomaAlinhamento.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaAlinhamento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaAlinhamento.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaAlinhamento.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaAlinhamento.Location = new System.Drawing.Point(565, 102);
+            this.lblSomaAlinhamento.Name = "lblSomaAlinhamento";
+            this.lblSomaAlinhamento.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaAlinhamento.TabIndex = 130;
+            this.lblSomaAlinhamento.Text = "Soma Alinhamento";
+            this.lblSomaAlinhamento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaSolda
+            // 
+            this.lblSomaSolda.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaSolda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaSolda.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaSolda.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaSolda.Location = new System.Drawing.Point(565, 4);
+            this.lblSomaSolda.Name = "lblSomaSolda";
+            this.lblSomaSolda.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaSolda.TabIndex = 122;
+            this.lblSomaSolda.Text = "Soma Solda";
+            this.lblSomaSolda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaMontagem
+            // 
+            this.lblSomaMontagem.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaMontagem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaMontagem.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaMontagem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaMontagem.Location = new System.Drawing.Point(565, 78);
+            this.lblSomaMontagem.Name = "lblSomaMontagem";
+            this.lblSomaMontagem.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaMontagem.TabIndex = 129;
+            this.lblSomaMontagem.Text = "Soma Montagem";
+            this.lblSomaMontagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaDesmontagem
+            // 
+            this.lblSomaDesmontagem.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaDesmontagem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaDesmontagem.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaDesmontagem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaDesmontagem.Location = new System.Drawing.Point(565, 54);
+            this.lblSomaDesmontagem.Name = "lblSomaDesmontagem";
+            this.lblSomaDesmontagem.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaDesmontagem.TabIndex = 131;
+            this.lblSomaDesmontagem.Text = "Soma Desmont.";
+            this.lblSomaDesmontagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label7.Location = new System.Drawing.Point(454, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(126, 13);
+            this.label7.TabIndex = 128;
+            this.label7.Text = "Tempo MONTAGEM";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label8.Location = new System.Drawing.Point(454, 106);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(119, 13);
+            this.label8.TabIndex = 127;
+            this.label8.Text = "Tempo ALINHAMENTO";
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label9.Location = new System.Drawing.Point(454, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(126, 13);
+            this.label9.TabIndex = 126;
+            this.label9.Text = "Tempo DESMONTAGEM";
+            // 
+            // lblSomaFunilaria
+            // 
+            this.lblSomaFunilaria.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaFunilaria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaFunilaria.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaFunilaria.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaFunilaria.Location = new System.Drawing.Point(565, 29);
+            this.lblSomaFunilaria.Name = "lblSomaFunilaria";
+            this.lblSomaFunilaria.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaFunilaria.TabIndex = 125;
+            this.lblSomaFunilaria.Text = "Soma Funilaria";
+            this.lblSomaFunilaria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label11.Location = new System.Drawing.Point(454, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 13);
+            this.label11.TabIndex = 124;
+            this.label11.Text = "Tempo FUNILARIA";
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label12.Location = new System.Drawing.Point(454, 8);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(125, 13);
+            this.label12.TabIndex = 123;
+            this.label12.Text = "Tempo SOLDA";
+            // 
+            // lblSomaLavação
+            // 
+            this.lblSomaLavação.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaLavação.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaLavação.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaLavação.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaLavação.Location = new System.Drawing.Point(340, 103);
+            this.lblSomaLavação.Name = "lblSomaLavação";
+            this.lblSomaLavação.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaLavação.TabIndex = 140;
+            this.lblSomaLavação.Text = "Soma Lavação";
+            this.lblSomaLavação.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaEletrica
+            // 
+            this.lblSomaEletrica.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaEletrica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaEletrica.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaEletrica.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaEletrica.Location = new System.Drawing.Point(340, 5);
+            this.lblSomaEletrica.Name = "lblSomaEletrica";
+            this.lblSomaEletrica.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaEletrica.TabIndex = 132;
+            this.lblSomaEletrica.Text = "Soma Eletrica";
+            this.lblSomaEletrica.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaHgienizacao
+            // 
+            this.lblSomaHgienizacao.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaHgienizacao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaHgienizacao.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaHgienizacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaHgienizacao.Location = new System.Drawing.Point(340, 79);
+            this.lblSomaHgienizacao.Name = "lblSomaHgienizacao";
+            this.lblSomaHgienizacao.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaHgienizacao.TabIndex = 139;
+            this.lblSomaHgienizacao.Text = "Soma Higienização";
+            this.lblSomaHgienizacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaPolimento
+            // 
+            this.lblSomaPolimento.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaPolimento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaPolimento.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaPolimento.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaPolimento.Location = new System.Drawing.Point(340, 55);
+            this.lblSomaPolimento.Name = "lblSomaPolimento";
+            this.lblSomaPolimento.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaPolimento.TabIndex = 141;
+            this.lblSomaPolimento.Text = "Soma Polimento";
+            this.lblSomaPolimento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label10.Location = new System.Drawing.Point(229, 83);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(126, 13);
+            this.label10.TabIndex = 138;
+            this.label10.Text = "Tempo HIGIENIZAÇÃO";
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label13.Location = new System.Drawing.Point(229, 107);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(119, 13);
+            this.label13.TabIndex = 137;
+            this.label13.Text = "Tempo LAVAÇÃO";
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label14.Location = new System.Drawing.Point(229, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(126, 13);
+            this.label14.TabIndex = 136;
+            this.label14.Text = "Tempo POLIMENTO";
+            // 
+            // lblSomaPintura
+            // 
+            this.lblSomaPintura.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaPintura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaPintura.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaPintura.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaPintura.Location = new System.Drawing.Point(340, 30);
+            this.lblSomaPintura.Name = "lblSomaPintura";
+            this.lblSomaPintura.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaPintura.TabIndex = 135;
+            this.lblSomaPintura.Text = "Soma Pintura";
+            this.lblSomaPintura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label16.Location = new System.Drawing.Point(229, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(121, 13);
+            this.label16.TabIndex = 134;
+            this.label16.Text = "Tempo PINTURA";
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label17.Location = new System.Drawing.Point(229, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(125, 13);
+            this.label17.TabIndex = 133;
+            this.label17.Text = "Tempo ELÉTRICA";
+            // 
+            // lblSomaEstofaria
+            // 
+            this.lblSomaEstofaria.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaEstofaria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaEstofaria.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaEstofaria.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaEstofaria.Location = new System.Drawing.Point(117, 102);
+            this.lblSomaEstofaria.Name = "lblSomaEstofaria";
+            this.lblSomaEstofaria.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaEstofaria.TabIndex = 150;
+            this.lblSomaEstofaria.Text = "Soma Estofaria";
+            this.lblSomaEstofaria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaRetrabalho
+            // 
+            this.lblSomaRetrabalho.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaRetrabalho.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaRetrabalho.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaRetrabalho.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaRetrabalho.Location = new System.Drawing.Point(117, 4);
+            this.lblSomaRetrabalho.Name = "lblSomaRetrabalho";
+            this.lblSomaRetrabalho.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaRetrabalho.TabIndex = 142;
+            this.lblSomaRetrabalho.Text = "Soma Retrabalho";
+            this.lblSomaRetrabalho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaMecanica
+            // 
+            this.lblSomaMecanica.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaMecanica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaMecanica.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaMecanica.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaMecanica.Location = new System.Drawing.Point(117, 78);
+            this.lblSomaMecanica.Name = "lblSomaMecanica";
+            this.lblSomaMecanica.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaMecanica.TabIndex = 149;
+            this.lblSomaMecanica.Text = "Soma Mecanica";
+            this.lblSomaMecanica.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSomaGeometria
+            // 
+            this.lblSomaGeometria.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaGeometria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaGeometria.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaGeometria.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaGeometria.Location = new System.Drawing.Point(117, 54);
+            this.lblSomaGeometria.Name = "lblSomaGeometria";
+            this.lblSomaGeometria.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaGeometria.TabIndex = 151;
+            this.lblSomaGeometria.Text = "Soma Geometria";
+            this.lblSomaGeometria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label15.Location = new System.Drawing.Point(6, 82);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(126, 13);
+            this.label15.TabIndex = 148;
+            this.label15.Text = "Tempo MECÂNICA";
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label18.Location = new System.Drawing.Point(6, 106);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(119, 13);
+            this.label18.TabIndex = 147;
+            this.label18.Text = "Tempo ESTOFARIA";
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label19.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label19.Location = new System.Drawing.Point(6, 58);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(126, 13);
+            this.label19.TabIndex = 146;
+            this.label19.Text = "Tempo GEOMETRIA";
+            // 
+            // lblSomaPreparacao
+            // 
+            this.lblSomaPreparacao.BackColor = System.Drawing.Color.Transparent;
+            this.lblSomaPreparacao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSomaPreparacao.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSomaPreparacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSomaPreparacao.Location = new System.Drawing.Point(117, 29);
+            this.lblSomaPreparacao.Name = "lblSomaPreparacao";
+            this.lblSomaPreparacao.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaPreparacao.TabIndex = 145;
+            this.lblSomaPreparacao.Text = "Soma Preparação";
+            this.lblSomaPreparacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label21.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label21.Location = new System.Drawing.Point(6, 33);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(121, 13);
+            this.label21.TabIndex = 144;
+            this.label21.Text = "Tempo PREPARAÇÃO";
+            // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label22.Location = new System.Drawing.Point(6, 8);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(125, 13);
+            this.label22.TabIndex = 143;
+            this.label22.Text = "Tempo RETRABALHO";
             // 
             // frmOrdemServico
             // 
@@ -992,7 +1452,6 @@
             this.Controls.Add(this.lblEndereço);
             this.Controls.Add(this.lblCNPJ);
             this.Controls.Add(this.lblRazaoSocial);
-            this.Controls.Add(this.pnItensOS);
             this.Controls.Add(this.picLogoEmpresa);
             this.Controls.Add(this.txtTamanho);
             this.Controls.Add(this.txtCor);
@@ -1009,10 +1468,12 @@
             this.Controls.Add(this.pnCabecalho);
             this.Controls.Add(this.pnPecas);
             this.Controls.Add(this.pnGraficos);
+            this.Controls.Add(this.pnItensOS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrdemServico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOrdemServico";
+            this.Click += new System.EventHandler(this.frmOrdemServico_Click);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);
@@ -1093,7 +1554,39 @@
         public System.Windows.Forms.ListView lstFuncionarios;
         public System.Windows.Forms.Button btnApontar;
         public System.Windows.Forms.Button btnLiberar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboFuncao;
         public System.Windows.Forms.Button btnEditarApontamento;
+        public System.Windows.Forms.Button btnExcluirApontamento;
+        private System.Windows.Forms.ComboBox cboFiltroApontamento;
+        public System.Windows.Forms.Label lblSomaAlinhamento;
+        public System.Windows.Forms.Label lblSomaSolda;
+        public System.Windows.Forms.Label lblSomaMontagem;
+        public System.Windows.Forms.Label lblSomaDesmontagem;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label lblSomaFunilaria;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Label lblSomaEstofaria;
+        public System.Windows.Forms.Label lblSomaRetrabalho;
+        public System.Windows.Forms.Label lblSomaMecanica;
+        public System.Windows.Forms.Label lblSomaGeometria;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.Label label18;
+        public System.Windows.Forms.Label label19;
+        public System.Windows.Forms.Label lblSomaPreparacao;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.Label label22;
+        public System.Windows.Forms.Label lblSomaLavação;
+        public System.Windows.Forms.Label lblSomaEletrica;
+        public System.Windows.Forms.Label lblSomaHgienizacao;
+        public System.Windows.Forms.Label lblSomaPolimento;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.Label lblSomaPintura;
+        public System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Label label17;
     }
 }
