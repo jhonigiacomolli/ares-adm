@@ -22,11 +22,28 @@ namespace SHARP_INK.Classes
             Tintas.Text = Soma_Categorias(nos, "TINTAS").ToString("N2");
             Ticket.Text = Soma_TicketVeiculo(nos).ToString("N2");
         }
-        public void Atualizar_DadosFuncionarios(ListView LSTFunc, string ID_Veiculo)
+        public void Atualizar_DadosFuncionarios(frmOrdemServico frmOS, ListView LSTFunc, string ID_Veiculo)
         {
             LSTFunc.Clear();
             new Classe_Listviews().Criar_LST_FuncionariosAlocados(LSTFunc);
             new Classe_BancoHoras().Listar_ApontamentosOS(LSTFunc, "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID_Veiculo + "'");
+
+            new Classe_BancoHoras().Soma_Categorias(ID_Veiculo);
+            frmOS.lblSomaLavação.Text = Classe_BancoHoras.somaLavacao.ToString("N2");
+            frmOS.lblSomaDesmontagem.Text = Classe_BancoHoras.somaDesmontagem.ToString("N2");
+            frmOS.lblSomaMontagem.Text = Classe_BancoHoras.somaMontagem.ToString("N2");
+            frmOS.lblSomaSolda.Text = Classe_BancoHoras.somaSolda.ToString("N2");
+            frmOS.lblSomaAlinhamento.Text = Classe_BancoHoras.somaAlinhamento.ToString("N2");
+            frmOS.lblSomaFunilaria.Text = Classe_BancoHoras.somaFunilaria.ToString("N2");
+            frmOS.lblSomaPreparacao.Text = Classe_BancoHoras.somaPreparacao.ToString("N2");
+            frmOS.lblSomaPintura.Text = Classe_BancoHoras.somaPintura.ToString("N2");
+            frmOS.lblSomaPolimento.Text = Classe_BancoHoras.somaPolimento.ToString("N2");
+            frmOS.lblSomaRetrabalho.Text = Classe_BancoHoras.somaRetrabalho.ToString("N2");
+            frmOS.lblSomaHgienizacao.Text = Classe_BancoHoras.somaHigienização.ToString("N2");
+            frmOS.lblSomaEletrica.Text = Classe_BancoHoras.somaEletrica.ToString("N2");
+            frmOS.lblSomaMecanica.Text = Classe_BancoHoras.somaMecnica.ToString("N2");
+            frmOS.lblSomaGeometria.Text = Classe_BancoHoras.somaGeometria.ToString("N2");
+            frmOS.lblSomaEstofaria.Text = Classe_BancoHoras.somaEstofaria.ToString("N2");
 
         }
 

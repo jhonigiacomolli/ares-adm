@@ -201,8 +201,45 @@ namespace SHARP_INK.Classes
             Form.btnExcluir.BackColor = Color.FromArgb(40, 40, 40);
 
             //Painell Funcionarios
-            Form.lstFuncionarios.BackColor = Color.FromArgb(40, 40, 40);
+            Form.pnFuncionarios.BackColor = Color.FromArgb(40, 40, 40);
             Form.lstFuncionarios.BackColor = COR_Background_Listview;
+
+            Form.lblTituloLavacao.ForeColor = COR_Subtitulos;
+            Form.lblTituloDesmontagem.ForeColor = COR_Subtitulos;
+            Form.lblTituloMontagem.ForeColor = COR_Subtitulos;
+            Form.lblTituloSolda.ForeColor = COR_Subtitulos;
+            Form.lblTituloAlinhamento.ForeColor = COR_Subtitulos;
+            Form.lblTituloFunilaria.ForeColor = COR_Subtitulos;
+            Form.lblTituloPreparacao.ForeColor = COR_Subtitulos;
+            Form.lblTituloPintura.ForeColor = COR_Subtitulos;
+            Form.lblTituloPolimento.ForeColor = COR_Subtitulos;
+            Form.lblTituloRetrabalho.ForeColor = COR_Subtitulos;
+            Form.lblTituloHigienizacao.ForeColor = COR_Subtitulos;
+            Form.lblTituloEletrica.ForeColor = COR_Subtitulos;
+            Form.lblTituloMecanica.ForeColor = COR_Subtitulos;
+            Form.lblTituloGeometria.ForeColor = COR_Subtitulos;
+            Form.lblTituloEstofaria.ForeColor = COR_Subtitulos;
+
+            Form.lblSomaLavação.ForeColor = COR_Titulos;
+            Form.lblSomaDesmontagem.ForeColor = COR_Titulos;
+            Form.lblSomaMontagem.ForeColor = COR_Titulos;
+            Form.lblSomaSolda.ForeColor = COR_Titulos;
+            Form.lblSomaAlinhamento.ForeColor = COR_Titulos;
+            Form.lblSomaFunilaria.ForeColor = COR_Titulos;
+            Form.lblSomaPreparacao.ForeColor = COR_Titulos;
+            Form.lblSomaPintura.ForeColor = COR_Titulos;
+            Form.lblSomaPolimento.ForeColor = COR_Titulos;
+            Form.lblSomaRetrabalho.ForeColor = COR_Titulos;
+            Form.lblSomaHgienizacao.ForeColor = COR_Titulos;
+            Form.lblSomaEletrica.ForeColor = COR_Titulos;
+            Form.lblSomaMecanica.ForeColor = COR_Titulos;
+            Form.lblSomaGeometria.ForeColor = COR_Titulos;
+            Form.lblSomaEstofaria.ForeColor = COR_Titulos;
+
+            Form.btnApontar.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnLiberar.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnEditarApontamento.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnExcluirApontamento.BackColor = Color.FromArgb(40, 40, 40);
         }
 
         public void TEMA_frmProdutos(frmProdutos Form)

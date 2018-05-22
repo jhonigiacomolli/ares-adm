@@ -347,5 +347,11 @@ namespace SHARP_INK
         {
             btnAbrir.PerformClick();
         }
+
+        private void lstVeiculos_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = lstVeiculos.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
+        }
     }
 }

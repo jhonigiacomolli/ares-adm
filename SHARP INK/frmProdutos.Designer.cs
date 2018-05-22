@@ -121,6 +121,7 @@
             this.lstProdutos.Size = new System.Drawing.Size(1200, 457);
             this.lstProdutos.TabIndex = 4;
             this.lstProdutos.UseCompatibleStateImageBehavior = false;
+            this.lstProdutos.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstProdutos_ColumnWidthChanging);
             this.lstProdutos.DoubleClick += new System.EventHandler(this.lstProdutos_DoubleClick);
             this.lstProdutos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstProdutos_KeyDown);
             // 

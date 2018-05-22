@@ -43,11 +43,12 @@ namespace SHARP_INK
         }
         public void AtualizaDadosFuncionario()
         {
-            new Classe_OrdemServico().Atualizar_DadosFuncionarios(lstFuncionarios, txtNos.Text);
+            new Classe_OrdemServico().Atualizar_DadosFuncionarios(this,lstFuncionarios, txtNos.Text);
         }
         public void AtualizaDadosGrafico()
         {
             new Classe_OrdemServico().GraficoOS(this);
+            new Classe_BancoHoras().GraicoApontamento(this);
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -192,13 +193,13 @@ namespace SHARP_INK
         }
 
         private void btnGrafico_Click(object sender, EventArgs e)
-        {
-            AtualizaDadosGrafico();
-
+        {      
             pnItensOS.Visible = false;
             pnPecas.Visible = false;
             pnFuncionarios.Visible = false;
             pnGraficos.Visible = true;
+            AtualizaDadosFuncionario();
+            AtualizaDadosGrafico();
         }
 
         private void btnPainelFuncionarios_Click(object sender, EventArgs e)
@@ -369,9 +370,22 @@ namespace SHARP_INK
             new Classe_BancoHoras().Listar_ApontamentosOS(lstFuncionarios, SQL);
         }
 
-        private void cboFuncao_SelectedIndexChanged(object sender, EventArgs e)
+        private void lblTituloLavacao_Click(object sender, EventArgs e)
         {
-            
+            lstFuncionarios.SelectedItems.Clear();
+            new Classe_OrdemServico().HabilitarBotoesApontamento(this);
+        }
+
+        private void lstFuncionarios_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = lstFuncionarios.Columns[e.ColumnIndex].Width;
+            e.Cancel=true;
+        }
+
+        private void lstItensOS_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = lstItensOS.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
         }
     }
 }

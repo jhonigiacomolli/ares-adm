@@ -125,9 +125,9 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Função", 100);
             if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
             {
-                LST.Columns.Add("Horario Entrada", 100);
-                LST.Columns.Add("Horario Saida", 100);
-                LST.Columns.Add("Tempo Trabalho", 100);
+                LST.Columns.Add("Horario Entrada", 115);
+                LST.Columns.Add("Horario Saida", 115);
+                LST.Columns.Add("Tempo Trabalho", 85);
                 LST.Columns.Add("Custo", 100);
                 LST.Columns.Add("MO", 0);
             }

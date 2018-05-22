@@ -250,5 +250,11 @@ namespace SHARP_INK
                 }
             }        
         }
+
+        private void lstProdutos_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = lstProdutos.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
+        }
     }
 }

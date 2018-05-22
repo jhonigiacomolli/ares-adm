@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlServerCe;
 using System.Windows.Forms;
@@ -8,6 +9,22 @@ namespace SHARP_INK
 {
     public class Classe_BancoHoras
     {
+        public static double somaLavacao;
+        public static double somaDesmontagem;
+        public static double somaMontagem;
+        public static double somaSolda;
+        public static double somaAlinhamento;
+        public static double somaFunilaria;
+        public static double somaPreparacao;
+        public static double somaPintura;
+        public static double somaPolimento;
+        public static double somaRetrabalho;
+        public static double somaHigienização;
+        public static double somaEletrica;
+        public static double somaMecnica;
+        public static double somaGeometria;
+        public static double somaEstofaria;
+
         public void Listar_ApontamentosOS(ListView LST, string SQL)
         {
             try
@@ -278,6 +295,145 @@ namespace SHARP_INK
             }
 
             Form.ShowDialog();
+        }
+
+        public void Soma_Categorias(string ID_Veiculo)
+        {
+            string Funcao = "";
+
+            somaLavacao=0;
+            somaDesmontagem = 0;
+            somaMontagem = 0;
+            somaSolda = 0;
+            somaAlinhamento = 0;
+            somaFunilaria = 0;
+            somaPreparacao = 0;
+            somaPintura = 0;
+            somaPolimento = 0;
+            somaRetrabalho = 0;
+            somaHigienização = 0;
+            somaEletrica = 0;
+            somaMecnica = 0;
+            somaGeometria = 0;
+            somaEstofaria = 0;
+
+            try
+            {
+                DataTable DT = Classes_Conexao.Preenche_DataTable("SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID_Veiculo + "'");
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        Funcao = DR["Funcao"].ToString().TrimEnd().ToUpper();
+
+                        if (Funcao.Equals("LAVAÇÃO"))
+                        {
+                            somaLavacao = somaLavacao + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("DESMONTAGEM"))
+                        {
+                            somaDesmontagem = somaDesmontagem + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("MONTAGEM"))
+                        {
+                            somaMontagem = somaMontagem + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("SOLDA"))
+                        {
+                            somaSolda = somaSolda + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("ALINHAMENTO"))
+                        {
+                            somaAlinhamento = somaAlinhamento + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("FUNILARIA"))
+                        {
+                            somaFunilaria = somaFunilaria + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("PREPARAÇÃO"))
+                        {
+                            somaPreparacao = somaPreparacao + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("PINTURA"))
+                        {
+                            somaPintura = somaPintura + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("POLIMENTO"))
+                        {
+                            somaPolimento = somaPolimento + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("RETRABALHO"))
+                        {
+                            somaRetrabalho = somaRetrabalho + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("HIGIENIZAÇÃO"))
+                        {
+                            somaHigienização = somaHigienização + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("ELÉTRICA"))
+                        {
+                            somaEletrica = somaEletrica + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("MECÂNICA"))
+                        {
+                            somaMecnica = somaMecnica + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("GEOMETRIA"))
+                        {
+                            somaGeometria = somaGeometria + Convert.ToDouble(DR["Valor"]);
+                        }
+                        if (Funcao.Equals("ESTOFARIA"))
+                        {
+                            somaEstofaria = somaEstofaria + Convert.ToDouble(DR["Valor"]);
+                        }
+                    }
+                }
+                DT.Dispose();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
+        }
+
+        public void GraicoApontamento(frmOrdemServico Form)
+        {
+            double lavacao = Convert.ToDouble(Form.lblSomaLavação.Text);
+            double desmontagem = Convert.ToDouble(Form.lblSomaDesmontagem.Text);
+            double montagem = Convert.ToDouble(Form.lblSomaMontagem.Text);
+            double solda = Convert.ToDouble(Form.lblSomaSolda.Text);
+            double alinhamento = Convert.ToDouble(Form.lblSomaAlinhamento.Text);
+            double funilaria = Convert.ToDouble(Form.lblSomaFunilaria.Text);
+            double preparacao = Convert.ToDouble(Form.lblSomaPreparacao.Text);
+            double pintura = Convert.ToDouble(Form.lblSomaPintura.Text);
+            double polimento = Convert.ToDouble(Form.lblSomaPolimento.Text);
+            double retrabalho = Convert.ToDouble(Form.lblSomaRetrabalho.Text);
+            double higienizacao = Convert.ToDouble(Form.lblSomaHgienizacao.Text);
+            double eletrica = Convert.ToDouble(Form.lblSomaEletrica.Text);
+            double mecanica = Convert.ToDouble(Form.lblSomaMecanica.Text);
+            double geometria = Convert.ToDouble(Form.lblSomaGeometria.Text);
+            double estofaria = Convert.ToDouble(Form.lblSomaEstofaria.Text);
+            double total = lavacao + desmontagem + montagem + solda + alinhamento + funilaria + preparacao + pintura + polimento + retrabalho + higienizacao + eletrica + mecanica + geometria + estofaria;
+
+            Form.Grafico_Apontamentos.Series["Dados"].Points.Clear();
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Lavação", lavacao / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Desmontagem", desmontagem / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Montagem", montagem / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Solda", solda / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Alinhamento", alinhamento / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Funilaria", funilaria / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Preparação", preparacao / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Pintura", pintura / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Polimento", polimento / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Retrabalho", retrabalho / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Higienização", alinhamento / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Elétrica", eletrica / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Mecânica", mecanica / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Geometria", geometria / total);
+            Form.Grafico_Apontamentos.Series["Dados"].Points.AddXY("Estofaria", estofaria / total);
         }
     }
 }
