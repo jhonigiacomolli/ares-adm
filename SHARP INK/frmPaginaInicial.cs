@@ -124,5 +124,11 @@ namespace SHARP_INK
             frmProdutos Produtos = new frmProdutos("PRODUTO");
             Produtos.ShowDialog();
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            frmProdutos Pecas = new frmProdutos("PEÇAS");
+            Pecas.ShowDialog();
+        }
     }
 }

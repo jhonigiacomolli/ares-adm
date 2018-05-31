@@ -166,9 +166,12 @@ namespace SHARP_INK
             }
             if (e.KeyCode == Keys.Enter)
             {
-                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
-                e.Handled = true;
-                e.SuppressKeyPress = true;
+                Classe_Produtos Prod = new Classe_Produtos();
+                Prod.Listar_Produtos(txtCodigo.Text);
+
+                txtDescricao.Text = Prod.Descricao;
+                txtValorUnitario.Text = Prod.Venda.ToString();
+                txtQuantidade.Select();
             }
         }
 

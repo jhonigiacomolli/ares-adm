@@ -10,6 +10,7 @@ namespace SHARP_INK.Classes
     {
         public static Color Botao_Normal = Color.Silver;
         public static Color Botao_Sobre = Color.Maroon;
+        public static Color BordaBotao = Color.FromArgb(64,64,64);
         public static Color Botao_Desativado = Color.Black;
         public static Color MenuBotao_Normal= Color.FromArgb(26, 26, 26);
         public static Color MenuBotao_Sobre = Color.FromArgb(64, 64, 64);
@@ -174,6 +175,8 @@ namespace SHARP_INK.Classes
             //Painel Itens OS
 
             Form.pnItensOS.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnPainelGeral.BackColor= Color.FromArgb(40, 40, 40);
+            Form.btnPainelGeral.FlatAppearance.BorderColor= Color.FromArgb(40, 40, 40);
             Form.lstItensOS.BackColor = COR_Background_Listview;
 
             Form.lblTicket.ForeColor = COR_Subtitulos;
@@ -201,7 +204,7 @@ namespace SHARP_INK.Classes
             Form.btnExcluir.BackColor = Color.FromArgb(40, 40, 40);
 
             //Painell Funcionarios
-            Form.pnFuncionarios.BackColor = Color.FromArgb(40, 40, 40);
+            Form.pnFuncionarios.BackColor = Color.FromArgb(40, 40, 50);
             Form.lstFuncionarios.BackColor = COR_Background_Listview;
 
             Form.lblTituloLavacao.ForeColor = COR_Subtitulos;
@@ -236,10 +239,48 @@ namespace SHARP_INK.Classes
             Form.lblSomaGeometria.ForeColor = COR_Titulos;
             Form.lblSomaEstofaria.ForeColor = COR_Titulos;
 
-            Form.btnApontar.BackColor = Color.FromArgb(40, 40, 40);
-            Form.btnLiberar.BackColor = Color.FromArgb(40, 40, 40);
-            Form.btnEditarApontamento.BackColor = Color.FromArgb(40, 40, 40);
-            Form.btnExcluirApontamento.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnApontar.BackColor = Color.FromArgb(40, 40, 50);
+            Form.btnLiberar.BackColor = Color.FromArgb(40, 40, 50);
+            Form.btnEditarApontamento.BackColor = Color.FromArgb(40, 40, 50);
+            Form.btnExcluirApontamento.BackColor = Color.FromArgb(40, 40, 50);
+
+            //Painel Peças
+            Form.pnPecas.BackColor = Color.FromArgb(33, 38, 38);
+            Form.lstPecasPrincipais.BackColor = COR_Background_Listview;
+            Form.lstPecasComplementares.BackColor = COR_Background_Listview;
+            Form.btnIncluirPecaC.BackColor= Color.FromArgb(33, 38, 38);
+            Form.btnIncluirPecaP.BackColor = Color.FromArgb(33, 38, 38);
+            Form.btnEditarPeca.BackColor = Color.FromArgb(33, 38, 38);
+            Form.btnExcluirPeca.BackColor = Color.FromArgb(33, 38, 38);
+
+            Form.lblTituloTicketPEca.ForeColor = COR_Subtitulos;
+            Form.lblTituloNPecasC.ForeColor = COR_Subtitulos;
+            Form.lblTituloNPecasP.ForeColor = COR_Subtitulos;
+            Form.lblTituloPEcaCarroceria.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaEletrica.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaEstofados.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaFreios.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaMotor.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaSom.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaSuspensão.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaTransmissao.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaVidros.ForeColor = COR_Subtitulos;
+            Form.lblTituloPecaOutros.ForeColor = COR_Subtitulos;
+
+
+            Form.lblTicketPecas.ForeColor = COR_Titulos;
+            Form.lblN_PecasPrincipais.ForeColor = COR_Titulos;
+            Form.lblN_PecasComplementares.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaCarroceria.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaEletrica.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaEstofados.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaFreios.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaMotor.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaOutros.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaSom.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaSuspensao.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaTransmissao.ForeColor = COR_Titulos;
+            Form.lblSOMA_PecaVidros.ForeColor = COR_Titulos;
         }
 
         public void TEMA_frmProdutos(frmProdutos Form)
@@ -280,6 +321,25 @@ namespace SHARP_INK.Classes
 
             Form.btnGravar.BackColor = MenuBotao_Normal;
             Form.btnPesquisa.BackColor = MenuBotao_Normal;
+        }
+
+        public void TEMA_frmIncluirPeca(frmIncluirPeca Form)
+        {
+            // Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
+            Form.lblTituloCodigo.ForeColor = COR_Titulos;
+            Form.lblTituloDescricao.ForeColor = COR_Titulos;
+            Form.lblTituloQNT.ForeColor = COR_Titulos;
+            Form.lblTituloCustoTipo.ForeColor = COR_Titulos;
+            Form.lblTituloAplicacaoDano.ForeColor = COR_Titulos;
+            Form.lblTituloUnitario.ForeColor = COR_Titulos;
+
+            Form.btnGravar.BackColor = Botao_Normal;
+            Form.btnPesquisa.BackColor = Botao_Normal;
         }
     }
 }

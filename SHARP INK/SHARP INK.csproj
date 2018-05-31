@@ -73,11 +73,12 @@
     <Compile Include="Classes\Classe_Listviews.cs" />
     <Compile Include="Classes\Classe_Mensagem.cs" />
     <Compile Include="Classes\Classe_OrdemServico.cs" />
+    <Compile Include="Classes\Classe_Pecas.cs" />
     <Compile Include="Classes\Classe_Produtos.cs" />
     <Compile Include="Classes\Classe_Tema.cs" />
     <Compile Include="Classes\Classe_Veiculos.cs" />
     <Compile Include="Classes\LST_Column_Reorder.cs" />
-    <Compile Include="Classe_BancoHoras.cs" />
+    <Compile Include="Classes\Classe_BancoHoras.cs" />
     <Compile Include="frmApontamentoFunc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,12 @@
     </Compile>
     <Compile Include="frmIncluirItem.Designer.cs">
       <DependentUpon>frmIncluirItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIncluirPeca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIncluirPeca.Designer.cs">
+      <DependentUpon>frmIncluirPeca.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListaOS.cs">
       <SubType>Form</SubType>
@@ -136,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIncluirItem.resx">
       <DependentUpon>frmIncluirItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIncluirPeca.resx">
+      <DependentUpon>frmIncluirPeca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaOS.resx">
       <DependentUpon>frmListaOS.cs</DependentUpon>

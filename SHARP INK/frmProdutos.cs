@@ -15,6 +15,7 @@ namespace SHARP_INK
         bool mouseDown;
         Point lastLocation;
         frmIncluirItem frmIncluir;
+        frmIncluirPeca frmincluirpeca;
         frmApontamentoFunc frmapontamento;
         public string Genero;
 
@@ -28,6 +29,7 @@ namespace SHARP_INK
             if (Genero.Equals("PRODUTO"))
             {
                 lblTituloForm.Text = "SHARP INK - Produtos";
+                this.Text = "SHARP INK - Produtos";
                 new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
                 new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
                 new Classe_Produtos().Listar_Produtos(lstProdutos, "SELECT * FROM Produtos ORDER BY Descricao ASC");
@@ -35,9 +37,17 @@ namespace SHARP_INK
             if (Genero.Equals("FUNCIONARIO"))
             {
                 lblTituloForm.Text = "SHARP INK - Funcionarios";
+                this.Text = "SHARP INK - Funcionarios";
                 new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
                 new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
                 new Classe_Funcionario().Listar_Funcionarios(lstProdutos, "SELECT * FROM Funcionarios ORDER BY Nome ASC");
+            }
+            if (Genero.Equals("PEÇAS"))
+            {
+                lblTituloForm.Text = "SHARP INK - Peças";
+                this.Text = "SHARP INK - Peças";
+                new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
+                new Classe_Pecas().Listar_Pecas(lstProdutos, "SELECT * FROM Pecas ORDER BY Descricao ASC");
             }
         }
 
@@ -60,6 +70,16 @@ namespace SHARP_INK
             new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
             new Classe_Funcionario().Listar_Funcionarios(lstProdutos, SQL);
+        }
+        public frmProdutos(frmIncluirPeca frmincluirpeca, string SQL)
+        {
+            InitializeComponent();
+            lblTituloForm.Text = "SHARP INK - Funcionarios";
+            this.frmincluirpeca = frmincluirpeca;
+            new Classe_Tema().TEMA_frmProdutos(this);
+            new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
+            //new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
+            new Classe_Pecas().Listar_Pecas(lstProdutos, SQL);
         }
 
         private void txtPesquisa_Enter(object sender, EventArgs e)
@@ -248,6 +268,15 @@ namespace SHARP_INK
                 {
                     frmapontamento.cboFuncao.Select();
                 }
+            }
+
+            if (frmincluirpeca != null)
+            {
+                frmincluirpeca.txtCodigo.Text = lstProdutos.FocusedItem.SubItems[0].Text;
+                frmincluirpeca.txtDescricao.Text = lstProdutos.FocusedItem.SubItems[2].Text;
+                frmincluirpeca.txtUnitario.Text = lstProdutos.FocusedItem.SubItems[5].Text;
+                frmincluirpeca.cboAplicacaoDano.Text = lstProdutos.FocusedItem.SubItems[3].Text;
+                this.Close();
             }        
         }
 

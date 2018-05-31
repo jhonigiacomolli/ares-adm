@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdemServico));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnFavIcon = new System.Windows.Forms.Panel();
@@ -53,20 +53,13 @@
             this.txtCor = new System.Windows.Forms.Label();
             this.txtTamanho = new System.Windows.Forms.Label();
             this.pnItensOS = new System.Windows.Forms.Panel();
-            this.txtRateio = new System.Windows.Forms.Label();
             this.lblRateio = new System.Windows.Forms.Label();
-            this.txtSomaDiversos = new System.Windows.Forms.Label();
-            this.txtSomaAbrasivos = new System.Windows.Forms.Label();
-            this.txtSomaPolidores = new System.Windows.Forms.Label();
-            this.txtSomaTinta = new System.Windows.Forms.Label();
             this.lblPolidores = new System.Windows.Forms.Label();
             this.lblDIversos = new System.Windows.Forms.Label();
             this.lblTinta = new System.Windows.Forms.Label();
-            this.txtSomaCatalises = new System.Windows.Forms.Label();
             this.lblCatalise = new System.Windows.Forms.Label();
             this.lblAbrasivos = new System.Windows.Forms.Label();
             this.lstItensOS = new System.Windows.Forms.ListView();
-            this.txtMediaPeca = new System.Windows.Forms.Label();
             this.lblTicket = new System.Windows.Forms.Label();
             this.lblN_Pecas = new System.Windows.Forms.Label();
             this.txtN_Pecas = new System.Windows.Forms.Label();
@@ -79,7 +72,15 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.cboGrupos = new System.Windows.Forms.ComboBox();
             this.pnLogo = new System.Windows.Forms.Panel();
+            this.txtRateio = new System.Windows.Forms.Label();
+            this.txtMediaPeca = new System.Windows.Forms.Label();
+            this.txtSomaAbrasivos = new System.Windows.Forms.Label();
+            this.txtSomaDiversos = new System.Windows.Forms.Label();
+            this.txtSomaPolidores = new System.Windows.Forms.Label();
+            this.txtSomaTinta = new System.Windows.Forms.Label();
+            this.txtSomaCatalises = new System.Windows.Forms.Label();
             this.pnGraficos = new System.Windows.Forms.Panel();
+            this.Grafico_Apontamentos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Grafico_Dados = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnPainelGeral = new System.Windows.Forms.Button();
             this.lblRazaoSocial = new System.Windows.Forms.Label();
@@ -87,12 +88,44 @@
             this.lblEndereço = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
-            this.picLogoEmpresa = new System.Windows.Forms.PictureBox();
             this.btnPainelGrafico = new System.Windows.Forms.Button();
             this.btnPainelPecas = new System.Windows.Forms.Button();
             this.btnPainelFuncionarios = new System.Windows.Forms.Button();
             this.pnPecas = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblN_PecasPrincipais = new System.Windows.Forms.Label();
+            this.lblN_PecasComplementares = new System.Windows.Forms.Label();
+            this.lblTicketPecas = new System.Windows.Forms.Label();
+            this.lblTituloNPecasP = new System.Windows.Forms.Label();
+            this.lblTituloNPecasC = new System.Windows.Forms.Label();
+            this.lblTituloTicketPEca = new System.Windows.Forms.Label();
+            this.cboFiltroPeca2 = new System.Windows.Forms.ComboBox();
+            this.cboFiltroPEca1 = new System.Windows.Forms.ComboBox();
+            this.lblSOMA_PecaOutros = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaMotor = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaTransmissao = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaVidros = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaEletrica = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaSuspensao = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaSom = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaFreios = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaEstofados = new System.Windows.Forms.Label();
+            this.lblSOMA_PecaCarroceria = new System.Windows.Forms.Label();
+            this.btnExcluirPeca = new System.Windows.Forms.Button();
+            this.btnEditarPeca = new System.Windows.Forms.Button();
+            this.btnIncluirPecaP = new System.Windows.Forms.Button();
+            this.btnIncluirPecaC = new System.Windows.Forms.Button();
+            this.lstPecasComplementares = new System.Windows.Forms.ListView();
+            this.lstPecasPrincipais = new System.Windows.Forms.ListView();
+            this.lblTituloPecaEletrica = new System.Windows.Forms.Label();
+            this.lblTituloPecaMotor = new System.Windows.Forms.Label();
+            this.lblTituloPecaFreios = new System.Windows.Forms.Label();
+            this.lblTituloPecaEstofados = new System.Windows.Forms.Label();
+            this.lblTituloPEcaCarroceria = new System.Windows.Forms.Label();
+            this.lblTituloPecaTransmissao = new System.Windows.Forms.Label();
+            this.lblTituloPecaOutros = new System.Windows.Forms.Label();
+            this.lblTituloPecaVidros = new System.Windows.Forms.Label();
+            this.lblTituloPecaSom = new System.Windows.Forms.Label();
+            this.lblTituloPecaSuspensão = new System.Windows.Forms.Label();
             this.pnFuncionarios = new System.Windows.Forms.Panel();
             this.lblSomaEstofaria = new System.Windows.Forms.Label();
             this.lblSomaRetrabalho = new System.Windows.Forms.Label();
@@ -131,16 +164,16 @@
             this.btnLiberar = new System.Windows.Forms.Button();
             this.cboFuncao = new System.Windows.Forms.ComboBox();
             this.lstFuncionarios = new System.Windows.Forms.ListView();
-            this.Grafico_Apontamentos = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.picLogoEmpresa = new System.Windows.Forms.PictureBox();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.pnItensOS.SuspendLayout();
             this.pnGraficos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico_Apontamentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico_Dados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).BeginInit();
             this.pnPecas.SuspendLayout();
             this.pnFuncionarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grafico_Apontamentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).BeginInit();
             this.SuspendLayout();
             // 
             // pnCabecalho
@@ -369,21 +402,14 @@
             this.pnItensOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnItensOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.pnItensOS.Controls.Add(this.txtRateio);
+            this.pnItensOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(42)))));
             this.pnItensOS.Controls.Add(this.lblRateio);
-            this.pnItensOS.Controls.Add(this.txtSomaDiversos);
-            this.pnItensOS.Controls.Add(this.txtSomaAbrasivos);
-            this.pnItensOS.Controls.Add(this.txtSomaPolidores);
-            this.pnItensOS.Controls.Add(this.txtSomaTinta);
             this.pnItensOS.Controls.Add(this.lblPolidores);
             this.pnItensOS.Controls.Add(this.lblDIversos);
             this.pnItensOS.Controls.Add(this.lblTinta);
-            this.pnItensOS.Controls.Add(this.txtSomaCatalises);
             this.pnItensOS.Controls.Add(this.lblCatalise);
             this.pnItensOS.Controls.Add(this.lblAbrasivos);
             this.pnItensOS.Controls.Add(this.lstItensOS);
-            this.pnItensOS.Controls.Add(this.txtMediaPeca);
             this.pnItensOS.Controls.Add(this.lblTicket);
             this.pnItensOS.Controls.Add(this.lblN_Pecas);
             this.pnItensOS.Controls.Add(this.txtN_Pecas);
@@ -396,154 +422,83 @@
             this.pnItensOS.Controls.Add(this.btnExcluir);
             this.pnItensOS.Controls.Add(this.cboGrupos);
             this.pnItensOS.Controls.Add(this.pnLogo);
+            this.pnItensOS.Controls.Add(this.txtRateio);
+            this.pnItensOS.Controls.Add(this.txtMediaPeca);
+            this.pnItensOS.Controls.Add(this.txtSomaAbrasivos);
+            this.pnItensOS.Controls.Add(this.txtSomaDiversos);
+            this.pnItensOS.Controls.Add(this.txtSomaPolidores);
+            this.pnItensOS.Controls.Add(this.txtSomaTinta);
+            this.pnItensOS.Controls.Add(this.txtSomaCatalises);
             this.pnItensOS.Location = new System.Drawing.Point(0, 230);
             this.pnItensOS.Name = "pnItensOS";
             this.pnItensOS.Size = new System.Drawing.Size(671, 478);
             this.pnItensOS.TabIndex = 16;
-            // 
-            // txtRateio
-            // 
-            this.txtRateio.BackColor = System.Drawing.Color.Transparent;
-            this.txtRateio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRateio.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtRateio.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtRateio.Location = new System.Drawing.Point(308, 82);
-            this.txtRateio.Name = "txtRateio";
-            this.txtRateio.Size = new System.Drawing.Size(94, 20);
-            this.txtRateio.TabIndex = 130;
-            this.txtRateio.Text = "0,00";
-            this.txtRateio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblRateio
             // 
             this.lblRateio.BackColor = System.Drawing.Color.Transparent;
             this.lblRateio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblRateio.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblRateio.Location = new System.Drawing.Point(216, 86);
+            this.lblRateio.Location = new System.Drawing.Point(239, 72);
             this.lblRateio.Name = "lblRateio";
             this.lblRateio.Size = new System.Drawing.Size(63, 13);
             this.lblRateio.TabIndex = 129;
             this.lblRateio.Text = "Rateio";
-            // 
-            // txtSomaDiversos
-            // 
-            this.txtSomaDiversos.BackColor = System.Drawing.Color.Transparent;
-            this.txtSomaDiversos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSomaDiversos.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtSomaDiversos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaDiversos.Location = new System.Drawing.Point(559, 102);
-            this.txtSomaDiversos.Name = "txtSomaDiversos";
-            this.txtSomaDiversos.Size = new System.Drawing.Size(100, 20);
-            this.txtSomaDiversos.TabIndex = 120;
-            this.txtSomaDiversos.Text = "Soma Diversos";
-            this.txtSomaDiversos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtSomaAbrasivos
-            // 
-            this.txtSomaAbrasivos.BackColor = System.Drawing.Color.Transparent;
-            this.txtSomaAbrasivos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSomaAbrasivos.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtSomaAbrasivos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaAbrasivos.Location = new System.Drawing.Point(559, 4);
-            this.txtSomaAbrasivos.Name = "txtSomaAbrasivos";
-            this.txtSomaAbrasivos.Size = new System.Drawing.Size(100, 20);
-            this.txtSomaAbrasivos.TabIndex = 112;
-            this.txtSomaAbrasivos.Text = "Soma Abrasivos";
-            this.txtSomaAbrasivos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtSomaPolidores
-            // 
-            this.txtSomaPolidores.BackColor = System.Drawing.Color.Transparent;
-            this.txtSomaPolidores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSomaPolidores.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtSomaPolidores.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaPolidores.Location = new System.Drawing.Point(559, 78);
-            this.txtSomaPolidores.Name = "txtSomaPolidores";
-            this.txtSomaPolidores.Size = new System.Drawing.Size(100, 20);
-            this.txtSomaPolidores.TabIndex = 119;
-            this.txtSomaPolidores.Text = "Soma Polidores";
-            this.txtSomaPolidores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtSomaTinta
-            // 
-            this.txtSomaTinta.BackColor = System.Drawing.Color.Transparent;
-            this.txtSomaTinta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSomaTinta.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtSomaTinta.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaTinta.Location = new System.Drawing.Point(559, 54);
-            this.txtSomaTinta.Name = "txtSomaTinta";
-            this.txtSomaTinta.Size = new System.Drawing.Size(100, 20);
-            this.txtSomaTinta.TabIndex = 121;
-            this.txtSomaTinta.Text = "Soma Tinta";
-            this.txtSomaTinta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPolidores
             // 
             this.lblPolidores.BackColor = System.Drawing.Color.Transparent;
             this.lblPolidores.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblPolidores.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblPolidores.Location = new System.Drawing.Point(428, 82);
+            this.lblPolidores.Location = new System.Drawing.Point(495, 72);
             this.lblPolidores.Name = "lblPolidores";
-            this.lblPolidores.Size = new System.Drawing.Size(126, 13);
+            this.lblPolidores.Size = new System.Drawing.Size(90, 13);
             this.lblPolidores.TabIndex = 118;
-            this.lblPolidores.Text = "Gastos com POLIDORES";
+            this.lblPolidores.Text = "Polidores";
             // 
             // lblDIversos
             // 
             this.lblDIversos.BackColor = System.Drawing.Color.Transparent;
             this.lblDIversos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblDIversos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblDIversos.Location = new System.Drawing.Point(428, 106);
+            this.lblDIversos.Location = new System.Drawing.Point(495, 93);
             this.lblDIversos.Name = "lblDIversos";
-            this.lblDIversos.Size = new System.Drawing.Size(119, 13);
+            this.lblDIversos.Size = new System.Drawing.Size(90, 13);
             this.lblDIversos.TabIndex = 117;
-            this.lblDIversos.Text = "Gastos com DIVERSOS";
+            this.lblDIversos.Text = "Diversos";
             // 
             // lblTinta
             // 
             this.lblTinta.BackColor = System.Drawing.Color.Transparent;
             this.lblTinta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTinta.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTinta.Location = new System.Drawing.Point(428, 58);
+            this.lblTinta.Location = new System.Drawing.Point(495, 51);
             this.lblTinta.Name = "lblTinta";
-            this.lblTinta.Size = new System.Drawing.Size(92, 13);
+            this.lblTinta.Size = new System.Drawing.Size(90, 13);
             this.lblTinta.TabIndex = 116;
-            this.lblTinta.Text = "Gastos com TINTA";
-            // 
-            // txtSomaCatalises
-            // 
-            this.txtSomaCatalises.BackColor = System.Drawing.Color.Transparent;
-            this.txtSomaCatalises.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSomaCatalises.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtSomaCatalises.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSomaCatalises.Location = new System.Drawing.Point(559, 29);
-            this.txtSomaCatalises.Name = "txtSomaCatalises";
-            this.txtSomaCatalises.Size = new System.Drawing.Size(100, 20);
-            this.txtSomaCatalises.TabIndex = 115;
-            this.txtSomaCatalises.Text = "Soma Catalises";
-            this.txtSomaCatalises.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTinta.Text = "Tintas";
             // 
             // lblCatalise
             // 
             this.lblCatalise.BackColor = System.Drawing.Color.Transparent;
             this.lblCatalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCatalise.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblCatalise.Location = new System.Drawing.Point(428, 33);
+            this.lblCatalise.Location = new System.Drawing.Point(495, 30);
             this.lblCatalise.Name = "lblCatalise";
-            this.lblCatalise.Size = new System.Drawing.Size(121, 13);
+            this.lblCatalise.Size = new System.Drawing.Size(90, 13);
             this.lblCatalise.TabIndex = 114;
-            this.lblCatalise.Text = "Gastos com CATALISES";
+            this.lblCatalise.Text = "Catalises";
             // 
             // lblAbrasivos
             // 
             this.lblAbrasivos.BackColor = System.Drawing.Color.Transparent;
             this.lblAbrasivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblAbrasivos.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblAbrasivos.Location = new System.Drawing.Point(428, 8);
+            this.lblAbrasivos.Location = new System.Drawing.Point(495, 9);
             this.lblAbrasivos.Name = "lblAbrasivos";
-            this.lblAbrasivos.Size = new System.Drawing.Size(125, 13);
+            this.lblAbrasivos.Size = new System.Drawing.Size(90, 13);
             this.lblAbrasivos.TabIndex = 113;
-            this.lblAbrasivos.Text = "Gastos com ABRASIVOS";
+            this.lblAbrasivos.Text = "Abrasivos";
             // 
             // lstItensOS
             // 
@@ -561,25 +516,12 @@
             this.lstItensOS.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstItensOS_ColumnClick);
             this.lstItensOS.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstItensOS_ColumnWidthChanging);
             // 
-            // txtMediaPeca
-            // 
-            this.txtMediaPeca.BackColor = System.Drawing.Color.Transparent;
-            this.txtMediaPeca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMediaPeca.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
-            this.txtMediaPeca.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtMediaPeca.Location = new System.Drawing.Point(308, 58);
-            this.txtMediaPeca.Name = "txtMediaPeca";
-            this.txtMediaPeca.Size = new System.Drawing.Size(94, 20);
-            this.txtMediaPeca.TabIndex = 127;
-            this.txtMediaPeca.Text = "0,00";
-            this.txtMediaPeca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblTicket
             // 
             this.lblTicket.BackColor = System.Drawing.Color.Transparent;
             this.lblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTicket.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTicket.Location = new System.Drawing.Point(216, 12);
+            this.lblTicket.Location = new System.Drawing.Point(239, 9);
             this.lblTicket.Name = "lblTicket";
             this.lblTicket.Size = new System.Drawing.Size(85, 13);
             this.lblTicket.TabIndex = 122;
@@ -590,7 +532,7 @@
             this.lblN_Pecas.BackColor = System.Drawing.Color.Transparent;
             this.lblN_Pecas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblN_Pecas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblN_Pecas.Location = new System.Drawing.Point(215, 37);
+            this.lblN_Pecas.Location = new System.Drawing.Point(239, 30);
             this.lblN_Pecas.Name = "lblN_Pecas";
             this.lblN_Pecas.Size = new System.Drawing.Size(65, 13);
             this.lblN_Pecas.TabIndex = 123;
@@ -600,12 +542,11 @@
             // txtN_Pecas
             // 
             this.txtN_Pecas.BackColor = System.Drawing.Color.Transparent;
-            this.txtN_Pecas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtN_Pecas.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtN_Pecas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtN_Pecas.Location = new System.Drawing.Point(308, 33);
+            this.txtN_Pecas.Location = new System.Drawing.Point(329, 26);
             this.txtN_Pecas.Name = "txtN_Pecas";
-            this.txtN_Pecas.Size = new System.Drawing.Size(94, 20);
+            this.txtN_Pecas.Size = new System.Drawing.Size(71, 20);
             this.txtN_Pecas.TabIndex = 126;
             this.txtN_Pecas.Text = "0,00";
             this.txtN_Pecas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -615,7 +556,7 @@
             this.lblMediaPecas.BackColor = System.Drawing.Color.Transparent;
             this.lblMediaPecas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblMediaPecas.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblMediaPecas.Location = new System.Drawing.Point(216, 62);
+            this.lblMediaPecas.Location = new System.Drawing.Point(239, 51);
             this.lblMediaPecas.Name = "lblMediaPecas";
             this.lblMediaPecas.Size = new System.Drawing.Size(63, 13);
             this.lblMediaPecas.TabIndex = 124;
@@ -624,12 +565,12 @@
             // txtTicket
             // 
             this.txtTicket.BackColor = System.Drawing.Color.Transparent;
-            this.txtTicket.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtTicket.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.txtTicket.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtTicket.Location = new System.Drawing.Point(308, 8);
+            this.txtTicket.Location = new System.Drawing.Point(329, 5);
             this.txtTicket.Name = "txtTicket";
-            this.txtTicket.Size = new System.Drawing.Size(94, 20);
+            this.txtTicket.Size = new System.Drawing.Size(71, 20);
             this.txtTicket.TabIndex = 125;
             this.txtTicket.Text = "0,00";
             this.txtTicket.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -725,6 +666,90 @@
             this.pnLogo.Size = new System.Drawing.Size(206, 64);
             this.pnLogo.TabIndex = 128;
             // 
+            // txtRateio
+            // 
+            this.txtRateio.BackColor = System.Drawing.Color.Transparent;
+            this.txtRateio.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtRateio.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtRateio.Location = new System.Drawing.Point(329, 68);
+            this.txtRateio.Name = "txtRateio";
+            this.txtRateio.Size = new System.Drawing.Size(71, 20);
+            this.txtRateio.TabIndex = 130;
+            this.txtRateio.Text = "0,00";
+            this.txtRateio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtMediaPeca
+            // 
+            this.txtMediaPeca.BackColor = System.Drawing.Color.Transparent;
+            this.txtMediaPeca.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtMediaPeca.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtMediaPeca.Location = new System.Drawing.Point(329, 47);
+            this.txtMediaPeca.Name = "txtMediaPeca";
+            this.txtMediaPeca.Size = new System.Drawing.Size(71, 20);
+            this.txtMediaPeca.TabIndex = 127;
+            this.txtMediaPeca.Text = "0,00";
+            this.txtMediaPeca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSomaAbrasivos
+            // 
+            this.txtSomaAbrasivos.BackColor = System.Drawing.Color.Transparent;
+            this.txtSomaAbrasivos.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtSomaAbrasivos.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSomaAbrasivos.Location = new System.Drawing.Point(566, 5);
+            this.txtSomaAbrasivos.Name = "txtSomaAbrasivos";
+            this.txtSomaAbrasivos.Size = new System.Drawing.Size(74, 20);
+            this.txtSomaAbrasivos.TabIndex = 112;
+            this.txtSomaAbrasivos.Text = "1000,00";
+            this.txtSomaAbrasivos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSomaDiversos
+            // 
+            this.txtSomaDiversos.BackColor = System.Drawing.Color.Transparent;
+            this.txtSomaDiversos.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtSomaDiversos.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSomaDiversos.Location = new System.Drawing.Point(566, 89);
+            this.txtSomaDiversos.Name = "txtSomaDiversos";
+            this.txtSomaDiversos.Size = new System.Drawing.Size(74, 20);
+            this.txtSomaDiversos.TabIndex = 120;
+            this.txtSomaDiversos.Text = "1000,00";
+            this.txtSomaDiversos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSomaPolidores
+            // 
+            this.txtSomaPolidores.BackColor = System.Drawing.Color.Transparent;
+            this.txtSomaPolidores.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtSomaPolidores.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSomaPolidores.Location = new System.Drawing.Point(566, 68);
+            this.txtSomaPolidores.Name = "txtSomaPolidores";
+            this.txtSomaPolidores.Size = new System.Drawing.Size(74, 20);
+            this.txtSomaPolidores.TabIndex = 119;
+            this.txtSomaPolidores.Text = "1000,00";
+            this.txtSomaPolidores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSomaTinta
+            // 
+            this.txtSomaTinta.BackColor = System.Drawing.Color.Transparent;
+            this.txtSomaTinta.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtSomaTinta.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSomaTinta.Location = new System.Drawing.Point(566, 47);
+            this.txtSomaTinta.Name = "txtSomaTinta";
+            this.txtSomaTinta.Size = new System.Drawing.Size(74, 20);
+            this.txtSomaTinta.TabIndex = 121;
+            this.txtSomaTinta.Text = "1000,00";
+            this.txtSomaTinta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtSomaCatalises
+            // 
+            this.txtSomaCatalises.BackColor = System.Drawing.Color.Transparent;
+            this.txtSomaCatalises.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.txtSomaCatalises.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSomaCatalises.Location = new System.Drawing.Point(566, 26);
+            this.txtSomaCatalises.Name = "txtSomaCatalises";
+            this.txtSomaCatalises.Size = new System.Drawing.Size(74, 20);
+            this.txtSomaCatalises.TabIndex = 115;
+            this.txtSomaCatalises.Text = "1000,00";
+            this.txtSomaCatalises.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // pnGraficos
             // 
             this.pnGraficos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -738,6 +763,64 @@
             this.pnGraficos.Size = new System.Drawing.Size(671, 478);
             this.pnGraficos.TabIndex = 128;
             this.pnGraficos.Visible = false;
+            // 
+            // Grafico_Apontamentos
+            // 
+            this.Grafico_Apontamentos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Grafico_Apontamentos.BackColor = System.Drawing.Color.Transparent;
+            this.Grafico_Apontamentos.BorderlineColor = System.Drawing.Color.Transparent;
+            this.Grafico_Apontamentos.BorderlineWidth = 0;
+            chartArea3.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea3.Area3DStyle.Enable3D = true;
+            chartArea3.Area3DStyle.Inclination = 50;
+            chartArea3.Area3DStyle.IsRightAngleAxes = false;
+            chartArea3.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea3.Area3DStyle.Rotation = 60;
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.LabelStyle.Format = "%";
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            this.Grafico_Apontamentos.ChartAreas.Add(chartArea3);
+            this.Grafico_Apontamentos.IsSoftShadows = false;
+            legend3.Alignment = System.Drawing.StringAlignment.Center;
+            legend3.BackColor = System.Drawing.Color.Transparent;
+            legend3.ForeColor = System.Drawing.Color.White;
+            legend3.Name = "Legend1";
+            this.Grafico_Apontamentos.Legends.Add(legend3);
+            this.Grafico_Apontamentos.Location = new System.Drawing.Point(376, 192);
+            this.Grafico_Apontamentos.Margin = new System.Windows.Forms.Padding(0);
+            this.Grafico_Apontamentos.Name = "Grafico_Apontamentos";
+            this.Grafico_Apontamentos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.Grafico_Apontamentos.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Purple,
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192))))),
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Lime};
+            series3.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series3.BorderWidth = 0;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Color = System.Drawing.Color.Transparent;
+            series3.CustomProperties = "CollectedColor=Transparent";
+            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.IsValueShownAsLabel = true;
+            series3.IsXValueIndexed = true;
+            series3.LabelBackColor = System.Drawing.Color.Transparent;
+            series3.LabelBorderWidth = 0;
+            series3.LabelFormat = "{0:#0.##%}";
+            series3.Legend = "Legend1";
+            series3.MarkerColor = System.Drawing.Color.White;
+            series3.MarkerSize = 3;
+            series3.Name = "Dados";
+            series3.ShadowColor = System.Drawing.Color.WhiteSmoke;
+            this.Grafico_Apontamentos.Series.Add(series3);
+            this.Grafico_Apontamentos.Size = new System.Drawing.Size(257, 213);
+            this.Grafico_Apontamentos.TabIndex = 129;
+            this.Grafico_Apontamentos.Text = "chart1";
+            this.Grafico_Apontamentos.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
             // 
             // Grafico_Dados
             // 
@@ -800,14 +883,14 @@
             // btnPainelGeral
             // 
             this.btnPainelGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPainelGeral.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelGeral.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelGeral.ForeColor = System.Drawing.Color.Silver;
             this.btnPainelGeral.Location = new System.Drawing.Point(2, 200);
             this.btnPainelGeral.Name = "btnPainelGeral";
             this.btnPainelGeral.Size = new System.Drawing.Size(90, 30);
             this.btnPainelGeral.TabIndex = 129;
-            this.btnPainelGeral.Text = "Geral";
+            this.btnPainelGeral.Text = "Produtos";
             this.btnPainelGeral.UseVisualStyleBackColor = true;
             this.btnPainelGeral.Click += new System.EventHandler(this.btnItens_Click);
             // 
@@ -881,21 +964,10 @@
             this.lblTelefone.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblTelefone.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
-            // picLogoEmpresa
-            // 
-            this.picLogoEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picLogoEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLogoEmpresa.Location = new System.Drawing.Point(435, 46);
-            this.picLogoEmpresa.Name = "picLogoEmpresa";
-            this.picLogoEmpresa.Size = new System.Drawing.Size(197, 71);
-            this.picLogoEmpresa.TabIndex = 15;
-            this.picLogoEmpresa.TabStop = false;
-            this.picLogoEmpresa.Click += new System.EventHandler(this.lblTituloLavacao_Click);
-            // 
             // btnPainelGrafico
             // 
             this.btnPainelGrafico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPainelGrafico.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelGrafico.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelGrafico.ForeColor = System.Drawing.Color.Silver;
             this.btnPainelGrafico.Location = new System.Drawing.Point(272, 200);
@@ -909,7 +981,7 @@
             // btnPainelPecas
             // 
             this.btnPainelPecas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPainelPecas.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelPecas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelPecas.ForeColor = System.Drawing.Color.Silver;
             this.btnPainelPecas.Location = new System.Drawing.Point(92, 200);
@@ -923,7 +995,7 @@
             // btnPainelFuncionarios
             // 
             this.btnPainelFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPainelFuncionarios.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnPainelFuncionarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelFuncionarios.ForeColor = System.Drawing.Color.Silver;
             this.btnPainelFuncionarios.Location = new System.Drawing.Point(182, 200);
@@ -939,24 +1011,452 @@
             this.pnPecas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnPecas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.pnPecas.Controls.Add(this.label2);
+            this.pnPecas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.pnPecas.Controls.Add(this.lblN_PecasPrincipais);
+            this.pnPecas.Controls.Add(this.lblN_PecasComplementares);
+            this.pnPecas.Controls.Add(this.lblTicketPecas);
+            this.pnPecas.Controls.Add(this.lblTituloNPecasP);
+            this.pnPecas.Controls.Add(this.lblTituloNPecasC);
+            this.pnPecas.Controls.Add(this.lblTituloTicketPEca);
+            this.pnPecas.Controls.Add(this.cboFiltroPeca2);
+            this.pnPecas.Controls.Add(this.cboFiltroPEca1);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaOutros);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaMotor);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaTransmissao);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaVidros);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaEletrica);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaSuspensao);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaSom);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaFreios);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaEstofados);
+            this.pnPecas.Controls.Add(this.lblSOMA_PecaCarroceria);
+            this.pnPecas.Controls.Add(this.btnExcluirPeca);
+            this.pnPecas.Controls.Add(this.btnEditarPeca);
+            this.pnPecas.Controls.Add(this.btnIncluirPecaP);
+            this.pnPecas.Controls.Add(this.btnIncluirPecaC);
+            this.pnPecas.Controls.Add(this.lstPecasComplementares);
+            this.pnPecas.Controls.Add(this.lstPecasPrincipais);
+            this.pnPecas.Controls.Add(this.lblTituloPecaEletrica);
+            this.pnPecas.Controls.Add(this.lblTituloPecaMotor);
+            this.pnPecas.Controls.Add(this.lblTituloPecaFreios);
+            this.pnPecas.Controls.Add(this.lblTituloPecaEstofados);
+            this.pnPecas.Controls.Add(this.lblTituloPEcaCarroceria);
+            this.pnPecas.Controls.Add(this.lblTituloPecaTransmissao);
+            this.pnPecas.Controls.Add(this.lblTituloPecaOutros);
+            this.pnPecas.Controls.Add(this.lblTituloPecaVidros);
+            this.pnPecas.Controls.Add(this.lblTituloPecaSom);
+            this.pnPecas.Controls.Add(this.lblTituloPecaSuspensão);
             this.pnPecas.Location = new System.Drawing.Point(0, 230);
             this.pnPecas.Name = "pnPecas";
             this.pnPecas.Size = new System.Drawing.Size(671, 478);
             this.pnPecas.TabIndex = 129;
             this.pnPecas.Visible = false;
             // 
-            // label2
+            // lblN_PecasPrincipais
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(289, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 133;
-            this.label2.Text = "peças";
+            this.lblN_PecasPrincipais.BackColor = System.Drawing.Color.Transparent;
+            this.lblN_PecasPrincipais.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblN_PecasPrincipais.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblN_PecasPrincipais.Location = new System.Drawing.Point(141, 48);
+            this.lblN_PecasPrincipais.Name = "lblN_PecasPrincipais";
+            this.lblN_PecasPrincipais.Size = new System.Drawing.Size(71, 20);
+            this.lblN_PecasPrincipais.TabIndex = 184;
+            this.lblN_PecasPrincipais.Text = "1000,00";
+            this.lblN_PecasPrincipais.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblN_PecasComplementares
+            // 
+            this.lblN_PecasComplementares.BackColor = System.Drawing.Color.Transparent;
+            this.lblN_PecasComplementares.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblN_PecasComplementares.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblN_PecasComplementares.Location = new System.Drawing.Point(141, 68);
+            this.lblN_PecasComplementares.Name = "lblN_PecasComplementares";
+            this.lblN_PecasComplementares.Size = new System.Drawing.Size(71, 20);
+            this.lblN_PecasComplementares.TabIndex = 178;
+            this.lblN_PecasComplementares.Text = "1000,00";
+            this.lblN_PecasComplementares.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTicketPecas
+            // 
+            this.lblTicketPecas.BackColor = System.Drawing.Color.Transparent;
+            this.lblTicketPecas.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblTicketPecas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTicketPecas.Location = new System.Drawing.Point(141, 28);
+            this.lblTicketPecas.Name = "lblTicketPecas";
+            this.lblTicketPecas.Size = new System.Drawing.Size(71, 20);
+            this.lblTicketPecas.TabIndex = 176;
+            this.lblTicketPecas.Text = "1000,00";
+            this.lblTicketPecas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTituloNPecasP
+            // 
+            this.lblTituloNPecasP.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloNPecasP.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloNPecasP.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloNPecasP.Location = new System.Drawing.Point(14, 52);
+            this.lblTituloNPecasP.Name = "lblTituloNPecasP";
+            this.lblTituloNPecasP.Size = new System.Drawing.Size(117, 13);
+            this.lblTituloNPecasP.TabIndex = 183;
+            this.lblTituloNPecasP.Text = "Nº Peças Principais";
+            // 
+            // lblTituloNPecasC
+            // 
+            this.lblTituloNPecasC.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloNPecasC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloNPecasC.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloNPecasC.Location = new System.Drawing.Point(14, 72);
+            this.lblTituloNPecasC.Name = "lblTituloNPecasC";
+            this.lblTituloNPecasC.Size = new System.Drawing.Size(139, 13);
+            this.lblTituloNPecasC.TabIndex = 177;
+            this.lblTituloNPecasC.Text = "Nº Peças Complementares";
+            // 
+            // lblTituloTicketPEca
+            // 
+            this.lblTituloTicketPEca.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloTicketPEca.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloTicketPEca.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloTicketPEca.Location = new System.Drawing.Point(14, 32);
+            this.lblTituloTicketPEca.Name = "lblTituloTicketPEca";
+            this.lblTituloTicketPEca.Size = new System.Drawing.Size(128, 13);
+            this.lblTituloTicketPEca.TabIndex = 175;
+            this.lblTituloTicketPEca.Text = "Ticket de Peças";
+            // 
+            // cboFiltroPeca2
+            // 
+            this.cboFiltroPeca2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFiltroPeca2.FormattingEnabled = true;
+            this.cboFiltroPeca2.Location = new System.Drawing.Point(127, 443);
+            this.cboFiltroPeca2.Name = "cboFiltroPeca2";
+            this.cboFiltroPeca2.Size = new System.Drawing.Size(145, 21);
+            this.cboFiltroPeca2.TabIndex = 174;
+            this.cboFiltroPeca2.SelectedValueChanged += new System.EventHandler(this.cboFiltroPeca2_SelectedValueChanged);
+            // 
+            // cboFiltroPEca1
+            // 
+            this.cboFiltroPEca1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFiltroPEca1.FormattingEnabled = true;
+            this.cboFiltroPEca1.Items.AddRange(new object[] {
+            "Peça Principal",
+            "Peça Complementar"});
+            this.cboFiltroPEca1.Location = new System.Drawing.Point(6, 443);
+            this.cboFiltroPEca1.Name = "cboFiltroPEca1";
+            this.cboFiltroPEca1.Size = new System.Drawing.Size(118, 21);
+            this.cboFiltroPEca1.TabIndex = 173;
+            this.cboFiltroPEca1.SelectedValueChanged += new System.EventHandler(this.cboFiltroPEca1_SelectedValueChanged);
+            // 
+            // lblSOMA_PecaOutros
+            // 
+            this.lblSOMA_PecaOutros.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaOutros.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaOutros.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaOutros.Location = new System.Drawing.Point(590, 85);
+            this.lblSOMA_PecaOutros.Name = "lblSOMA_PecaOutros";
+            this.lblSOMA_PecaOutros.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaOutros.TabIndex = 170;
+            this.lblSOMA_PecaOutros.Text = "1000,00";
+            this.lblSOMA_PecaOutros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaMotor
+            // 
+            this.lblSOMA_PecaMotor.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaMotor.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaMotor.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaMotor.Location = new System.Drawing.Point(438, 85);
+            this.lblSOMA_PecaMotor.Name = "lblSOMA_PecaMotor";
+            this.lblSOMA_PecaMotor.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaMotor.TabIndex = 162;
+            this.lblSOMA_PecaMotor.Text = "1000,00";
+            this.lblSOMA_PecaMotor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaTransmissao
+            // 
+            this.lblSOMA_PecaTransmissao.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaTransmissao.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaTransmissao.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaTransmissao.Location = new System.Drawing.Point(590, 45);
+            this.lblSOMA_PecaTransmissao.Name = "lblSOMA_PecaTransmissao";
+            this.lblSOMA_PecaTransmissao.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaTransmissao.TabIndex = 169;
+            this.lblSOMA_PecaTransmissao.Text = "1000,00";
+            this.lblSOMA_PecaTransmissao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaVidros
+            // 
+            this.lblSOMA_PecaVidros.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaVidros.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaVidros.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaVidros.Location = new System.Drawing.Point(590, 65);
+            this.lblSOMA_PecaVidros.Name = "lblSOMA_PecaVidros";
+            this.lblSOMA_PecaVidros.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaVidros.TabIndex = 171;
+            this.lblSOMA_PecaVidros.Text = "1000,00";
+            this.lblSOMA_PecaVidros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaEletrica
+            // 
+            this.lblSOMA_PecaEletrica.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaEletrica.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaEletrica.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaEletrica.Location = new System.Drawing.Point(438, 25);
+            this.lblSOMA_PecaEletrica.Name = "lblSOMA_PecaEletrica";
+            this.lblSOMA_PecaEletrica.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaEletrica.TabIndex = 165;
+            this.lblSOMA_PecaEletrica.Text = "1000,00";
+            this.lblSOMA_PecaEletrica.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaSuspensao
+            // 
+            this.lblSOMA_PecaSuspensao.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaSuspensao.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaSuspensao.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaSuspensao.Location = new System.Drawing.Point(590, 25);
+            this.lblSOMA_PecaSuspensao.Name = "lblSOMA_PecaSuspensao";
+            this.lblSOMA_PecaSuspensao.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaSuspensao.TabIndex = 154;
+            this.lblSOMA_PecaSuspensao.Text = "1000,00";
+            this.lblSOMA_PecaSuspensao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaSom
+            // 
+            this.lblSOMA_PecaSom.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaSom.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaSom.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaSom.Location = new System.Drawing.Point(585, 5);
+            this.lblSOMA_PecaSom.Name = "lblSOMA_PecaSom";
+            this.lblSOMA_PecaSom.Size = new System.Drawing.Size(76, 20);
+            this.lblSOMA_PecaSom.TabIndex = 160;
+            this.lblSOMA_PecaSom.Text = "1000,00";
+            this.lblSOMA_PecaSom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaFreios
+            // 
+            this.lblSOMA_PecaFreios.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaFreios.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaFreios.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaFreios.Location = new System.Drawing.Point(438, 65);
+            this.lblSOMA_PecaFreios.Name = "lblSOMA_PecaFreios";
+            this.lblSOMA_PecaFreios.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaFreios.TabIndex = 161;
+            this.lblSOMA_PecaFreios.Text = "1000,00";
+            this.lblSOMA_PecaFreios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaEstofados
+            // 
+            this.lblSOMA_PecaEstofados.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaEstofados.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaEstofados.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaEstofados.Location = new System.Drawing.Point(438, 45);
+            this.lblSOMA_PecaEstofados.Name = "lblSOMA_PecaEstofados";
+            this.lblSOMA_PecaEstofados.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaEstofados.TabIndex = 157;
+            this.lblSOMA_PecaEstofados.Text = "1000,00";
+            this.lblSOMA_PecaEstofados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSOMA_PecaCarroceria
+            // 
+            this.lblSOMA_PecaCarroceria.BackColor = System.Drawing.Color.Transparent;
+            this.lblSOMA_PecaCarroceria.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
+            this.lblSOMA_PecaCarroceria.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblSOMA_PecaCarroceria.Location = new System.Drawing.Point(438, 5);
+            this.lblSOMA_PecaCarroceria.Name = "lblSOMA_PecaCarroceria";
+            this.lblSOMA_PecaCarroceria.Size = new System.Drawing.Size(71, 20);
+            this.lblSOMA_PecaCarroceria.TabIndex = 153;
+            this.lblSOMA_PecaCarroceria.Text = "1000,00";
+            this.lblSOMA_PecaCarroceria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnExcluirPeca
+            // 
+            this.btnExcluirPeca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcluirPeca.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnExcluirPeca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirPeca.ForeColor = System.Drawing.Color.Silver;
+            this.btnExcluirPeca.Location = new System.Drawing.Point(585, 438);
+            this.btnExcluirPeca.Name = "btnExcluirPeca";
+            this.btnExcluirPeca.Size = new System.Drawing.Size(80, 30);
+            this.btnExcluirPeca.TabIndex = 16;
+            this.btnExcluirPeca.Text = "Excluir";
+            this.btnExcluirPeca.UseVisualStyleBackColor = true;
+            this.btnExcluirPeca.Click += new System.EventHandler(this.btnExcluirPeca_Click);
+            // 
+            // btnEditarPeca
+            // 
+            this.btnEditarPeca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarPeca.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditarPeca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarPeca.ForeColor = System.Drawing.Color.Silver;
+            this.btnEditarPeca.Location = new System.Drawing.Point(506, 438);
+            this.btnEditarPeca.Name = "btnEditarPeca";
+            this.btnEditarPeca.Size = new System.Drawing.Size(80, 30);
+            this.btnEditarPeca.TabIndex = 15;
+            this.btnEditarPeca.Text = "Editar";
+            this.btnEditarPeca.UseVisualStyleBackColor = true;
+            this.btnEditarPeca.Click += new System.EventHandler(this.btnEditarPeca_Click);
+            // 
+            // btnIncluirPecaP
+            // 
+            this.btnIncluirPecaP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIncluirPecaP.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnIncluirPecaP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIncluirPecaP.ForeColor = System.Drawing.Color.Silver;
+            this.btnIncluirPecaP.Location = new System.Drawing.Point(278, 438);
+            this.btnIncluirPecaP.Name = "btnIncluirPecaP";
+            this.btnIncluirPecaP.Size = new System.Drawing.Size(115, 30);
+            this.btnIncluirPecaP.TabIndex = 14;
+            this.btnIncluirPecaP.Text = "Peça Principal";
+            this.btnIncluirPecaP.UseVisualStyleBackColor = true;
+            this.btnIncluirPecaP.Click += new System.EventHandler(this.btnIncluirPecaP_Click);
+            // 
+            // btnIncluirPecaC
+            // 
+            this.btnIncluirPecaC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIncluirPecaC.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnIncluirPecaC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIncluirPecaC.ForeColor = System.Drawing.Color.Silver;
+            this.btnIncluirPecaC.Location = new System.Drawing.Point(392, 438);
+            this.btnIncluirPecaC.Name = "btnIncluirPecaC";
+            this.btnIncluirPecaC.Size = new System.Drawing.Size(115, 30);
+            this.btnIncluirPecaC.TabIndex = 13;
+            this.btnIncluirPecaC.Text = "Peça Complementar";
+            this.btnIncluirPecaC.UseVisualStyleBackColor = true;
+            this.btnIncluirPecaC.Click += new System.EventHandler(this.btnIncluirPecaC_Click);
+            // 
+            // lstPecasComplementares
+            // 
+            this.lstPecasComplementares.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lstPecasComplementares.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lstPecasComplementares.HideSelection = false;
+            this.lstPecasComplementares.Location = new System.Drawing.Point(318, 125);
+            this.lstPecasComplementares.Name = "lstPecasComplementares";
+            this.lstPecasComplementares.Size = new System.Drawing.Size(353, 306);
+            this.lstPecasComplementares.TabIndex = 2;
+            this.lstPecasComplementares.UseCompatibleStateImageBehavior = false;
+            this.lstPecasComplementares.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstPecasComplementares_ColumnClick);
+            this.lstPecasComplementares.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstPecasComplementares_ColumnWidthChanging);
+            this.lstPecasComplementares.SelectedIndexChanged += new System.EventHandler(this.lstPecasComplementares_SelectedIndexChanged);
+            // 
+            // lstPecasPrincipais
+            // 
+            this.lstPecasPrincipais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lstPecasPrincipais.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lstPecasPrincipais.HideSelection = false;
+            this.lstPecasPrincipais.Location = new System.Drawing.Point(0, 125);
+            this.lstPecasPrincipais.Name = "lstPecasPrincipais";
+            this.lstPecasPrincipais.Size = new System.Drawing.Size(312, 306);
+            this.lstPecasPrincipais.TabIndex = 1;
+            this.lstPecasPrincipais.UseCompatibleStateImageBehavior = false;
+            this.lstPecasPrincipais.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstPecasPrincipais_ColumnClick);
+            this.lstPecasPrincipais.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstPecasPrincipais_ColumnWidthChanging);
+            this.lstPecasPrincipais.SelectedIndexChanged += new System.EventHandler(this.lstPecasPrincipais_SelectedIndexChanged);
+            // 
+            // lblTituloPecaEletrica
+            // 
+            this.lblTituloPecaEletrica.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaEletrica.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaEletrica.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaEletrica.Location = new System.Drawing.Point(379, 29);
+            this.lblTituloPecaEletrica.Name = "lblTituloPecaEletrica";
+            this.lblTituloPecaEletrica.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaEletrica.TabIndex = 164;
+            this.lblTituloPecaEletrica.Text = "Elétrica";
+            // 
+            // lblTituloPecaMotor
+            // 
+            this.lblTituloPecaMotor.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaMotor.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaMotor.Location = new System.Drawing.Point(379, 89);
+            this.lblTituloPecaMotor.Name = "lblTituloPecaMotor";
+            this.lblTituloPecaMotor.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaMotor.TabIndex = 163;
+            this.lblTituloPecaMotor.Text = "Motor";
+            // 
+            // lblTituloPecaFreios
+            // 
+            this.lblTituloPecaFreios.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaFreios.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaFreios.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaFreios.Location = new System.Drawing.Point(379, 69);
+            this.lblTituloPecaFreios.Name = "lblTituloPecaFreios";
+            this.lblTituloPecaFreios.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaFreios.TabIndex = 158;
+            this.lblTituloPecaFreios.Text = "Freios";
+            // 
+            // lblTituloPecaEstofados
+            // 
+            this.lblTituloPecaEstofados.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaEstofados.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaEstofados.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaEstofados.Location = new System.Drawing.Point(379, 49);
+            this.lblTituloPecaEstofados.Name = "lblTituloPecaEstofados";
+            this.lblTituloPecaEstofados.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaEstofados.TabIndex = 156;
+            this.lblTituloPecaEstofados.Text = "Estofados";
+            // 
+            // lblTituloPEcaCarroceria
+            // 
+            this.lblTituloPEcaCarroceria.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPEcaCarroceria.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPEcaCarroceria.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPEcaCarroceria.Location = new System.Drawing.Point(379, 9);
+            this.lblTituloPEcaCarroceria.Name = "lblTituloPEcaCarroceria";
+            this.lblTituloPEcaCarroceria.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPEcaCarroceria.TabIndex = 152;
+            this.lblTituloPEcaCarroceria.Text = "Carroceria";
+            // 
+            // lblTituloPecaTransmissao
+            // 
+            this.lblTituloPecaTransmissao.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaTransmissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaTransmissao.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaTransmissao.Location = new System.Drawing.Point(524, 49);
+            this.lblTituloPecaTransmissao.Name = "lblTituloPecaTransmissao";
+            this.lblTituloPecaTransmissao.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaTransmissao.TabIndex = 168;
+            this.lblTituloPecaTransmissao.Text = "Transmissão";
+            // 
+            // lblTituloPecaOutros
+            // 
+            this.lblTituloPecaOutros.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaOutros.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaOutros.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaOutros.Location = new System.Drawing.Point(524, 89);
+            this.lblTituloPecaOutros.Name = "lblTituloPecaOutros";
+            this.lblTituloPecaOutros.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaOutros.TabIndex = 167;
+            this.lblTituloPecaOutros.Text = "Outros";
+            // 
+            // lblTituloPecaVidros
+            // 
+            this.lblTituloPecaVidros.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaVidros.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaVidros.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaVidros.Location = new System.Drawing.Point(524, 69);
+            this.lblTituloPecaVidros.Name = "lblTituloPecaVidros";
+            this.lblTituloPecaVidros.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaVidros.TabIndex = 166;
+            this.lblTituloPecaVidros.Text = "Vidros";
+            // 
+            // lblTituloPecaSom
+            // 
+            this.lblTituloPecaSom.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaSom.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaSom.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaSom.Location = new System.Drawing.Point(524, 9);
+            this.lblTituloPecaSom.Name = "lblTituloPecaSom";
+            this.lblTituloPecaSom.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaSom.TabIndex = 159;
+            this.lblTituloPecaSom.Text = "Som e Aces.";
+            // 
+            // lblTituloPecaSuspensão
+            // 
+            this.lblTituloPecaSuspensão.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloPecaSuspensão.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblTituloPecaSuspensão.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTituloPecaSuspensão.Location = new System.Drawing.Point(524, 29);
+            this.lblTituloPecaSuspensão.Name = "lblTituloPecaSuspensão";
+            this.lblTituloPecaSuspensão.Size = new System.Drawing.Size(90, 13);
+            this.lblTituloPecaSuspensão.TabIndex = 155;
+            this.lblTituloPecaSuspensão.Text = "Suspensão";
             // 
             // pnFuncionarios
             // 
@@ -1011,56 +1511,52 @@
             // lblSomaEstofaria
             // 
             this.lblSomaEstofaria.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaEstofaria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaEstofaria.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaEstofaria.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaEstofaria.Location = new System.Drawing.Point(551, 102);
+            this.lblSomaEstofaria.Location = new System.Drawing.Point(566, 84);
             this.lblSomaEstofaria.Name = "lblSomaEstofaria";
-            this.lblSomaEstofaria.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaEstofaria.Size = new System.Drawing.Size(71, 20);
             this.lblSomaEstofaria.TabIndex = 150;
-            this.lblSomaEstofaria.Text = "Soma Estofaria";
+            this.lblSomaEstofaria.Text = "1000,00";
             this.lblSomaEstofaria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaEstofaria.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaRetrabalho
             // 
             this.lblSomaRetrabalho.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaRetrabalho.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaRetrabalho.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaRetrabalho.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaRetrabalho.Location = new System.Drawing.Point(327, 102);
+            this.lblSomaRetrabalho.Location = new System.Drawing.Point(329, 84);
             this.lblSomaRetrabalho.Name = "lblSomaRetrabalho";
-            this.lblSomaRetrabalho.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaRetrabalho.Size = new System.Drawing.Size(71, 20);
             this.lblSomaRetrabalho.TabIndex = 142;
-            this.lblSomaRetrabalho.Text = "Soma Retrabalho";
+            this.lblSomaRetrabalho.Text = "1000,00";
             this.lblSomaRetrabalho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaRetrabalho.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaMecanica
             // 
             this.lblSomaMecanica.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaMecanica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaMecanica.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaMecanica.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaMecanica.Location = new System.Drawing.Point(551, 53);
+            this.lblSomaMecanica.Location = new System.Drawing.Point(566, 44);
             this.lblSomaMecanica.Name = "lblSomaMecanica";
-            this.lblSomaMecanica.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaMecanica.Size = new System.Drawing.Size(71, 20);
             this.lblSomaMecanica.TabIndex = 149;
-            this.lblSomaMecanica.Text = "Soma Mecanica";
+            this.lblSomaMecanica.Text = "1000,00";
             this.lblSomaMecanica.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaMecanica.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaGeometria
             // 
             this.lblSomaGeometria.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaGeometria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaGeometria.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaGeometria.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaGeometria.Location = new System.Drawing.Point(551, 78);
+            this.lblSomaGeometria.Location = new System.Drawing.Point(566, 64);
             this.lblSomaGeometria.Name = "lblSomaGeometria";
-            this.lblSomaGeometria.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaGeometria.Size = new System.Drawing.Size(71, 20);
             this.lblSomaGeometria.TabIndex = 151;
-            this.lblSomaGeometria.Text = "Soma Geometria";
+            this.lblSomaGeometria.Text = "1000,00";
             this.lblSomaGeometria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaGeometria.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
@@ -1069,7 +1565,7 @@
             this.lblTituloMecanica.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloMecanica.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloMecanica.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloMecanica.Location = new System.Drawing.Point(461, 57);
+            this.lblTituloMecanica.Location = new System.Drawing.Point(489, 48);
             this.lblTituloMecanica.Name = "lblTituloMecanica";
             this.lblTituloMecanica.Size = new System.Drawing.Size(90, 13);
             this.lblTituloMecanica.TabIndex = 148;
@@ -1081,7 +1577,7 @@
             this.lblTituloEstofaria.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloEstofaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloEstofaria.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloEstofaria.Location = new System.Drawing.Point(461, 106);
+            this.lblTituloEstofaria.Location = new System.Drawing.Point(489, 88);
             this.lblTituloEstofaria.Name = "lblTituloEstofaria";
             this.lblTituloEstofaria.Size = new System.Drawing.Size(90, 13);
             this.lblTituloEstofaria.TabIndex = 147;
@@ -1093,7 +1589,7 @@
             this.lblTituloGeometria.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloGeometria.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloGeometria.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloGeometria.Location = new System.Drawing.Point(461, 82);
+            this.lblTituloGeometria.Location = new System.Drawing.Point(489, 68);
             this.lblTituloGeometria.Name = "lblTituloGeometria";
             this.lblTituloGeometria.Size = new System.Drawing.Size(90, 13);
             this.lblTituloGeometria.TabIndex = 146;
@@ -1103,14 +1599,13 @@
             // lblSomaPreparacao
             // 
             this.lblSomaPreparacao.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaPreparacao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaPreparacao.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaPreparacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaPreparacao.Location = new System.Drawing.Point(327, 29);
+            this.lblSomaPreparacao.Location = new System.Drawing.Point(329, 24);
             this.lblSomaPreparacao.Name = "lblSomaPreparacao";
-            this.lblSomaPreparacao.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaPreparacao.Size = new System.Drawing.Size(71, 20);
             this.lblSomaPreparacao.TabIndex = 145;
-            this.lblSomaPreparacao.Text = "Soma Preparação";
+            this.lblSomaPreparacao.Text = "1000,00";
             this.lblSomaPreparacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaPreparacao.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
@@ -1119,7 +1614,7 @@
             this.lblTituloPreparacao.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloPreparacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloPreparacao.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloPreparacao.Location = new System.Drawing.Point(237, 33);
+            this.lblTituloPreparacao.Location = new System.Drawing.Point(251, 28);
             this.lblTituloPreparacao.Name = "lblTituloPreparacao";
             this.lblTituloPreparacao.Size = new System.Drawing.Size(90, 13);
             this.lblTituloPreparacao.TabIndex = 144;
@@ -1131,7 +1626,7 @@
             this.lblTituloRetrabalho.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloRetrabalho.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloRetrabalho.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloRetrabalho.Location = new System.Drawing.Point(237, 106);
+            this.lblTituloRetrabalho.Location = new System.Drawing.Point(251, 88);
             this.lblTituloRetrabalho.Name = "lblTituloRetrabalho";
             this.lblTituloRetrabalho.Size = new System.Drawing.Size(90, 13);
             this.lblTituloRetrabalho.TabIndex = 143;
@@ -1141,56 +1636,52 @@
             // lblSomaLavação
             // 
             this.lblSomaLavação.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaLavação.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaLavação.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaLavação.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaLavação.Location = new System.Drawing.Point(104, 4);
+            this.lblSomaLavação.Location = new System.Drawing.Point(92, 4);
             this.lblSomaLavação.Name = "lblSomaLavação";
-            this.lblSomaLavação.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaLavação.Size = new System.Drawing.Size(71, 20);
             this.lblSomaLavação.TabIndex = 140;
-            this.lblSomaLavação.Text = "Soma Lavação";
+            this.lblSomaLavação.Text = "1000,00";
             this.lblSomaLavação.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaLavação.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaEletrica
             // 
             this.lblSomaEletrica.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaEletrica.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaEletrica.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaEletrica.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaEletrica.Location = new System.Drawing.Point(551, 29);
+            this.lblSomaEletrica.Location = new System.Drawing.Point(566, 24);
             this.lblSomaEletrica.Name = "lblSomaEletrica";
-            this.lblSomaEletrica.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaEletrica.Size = new System.Drawing.Size(71, 20);
             this.lblSomaEletrica.TabIndex = 132;
-            this.lblSomaEletrica.Text = "Soma Eletrica";
+            this.lblSomaEletrica.Text = "1000,00";
             this.lblSomaEletrica.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaEletrica.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaHgienizacao
             // 
             this.lblSomaHgienizacao.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaHgienizacao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaHgienizacao.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaHgienizacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaHgienizacao.Location = new System.Drawing.Point(551, 4);
+            this.lblSomaHgienizacao.Location = new System.Drawing.Point(566, 4);
             this.lblSomaHgienizacao.Name = "lblSomaHgienizacao";
-            this.lblSomaHgienizacao.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaHgienizacao.Size = new System.Drawing.Size(71, 20);
             this.lblSomaHgienizacao.TabIndex = 139;
-            this.lblSomaHgienizacao.Text = "Soma Higienização";
+            this.lblSomaHgienizacao.Text = "1000,00";
             this.lblSomaHgienizacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaHgienizacao.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaPolimento
             // 
             this.lblSomaPolimento.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaPolimento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaPolimento.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaPolimento.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaPolimento.Location = new System.Drawing.Point(327, 78);
+            this.lblSomaPolimento.Location = new System.Drawing.Point(329, 64);
             this.lblSomaPolimento.Name = "lblSomaPolimento";
-            this.lblSomaPolimento.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaPolimento.Size = new System.Drawing.Size(71, 20);
             this.lblSomaPolimento.TabIndex = 141;
-            this.lblSomaPolimento.Text = "Soma Polimento";
+            this.lblSomaPolimento.Text = "1000,00";
             this.lblSomaPolimento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaPolimento.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
@@ -1199,7 +1690,7 @@
             this.lblTituloHigienizacao.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloHigienizacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloHigienizacao.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloHigienizacao.Location = new System.Drawing.Point(461, 8);
+            this.lblTituloHigienizacao.Location = new System.Drawing.Point(489, 8);
             this.lblTituloHigienizacao.Name = "lblTituloHigienizacao";
             this.lblTituloHigienizacao.Size = new System.Drawing.Size(90, 13);
             this.lblTituloHigienizacao.TabIndex = 138;
@@ -1223,7 +1714,7 @@
             this.lblTituloPolimento.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloPolimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloPolimento.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloPolimento.Location = new System.Drawing.Point(237, 82);
+            this.lblTituloPolimento.Location = new System.Drawing.Point(251, 68);
             this.lblTituloPolimento.Name = "lblTituloPolimento";
             this.lblTituloPolimento.Size = new System.Drawing.Size(90, 13);
             this.lblTituloPolimento.TabIndex = 136;
@@ -1233,14 +1724,13 @@
             // lblSomaPintura
             // 
             this.lblSomaPintura.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaPintura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaPintura.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaPintura.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaPintura.Location = new System.Drawing.Point(327, 53);
+            this.lblSomaPintura.Location = new System.Drawing.Point(329, 44);
             this.lblSomaPintura.Name = "lblSomaPintura";
-            this.lblSomaPintura.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaPintura.Size = new System.Drawing.Size(71, 20);
             this.lblSomaPintura.TabIndex = 135;
-            this.lblSomaPintura.Text = "Soma Pintura";
+            this.lblSomaPintura.Text = "1000,00";
             this.lblSomaPintura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaPintura.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
@@ -1249,7 +1739,7 @@
             this.lblTituloPintura.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloPintura.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloPintura.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloPintura.Location = new System.Drawing.Point(237, 57);
+            this.lblTituloPintura.Location = new System.Drawing.Point(251, 48);
             this.lblTituloPintura.Name = "lblTituloPintura";
             this.lblTituloPintura.Size = new System.Drawing.Size(90, 13);
             this.lblTituloPintura.TabIndex = 134;
@@ -1261,7 +1751,7 @@
             this.lblTituloEletrica.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloEletrica.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloEletrica.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloEletrica.Location = new System.Drawing.Point(461, 33);
+            this.lblTituloEletrica.Location = new System.Drawing.Point(489, 28);
             this.lblTituloEletrica.Name = "lblTituloEletrica";
             this.lblTituloEletrica.Size = new System.Drawing.Size(90, 13);
             this.lblTituloEletrica.TabIndex = 133;
@@ -1271,56 +1761,52 @@
             // lblSomaAlinhamento
             // 
             this.lblSomaAlinhamento.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaAlinhamento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaAlinhamento.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaAlinhamento.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaAlinhamento.Location = new System.Drawing.Point(104, 102);
+            this.lblSomaAlinhamento.Location = new System.Drawing.Point(92, 84);
             this.lblSomaAlinhamento.Name = "lblSomaAlinhamento";
-            this.lblSomaAlinhamento.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaAlinhamento.Size = new System.Drawing.Size(71, 20);
             this.lblSomaAlinhamento.TabIndex = 130;
-            this.lblSomaAlinhamento.Text = "Soma Alinhamento";
+            this.lblSomaAlinhamento.Text = "1000,00";
             this.lblSomaAlinhamento.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaAlinhamento.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaSolda
             // 
             this.lblSomaSolda.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaSolda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaSolda.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaSolda.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaSolda.Location = new System.Drawing.Point(104, 78);
+            this.lblSomaSolda.Location = new System.Drawing.Point(92, 64);
             this.lblSomaSolda.Name = "lblSomaSolda";
-            this.lblSomaSolda.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaSolda.Size = new System.Drawing.Size(71, 20);
             this.lblSomaSolda.TabIndex = 122;
-            this.lblSomaSolda.Text = "Soma Solda";
+            this.lblSomaSolda.Text = "1000,00";
             this.lblSomaSolda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaSolda.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaMontagem
             // 
             this.lblSomaMontagem.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaMontagem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaMontagem.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaMontagem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaMontagem.Location = new System.Drawing.Point(104, 54);
+            this.lblSomaMontagem.Location = new System.Drawing.Point(92, 44);
             this.lblSomaMontagem.Name = "lblSomaMontagem";
-            this.lblSomaMontagem.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaMontagem.Size = new System.Drawing.Size(71, 20);
             this.lblSomaMontagem.TabIndex = 129;
-            this.lblSomaMontagem.Text = "Soma Montagem";
+            this.lblSomaMontagem.Text = "1000,00";
             this.lblSomaMontagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaMontagem.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // lblSomaDesmontagem
             // 
             this.lblSomaDesmontagem.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaDesmontagem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaDesmontagem.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaDesmontagem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaDesmontagem.Location = new System.Drawing.Point(104, 29);
+            this.lblSomaDesmontagem.Location = new System.Drawing.Point(92, 24);
             this.lblSomaDesmontagem.Name = "lblSomaDesmontagem";
-            this.lblSomaDesmontagem.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaDesmontagem.Size = new System.Drawing.Size(71, 20);
             this.lblSomaDesmontagem.TabIndex = 131;
-            this.lblSomaDesmontagem.Text = "Soma Desmont.";
+            this.lblSomaDesmontagem.Text = "1000,00";
             this.lblSomaDesmontagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaDesmontagem.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
@@ -1329,7 +1815,7 @@
             this.lblTituloMontagem.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloMontagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloMontagem.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloMontagem.Location = new System.Drawing.Point(14, 58);
+            this.lblTituloMontagem.Location = new System.Drawing.Point(14, 48);
             this.lblTituloMontagem.Name = "lblTituloMontagem";
             this.lblTituloMontagem.Size = new System.Drawing.Size(90, 13);
             this.lblTituloMontagem.TabIndex = 128;
@@ -1341,7 +1827,7 @@
             this.lblTituloAlinhamento.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloAlinhamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloAlinhamento.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloAlinhamento.Location = new System.Drawing.Point(14, 106);
+            this.lblTituloAlinhamento.Location = new System.Drawing.Point(14, 88);
             this.lblTituloAlinhamento.Name = "lblTituloAlinhamento";
             this.lblTituloAlinhamento.Size = new System.Drawing.Size(90, 13);
             this.lblTituloAlinhamento.TabIndex = 127;
@@ -1353,7 +1839,7 @@
             this.lblTituloDesmontagem.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloDesmontagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloDesmontagem.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloDesmontagem.Location = new System.Drawing.Point(14, 33);
+            this.lblTituloDesmontagem.Location = new System.Drawing.Point(14, 28);
             this.lblTituloDesmontagem.Name = "lblTituloDesmontagem";
             this.lblTituloDesmontagem.Size = new System.Drawing.Size(90, 13);
             this.lblTituloDesmontagem.TabIndex = 126;
@@ -1363,14 +1849,13 @@
             // lblSomaFunilaria
             // 
             this.lblSomaFunilaria.BackColor = System.Drawing.Color.Transparent;
-            this.lblSomaFunilaria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblSomaFunilaria.Font = new System.Drawing.Font("Tahoma", 7.25F, System.Drawing.FontStyle.Bold);
             this.lblSomaFunilaria.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblSomaFunilaria.Location = new System.Drawing.Point(327, 5);
+            this.lblSomaFunilaria.Location = new System.Drawing.Point(329, 4);
             this.lblSomaFunilaria.Name = "lblSomaFunilaria";
-            this.lblSomaFunilaria.Size = new System.Drawing.Size(100, 20);
+            this.lblSomaFunilaria.Size = new System.Drawing.Size(71, 20);
             this.lblSomaFunilaria.TabIndex = 125;
-            this.lblSomaFunilaria.Text = "Soma Funilaria";
+            this.lblSomaFunilaria.Text = "1000,00";
             this.lblSomaFunilaria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblSomaFunilaria.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
@@ -1379,7 +1864,7 @@
             this.lblTituloFunilaria.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloFunilaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloFunilaria.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloFunilaria.Location = new System.Drawing.Point(237, 9);
+            this.lblTituloFunilaria.Location = new System.Drawing.Point(251, 8);
             this.lblTituloFunilaria.Name = "lblTituloFunilaria";
             this.lblTituloFunilaria.Size = new System.Drawing.Size(90, 13);
             this.lblTituloFunilaria.TabIndex = 124;
@@ -1391,7 +1876,7 @@
             this.lblTituloSolda.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloSolda.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblTituloSolda.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTituloSolda.Location = new System.Drawing.Point(14, 82);
+            this.lblTituloSolda.Location = new System.Drawing.Point(14, 68);
             this.lblTituloSolda.Name = "lblTituloSolda";
             this.lblTituloSolda.Size = new System.Drawing.Size(90, 13);
             this.lblTituloSolda.TabIndex = 123;
@@ -1492,63 +1977,16 @@
             this.lstFuncionarios.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstFuncionarios_ColumnWidthChanging);
             this.lstFuncionarios.SelectedIndexChanged += new System.EventHandler(this.lstFuncionarios_SelectedIndexChanged);
             // 
-            // Grafico_Apontamentos
+            // picLogoEmpresa
             // 
-            this.Grafico_Apontamentos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Grafico_Apontamentos.BackColor = System.Drawing.Color.Transparent;
-            this.Grafico_Apontamentos.BorderlineColor = System.Drawing.Color.Transparent;
-            this.Grafico_Apontamentos.BorderlineWidth = 0;
-            chartArea3.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea3.Area3DStyle.Enable3D = true;
-            chartArea3.Area3DStyle.Inclination = 50;
-            chartArea3.Area3DStyle.IsRightAngleAxes = false;
-            chartArea3.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
-            chartArea3.Area3DStyle.Rotation = 60;
-            chartArea3.AxisX.IsLabelAutoFit = false;
-            chartArea3.AxisX.LabelStyle.Format = "%";
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            this.Grafico_Apontamentos.ChartAreas.Add(chartArea3);
-            this.Grafico_Apontamentos.IsSoftShadows = false;
-            legend3.Alignment = System.Drawing.StringAlignment.Center;
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.ForeColor = System.Drawing.Color.White;
-            legend3.Name = "Legend1";
-            this.Grafico_Apontamentos.Legends.Add(legend3);
-            this.Grafico_Apontamentos.Location = new System.Drawing.Point(376, 192);
-            this.Grafico_Apontamentos.Margin = new System.Windows.Forms.Padding(0);
-            this.Grafico_Apontamentos.Name = "Grafico_Apontamentos";
-            this.Grafico_Apontamentos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.Grafico_Apontamentos.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Purple,
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192))))),
-        System.Drawing.Color.Yellow,
-        System.Drawing.Color.Red,
-        System.Drawing.Color.Lime};
-            series3.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series3.BorderWidth = 0;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Color = System.Drawing.Color.Transparent;
-            series3.CustomProperties = "CollectedColor=Transparent";
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.IsValueShownAsLabel = true;
-            series3.IsXValueIndexed = true;
-            series3.LabelBackColor = System.Drawing.Color.Transparent;
-            series3.LabelBorderWidth = 0;
-            series3.LabelFormat = "{0:#0.##%}";
-            series3.Legend = "Legend1";
-            series3.MarkerColor = System.Drawing.Color.White;
-            series3.MarkerSize = 3;
-            series3.Name = "Dados";
-            series3.ShadowColor = System.Drawing.Color.WhiteSmoke;
-            this.Grafico_Apontamentos.Series.Add(series3);
-            this.Grafico_Apontamentos.Size = new System.Drawing.Size(257, 213);
-            this.Grafico_Apontamentos.TabIndex = 129;
-            this.Grafico_Apontamentos.Text = "chart1";
-            this.Grafico_Apontamentos.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.Normal;
+            this.picLogoEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picLogoEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLogoEmpresa.Location = new System.Drawing.Point(435, 46);
+            this.picLogoEmpresa.Name = "picLogoEmpresa";
+            this.picLogoEmpresa.Size = new System.Drawing.Size(197, 71);
+            this.picLogoEmpresa.TabIndex = 15;
+            this.picLogoEmpresa.TabStop = false;
+            this.picLogoEmpresa.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
             // frmOrdemServico
             // 
@@ -1558,7 +1996,6 @@
             this.ClientSize = new System.Drawing.Size(671, 707);
             this.Controls.Add(this.pnPecas);
             this.Controls.Add(this.pnItensOS);
-            this.Controls.Add(this.pnFuncionarios);
             this.Controls.Add(this.btnPainelFuncionarios);
             this.Controls.Add(this.btnPainelPecas);
             this.Controls.Add(this.btnPainelGrafico);
@@ -1583,7 +2020,9 @@
             this.Controls.Add(this.lblTituloNOS);
             this.Controls.Add(this.pnCabecalho);
             this.Controls.Add(this.pnGraficos);
+            this.Controls.Add(this.pnFuncionarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOrdemServico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOrdemServico";
@@ -1594,12 +2033,11 @@
             this.btnFechar.PerformLayout();
             this.pnItensOS.ResumeLayout(false);
             this.pnGraficos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Grafico_Dados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).EndInit();
-            this.pnPecas.ResumeLayout(false);
-            this.pnPecas.PerformLayout();
-            this.pnFuncionarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grafico_Apontamentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico_Dados)).EndInit();
+            this.pnPecas.ResumeLayout(false);
+            this.pnFuncionarios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoEmpresa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1664,7 +2102,6 @@
         public System.Windows.Forms.Button btnPainelPecas;
         public System.Windows.Forms.Button btnPainelFuncionarios;
         public System.Windows.Forms.Panel pnPecas;
-        public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Panel pnFuncionarios;
         public System.Windows.Forms.ListView lstFuncionarios;
         public System.Windows.Forms.Button btnApontar;
@@ -1704,5 +2141,39 @@
         public System.Windows.Forms.Label lblTituloPintura;
         public System.Windows.Forms.Label lblTituloEletrica;
         public System.Windows.Forms.DataVisualization.Charting.Chart Grafico_Apontamentos;
+        public System.Windows.Forms.ListView lstPecasPrincipais;
+        public System.Windows.Forms.ListView lstPecasComplementares;
+        public System.Windows.Forms.Button btnExcluirPeca;
+        public System.Windows.Forms.Button btnEditarPeca;
+        public System.Windows.Forms.Button btnIncluirPecaP;
+        public System.Windows.Forms.Button btnIncluirPecaC;
+        public System.Windows.Forms.Label lblSOMA_PecaOutros;
+        public System.Windows.Forms.Label lblSOMA_PecaMotor;
+        public System.Windows.Forms.Label lblSOMA_PecaTransmissao;
+        public System.Windows.Forms.Label lblSOMA_PecaVidros;
+        public System.Windows.Forms.Label lblTituloPecaTransmissao;
+        public System.Windows.Forms.Label lblTituloPecaOutros;
+        public System.Windows.Forms.Label lblTituloPecaVidros;
+        public System.Windows.Forms.Label lblSOMA_PecaEletrica;
+        public System.Windows.Forms.Label lblTituloPecaEletrica;
+        public System.Windows.Forms.Label lblTituloPecaMotor;
+        public System.Windows.Forms.Label lblSOMA_PecaSuspensao;
+        public System.Windows.Forms.Label lblSOMA_PecaSom;
+        public System.Windows.Forms.Label lblSOMA_PecaFreios;
+        public System.Windows.Forms.Label lblTituloPecaSom;
+        public System.Windows.Forms.Label lblTituloPecaFreios;
+        public System.Windows.Forms.Label lblSOMA_PecaEstofados;
+        public System.Windows.Forms.Label lblTituloPecaEstofados;
+        public System.Windows.Forms.Label lblTituloPecaSuspensão;
+        public System.Windows.Forms.Label lblSOMA_PecaCarroceria;
+        public System.Windows.Forms.Label lblTituloPEcaCarroceria;
+        public System.Windows.Forms.Label lblN_PecasPrincipais;
+        public System.Windows.Forms.Label lblN_PecasComplementares;
+        public System.Windows.Forms.Label lblTicketPecas;
+        public System.Windows.Forms.Label lblTituloNPecasP;
+        public System.Windows.Forms.Label lblTituloNPecasC;
+        public System.Windows.Forms.Label lblTituloTicketPEca;
+        public System.Windows.Forms.ComboBox cboFiltroPeca2;
+        public System.Windows.Forms.ComboBox cboFiltroPEca1;
     }
 }

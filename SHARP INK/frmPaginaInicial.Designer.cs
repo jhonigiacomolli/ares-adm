@@ -283,6 +283,7 @@
             this.btnUsuarios.Size = new System.Drawing.Size(200, 90);
             this.btnUsuarios.TabIndex = 6;
             this.btnUsuarios.TabStop = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             this.btnUsuarios.MouseEnter += new System.EventHandler(this.btnUsuarios_MouseEnter);
             this.btnUsuarios.MouseLeave += new System.EventHandler(this.btnUsuarios_MouseLeave_1);
             // 
@@ -419,6 +420,7 @@
             this.Controls.Add(this.btnAlocacao);
             this.Controls.Add(this.btnConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPaginaInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";

@@ -10,6 +10,15 @@ namespace SHARP_INK.Classes
 {
     class Classe_Produtos
     {
+        public string id { get; private set; }
+        public string Cod_Fabrica { get; private set; }
+        public string Grupo { get; private set; }
+        public string Descricao { get; private set; }
+        public string QuantidadeEstoque { get; private set; }
+        public double Custo { get; private set; }
+        public double Venda { get; private set; }
+        public string Fornecedor { get; private set; }
+
         public void Listar_Produtos(ListView LST, string SQL)
         {
             try
@@ -44,6 +53,36 @@ namespace SHARP_INK.Classes
             }
         }
 
+        public void Listar_Produtos(string ID)
+        {
+            string SQL = "SELECT * FROM Produtos WHERE id='" + ID + "'";
+            try
+            {
+                DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        id = DR["id"].ToString();
+                        Cod_Fabrica = DR["Cod_Fabrica"].ToString().TrimEnd().ToUpper();
+                        Fornecedor = DR["Fornecedor"].ToString().TrimEnd().ToUpper();
+                        Grupo = DR["Grupo"].ToString().TrimEnd().ToUpper();
+                        Descricao = DR["Descricao"].ToString().TrimEnd().ToUpper();
+                        QuantidadeEstoque = DR["QuantidadeEstoque"].ToString().TrimEnd().ToUpper();
+                        Custo = Convert.ToDouble(DR["ValorCusto"].ToString().TrimEnd());
+                        Venda = Convert.ToDouble(DR["ValorVenda"].ToString().TrimEnd());
+                    }
+                }
+                DT.Dispose();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
+        }
         public void Pesquisa_Produtos(ListView LST, string Criterio, string Pesquisa)
         {
             try

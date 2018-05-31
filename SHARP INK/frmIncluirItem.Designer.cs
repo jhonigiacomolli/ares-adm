@@ -219,6 +219,7 @@
             // 
             this.txtValorTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtValorTotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtValorTotal.Enabled = false;
             this.txtValorTotal.Location = new System.Drawing.Point(76, 175);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.ReadOnly = true;
@@ -289,6 +290,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.pnCabecalho);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmIncluirItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIncluirItem";

@@ -29,6 +29,8 @@ namespace SHARP_INK
             lvwColumnSorter = new ListViewColumnSorter();
             this.lstItensOS.ListViewItemSorter = lvwColumnSorter;
             this.lstFuncionarios.ListViewItemSorter = lvwColumnSorter;
+            this.lstPecasComplementares.ListViewItemSorter = lvwColumnSorter;
+            this.lstPecasPrincipais.ListViewItemSorter = lvwColumnSorter;
 
             picLogoEmpresa.ImageLocation = Classes_Conexao.CaminhoLogo;
             new Classes_Conexao().Get_Grupos(cboGrupos);
@@ -43,7 +45,11 @@ namespace SHARP_INK
         }
         public void AtualizaDadosFuncionario()
         {
-            new Classe_OrdemServico().Atualizar_DadosFuncionarios(this,lstFuncionarios, txtNos.Text);
+            new Classe_OrdemServico().Atualizar_DadosFuncionarios(this, lstFuncionarios, txtNos.Text);
+        }
+        public void AtualizaDadosPecas()
+        {
+            new Classe_OrdemServico().Atualizar_DadosPecas(this, lstPecasPrincipais, lstPecasComplementares, txtNos.Text);
         }
         public void AtualizaDadosGrafico()
         {
@@ -186,18 +192,38 @@ namespace SHARP_INK
 
         private void btnItens_Click(object sender, EventArgs e)
         {
+            btnPainelPecas.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelPecas.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelGrafico.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelGrafico.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelGeral.BackColor = pnItensOS.BackColor;
+            btnPainelGeral.FlatAppearance.BorderColor = pnItensOS.BackColor;
+            btnPainelFuncionarios.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelFuncionarios.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+
             pnItensOS.Visible = true;
             pnPecas.Visible = false;
             pnFuncionarios.Visible = false;
             pnGraficos.Visible = false;
+
         }
 
         private void btnGrafico_Click(object sender, EventArgs e)
-        {      
+        {
+            btnPainelPecas.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelPecas.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelGrafico.BackColor = pnGraficos.BackColor;
+            btnPainelGrafico.FlatAppearance.BorderColor = pnGraficos.BackColor;
+            btnPainelGeral.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelGeral.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelFuncionarios.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelFuncionarios.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+
             pnItensOS.Visible = false;
             pnPecas.Visible = false;
             pnFuncionarios.Visible = false;
             pnGraficos.Visible = true;
+
             AtualizaDadosFuncionario();
             AtualizaDadosGrafico();
         }
@@ -219,6 +245,14 @@ namespace SHARP_INK
                 btnApontar.Location = btnLiberar.Location;
             }
 
+            btnPainelPecas.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelPecas.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelGrafico.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelGrafico.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelGeral.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelGeral.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelFuncionarios.BackColor = pnFuncionarios.BackColor;
+            btnPainelFuncionarios.FlatAppearance.BorderColor = pnFuncionarios.BackColor;
 
             pnItensOS.Visible = false;
             pnPecas.Visible = false;
@@ -230,10 +264,21 @@ namespace SHARP_INK
 
         private void btnPainelPecas_Click(object sender, EventArgs e)
         {
+            btnPainelPecas.BackColor = pnPecas.BackColor;
+            btnPainelPecas.FlatAppearance.BorderColor = pnPecas.BackColor;
+            btnPainelGrafico.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelGrafico.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelGeral.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelGeral.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+            btnPainelFuncionarios.BackColor = Classe_Tema.MenuBotao_Normal;
+            btnPainelFuncionarios.FlatAppearance.BorderColor = Classe_Tema.BordaBotao;
+
             pnItensOS.Visible = false;
             pnPecas.Visible = true;
             pnFuncionarios.Visible = false;
             pnGraficos.Visible = false;
+
+            AtualizaDadosPecas();
         }
 
         private void btnApontar_Click(object sender, EventArgs e)
@@ -272,7 +317,7 @@ namespace SHARP_INK
                 string Saida = lstFuncionarios.FocusedItem.SubItems[6].Text;
                 string Valor = lstFuncionarios.FocusedItem.SubItems[8].Text;
                 string Tempo = lstFuncionarios.FocusedItem.SubItems[7].Text;
-                string MO = lstFuncionarios.FocusedItem.SubItems[9].Text;                
+                string MO = lstFuncionarios.FocusedItem.SubItems[9].Text;
 
                 new Classe_BancoHoras().CarregaEdicaoApontamento(func, ID_Funcionario, ID_Veiculo, Nome, Funcao, Entrada, Saida, MO);
             }
@@ -314,8 +359,8 @@ namespace SHARP_INK
 
         private void btnExcluirApontamento_Click(object sender, EventArgs e)
         {
-            int ID =Convert.ToInt32(lstFuncionarios.FocusedItem.SubItems[0].Text);
-            
+            int ID = Convert.ToInt32(lstFuncionarios.FocusedItem.SubItems[0].Text);
+
             Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente excluir permanentemento o apontamento selecionado?");
             DialogResult Resposta = messagebox.ShowDialog();
 
@@ -353,7 +398,7 @@ namespace SHARP_INK
             string SQL = "";
 
             if (cboFuncao.SelectedIndex != 0)
-            {                
+            {
                 if (cboFiltroApontamento.Text.Equals("Funcionário"))
                 {
                     SQL = "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID + "' AND Nome='" + cboFuncao.Text + "' ORDER BY id ASC";
@@ -361,7 +406,7 @@ namespace SHARP_INK
                 if (cboFiltroApontamento.Text.Equals("Função"))
                 {
                     SQL = "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID + "' AND Funcao='" + cboFuncao.Text + "' ORDER BY id ASC";
-                }                
+                }
             }
             else
             {
@@ -379,13 +424,195 @@ namespace SHARP_INK
         private void lstFuncionarios_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             e.NewWidth = lstFuncionarios.Columns[e.ColumnIndex].Width;
-            e.Cancel=true;
+            e.Cancel = true;
         }
 
         private void lstItensOS_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             e.NewWidth = lstItensOS.Columns[e.ColumnIndex].Width;
             e.Cancel = true;
+        }
+        private void lstPecasPrincipais_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = lstPecasPrincipais.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
+        }
+
+        private void lstPecasComplementares_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = lstPecasComplementares.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
+        }
+
+        private void btnIncluirPecaP_Click(object sender, EventArgs e)
+        {
+            frmIncluirPeca principal = new frmIncluirPeca(this, txtNos.Text, string.Empty);
+            principal.Height = 202;
+            principal.ShowDialog();
+        }
+
+        private void btnIncluirPecaC_Click(object sender, EventArgs e)
+        {
+            frmIncluirPeca complementar = new frmIncluirPeca(this, txtNos.Text, string.Empty, string.Empty);
+            complementar.Height = 248;
+            complementar.ShowDialog();
+        }
+
+        private void btnEditarPeca_Click(object sender, EventArgs e)
+        {
+            //Editar Pecas Complementares
+            if (lstPecasComplementares.SelectedItems.Count != 0 && lstPecasPrincipais.SelectedItems.Count == 0)
+            {
+                string id = lstPecasComplementares.FocusedItem.SubItems[0].Text;
+                string idveiculo = lstPecasComplementares.FocusedItem.SubItems[1].Text;
+                string idpeca = lstPecasComplementares.FocusedItem.SubItems[2].Text;
+                string descricao = lstPecasComplementares.FocusedItem.SubItems[3].Text;
+                string aplicacao = lstPecasComplementares.FocusedItem.SubItems[4].Text;
+                double valor = double.Parse(lstPecasComplementares.FocusedItem.SubItems[6].Text);
+                double qnt = double.Parse(lstPecasComplementares.FocusedItem.SubItems[5].Text);
+                double total = double.Parse(lstPecasComplementares.FocusedItem.SubItems[7].Text);
+
+                new Classe_Pecas().CarregaEdicao_PecasComplementar(this, id, idveiculo, idpeca, descricao, aplicacao, valor, qnt, total);
+            }
+
+            //Editar Pecas Principais
+            if (lstPecasComplementares.SelectedItems.Count == 0 && lstPecasPrincipais.SelectedItems.Count != 0)
+            {
+                string id = lstPecasPrincipais.FocusedItem.SubItems[0].Text;
+                string idveiculo = lstPecasPrincipais.FocusedItem.SubItems[1].Text;
+                string idpeca = lstPecasPrincipais.FocusedItem.SubItems[2].Text;
+                string descricao = lstPecasPrincipais.FocusedItem.SubItems[3].Text;
+                string dano = lstPecasPrincipais.FocusedItem.SubItems[4].Text;
+                string tipo = lstPecasPrincipais.FocusedItem.SubItems[5].Text;
+
+                new Classe_Pecas().CarregaEdicao_PecasPrincipal(this, id, idpeca, idveiculo, descricao, dano, tipo);
+            }
+        }
+
+        private void lstPecasPrincipais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstPecasComplementares.SelectedItems.Clear();
+        }
+
+        private void lstPecasComplementares_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstPecasPrincipais.SelectedItems.Clear();
+        }
+
+        private void btnExcluirPeca_Click(object sender, EventArgs e)
+        {
+            Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente excluir o item selecionado ?");
+            DialogResult Resposta = messagebox.ShowDialog();
+
+            if (Resposta.Equals(DialogResult.OK))
+            {
+                //Excluir Pecas Complementares
+                if (lstPecasComplementares.SelectedItems.Count != 0 && lstPecasPrincipais.SelectedItems.Count == 0)
+                {
+                    new Classe_Pecas().Excluir_PecaComplementar(this, lstPecasComplementares.FocusedItem.SubItems[0].Text);
+                }
+                //Excluir Pecas Principais
+                if (lstPecasComplementares.SelectedItems.Count == 0 && lstPecasPrincipais.SelectedItems.Count != 0)
+                {
+                    new Classe_Pecas().Excluir_PecaPrincipal(this, lstPecasPrincipais.FocusedItem.SubItems[0].Text);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void lstPecasComplementares_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+            this.lstPecasComplementares.Sort();
+        }
+
+        private void lstPecasPrincipais_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+            this.lstPecasPrincipais.Sort();
+        }
+
+        private void cboFiltroPEca1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboFiltroPEca1.Text.Equals("Peça Principal"))
+            {
+                cboFiltroPeca2.Items.Clear();
+
+                cboFiltroPeca2.Items.Add("Selecione o tipo");
+                new Classes_Conexao().Get_TipoPeca(cboFiltroPeca2);
+                cboFiltroPeca2.SelectedIndex = 0;
+            }
+            if (cboFiltroPEca1.Text.Equals("Peça Complementar"))
+            {
+                cboFiltroPeca2.Items.Clear();
+
+                cboFiltroPeca2.Items.Add("Selecione a aplicação");
+                new Classes_Conexao().Get_PecaAplicacao(cboFiltroPeca2);
+                cboFiltroPeca2.Items.Add("OUTROS");
+                cboFiltroPeca2.SelectedIndex = 0;
+            }
+        }
+
+        private void cboFiltroPeca2_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboFiltroPEca1.Text.Equals("Peça Principal"))
+            {
+                if (cboFiltroPeca2.Text.Equals("Selecione o tipo"))
+                {
+                    new Classe_Pecas().Listar_PecasPrincipais(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Pecas ASC");
+                    new Classe_Pecas().Listar_PecasComplementares(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Peca ASC");
+
+                }
+                else
+                {
+                    new Classe_Pecas().Listar_PecasPrincipais(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE Tipo='" + cboFiltroPeca2.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
+                }
+            }
+            if (cboFiltroPEca1.Text.Equals("Peça Complementar"))
+            {
+                if (cboFiltroPeca2.Text.Equals("Selecione a aplicação"))
+                {
+                    new Classe_Pecas().Listar_PecasPrincipais(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Pecas ASC");
+                    new Classe_Pecas().Listar_PecasComplementares(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Peca ASC");
+                }
+                else
+                {
+                    new Classe_Pecas().Listar_PecasComplementares(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE Aplicacao='" + cboFiltroPeca2.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
+                }
+            }
         }
     }
 }

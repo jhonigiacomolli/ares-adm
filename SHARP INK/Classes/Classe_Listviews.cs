@@ -162,5 +162,80 @@ namespace SHARP_INK.Classes
             TipoPesquisa.Items.Add("Função");
             TipoPesquisa.SelectedIndex = 0;
         }
+
+        //LST_PecasPrincipais
+        public void Criar_LST_Pecas(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = false;
+
+            LST.Columns.Add("Código", 90);
+            LST.Columns.Add("Grupo", 90);
+            LST.Columns.Add("Descrição", 350);
+            LST.Columns.Add("Aplicação", 170);
+            LST.Columns.Add("Estoque", 100);
+            LST.Columns.Add("Valor de Custo", 100, HorizontalAlignment.Right);
+            LST.Columns.Add("Valor de Venda", 150, HorizontalAlignment.Right);
+            LST.Columns.Add("Fornecedor", 105, HorizontalAlignment.Right);
+        }
+
+        public void Criar_LST_PecasPrincipais(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = true;
+
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("ID Veiculo", 0);
+            LST.Columns.Add("ID Peça", 0);
+            LST.Columns.Add("Peça Principal", 140);
+            LST.Columns.Add("% Dano", 45);
+            LST.Columns.Add("Tipo Peça", 140);
+        }
+
+        public void Criar_LST_PecasComplementares(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = true;
+
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("ID Veiculo", 0);
+            LST.Columns.Add("ID Peça", 0);
+            LST.Columns.Add("Peça Complementar", 145);
+            LST.Columns.Add("Aplicação", 60);
+            LST.Columns.Add("QNT", 40);
+            LST.Columns.Add("Unitário", 50);
+            LST.Columns.Add("Total", 50);
+        }
+
+        public void Criar_ComboDano(ComboBox CBO)
+        {
+            CBO.Items.Add("100");
+            CBO.Items.Add("90");
+            CBO.Items.Add("80");
+            CBO.Items.Add("70");
+            CBO.Items.Add("60");
+            CBO.Items.Add("50");
+            CBO.Items.Add("40");
+            CBO.Items.Add("30");
+            CBO.Items.Add("20");
+            CBO.Items.Add("10");
+        }
+
+        public void Criar_ComboTipoPeca(ComboBox CBO)
+        {
+            CBO.Items.Add("SUBSTITUIÇÃO OEM");
+            CBO.Items.Add("SUBSTITUIÇÃO OEM USADA");
+            CBO.Items.Add("SUBSTITUIÇÃO PARALELA");
+            CBO.Items.Add("RECUPERAÇÃO");
+        }
     }
 }

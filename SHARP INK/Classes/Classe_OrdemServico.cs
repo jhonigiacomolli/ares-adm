@@ -9,10 +9,11 @@ namespace SHARP_INK.Classes
 {
     class Classe_OrdemServico
     {
-        public void Atualizar_DadosGeral(frmOrdemServico Form,ListView LST,string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
+        public void Atualizar_DadosGeral(frmOrdemServico Form, ListView LST, string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
         {
             LST.Clear();
             new Classe_Listviews().Criar_LST_ItensOS(LST);
+            new Classe_Pecas().N_Pecas_Principais(Form.txtN_Pecas, nos);
             Listar_ItensOS(LST, SQL);
 
             Abrasivos.Text = Soma_Categorias(nos, "ABRASIVOS").ToString("N2");
@@ -21,6 +22,12 @@ namespace SHARP_INK.Classes
             Polimentos.Text = Soma_Categorias(nos, "POLIDORES").ToString("N2");
             Tintas.Text = Soma_Categorias(nos, "TINTAS").ToString("N2");
             Ticket.Text = Soma_TicketVeiculo(nos).ToString("N2");
+
+            double TK = Convert.ToDouble(Form.txtTicket.Text);
+            double NPecas = Convert.ToDouble(Form.txtN_Pecas.Text);
+            double MediPeca = TK / NPecas;
+
+            Form.txtMediaPeca.Text = MediPeca.ToString("N2");
         }
         public void Atualizar_DadosFuncionarios(frmOrdemServico frmOS, ListView LSTFunc, string ID_Veiculo)
         {
@@ -28,23 +35,25 @@ namespace SHARP_INK.Classes
             new Classe_Listviews().Criar_LST_FuncionariosAlocados(LSTFunc);
             new Classe_BancoHoras().Listar_ApontamentosOS(LSTFunc, "SELECT * FROM OrdemServico_BancoHoras WHERE ID_Veiculo='" + ID_Veiculo + "'");
 
-            new Classe_BancoHoras().Soma_Categorias(ID_Veiculo);
-            frmOS.lblSomaLavação.Text = Classe_BancoHoras.somaLavacao.ToString("N2");
-            frmOS.lblSomaDesmontagem.Text = Classe_BancoHoras.somaDesmontagem.ToString("N2");
-            frmOS.lblSomaMontagem.Text = Classe_BancoHoras.somaMontagem.ToString("N2");
-            frmOS.lblSomaSolda.Text = Classe_BancoHoras.somaSolda.ToString("N2");
-            frmOS.lblSomaAlinhamento.Text = Classe_BancoHoras.somaAlinhamento.ToString("N2");
-            frmOS.lblSomaFunilaria.Text = Classe_BancoHoras.somaFunilaria.ToString("N2");
-            frmOS.lblSomaPreparacao.Text = Classe_BancoHoras.somaPreparacao.ToString("N2");
-            frmOS.lblSomaPintura.Text = Classe_BancoHoras.somaPintura.ToString("N2");
-            frmOS.lblSomaPolimento.Text = Classe_BancoHoras.somaPolimento.ToString("N2");
-            frmOS.lblSomaRetrabalho.Text = Classe_BancoHoras.somaRetrabalho.ToString("N2");
-            frmOS.lblSomaHgienizacao.Text = Classe_BancoHoras.somaHigienização.ToString("N2");
-            frmOS.lblSomaEletrica.Text = Classe_BancoHoras.somaEletrica.ToString("N2");
-            frmOS.lblSomaMecanica.Text = Classe_BancoHoras.somaMecnica.ToString("N2");
-            frmOS.lblSomaGeometria.Text = Classe_BancoHoras.somaGeometria.ToString("N2");
-            frmOS.lblSomaEstofaria.Text = Classe_BancoHoras.somaEstofaria.ToString("N2");
+            new Classe_BancoHoras().Soma_Categorias(frmOS, ID_Veiculo);
+        }
 
+        public void Atualizar_DadosPecas(frmOrdemServico frmos, ListView LSTPecasPrin, ListView LSTPecasComp, string IDVeiculo)
+        {
+            LSTPecasPrin.Clear();
+            LSTPecasComp.Clear();
+
+            new Classe_Listviews().Criar_LST_PecasPrincipais(LSTPecasPrin);
+            new Classe_Listviews().Criar_LST_PecasComplementares(LSTPecasComp);
+            new Classe_Pecas().Listar_PecasPrincipais(LSTPecasPrin, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Pecas ASC");
+            new Classe_Pecas().Listar_PecasComplementares(LSTPecasComp, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Peca ASC");
+            frmos.cboFiltroPeca2.Items.Add("Selecione o tipo");
+            new Classes_Conexao().Get_TipoPeca(frmos.cboFiltroPeca2);
+            frmos.cboFiltroPEca1.SelectedIndex = 0;
+            frmos.cboFiltroPeca2.SelectedIndex = 0;
+
+            new Classe_Pecas().Soma_DespesaPEcas(frmos, IDVeiculo);
+            new Classe_Pecas().N_Pecas_Principais(frmos.lblN_PecasPrincipais, IDVeiculo);
         }
 
         public void Cabecalho_OrdemServico(frmOrdemServico Form, string nos, string proprietario, string veiculo, string placa, string cor, string tamanho)
@@ -65,7 +74,7 @@ namespace SHARP_INK.Classes
             Form.lblTituloForm.Text = "SHARP INK | OS Nº " + nos;
         }
 
-        public void Preenche_FormEdicao(frmOrdemServico frmOrdem, string Tipo, int IDProduto, int IDVeiculo,string Categoria, string Codigo, string Descricao, double quantidade, double ValorUnitario, double ValorTotal)
+        public void Preenche_FormEdicao(frmOrdemServico frmOrdem, string Tipo, int IDProduto, int IDVeiculo, string Categoria, string Codigo, string Descricao, double quantidade, double ValorUnitario, double ValorTotal)
         {
             frmIncluirItem Form = new frmIncluirItem(frmOrdem, Tipo, IDVeiculo, IDProduto);
 
@@ -82,6 +91,8 @@ namespace SHARP_INK.Classes
             Form.txtValorUnitario.BackColor = Classe_Tema.TextBox_Edicao;
             Form.txtValorTotal.BackColor = Classe_Tema.TextBox_Edicao;
 
+            Form.lblTituloForm.Text = "SHARP INK - Editar item";
+            Form.btnGravar.Text = "Alterar";
             Form.ShowDialog();
         }
 
@@ -263,7 +274,9 @@ namespace SHARP_INK.Classes
 
         public void HabilitarBotoesApontamento(frmOrdemServico Form)
         {
-            string status = Form.lstFuncionarios.FocusedItem.SubItems[6].Text;
+            string status = "";
+
+            if (Form.lstFuncionarios.FocusedItem != null) { status = Form.lstFuncionarios.FocusedItem.SubItems[6].Text; } else { return; }
 
             if (Form.lstFuncionarios.SelectedItems.Count.Equals(0) || Form.lstFuncionarios.SelectedItems.Equals(false))
             {
