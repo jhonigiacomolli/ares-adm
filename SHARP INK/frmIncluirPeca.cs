@@ -34,8 +34,8 @@ namespace SHARP_INK
             txtQuantidade.Visible = false;
             txtUnitario.Visible = false;
             txtCusto.Visible = false;
-            new Classes_Conexao().Get_DanoPeca(cboAplicacaoDano);
-            new Classes_Conexao().Get_TipoPeca(cboTipoPeca);
+            new Classe_Pecas().Get_DanoPeca(cboAplicacaoDano);
+            new Classe_Pecas().Get_TipoPeca(cboTipoPeca);
         }
         public frmIncluirPeca(frmOrdemServico frmOS, string ID_Veiculo, string TIPO, string IDEdicao)
         {
@@ -50,7 +50,7 @@ namespace SHARP_INK
             lblPercent.Visible = false;
             lblTituloCustoTipo.Text = "Valor";
             cboTipoPeca.Visible = false;
-            new Classes_Conexao().Get_PecaAplicacao(cboAplicacaoDano);
+            new Classe_Pecas().Get_PecaAplicacao(cboAplicacaoDano);
         }
 
         private void pnCabecalho_MouseDown(object sender, MouseEventArgs e)

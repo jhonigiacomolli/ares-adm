@@ -24,7 +24,7 @@ namespace SHARP_INK
 
             new Classe_Tema().TEMA_frmPrincipal(this);
             new Classe_Empresa().Empresa();
-            new Classes_Conexao().Get_TipoBanco();
+            new Classe_BancoHoras().Get_TipoBanco();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -129,6 +129,18 @@ namespace SHARP_INK
         {
             frmProdutos Pecas = new frmProdutos("PEÇAS");
             Pecas.ShowDialog();
+        }
+
+        private void btnCatalises_Click(object sender, EventArgs e)
+        {
+            frmCatalises Catalise = new frmCatalises();
+            Catalise.ShowDialog();
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            frmConfiguracoes Config = new frmConfiguracoes();
+            Config.ShowDialog();
         }
     }
 }

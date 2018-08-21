@@ -33,7 +33,7 @@ namespace SHARP_INK
             this.lstPecasPrincipais.ListViewItemSorter = lvwColumnSorter;
 
             picLogoEmpresa.ImageLocation = Classes_Conexao.CaminhoLogo;
-            new Classes_Conexao().Get_Grupos(cboGrupos);
+            new Classe_OrdemServico().Get_Grupos(cboGrupos);
             new Classe_Tema().TEMA_frmOrdemServico(this);
 
             new Classe_OrdemServico().Cabecalho_OrdemServico(this, nos, proprietario, veiculo, placa, cor, tamanho);
@@ -233,9 +233,9 @@ namespace SHARP_INK
             AtualizaDadosFuncionario();
 
             cboFiltroApontamento.SelectedIndex = 0;
-            new Classes_Conexao().Get_FiltroApontamento(cboFuncao, cboFiltroApontamento.Text);
+            new Classe_BancoHoras().Get_FiltroApontamento(cboFuncao, cboFiltroApontamento.Text);
 
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+            if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
             {
                 btnLiberar.Visible = true;
             }
@@ -285,11 +285,11 @@ namespace SHARP_INK
         {
             frmApontamentoFunc apontar = new frmApontamentoFunc(this, txtNos.Text);
 
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+            if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
             {
                 apontar.Height = 250;
             }
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+            if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classe_BancoHoras.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
             {
                 apontar.Height = 190;
             }
@@ -306,7 +306,7 @@ namespace SHARP_INK
             string Funcao = lstFuncionarios.FocusedItem.SubItems[4].Text;
             frmApontamentoFunc func = new frmApontamentoFunc(this, ID, ID_Veiculo);
 
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+            if (Classe_BancoHoras.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
             {
                 func.Height = 190;
                 new Classe_BancoHoras().CarregaEdicaoApontamento(func, ID_Funcionario, ID_Veiculo, Nome, Funcao, null, null, null);
@@ -350,7 +350,7 @@ namespace SHARP_INK
             string Entrada = lstFuncionarios.FocusedItem.SubItems[5].Text;
             double MO = Convert.ToDouble(lstFuncionarios.FocusedItem.SubItems[9].Text);
 
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+            if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
             {
                 new Classe_BancoHoras().Liberar_Funcionario(ID, Entrada, DateTime.Now.ToString(), MO);
             }
@@ -390,7 +390,7 @@ namespace SHARP_INK
 
         private void cboFiltroApontamento_SelectedValueChanged(object sender, EventArgs e)
         {
-            new Classes_Conexao().Get_FiltroApontamento(cboFuncao, cboFiltroApontamento.Text);
+            new Classe_BancoHoras().Get_FiltroApontamento(cboFuncao, cboFiltroApontamento.Text);
         }
 
         private void cboFuncao_SelectedValueChanged(object sender, EventArgs e)
@@ -572,7 +572,7 @@ namespace SHARP_INK
                 cboFiltroPeca2.Items.Clear();
 
                 cboFiltroPeca2.Items.Add("Selecione o tipo");
-                new Classes_Conexao().Get_TipoPeca(cboFiltroPeca2);
+                new Classe_Pecas().Get_TipoPeca(cboFiltroPeca2);
                 cboFiltroPeca2.SelectedIndex = 0;
             }
             if (cboFiltroPEca1.Text.Equals("Peça Complementar"))
@@ -580,7 +580,7 @@ namespace SHARP_INK
                 cboFiltroPeca2.Items.Clear();
 
                 cboFiltroPeca2.Items.Add("Selecione a aplicação");
-                new Classes_Conexao().Get_PecaAplicacao(cboFiltroPeca2);
+                new Classe_Pecas().Get_PecaAplicacao(cboFiltroPeca2);
                 cboFiltroPeca2.Items.Add("OUTROS");
                 cboFiltroPeca2.SelectedIndex = 0;
             }

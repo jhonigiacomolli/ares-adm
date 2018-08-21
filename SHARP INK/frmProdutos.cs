@@ -33,6 +33,7 @@ namespace SHARP_INK
                 new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
                 new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
                 new Classe_Produtos().Listar_Produtos(lstProdutos, "SELECT * FROM Produtos ORDER BY Descricao ASC");
+                txtPesquisa.Select();
             }
             if (Genero.Equals("FUNCIONARIO"))
             {
@@ -41,6 +42,7 @@ namespace SHARP_INK
                 new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
                 new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
                 new Classe_Funcionario().Listar_Funcionarios(lstProdutos, "SELECT * FROM Funcionarios ORDER BY Nome ASC");
+                txtPesquisa.Select();
             }
             if (Genero.Equals("PEÇAS"))
             {
@@ -48,10 +50,11 @@ namespace SHARP_INK
                 this.Text = "SHARP INK - Peças";
                 new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
                 new Classe_Pecas().Listar_Pecas(lstProdutos, "SELECT * FROM Pecas ORDER BY Descricao ASC");
+                txtPesquisa.Select();
             }
         }
 
-        public frmProdutos(frmIncluirItem FormIncluirItem, string SQL) 
+        public frmProdutos(frmIncluirItem FormIncluirItem, string SQL)
         {
             InitializeComponent();
             lblTituloForm.Text = "SHARP INK - Produtos";
@@ -60,6 +63,7 @@ namespace SHARP_INK
             new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
             new Classe_Produtos().Listar_Produtos(lstProdutos, SQL);
+            txtPesquisa.Select();
         }
         public frmProdutos(frmApontamentoFunc frmApontamento, string SQL)
         {
@@ -70,16 +74,17 @@ namespace SHARP_INK
             new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
             new Classe_Funcionario().Listar_Funcionarios(lstProdutos, SQL);
+            txtPesquisa.Select();
         }
         public frmProdutos(frmIncluirPeca frmincluirpeca, string SQL)
         {
             InitializeComponent();
-            lblTituloForm.Text = "SHARP INK - Funcionarios";
+            lblTituloForm.Text = "SHARP INK - Peças";
             this.frmincluirpeca = frmincluirpeca;
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
-            //new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
             new Classe_Pecas().Listar_Pecas(lstProdutos, SQL);
+            txtPesquisa.Select();
         }
 
         private void txtPesquisa_Enter(object sender, EventArgs e)
@@ -150,6 +155,14 @@ namespace SHARP_INK
                     this.Close();
                     break;
             }
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.B || e.KeyCode == Keys.C || e.KeyCode == Keys.D || e.KeyCode == Keys.E || e.KeyCode == Keys.F || e.KeyCode == Keys.G || e.KeyCode == Keys.H || e.KeyCode == Keys.I || e.KeyCode == Keys.J || e.KeyCode == Keys.K || e.KeyCode == Keys.L || e.KeyCode == Keys.M || e.KeyCode == Keys.N || e.KeyCode == Keys.O || e.KeyCode == Keys.P || e.KeyCode == Keys.Q || e.KeyCode == Keys.R || e.KeyCode == Keys.S || e.KeyCode == Keys.T || e.KeyCode == Keys.U || e.KeyCode == Keys.V || e.KeyCode == Keys.W || e.KeyCode == Keys.X || e.KeyCode == Keys.Y || e.KeyCode == Keys.Z || (e.Shift && e.KeyCode == Keys.D5))
+            {
+                txtPesquisa.Clear();
+                if (e.Shift && e.KeyCode.Equals(Keys.D5)) { txtPesquisa.Text = "%"; } else { txtPesquisa.Text = e.KeyCode.ToString(); }
+                txtPesquisa.Select(txtPesquisa.Text.Length, 0);
+                txtPesquisa.Select();
+
+            }
         }
 
         private void btnExcluir_KeyDown(object sender, KeyEventArgs e)
@@ -200,6 +213,14 @@ namespace SHARP_INK
                     this.Close();
                     break;
             }
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.B || e.KeyCode == Keys.C || e.KeyCode == Keys.D || e.KeyCode == Keys.E || e.KeyCode == Keys.F || e.KeyCode == Keys.G || e.KeyCode == Keys.H || e.KeyCode == Keys.I || e.KeyCode == Keys.J || e.KeyCode == Keys.K || e.KeyCode == Keys.L || e.KeyCode == Keys.M || e.KeyCode == Keys.N || e.KeyCode == Keys.O || e.KeyCode == Keys.P || e.KeyCode == Keys.Q || e.KeyCode == Keys.R || e.KeyCode == Keys.S || e.KeyCode == Keys.T || e.KeyCode == Keys.U || e.KeyCode == Keys.V || e.KeyCode == Keys.W || e.KeyCode == Keys.X || e.KeyCode == Keys.Y || e.KeyCode == Keys.Z || (e.Shift && e.KeyCode == Keys.D5))
+            {
+                txtPesquisa.Clear();
+                if (e.Shift && e.KeyCode.Equals(Keys.D5)) { txtPesquisa.Text = "%"; } else { txtPesquisa.Text = e.KeyCode.ToString(); }
+                txtPesquisa.Select(txtPesquisa.Text.Length,0);
+                txtPesquisa.Select();
+
+            }
         }
 
         private void txtPesquisa_KeyDown(object sender, KeyEventArgs e)
@@ -223,20 +244,28 @@ namespace SHARP_INK
                 if (frmIncluir != null)
                 {
                     new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                    lstProdutos.Select();
+                    if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
                 }                
                 if (frmapontamento != null)
                 {
                     new Classe_Funcionario().Pesquisa_Funcionario(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                    lstProdutos.Select();
+                    if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
                 }
                 if (Genero != null)
                 {
                     if (Genero.Equals("PRODUTO"))
                     {
                         new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                        lstProdutos.Select();
+                        if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
                     }
                     if (Genero.Equals("FUNCIONARIO"))
                     {
                         new Classe_Funcionario().Pesquisa_Funcionario(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                        lstProdutos.Select();
+                        if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
                     }
                 }
             }
@@ -260,7 +289,7 @@ namespace SHARP_INK
                 frmapontamento.txtFuncionario.Text = lstProdutos.FocusedItem.SubItems[1].Text;
                 frmapontamento.txtValorHora.Text = lstProdutos.FocusedItem.SubItems[10].Text;
                 this.Close();
-                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+                if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
                 {
                     frmapontamento.txtEntrada.Select();
                 }

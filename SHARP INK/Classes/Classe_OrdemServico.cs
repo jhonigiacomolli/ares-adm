@@ -9,6 +9,9 @@ namespace SHARP_INK.Classes
 {
     class Classe_OrdemServico
     {
+        public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
+
+
         public void Atualizar_DadosGeral(frmOrdemServico Form, ListView LST, string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
         {
             LST.Clear();
@@ -48,7 +51,7 @@ namespace SHARP_INK.Classes
             new Classe_Pecas().Listar_PecasPrincipais(LSTPecasPrin, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Pecas ASC");
             new Classe_Pecas().Listar_PecasComplementares(LSTPecasComp, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Peca ASC");
             frmos.cboFiltroPeca2.Items.Add("Selecione o tipo");
-            new Classes_Conexao().Get_TipoPeca(frmos.cboFiltroPeca2);
+            new Classe_Pecas().Get_TipoPeca(frmos.cboFiltroPeca2);
             frmos.cboFiltroPEca1.SelectedIndex = 0;
             frmos.cboFiltroPeca2.SelectedIndex = 0;
 
@@ -301,6 +304,108 @@ namespace SHARP_INK.Classes
                     Form.btnExcluirApontamento.Enabled = true;
                     Form.btnEditarApontamento.Enabled = true;
                 }
+            }
+        }
+
+        public void Get_Cores(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Cor FROM Cores ORDER BY Cor ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Cor"].ToString().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_Tamanho(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Tamanho FROM Tamanho ORDER BY id ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Tamanho"].ToString().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_Grupos(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT * FROM Produtos_Grupos";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                CBO.Items.Add("Selecione o grupo");
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Grupo"].ToString().TrimEnd());
+                }
+                CBO.SelectedIndex = 0;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+        public void Get_Proprietario(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Nome FROM Proprietario ORDER BY Nome ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Nome"].ToString().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
             }
         }
     }

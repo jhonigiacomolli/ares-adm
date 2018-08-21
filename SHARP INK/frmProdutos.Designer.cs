@@ -253,10 +253,10 @@
         public System.Windows.Forms.Button btnIncluir;
         public System.Windows.Forms.Button btnEditar;
         public System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.TextBox txtPesquisa;
         public System.Windows.Forms.Label lblPalavraChave;
         private System.Windows.Forms.ComboBox cboCampo;
         public System.Windows.Forms.Label lblCampo;
         public System.Windows.Forms.ListView lstProdutos;
+        public System.Windows.Forms.TextBox txtPesquisa;
     }
 }

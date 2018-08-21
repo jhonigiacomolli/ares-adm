@@ -9,6 +9,10 @@ namespace SHARP_INK
 {
     public class Classe_BancoHoras
     {
+
+        public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
+        public static string Tipo_BancoHoras;
+
         public static double somaLavacao;
         public static double somaDesmontagem;
         public static double somaMontagem;
@@ -43,7 +47,7 @@ namespace SHARP_INK
                         Item.SubItems.Add(DR["ID_Veiculo"].ToString().TrimEnd().ToUpper());
                         Item.SubItems.Add(DR["Nome"].ToString().TrimEnd().ToUpper());
                         Item.SubItems.Add(DR["Funcao"].ToString().TrimEnd().ToUpper());
-                        if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+                        if (Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
                         {
                             Item.SubItems.Add(DR["Entrada"].ToString().TrimEnd().ToUpper());
                             Item.SubItems.Add(DR["Saida"].ToString().TrimEnd().ToUpper());
@@ -68,8 +72,8 @@ namespace SHARP_INK
             {
                 SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
 
-                string comandoSQL = "INSERT INTO OrdemServico_BancoHoras(ID_Funcionario,ID_Veiculo,Nome,Funcao,Entrada,MO)" +
-                            " VALUES ('" + ID_Funcionario + "','" + ID_Veiculo + "','" + Funcionario + "','" + Funcao + "','" + Entrada + "','" + Valor + "')";
+                string comandoSQL = "INSERT INTO OrdemServico_BancoHoras(ID_Funcionario,ID_Veiculo,Nome,Funcao,Entrada,MO,Valor)" +
+                            " VALUES ('" + ID_Funcionario + "','" + ID_Veiculo + "','" + Funcionario + "','" + Funcao + "','" + Entrada + "','" + Valor + "','0')";
 
                 SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
 
@@ -121,7 +125,7 @@ namespace SHARP_INK
 
         public void Editar_Apontamento(string ID, string ID_Funcionario, string ID_Veiculo, string Nome, string Funcao, string Entrada, string Saida, double MO)
         {
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+            if (Tipo_BancoHoras.Equals("APENAS REGISTRO"))
             {
                 try
                 {
@@ -250,7 +254,7 @@ namespace SHARP_INK
                 form.txtCodigo.Clear();
                 form.txtFuncionario.Clear();
                 form.cboFuncao.Items.Clear();
-                new Classes_Conexao().Get_Funcao(form.cboFuncao);
+                Get_Funcao(form.cboFuncao);
                 form.txtEntrada.Text = "";
                 form.txtHoraEntrada.Clear();
                 form.txtSaida.Text = "";
@@ -272,14 +276,14 @@ namespace SHARP_INK
         {
             Form.txtCodigo.Text = ID_Funcionario;
             Form.txtFuncionario.Text = Nome;
-            new Classes_Conexao().Get_Funcao(Form.cboFuncao);
+            Get_Funcao(Form.cboFuncao);
             Form.cboFuncao.SelectedIndex = Form.cboFuncao.FindString(Funcao);
 
             Form.txtCodigo.BackColor = Classe_Tema.TextBox_Edicao;
             Form.txtFuncionario.BackColor = Classe_Tema.TextBox_Edicao;
             Form.cboFuncao.BackColor = Classe_Tema.TextBox_Edicao;
 
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+            if (Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL") || Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
             {
                 Form.txtEntrada.Value = Convert.ToDateTime(Entrada);
                 Form.txtHoraEntrada.Text = Convert.ToDateTime(Entrada).ToLongTimeString();
@@ -412,6 +416,137 @@ namespace SHARP_INK
             catch (SqlCeException ex)
             {
                 Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_TipoBanco()
+        {
+            try
+            {
+                string SQL = "SELECT TipoBancoHoras FROM Configuracoes";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    Tipo_BancoHoras = DR["TipoBancoHoras"].ToString().TrimEnd();
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_FiltroApontamento(ComboBox CBO, string Filtro)
+        {
+            CBO.Items.Clear();
+            try
+            {
+                if (Filtro.Equals("Funcionário"))
+                {
+                    string SQL = "SELECT Nome FROM Funcionarios ORDER BY Nome ASC";
+                    SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                    DataSet DS = new DataSet();
+                    SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                    DA.Fill(DS);
+                    DataTable Data_Table = DS.Tables[0];
+
+                    CBO.Items.Add("Selecione o funcionário");
+
+                    for (int i = 0; i < Data_Table.Rows.Count; i++)
+                    {
+                        DataRow DR = Data_Table.Rows[i];
+                        CBO.Items.Add(DR["Nome"].ToString().TrimEnd());
+                    }
+                }
+                if (Filtro.Equals("Função"))
+                {
+                    string SQL = "SELECT * FROM Funcionarios_Funcao ORDER BY Funcao ASC";
+                    SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                    DataSet DS = new DataSet();
+                    SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                    DA.Fill(DS);
+                    DataTable Data_Table = DS.Tables[0];
+
+                    CBO.Items.Add("Selecione a função");
+
+                    for (int i = 0; i < Data_Table.Rows.Count; i++)
+                    {
+                        DataRow DR = Data_Table.Rows[i];
+                        CBO.Items.Add(DR["Funcao"].ToString().TrimEnd());
+                    }
+                }
+                CBO.SelectedIndex = 0;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_Funcao(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT * FROM Funcionarios_Funcao ORDER BY Funcao ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                CBO.Items.Add("Selecione a função");
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Funcao"].ToString().TrimEnd());
+                }
+                CBO.SelectedIndex = 0;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+        public void Get_Funcionario(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Nome FROM Funcionarios ORDER BY Nome ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                CBO.Items.Add("Selecione o campo de filtro");
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Funcao"].ToString().TrimEnd());
+                }
+
+                CBO.SelectedIndex = 0;
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
             }
         }

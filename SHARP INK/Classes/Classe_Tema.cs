@@ -10,22 +10,22 @@ namespace SHARP_INK.Classes
     {
         public static Color Botao_Normal = Color.Silver;
         public static Color Botao_Sobre = Color.Maroon;
-        public static Color BordaBotao = Color.FromArgb(64,64,64);
+        public static Color BordaBotao = Color.FromArgb(64, 64, 64);
         public static Color Botao_Desativado = Color.Black;
-        public static Color MenuBotao_Normal= Color.FromArgb(26, 26, 26);
+        public static Color MenuBotao_Normal = Color.FromArgb(26, 26, 26);
         public static Color MenuBotao_Sobre = Color.FromArgb(64, 64, 64);
         public static Color TextBox_Edicao = Color.YellowGreen;
         public static Color TextBox_Normal = Color.White;
-        public static Color TextBox_Desativado = Color.FromArgb(80,80,80);
+        public static Color TextBox_Desativado = Color.FromArgb(80, 80, 80);
         public static Color Linha_OSAberta = Color.Green;
-        public static Color Linha_OSFechada = Color.FromArgb(60,60,60);
+        public static Color Linha_OSFechada = Color.FromArgb(60, 60, 60);
         public static Color Linha_OSAguardando = Color.Black;
 
         public Color COR_Primaria = Color.FromArgb(26, 26, 26);
         public Color COR_Background_Listview = Color.FromArgb(224, 224, 224);
         public Color COR_Titulos = Color.Silver;
         public Color COR_Subtitulos = Color.Gray;
-        public Color COR_FontePrimaria = Color.Black;     
+        public Color COR_FontePrimaria = Color.Black;
 
         public void TEMA_frmPrincipal(frmPaginaInicial Form)
         {
@@ -82,7 +82,7 @@ namespace SHARP_INK.Classes
             Form.btnEditar.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
             Form.btnEditar.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
             Form.btnExcluir.FlatAppearance.MouseOverBackColor = Classe_Tema.MenuBotao_Sobre;
-            Form.btnExcluir.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;          
+            Form.btnExcluir.FlatAppearance.MouseDownBackColor = Classe_Tema.MenuBotao_Normal;
 
             //Pesquisa
             Form.lblTipoPesquisa.ForeColor = COR_Titulos;
@@ -114,7 +114,7 @@ namespace SHARP_INK.Classes
 
             //Cabeçalho
             Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
-            Form.lblTituloForm.ForeColor = COR_Titulos;            
+            Form.lblTituloForm.ForeColor = COR_Titulos;
         }
 
         public void TEMA_frmMensagemBox(frmMensagemBox Form)
@@ -175,8 +175,8 @@ namespace SHARP_INK.Classes
             //Painel Itens OS
 
             Form.pnItensOS.BackColor = Color.FromArgb(40, 40, 40);
-            Form.btnPainelGeral.BackColor= Color.FromArgb(40, 40, 40);
-            Form.btnPainelGeral.FlatAppearance.BorderColor= Color.FromArgb(40, 40, 40);
+            Form.btnPainelGeral.BackColor = Color.FromArgb(40, 40, 40);
+            Form.btnPainelGeral.FlatAppearance.BorderColor = Color.FromArgb(40, 40, 40);
             Form.lstItensOS.BackColor = COR_Background_Listview;
 
             Form.lblTicket.ForeColor = COR_Subtitulos;
@@ -248,7 +248,7 @@ namespace SHARP_INK.Classes
             Form.pnPecas.BackColor = Color.FromArgb(33, 38, 38);
             Form.lstPecasPrincipais.BackColor = COR_Background_Listview;
             Form.lstPecasComplementares.BackColor = COR_Background_Listview;
-            Form.btnIncluirPecaC.BackColor= Color.FromArgb(33, 38, 38);
+            Form.btnIncluirPecaC.BackColor = Color.FromArgb(33, 38, 38);
             Form.btnIncluirPecaP.BackColor = Color.FromArgb(33, 38, 38);
             Form.btnEditarPeca.BackColor = Color.FromArgb(33, 38, 38);
             Form.btnExcluirPeca.BackColor = Color.FromArgb(33, 38, 38);
@@ -340,6 +340,34 @@ namespace SHARP_INK.Classes
 
             Form.btnGravar.BackColor = Botao_Normal;
             Form.btnPesquisa.BackColor = Botao_Normal;
+        }
+
+        public void TEMA_frmCatalises(frmCatalises Form)
+        {
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
+        }
+
+        public void TEMA_frmConfiguracoes(frmConfiguracoes Form)
+        {
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
+
+            Form.lblTituloRazao.ForeColor = COR_Titulos;
+            Form.lblTituloCNPJ.ForeColor = COR_Titulos;
+            Form.lblTituloEndereco.ForeColor = COR_Titulos;
+            Form.lblTituloEmail.ForeColor = COR_Titulos;
+            Form.lblTituloTelefone.ForeColor = COR_Titulos;
+            Form.lblTituloBancoHoras.ForeColor = COR_Titulos;
+            
         }
     }
 }

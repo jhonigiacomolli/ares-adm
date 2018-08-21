@@ -269,6 +269,7 @@
             this.btnCatalises.Size = new System.Drawing.Size(200, 90);
             this.btnCatalises.TabIndex = 5;
             this.btnCatalises.TabStop = false;
+            this.btnCatalises.Click += new System.EventHandler(this.btnCatalises_Click);
             this.btnCatalises.MouseEnter += new System.EventHandler(this.btnCatalises_MouseEnter);
             this.btnCatalises.MouseLeave += new System.EventHandler(this.btnCatalises_MouseLeave_1);
             // 
@@ -313,6 +314,7 @@
             this.btnConfig.Size = new System.Drawing.Size(200, 90);
             this.btnConfig.TabIndex = 8;
             this.btnConfig.TabStop = false;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             this.btnConfig.MouseEnter += new System.EventHandler(this.btnConfig_MouseEnter);
             this.btnConfig.MouseLeave += new System.EventHandler(this.btnConfig_MouseLeave_1);
             // 
@@ -423,7 +425,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPaginaInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Form1";
+            this.Text = "SHARP INK - Home Page";
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.pnMinimizar.ResumeLayout(false);

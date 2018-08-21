@@ -203,6 +203,26 @@ namespace SHARP_INK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icone_PDF {
+            get {
+                object obj = ResourceManager.GetObject("Icone_PDF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icone_PDF_2 {
+            get {
+                object obj = ResourceManager.GetObject("Icone_PDF_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icone_Produtos {
             get {
                 object obj = ResourceManager.GetObject("Icone_Produtos", resourceCulture);
@@ -226,6 +246,56 @@ namespace SHARP_INK.Properties {
         internal static System.Drawing.Bitmap Logo_Sharp_INK {
             get {
                 object obj = ResourceManager.GetObject("Logo Sharp INK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PPG {
+            get {
+                object obj = ResourceManager.GetObject("PPG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_D839_NORMAL {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER D839 NORMAL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ROBERLO {
+            get {
+                object obj = ResourceManager.GetObject("ROBERLO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SEMIMAGEM {
+            get {
+                object obj = ResourceManager.GetObject("SEMIMAGEM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VERNIZ_GLOBAL_50 {
+            get {
+                object obj = ResourceManager.GetObject("VERNIZ GLOBAL 50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

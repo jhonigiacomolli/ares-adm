@@ -123,7 +123,7 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("ID_Veiculo", 0);
             LST.Columns.Add("Funcionário", 150);
             LST.Columns.Add("Função", 100);
-            if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+            if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO") || Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
             {
                 LST.Columns.Add("Horario Entrada", 115);
                 LST.Columns.Add("Horario Saida", 115);
@@ -236,6 +236,42 @@ namespace SHARP_INK.Classes
             CBO.Items.Add("SUBSTITUIÇÃO OEM USADA");
             CBO.Items.Add("SUBSTITUIÇÃO PARALELA");
             CBO.Items.Add("RECUPERAÇÃO");
+        }
+
+        public void Criar_LST_Catalise(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = true;
+
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("Codigo Catalise", 0);
+            LST.Columns.Add("Codigo Produto", 0);
+            LST.Columns.Add("Produto", 300);
+            LST.Columns.Add("Proporção", 70,HorizontalAlignment.Center);
+            LST.Columns.Add("Peso Especifico", 0);
+            LST.Columns.Add("Quantidade", 100,HorizontalAlignment.Right);
+            LST.Columns.Add("Valor", 100, HorizontalAlignment.Right);
+        }
+
+        public void Criar_LST_AditivosCatalise(ListView LST)
+        {
+            LST.GridLines = true;
+            //LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.CheckBoxes = true;
+
+            LST.Columns.Add("Produto", 180);
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("Codigo Catalise", 0);
+            LST.Columns.Add("Codigo Produto", 0);
+            LST.Columns.Add("Proporção", 70, HorizontalAlignment.Center);
+            LST.Columns.Add("Peso Especifico", 0);
+            LST.Columns.Add("Quantidade", 70, HorizontalAlignment.Right);
+            LST.Columns.Add("Valor", 60, HorizontalAlignment.Right);
         }
     }
 }

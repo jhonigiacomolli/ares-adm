@@ -8,6 +8,8 @@ namespace SHARP_INK.Classes
 {
     class Classe_Funcionario
     {
+        public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
+
         public string id { get; private set; }
         public string Nome { get; private set; }
         public string Endereco { get; private set; }

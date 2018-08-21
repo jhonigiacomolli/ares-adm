@@ -34,7 +34,8 @@ namespace SHARP_INK
             this.TIPO = "INCLUSÃO";
             frmOrdemServico = frmOS;
 
-            new Classes_Conexao().Get_Funcao(cboFuncao);
+            new Classe_BancoHoras().Get_Funcao(cboFuncao);
+            new Classe_Tema().TEMA_frmApontamentoFunc(this);
 
         }
 
@@ -45,6 +46,8 @@ namespace SHARP_INK
             this.ID_Veiculo = ID_Veiculo;
             this.ID = ID;
             TIPO = "EDIÇÃO";
+
+            new Classe_Tema().TEMA_frmApontamentoFunc(this);
         }
 
         private void frmApontamentoFunc_Resize(object sender, EventArgs e)
@@ -325,7 +328,7 @@ namespace SHARP_INK
 
             if (TIPO.Equals("INCLUSÃO"))
             {
-                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
+                if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL"))
                 {
                     if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty && txtEntrada.Text != string.Empty && txtHoraEntrada.Text != string.Empty)
                     {
@@ -344,7 +347,7 @@ namespace SHARP_INK
                         txtCodigo.Select();
                     }
                 }
-                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+                if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
                 {
                     if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty)
                     {
@@ -363,7 +366,7 @@ namespace SHARP_INK
                         txtCodigo.Select();
                     }
                 }
-                if (Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+                if (Classe_BancoHoras.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
                 {
                     if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty)
                     {
@@ -386,7 +389,7 @@ namespace SHARP_INK
             if (TIPO.Equals("EDIÇÃO"))
             {
 
-                if (Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL") || Classes_Conexao.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
+                if (Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS MANUAL") || Classe_BancoHoras.Tipo_BancoHoras.Equals("BANCO DE HORAS AUTOMÁTICO"))
                 {
                     if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty && txtEntrada.Text != string.Empty && txtHoraEntrada.Text != string.Empty)
                     {
@@ -405,7 +408,7 @@ namespace SHARP_INK
                     }
                 }
                 
-                if (Classes_Conexao.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
+                if (Classe_BancoHoras.Tipo_BancoHoras.Equals("APENAS REGISTRO"))
                 {
                     if (IDFuncionario != string.Empty && Nome != string.Empty && Funcao != string.Empty)
                     {

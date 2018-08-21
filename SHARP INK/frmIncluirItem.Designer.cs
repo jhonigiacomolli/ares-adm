@@ -293,7 +293,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmIncluirItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmIncluirItem";
+            this.Text = "SHARP INK - Incluir Item";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmIncluirItem_KeyDown);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();

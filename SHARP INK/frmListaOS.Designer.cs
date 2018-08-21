@@ -292,7 +292,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListaOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListaOS";
+            this.Text = "SHARP INK - Ordem de Serviço";
             this.Click += new System.EventHandler(this.frmListaOS_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmListaOS_KeyDown);
             this.pnCabecalho.ResumeLayout(false);

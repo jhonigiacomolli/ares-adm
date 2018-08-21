@@ -215,7 +215,7 @@
             // 
             this.txtCor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtCor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtCor.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtCor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtCor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtCor.FormattingEnabled = true;

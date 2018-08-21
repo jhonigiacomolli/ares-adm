@@ -34,7 +34,6 @@
             this.btnGravar = new System.Windows.Forms.Button();
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFuncionario = new System.Windows.Forms.TextBox();
@@ -49,6 +48,7 @@
             this.txtEntrada = new System.Windows.Forms.DateTimePicker();
             this.txtSaida = new System.Windows.Forms.DateTimePicker();
             this.txtValorHora = new System.Windows.Forms.TextBox();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.SuspendLayout();
@@ -126,16 +126,6 @@
             this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
-            // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
             // 
             // btnFechar
             // 
@@ -286,7 +276,16 @@
             this.txtValorHora.Name = "txtValorHora";
             this.txtValorHora.Size = new System.Drawing.Size(23, 20);
             this.txtValorHora.TabIndex = 42;
-            this.txtValorHora.Visible = false;
+            // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
             // 
             // frmApontamentoFunc
             // 
@@ -314,7 +313,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmApontamentoFunc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmApontamentoFunc";
+            this.Text = "Apontamento";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmApontamentoFunc_KeyDown);
             this.Resize += new System.EventHandler(this.frmApontamentoFunc_Resize);
             this.pnCabecalho.ResumeLayout(false);

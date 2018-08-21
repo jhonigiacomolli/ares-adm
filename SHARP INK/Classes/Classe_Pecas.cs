@@ -17,6 +17,9 @@ namespace SHARP_INK.Classes
         public double Venda { get; private set; }
         public string Fornecedor { get; private set; }
 
+
+        public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
+
         public void Listar_Pecas(ListView LST, string SQL)
         {
             try
@@ -35,8 +38,8 @@ namespace SHARP_INK.Classes
                         Item.SubItems.Add(DR["Descricao"].ToString().TrimEnd().ToUpper());
                         Item.SubItems.Add(DR["Aplicacao"].ToString().TrimEnd().ToUpper());
                         Item.SubItems.Add(DR["QuantidadeEstoque"].ToString().TrimEnd().ToUpper());
-                        Item.SubItems.Add(Convert.ToDecimal(DR["Custo"].ToString().TrimEnd()).ToString("N2"));
-                        Item.SubItems.Add(Convert.ToDecimal(DR["Venda"].ToString().TrimEnd()).ToString("N2"));
+                        if (DR["Custo"].ToString().TrimEnd() != null && DR["Custo"].ToString().TrimEnd() != string.Empty) { Item.SubItems.Add(Convert.ToDecimal(DR["Custo"].ToString().TrimEnd()).ToString("N2")); };
+                        if (DR["Venda"].ToString().TrimEnd() != null && DR["Venda"].ToString().TrimEnd() != string.Empty) { Item.SubItems.Add(Convert.ToDecimal(DR["Venda"].ToString().TrimEnd()).ToString("N2")); };
                         Item.SubItems.Add(DR["Fornecedor"].ToString().TrimEnd());
 
                         LST.Items.Add(Item);
@@ -461,6 +464,80 @@ namespace SHARP_INK.Classes
             catch (SqlCeException ex)
             {
                 Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_PecaAplicacao(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Aplicacao FROM Pecas_Aplicacao ORDER BY Aplicacao ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Aplicacao"].ToString().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+        public void Get_TipoPeca(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Tipo FROM Pecas_Tipo ORDER BY Tipo ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Tipo"].ToString().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Get_DanoPeca(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Dano FROM Pecas_Dano ORDER BY id DESC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Dano"].ToString().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
                 Messagebox.Show();
             }
         }

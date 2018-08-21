@@ -28,9 +28,9 @@ namespace SHARP_INK
             FormListaOS = ListaOS;
             this.ID = ID;
 
-            new Classes_Conexao().Get_Cores(txtCor);
-            new Classes_Conexao().Get_Tamanho(txtTamanho);
-            new Classes_Conexao().Get_Proprietario(txtProprietario);
+            new Classe_OrdemServico().Get_Cores(txtCor);
+            new Classe_OrdemServico().Get_Tamanho(txtTamanho);
+            new Classe_OrdemServico().Get_Proprietario(txtProprietario);
 
             if (ID.Equals(0))
             {
