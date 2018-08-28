@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SHARP_INK.Classes;
 using SHARP_INK.Properties;
 
+
 namespace SHARP_INK
 {
     public partial class frmCatalises : Form
@@ -19,7 +20,7 @@ namespace SHARP_INK
         public frmCatalises()
         {
             InitializeComponent();
-
+            
             new Classe_Tema().TEMA_frmCatalises(this);
             new Classe_Configuracoes().Leitura_Configuracoes();
             new Classe_Catalises().Get_Catalise_Fabricante(cboFabricante);
@@ -46,15 +47,20 @@ namespace SHARP_INK
             {
                 new Classe_Catalises().OcultarDatasheet(this);
             }
+
+            if (Classe_Configuracoes.ValorCatalises.Equals("TRUE")) { lblValorCatalise.Visible = true; } else { lblValorCatalise.Visible = false; }
+            if (Classe_Configuracoes.ValorCatalises.Equals("FALSE")) { lblTituloValorCatalise.Text = string.Empty; }
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             this.Close();
+            VideoPlayer.Ctlcontrols.stop();
         }
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
+            VideoPlayer.Ctlcontrols.stop();
         }
 
         private void pnCabecalho_MouseDown(object sender, MouseEventArgs e)
@@ -103,29 +109,26 @@ namespace SHARP_INK
             lstAditivosCatalise.Items.Clear();
             lstCatalises.Items.Clear();
 
-            if(cboFabricante.Text != "Selecione o FABRICANTE...")
+            if (cboFabricante.Text != " Selecione o FABRICANTE...")
             {
-                picLogoFabricante.BackgroundImage = (Image) Resources.ResourceManager.GetObject(cboFabricante.Text);
+                picLogoFabricante.BackgroundImage = (Image)Resources.ResourceManager.GetObject(cboFabricante.Text);
             }
 
-            
-
-
-            if (cboFabricante.Text != "Selecione o FABRICANTE..." && cboCategoria.Text.Equals("Selecione o CATEGORIA..."))
+            if (cboFabricante.Text != " Selecione o FABRICANTE..." && cboCategoria.Text.Equals(" Selecione o CATEGORIA..."))
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome WHERE Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
             }
-            if (cboCategoria.Text != "Selecione o CATEGORIA..." && cboFabricante.Text.Equals("Selecione o FABRICANTE..."))
+            if (cboCategoria.Text != " Selecione o CATEGORIA..." && cboFabricante.Text.Equals(" Selecione o FABRICANTE..."))
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome WHERE Categoria='" + cboCategoria.Text + "' ORDER BY Nome_Catalise ASC");
             }
-            if (cboCategoria.Text != "Selecione o CATEGORIA..." && cboFabricante.Text != "Selecione o FABRICANTE...")
+            if (cboCategoria.Text != " Selecione o CATEGORIA..." && cboFabricante.Text != " Selecione o FABRICANTE...")
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' AND Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' AND Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome WHERE Categoria='" + cboCategoria.Text + "' AND Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
             }
-            if (cboCategoria.Text.Equals("Selecione o CATEGORIA...") && cboFabricante.Text.Equals("Selecione o FABRICANTE..."))
+            if (cboCategoria.Text.Equals(" Selecione o CATEGORIA...") && cboFabricante.Text.Equals(" Selecione o FABRICANTE..."))
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome ORDER BY Nome_Catalise ASC");
             }
 
 
@@ -137,21 +140,21 @@ namespace SHARP_INK
             lstAditivosCatalise.Items.Clear();
             lstCatalises.Items.Clear();
 
-            if (cboFabricante.Text != "Selecione o FABRICANTE..." && cboCategoria.Text.Equals("Selecione o CATEGORIA..."))
+            if (cboFabricante.Text != " Selecione o FABRICANTE..." && cboCategoria.Text.Equals(" Selecione o CATEGORIA..."))
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome WHERE Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
             }
-            if (cboCategoria.Text != "Selecione o CATEGORIA..." && cboFabricante.Text.Equals("Selecione o FABRICANTE..."))
+            if (cboCategoria.Text != " Selecione o CATEGORIA..." && cboFabricante.Text.Equals(" Selecione o FABRICANTE..."))
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome WHERE Categoria='" + cboCategoria.Text + "' ORDER BY Nome_Catalise ASC");
             }
-            if (cboCategoria.Text != "Selecione o CATEGORIA..." && cboFabricante.Text != "Selecione o FABRICANTE...")
+            if (cboCategoria.Text != " Selecione o CATEGORIA..." && cboFabricante.Text != " Selecione o FABRICANTE...")
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' AND Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome WHERE Categoria='" + cboCategoria.Text + "' AND Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome WHERE Categoria='" + cboCategoria.Text + "' AND Fabricante='" + cboFabricante.Text + "' ORDER BY Nome_Catalise ASC");
             }
-            if (cboCategoria.Text.Equals("Selecione o CATEGORIA...") && cboFabricante.Text.Equals("Selecione o FABRICANTE..."))
+            if (cboCategoria.Text.Equals(" Selecione o CATEGORIA...") && cboFabricante.Text.Equals(" Selecione o FABRICANTE..."))
             {
-                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome ORDER BY Nome_Catalise ASC");
+                new Classe_Catalises().Get_Catalise_Nome(cboCatalise, "SELECT Nome_Catalise FROM Catalises_Nome ORDER BY Nome_Catalise ASC", "SELECT Nome_Catalise FROM Catalises_Personalizadas_Nome ORDER BY Nome_Catalise ASC");
             }
 
             lstCatalises.Select();
@@ -159,49 +162,75 @@ namespace SHARP_INK
 
         private void cboCatalise_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             Classe_Catalises.COD_Catalise = null;
-            
+            Classe_Catalises.Fabricante = null;
+            Classe_Catalises.Datasheet=null;
+
             txtQuantidade.Text = "0,0";
 
-            new Classe_Catalises().Get_Catalise_Cod(cboCatalise.Text);
+            
+
+            new Classe_Catalises().Get_Catalise_Cod(cboCatalise.Text.Trim(new char[] { ' ', '▐' }));
             if (Classe_Catalises.COD_Catalise != null && txtQuantidade.Text != string.Empty)
             {
-                new Classe_Catalises().Listar_ItensCatalises(this, lstCatalises, "SELECT * FROM Catalises WHERE COD_Catalise='" + Classe_Catalises.COD_Catalise + "'", Double.Parse(txtQuantidade.Text));
-                if (cboCatalise.Text != "Selecione a CATALISE...") { new Classe_Catalises().Listar_AditivosCatalises(this, lstAditivosCatalise, "SELECT * FROM Catalises_Aditivos WHERE COD_Catalise='" + Classe_Catalises.COD_Catalise + "'", Double.Parse(txtQuantidade.Text)); } else { lstAditivosCatalise.Items.Clear(); }
+                new Classe_Catalises().Listar_ItensCatalises(this, lstCatalises, Double.Parse(txtQuantidade.Text));
+                if (cboCatalise.Text != " Selecione a CATALISE...") { new Classe_Catalises().Listar_AditivosCatalises(this, lstAditivosCatalise, Double.Parse(txtQuantidade.Text)); } else { lstAditivosCatalise.Items.Clear(); }
+            }
+            if (Classe_Catalises.COD_Catalise == null && cboCatalise.Text != " Selecione a CATALISE...")
+            {
+                new Classe_Catalises().Get_CatalisePersonalizada_Cod(cboCatalise.Text);
+                new Classe_Catalises().Listar_ItensCatalises(this, lstCatalises, Convert.ToDouble(txtQuantidade.Text));
+                if (cboCatalise.Text != " Selecione a CATALISE...") { new Classe_Catalises().Listar_AditivosCatalises(this, lstAditivosCatalise, Double.Parse(txtQuantidade.Text)); } else { lstAditivosCatalise.Items.Clear(); }
             }
 
-            if (cboCatalise.Text != "Selecione a CATALISE...")
+            if (cboCatalise.Text != " Selecione a CATALISE...")
             {
-                picImagemCatalise.BackgroundImage = (Image)Resources.ResourceManager.GetObject(cboCatalise.Text);
-                
-                picLogoFabricante.BackgroundImage = (Image)Resources.ResourceManager.GetObject(Classe_Catalises.Fabricante);
-
+                picImagemCatalise.BackgroundImage = (Image)Resources.ResourceManager.GetObject(cboCatalise.Text.Trim(new char[] { ' ', '▐' }));
+                if (Classe_Catalises.TipoBD != null && Classe_Catalises.TipoBD.Equals("ORIGINAL"))
+                {
+                    if (Classe_Catalises.Fabricante != null) { picLogoFabricante.BackgroundImage = (Image)Resources.ResourceManager.GetObject(Classe_Catalises.Fabricante); }
+                }
+                if (Classe_Catalises.TipoBD != null && Classe_Catalises.TipoBD.Equals("PERSONALIZADO"))
+                {
+                    picLogoFabricante.BackgroundImage = null;
+                    picImagemCatalise.BackgroundImage = Resources.SEMIMAGEM;
+                }
                 if (Classe_Catalises.StatusBotaoDatasheet.Equals(true))
                 {
                     if (Classe_Catalises.Datasheet != null)
                     {
-                        webBrowser1.Navigate(Classe_Catalises.Datasheet.ToString());
+                        webBrowser1.Navigate(Classe_Catalises.Datasheet);
+                    }
+                    if (Classe_Catalises.Datasheet == null || Classe_Catalises.Datasheet.Equals(string.Empty))
+                    {
+                        webBrowser1.Navigate(Classe_Catalises.DatasheetIndisponivel);
                     }
                 }
+                if (Classe_Catalises.StatusBotaoVideo.Equals(true))
+                {
+                    if (Classe_Catalises.VideoAplicacao.Equals(true))
+                    {
+                        new Classe_Catalises().Ocultar_VieoPlayer(this);
+                    }
+                    btnVideoAplicacao.Enabled = true;
+                }
+                if (Classe_Catalises.StatusBotaoVideo.Equals(false))
+                {
+                    new Classe_Catalises().Ocultar_VieoPlayer(this);
+                    btnVideoAplicacao.Enabled = false;
+                }
             }
-            if (cboCatalise.Text.Equals("Selecione a CATALISE..."))
+            if (cboCatalise.Text.Equals(" Selecione a CATALISE..."))
             {
                 lstCatalises.Items.Clear();
                 lstAditivosCatalise.Items.Clear();
                 picImagemCatalise.BackgroundImage = Resources.SEMIMAGEM;
-                
-                if (cboFabricante.Text.Equals("Selecione o FABRICANTE..."))
+
+                if (cboFabricante.Text.Equals(" Selecione o FABRICANTE..."))
                 {
                     picLogoFabricante.BackgroundImage = null;
                 }
-                if (Classe_Catalises.StatusBotaoDatasheet.Equals(true))
-                {
-                    if (Classe_Catalises.Datasheet != null)
-                    {
-                        webBrowser1.Navigate(string.Empty);
-                    }
-                }
+                
                 Classe_Catalises.NumeroPassadas = string.Empty;
                 Classe_Catalises.IntervaloPassadas = string.Empty;
                 Classe_Catalises.Secagem_LivrePo = string.Empty;
@@ -216,7 +245,7 @@ namespace SHARP_INK
             {
                 new Classe_Catalises().ExibirInfoTec(this);
             }
-            lstCatalises.Select();                     
+            lstCatalises.Select();
         }
 
         private void txtQuantidade_Validated(object sender, EventArgs e)
@@ -227,12 +256,19 @@ namespace SHARP_INK
             {
                 txtQuantidade.Text = "0,0";
             }
-
-            new Classe_Catalises().Get_Catalise_Cod(cboCatalise.Text);
-            if (Classe_Catalises.COD_Catalise != null && txtQuantidade.Text != string.Empty)
+            if (Classe_Catalises.TipoBD != null && Classe_Catalises.TipoBD.Equals("ORIGINAL"))
             {
-                new Classe_Catalises().Listar_ItensCatalises(this, lstCatalises, "SELECT * FROM Catalises WHERE COD_Catalise='" + Classe_Catalises.COD_Catalise + "'", Double.Parse(txtQuantidade.Text));
-                if (cboCatalise.Text != "Selecione a CATALISE...") { new Classe_Catalises().Listar_AditivosCatalises(this, lstAditivosCatalise, "SELECT * FROM Catalises_Aditivos WHERE COD_Catalise='" + Classe_Catalises.COD_Catalise + "'", Double.Parse(txtQuantidade.Text)); } else { lstAditivosCatalise.Items.Clear(); }
+                new Classe_Catalises().Get_Catalise_Cod(cboCatalise.Text);
+            }
+            if (Classe_Catalises.TipoBD != null && Classe_Catalises.TipoBD.Equals("PERSONALIZADO"))
+            {
+                new Classe_Catalises().Get_CatalisePersonalizada_Cod(cboCatalise.Text);
+            }
+
+            if (Classe_Catalises.COD_Catalise != null && txtQuantidade.Text != string.Empty)
+            {     
+                new Classe_Catalises().Listar_ItensCatalises(this, lstCatalises, Double.Parse(txtQuantidade.Text));
+                if (cboCatalise.Text != " Selecione a CATALISE...") { new Classe_Catalises().Listar_AditivosCatalises(this, lstAditivosCatalise, Double.Parse(txtQuantidade.Text)); } else { lstAditivosCatalise.Items.Clear(); }
             }
         }
 
@@ -289,7 +325,7 @@ namespace SHARP_INK
             lblValorCatalise.Text = SomaTotal.ToString("N2");
         }
 
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -317,8 +353,24 @@ namespace SHARP_INK
             if (Classe_Catalises.StatusBotaoDatasheet.Equals(true))
             {
                 new Classe_Catalises().OcultarDatasheet(this);
-                return; 
+                return;
             }
-        }        
+        }
+
+        private void btnVideoAplicacao_Click(object sender, EventArgs e)
+        {
+            if (Classe_Catalises.VideoAplicacao.Equals(true))
+            {
+                Classe_Catalises.VideoAplicacao = false;
+                new Classe_Catalises().Ocultar_VieoPlayer(this);
+                return;
+            }
+            if (Classe_Catalises.VideoAplicacao.Equals(false))
+            {
+                Classe_Catalises.VideoAplicacao = true;
+                new Classe_Catalises().Exibir_VideoPlayer(this);
+                return;
+            }
+        }
     }
 }

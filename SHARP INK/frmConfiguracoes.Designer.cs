@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguracoes));
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRazaoSocial = new System.Windows.Forms.TextBox();
@@ -52,6 +51,11 @@
             this.cboInfoTec = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboDatasheet = new System.Windows.Forms.ComboBox();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboCatalisesOriginais = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboValorCatalises = new System.Windows.Forms.ComboBox();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.SuspendLayout();
@@ -85,16 +89,6 @@
             this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
-            // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
             // 
             // btnFechar
             // 
@@ -132,12 +126,13 @@
             // cboTipoBancoHoras
             // 
             this.cboTipoBancoHoras.BackColor = System.Drawing.Color.Silver;
+            this.cboTipoBancoHoras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoBancoHoras.FormattingEnabled = true;
             this.cboTipoBancoHoras.Items.AddRange(new object[] {
             "BANCO DE HORAS AUTOMÁTICO",
             "BANCO DE HORAS MANUAL",
             "APENAS REGISTRO"});
-            this.cboTipoBancoHoras.Location = new System.Drawing.Point(125, 222);
+            this.cboTipoBancoHoras.Location = new System.Drawing.Point(176, 223);
             this.cboTipoBancoHoras.Name = "cboTipoBancoHoras";
             this.cboTipoBancoHoras.Size = new System.Drawing.Size(266, 21);
             this.cboTipoBancoHoras.TabIndex = 34;
@@ -243,7 +238,7 @@
             this.btnGravar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.ForeColor = System.Drawing.Color.Silver;
-            this.btnGravar.Location = new System.Drawing.Point(108, 334);
+            this.btnGravar.Location = new System.Drawing.Point(108, 403);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(189, 34);
             this.btnGravar.TabIndex = 45;
@@ -257,7 +252,7 @@
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.Silver;
-            this.btnCancelar.Location = new System.Drawing.Point(303, 334);
+            this.btnCancelar.Location = new System.Drawing.Point(303, 403);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(189, 34);
             this.btnCancelar.TabIndex = 46;
@@ -278,11 +273,12 @@
             // cboInfoTec
             // 
             this.cboInfoTec.BackColor = System.Drawing.Color.Silver;
+            this.cboInfoTec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboInfoTec.FormattingEnabled = true;
             this.cboInfoTec.Items.AddRange(new object[] {
             "SIM",
             "NÃO"});
-            this.cboInfoTec.Location = new System.Drawing.Point(248, 249);
+            this.cboInfoTec.Location = new System.Drawing.Point(299, 250);
             this.cboInfoTec.Name = "cboInfoTec";
             this.cboInfoTec.Size = new System.Drawing.Size(143, 21);
             this.cboInfoTec.TabIndex = 47;
@@ -300,21 +296,82 @@
             // cboDatasheet
             // 
             this.cboDatasheet.BackColor = System.Drawing.Color.Silver;
+            this.cboDatasheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDatasheet.FormattingEnabled = true;
             this.cboDatasheet.Items.AddRange(new object[] {
             "SIM",
             "NÃO"});
-            this.cboDatasheet.Location = new System.Drawing.Point(248, 276);
+            this.cboDatasheet.Location = new System.Drawing.Point(299, 277);
             this.cboDatasheet.Name = "cboDatasheet";
             this.cboDatasheet.Size = new System.Drawing.Size(143, 21);
             this.cboDatasheet.TabIndex = 49;
+            // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Silver;
+            this.label4.Location = new System.Drawing.Point(35, 307);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(260, 13);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "CATALISES - Exibir Catalises Originais de Fabricantes";
+            // 
+            // cboCatalisesOriginais
+            // 
+            this.cboCatalisesOriginais.BackColor = System.Drawing.Color.Silver;
+            this.cboCatalisesOriginais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCatalisesOriginais.FormattingEnabled = true;
+            this.cboCatalisesOriginais.Items.AddRange(new object[] {
+            "SIM",
+            "NÃO"});
+            this.cboCatalisesOriginais.Location = new System.Drawing.Point(299, 304);
+            this.cboCatalisesOriginais.Name = "cboCatalisesOriginais";
+            this.cboCatalisesOriginais.Size = new System.Drawing.Size(143, 21);
+            this.cboCatalisesOriginais.TabIndex = 51;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(35, 334);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(191, 13);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "CATALISES - Exibir Valor das Catalises";
+            // 
+            // cboValorCatalises
+            // 
+            this.cboValorCatalises.BackColor = System.Drawing.Color.Silver;
+            this.cboValorCatalises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboValorCatalises.FormattingEnabled = true;
+            this.cboValorCatalises.Items.AddRange(new object[] {
+            "SIM",
+            "NÃO"});
+            this.cboValorCatalises.Location = new System.Drawing.Point(299, 331);
+            this.cboValorCatalises.Name = "cboValorCatalises";
+            this.cboValorCatalises.Size = new System.Drawing.Size(143, 21);
+            this.cboValorCatalises.TabIndex = 53;
             // 
             // frmConfiguracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(630, 380);
+            this.ClientSize = new System.Drawing.Size(630, 449);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cboValorCatalises);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cboCatalisesOriginais);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboDatasheet);
             this.Controls.Add(this.label2);
@@ -373,5 +430,9 @@
         public System.Windows.Forms.ComboBox cboInfoTec;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox cboDatasheet;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.ComboBox cboCatalisesOriginais;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox cboValorCatalises;
     }
 }

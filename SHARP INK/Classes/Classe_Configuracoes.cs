@@ -15,6 +15,9 @@ namespace SHARP_INK.Classes
         public static string TipoBancoHoras;
         public static string Infotec;
         public static string Datasheet;
+        public static string CatalisesOriginais;
+        public static string ValorCatalises;
+
         public void Carrega_Configuracoes(frmConfiguracoes Form)
         {
             try
@@ -36,6 +39,10 @@ namespace SHARP_INK.Classes
                         if (Infotec.Equals("TRUE")) { Form.cboInfoTec.Text = "SIM"; } else { Form.cboInfoTec.Text = "NÃO"; } 
                         
                         if (Datasheet.Equals("TRUE")) { Form.cboDatasheet.Text = "SIM"; } else { Form.cboDatasheet.Text = "NÃO"; }
+
+                        if (CatalisesOriginais.Equals("TRUE")) { Form.cboCatalisesOriginais.Text = "SIM"; } else { Form.cboCatalisesOriginais.Text = "NÃO"; }
+
+                        if (ValorCatalises.Equals("TRUE")) { Form.cboValorCatalises.Text = "SIM"; } else { Form.cboValorCatalises.Text = "NÃO"; }
                     }
                 }
                 DT.Dispose();
@@ -65,7 +72,9 @@ namespace SHARP_INK.Classes
                         Telefone = DR["Empresa_Telefone"].ToString().TrimEnd().ToUpper();
                         TipoBancoHoras = DR["TipoBancoHoras"].ToString().TrimEnd().ToUpper();
                         Infotec = DR["Exibir_Catalise_InfoTec"].ToString().TrimEnd().ToUpper();    
-                        Datasheet = DR["Exibir_Catalise_Datasheet"].ToString().TrimEnd().ToUpper();                       
+                        Datasheet = DR["Exibir_Catalise_Datasheet"].ToString().TrimEnd().ToUpper();
+                        CatalisesOriginais = DR["Exibir_CatalisesOriginais"].ToString().TrimEnd().ToUpper();
+                        ValorCatalises = DR["Exibir_Catalise_Valores"].ToString().TrimEnd().ToUpper();
                     }
                 }
                 DT.Dispose();
@@ -94,11 +103,17 @@ namespace SHARP_INK.Classes
             if (Form.cboDatasheet.Text.Equals("SIM")) { Datasheet = "TRUE"; }
             if (Form.cboDatasheet.Text.Equals("NÃO")) { Datasheet = "FALSE"; }
 
+            if (Form.cboCatalisesOriginais.Text.Equals("SIM")) { CatalisesOriginais = "TRUE"; }
+            if (Form.cboCatalisesOriginais.Text.Equals("NÃO")) { CatalisesOriginais = "FALSE"; }
+
+            if (Form.cboValorCatalises.Text.Equals("SIM")) { ValorCatalises = "TRUE"; }
+            if (Form.cboValorCatalises.Text.Equals("NÃO")) { ValorCatalises = "FALSE"; }
+
             try
             {
                 SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
 
-                string comandoSQL = "UPDATE Configuracoes SET Empresa_RazaoSocial='" + Razao.Replace("'", "''") + "', Empresa_CNPJ='" + CNPJ + "', Empresa_Endereco='" + Endereco + "', Empresa_Email='" + Email + "', Empresa_Telefone='" + Telefone + "', TipoBancoHoras='" + BancoHoras + "', Exibir_Catalise_InfoTec='" + InfoTec + "', Exibir_Catalise_Datasheet='" + Datasheet + "' WHERE id='1'";
+                string comandoSQL = "UPDATE Configuracoes SET Empresa_RazaoSocial='" + Razao.Replace("'", "''") + "', Empresa_CNPJ='" + CNPJ + "', Empresa_Endereco='" + Endereco + "', Empresa_Email='" + Email + "', Empresa_Telefone='" + Telefone + "', TipoBancoHoras='" + BancoHoras + "', Exibir_Catalise_InfoTec='" + InfoTec + "', Exibir_Catalise_Datasheet='" + Datasheet + "', Exibir_CatalisesOriginais='" + CatalisesOriginais + "', Exibir_Catalise_Valores='" + ValorCatalises + "' WHERE id='1'";
 
                 SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
 

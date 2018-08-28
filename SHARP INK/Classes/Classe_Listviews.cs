@@ -252,8 +252,9 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Produto", 300);
             LST.Columns.Add("Proporção", 70,HorizontalAlignment.Center);
             LST.Columns.Add("Peso Especifico", 0);
-            LST.Columns.Add("Quantidade", 100,HorizontalAlignment.Right);
-            LST.Columns.Add("Valor", 100, HorizontalAlignment.Right);
+            LST.Columns.Add("Quantidade (Gramas)", 115,HorizontalAlignment.Right);
+            if (Classe_Configuracoes.ValorCatalises.Equals("TRUE")){ LST.Columns.Add("Valor", 85, HorizontalAlignment.Right); } else { LST.Columns.Add("Valor", 0); }
+            LST.Columns.Add("Tipo_BD", 0);
         }
 
         public void Criar_LST_AditivosCatalise(ListView LST)
@@ -270,8 +271,10 @@ namespace SHARP_INK.Classes
             LST.Columns.Add("Codigo Produto", 0);
             LST.Columns.Add("Proporção", 70, HorizontalAlignment.Center);
             LST.Columns.Add("Peso Especifico", 0);
-            LST.Columns.Add("Quantidade", 70, HorizontalAlignment.Right);
-            LST.Columns.Add("Valor", 60, HorizontalAlignment.Right);
+            LST.Columns.Add("Quantidade (Gramas)", 70, HorizontalAlignment.Right);
+            if (Classe_Configuracoes.ValorCatalises.Equals("TRUE")) { LST.Columns.Add("Valor", 60, HorizontalAlignment.Right); } else { LST.Columns.Add("Valor", 0); }
+            LST.Columns.Add("Tipo_BD", 0);
+
         }
     }
 }

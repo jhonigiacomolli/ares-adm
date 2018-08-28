@@ -267,9 +267,6 @@ namespace SHARP_INK
             {
                 return false;
             }
-
-            DT.Dispose();
-
         }
 
         public void CarregaEdicaoApontamento(frmApontamentoFunc Form, string ID_Funcionario, string ID_Veiculo, string Nome, string Funcao, string Entrada, string Saida, string MO)

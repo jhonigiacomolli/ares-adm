@@ -20,6 +20,7 @@ namespace SHARP_INK
             InitializeComponent();
 
             new Classe_Tema().TEMA_frmConfiguracoes(this);
+            new Classe_Configuracoes().Leitura_Configuracoes();
             new Classe_Configuracoes().Carrega_Configuracoes(this);
         }
 

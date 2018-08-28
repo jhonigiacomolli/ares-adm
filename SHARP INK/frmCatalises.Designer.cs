@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCatalises));
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.lblTituloForm = new System.Windows.Forms.Label();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cboFabricante = new System.Windows.Forms.ComboBox();
@@ -38,15 +39,14 @@
             this.cboCatalise = new System.Windows.Forms.ComboBox();
             this.lstCatalises = new System.Windows.Forms.ListView();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblValorCatalise = new System.Windows.Forms.Label();
             this.lstAditivosCatalise = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTituloValorCatalise = new System.Windows.Forms.Label();
+            this.btnInfotec = new System.Windows.Forms.Button();
+            this.pnInfoTec = new System.Windows.Forms.Panel();
             this.txtSecagem_Cabine = new System.Windows.Forms.TextBox();
             this.txtIntervaloPassadas = new System.Windows.Forms.TextBox();
             this.txtNumeroPassadas = new System.Windows.Forms.TextBox();
@@ -71,16 +71,24 @@
             this.label8 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnDatasheet = new System.Windows.Forms.Button();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picImagemCatalise = new System.Windows.Forms.PictureBox();
             this.picLogoFabricante = new System.Windows.Forms.PictureBox();
+            this.btnVideoAplicacao = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.pnPesagemCatalise = new System.Windows.Forms.Panel();
+            this.pnVideoAplicacao = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.VideoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnInfoTec.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImagemCatalise)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogoFabricante)).BeginInit();
+            this.pnPesagemCatalise.SuspendLayout();
+            this.pnVideoAplicacao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // pnCabecalho
@@ -92,7 +100,7 @@
             this.pnCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnCabecalho.Location = new System.Drawing.Point(0, 0);
             this.pnCabecalho.Name = "pnCabecalho";
-            this.pnCabecalho.Size = new System.Drawing.Size(855, 35);
+            this.pnCabecalho.Size = new System.Drawing.Size(1581, 35);
             this.pnCabecalho.TabIndex = 32;
             this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
             this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
@@ -113,12 +121,22 @@
             this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
             this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
             // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
+            this.pnFavIcon.TabIndex = 2;
+            // 
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.btnFechar.Controls.Add(this.label1);
-            this.btnFechar.Location = new System.Drawing.Point(820, 0);
+            this.btnFechar.Location = new System.Drawing.Point(1546, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(35, 35);
             this.btnFechar.TabIndex = 1;
@@ -142,9 +160,9 @@
             this.cboFabricante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboFabricante.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboFabricante.FormattingEnabled = true;
-            this.cboFabricante.Location = new System.Drawing.Point(186, 96);
+            this.cboFabricante.Location = new System.Drawing.Point(227, 49);
             this.cboFabricante.Name = "cboFabricante";
-            this.cboFabricante.Size = new System.Drawing.Size(455, 21);
+            this.cboFabricante.Size = new System.Drawing.Size(410, 21);
             this.cboFabricante.TabIndex = 34;
             this.cboFabricante.SelectedIndexChanged += new System.EventHandler(this.cboFabricante_SelectedIndexChanged);
             // 
@@ -154,9 +172,9 @@
             this.cboCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(186, 123);
+            this.cboCategoria.Location = new System.Drawing.Point(227, 74);
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(455, 21);
+            this.cboCategoria.Size = new System.Drawing.Size(410, 21);
             this.cboCategoria.TabIndex = 35;
             this.cboCategoria.SelectedIndexChanged += new System.EventHandler(this.cboCategoria_SelectedIndexChanged);
             // 
@@ -168,9 +186,9 @@
             this.cboCatalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCatalise.ForeColor = System.Drawing.Color.Black;
             this.cboCatalise.FormattingEnabled = true;
-            this.cboCatalise.Location = new System.Drawing.Point(186, 150);
+            this.cboCatalise.Location = new System.Drawing.Point(227, 99);
             this.cboCatalise.Name = "cboCatalise";
-            this.cboCatalise.Size = new System.Drawing.Size(455, 24);
+            this.cboCatalise.Size = new System.Drawing.Size(410, 24);
             this.cboCatalise.TabIndex = 36;
             this.cboCatalise.ValueMember = "1";
             this.cboCatalise.SelectedIndexChanged += new System.EventHandler(this.cboCatalise_SelectedIndexChanged);
@@ -178,7 +196,7 @@
             // lstCatalises
             // 
             this.lstCatalises.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lstCatalises.Location = new System.Drawing.Point(23, 225);
+            this.lstCatalises.Location = new System.Drawing.Point(0, 24);
             this.lstCatalises.Name = "lstCatalises";
             this.lstCatalises.Size = new System.Drawing.Size(619, 138);
             this.lstCatalises.TabIndex = 37;
@@ -187,7 +205,7 @@
             // txtQuantidade
             // 
             this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold);
-            this.txtQuantidade.Location = new System.Drawing.Point(505, 480);
+            this.txtQuantidade.Location = new System.Drawing.Point(482, 279);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(100, 31);
             this.txtQuantidade.TabIndex = 38;
@@ -197,22 +215,11 @@
             this.txtQuantidade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQuantidade_KeyDown);
             this.txtQuantidade.Validated += new System.EventHandler(this.txtQuantidade_Validated);
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(604, 481);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 29);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "ML";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(437, 498);
+            this.label3.Location = new System.Drawing.Point(414, 297);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 40;
@@ -223,7 +230,7 @@
             this.lblValorCatalise.BackColor = System.Drawing.Color.Silver;
             this.lblValorCatalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.lblValorCatalise.ForeColor = System.Drawing.Color.Black;
-            this.lblValorCatalise.Location = new System.Drawing.Point(517, 365);
+            this.lblValorCatalise.Location = new System.Drawing.Point(494, 164);
             this.lblValorCatalise.Name = "lblValorCatalise";
             this.lblValorCatalise.Size = new System.Drawing.Size(120, 18);
             this.lblValorCatalise.TabIndex = 41;
@@ -234,7 +241,7 @@
             // 
             this.lstAditivosCatalise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lstAditivosCatalise.CheckBoxes = true;
-            this.lstAditivosCatalise.Location = new System.Drawing.Point(23, 404);
+            this.lstAditivosCatalise.Location = new System.Drawing.Point(0, 203);
             this.lstAditivosCatalise.MultiSelect = false;
             this.lstAditivosCatalise.Name = "lstAditivosCatalise";
             this.lstAditivosCatalise.Size = new System.Drawing.Size(397, 107);
@@ -247,7 +254,7 @@
             this.label5.BackColor = System.Drawing.Color.Silver;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(23, 387);
+            this.label5.Location = new System.Drawing.Point(0, 186);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(397, 20);
             this.label5.TabIndex = 46;
@@ -259,69 +266,68 @@
             this.label6.BackColor = System.Drawing.Color.Silver;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(23, 205);
+            this.label6.Location = new System.Drawing.Point(0, 4);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(619, 20);
             this.label6.TabIndex = 47;
             this.label6.Text = "Formulação Principal";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // lblTituloValorCatalise
             // 
-            this.label7.BackColor = System.Drawing.Color.Silver;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(23, 363);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(619, 20);
-            this.label7.TabIndex = 48;
-            this.label7.Text = "                                                                        Total Cat" +
+            this.lblTituloValorCatalise.BackColor = System.Drawing.Color.Silver;
+            this.lblTituloValorCatalise.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloValorCatalise.ForeColor = System.Drawing.Color.Black;
+            this.lblTituloValorCatalise.Location = new System.Drawing.Point(0, 162);
+            this.lblTituloValorCatalise.Name = "lblTituloValorCatalise";
+            this.lblTituloValorCatalise.Size = new System.Drawing.Size(619, 20);
+            this.lblTituloValorCatalise.TabIndex = 48;
+            this.lblTituloValorCatalise.Text = "                                                                        Total Cat" +
     "alise";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloValorCatalise.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnInfotec
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Silver;
-            this.button1.Location = new System.Drawing.Point(23, 517);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(619, 23);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "Informações Técnicas";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnInfotec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.btnInfotec.FlatAppearance.BorderSize = 0;
+            this.btnInfotec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfotec.ForeColor = System.Drawing.Color.Silver;
+            this.btnInfotec.Location = new System.Drawing.Point(227, 133);
+            this.btnInfotec.Name = "btnInfotec";
+            this.btnInfotec.Size = new System.Drawing.Size(410, 25);
+            this.btnInfotec.TabIndex = 49;
+            this.btnInfotec.Text = "Informações Técnicas";
+            this.btnInfotec.UseVisualStyleBackColor = false;
+            this.btnInfotec.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel2
+            // pnInfoTec
             // 
-            this.panel2.Controls.Add(this.txtSecagem_Cabine);
-            this.panel2.Controls.Add(this.txtIntervaloPassadas);
-            this.panel2.Controls.Add(this.txtNumeroPassadas);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.lbl26);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.btnDatasheet);
-            this.panel2.Controls.Add(this.txtSecagem_IRmedias);
-            this.panel2.Controls.Add(this.txtSecagem_IRCurtas);
-            this.panel2.Controls.Add(this.txtSecagem_Total);
-            this.panel2.Controls.Add(this.txtSecagem_Manuseio);
-            this.panel2.Controls.Add(this.txtSecagem_Toque);
-            this.panel2.Controls.Add(this.txtSecagem_LivrePo);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(23, 546);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(619, 116);
-            this.panel2.TabIndex = 50;
+            this.pnInfoTec.Controls.Add(this.txtSecagem_Cabine);
+            this.pnInfoTec.Controls.Add(this.txtIntervaloPassadas);
+            this.pnInfoTec.Controls.Add(this.txtNumeroPassadas);
+            this.pnInfoTec.Controls.Add(this.label18);
+            this.pnInfoTec.Controls.Add(this.label11);
+            this.pnInfoTec.Controls.Add(this.lbl26);
+            this.pnInfoTec.Controls.Add(this.label10);
+            this.pnInfoTec.Controls.Add(this.txtSecagem_IRmedias);
+            this.pnInfoTec.Controls.Add(this.txtSecagem_IRCurtas);
+            this.pnInfoTec.Controls.Add(this.txtSecagem_Total);
+            this.pnInfoTec.Controls.Add(this.txtSecagem_Manuseio);
+            this.pnInfoTec.Controls.Add(this.txtSecagem_Toque);
+            this.pnInfoTec.Controls.Add(this.txtSecagem_LivrePo);
+            this.pnInfoTec.Controls.Add(this.label9);
+            this.pnInfoTec.Controls.Add(this.label12);
+            this.pnInfoTec.Controls.Add(this.label13);
+            this.pnInfoTec.Controls.Add(this.label14);
+            this.pnInfoTec.Controls.Add(this.label15);
+            this.pnInfoTec.Controls.Add(this.label16);
+            this.pnInfoTec.Controls.Add(this.label17);
+            this.pnInfoTec.Controls.Add(this.label4);
+            this.pnInfoTec.Controls.Add(this.label8);
+            this.pnInfoTec.Location = new System.Drawing.Point(23, 536);
+            this.pnInfoTec.Name = "pnInfoTec";
+            this.pnInfoTec.Size = new System.Drawing.Size(619, 112);
+            this.pnInfoTec.TabIndex = 50;
             // 
             // txtSecagem_Cabine
             // 
@@ -550,7 +556,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(190, 18);
             this.label17.TabIndex = 37;
-            this.label17.Text = "   Ondas Curtas :";
+            this.label17.Text = "   Ondas Médias :";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -580,10 +586,12 @@
             this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.webBrowser1.Location = new System.Drawing.Point(670, 52);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(467, 596);
+            this.webBrowser1.Size = new System.Drawing.Size(467, 586);
             this.webBrowser1.TabIndex = 51;
+            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // btnDatasheet
             // 
@@ -592,26 +600,14 @@
             this.btnDatasheet.FlatAppearance.BorderSize = 0;
             this.btnDatasheet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDatasheet.ForeColor = System.Drawing.Color.Silver;
-            this.btnDatasheet.Image = global::SHARP_INK.Properties.Resources.Icone_PDF_2;
             this.btnDatasheet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDatasheet.Location = new System.Drawing.Point(0, 72);
+            this.btnDatasheet.Location = new System.Drawing.Point(227, 161);
             this.btnDatasheet.Name = "btnDatasheet";
-            this.btnDatasheet.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDatasheet.Size = new System.Drawing.Size(230, 33);
+            this.btnDatasheet.Size = new System.Drawing.Size(410, 25);
             this.btnDatasheet.TabIndex = 19;
             this.btnDatasheet.Text = "Boletim Técnico";
             this.btnDatasheet.UseVisualStyleBackColor = false;
             this.btnDatasheet.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFavIcon.BackgroundImage")));
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 0);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(35, 35);
-            this.pnFavIcon.TabIndex = 2;
             // 
             // panel1
             // 
@@ -645,29 +641,102 @@
             this.picLogoFabricante.TabIndex = 44;
             this.picLogoFabricante.TabStop = false;
             // 
+            // btnVideoAplicacao
+            // 
+            this.btnVideoAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.btnVideoAplicacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVideoAplicacao.FlatAppearance.BorderSize = 0;
+            this.btnVideoAplicacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVideoAplicacao.ForeColor = System.Drawing.Color.Silver;
+            this.btnVideoAplicacao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVideoAplicacao.Location = new System.Drawing.Point(227, 189);
+            this.btnVideoAplicacao.Name = "btnVideoAplicacao";
+            this.btnVideoAplicacao.Size = new System.Drawing.Size(410, 25);
+            this.btnVideoAplicacao.TabIndex = 44;
+            this.btnVideoAplicacao.Text = "Video Aplicação";
+            this.btnVideoAplicacao.UseVisualStyleBackColor = false;
+            this.btnVideoAplicacao.Click += new System.EventHandler(this.btnVideoAplicacao_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Silver;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(411, 230);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(208, 33);
+            this.button3.TabIndex = 52;
+            this.button3.Text = "Incluir na OS";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // pnPesagemCatalise
+            // 
+            this.pnPesagemCatalise.Controls.Add(this.label2);
+            this.pnPesagemCatalise.Controls.Add(this.lstCatalises);
+            this.pnPesagemCatalise.Controls.Add(this.button3);
+            this.pnPesagemCatalise.Controls.Add(this.txtQuantidade);
+            this.pnPesagemCatalise.Controls.Add(this.label3);
+            this.pnPesagemCatalise.Controls.Add(this.lstAditivosCatalise);
+            this.pnPesagemCatalise.Controls.Add(this.label5);
+            this.pnPesagemCatalise.Controls.Add(this.label6);
+            this.pnPesagemCatalise.Controls.Add(this.lblValorCatalise);
+            this.pnPesagemCatalise.Controls.Add(this.lblTituloValorCatalise);
+            this.pnPesagemCatalise.Location = new System.Drawing.Point(23, 220);
+            this.pnPesagemCatalise.Name = "pnPesagemCatalise";
+            this.pnPesagemCatalise.Size = new System.Drawing.Size(619, 318);
+            this.pnPesagemCatalise.TabIndex = 53;
+            // 
+            // pnVideoAplicacao
+            // 
+            this.pnVideoAplicacao.Controls.Add(this.VideoPlayer);
+            this.pnVideoAplicacao.Location = new System.Drawing.Point(23, 220);
+            this.pnVideoAplicacao.Name = "pnVideoAplicacao";
+            this.pnVideoAplicacao.Size = new System.Drawing.Size(619, 318);
+            this.pnVideoAplicacao.TabIndex = 54;
+            this.pnVideoAplicacao.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(581, 280);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 29);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "ML";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // VideoPlayer
+            // 
+            this.VideoPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VideoPlayer.Enabled = true;
+            this.VideoPlayer.Location = new System.Drawing.Point(0, 0);
+            this.VideoPlayer.Name = "VideoPlayer";
+            this.VideoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("VideoPlayer.OcxState")));
+            this.VideoPlayer.Size = new System.Drawing.Size(619, 318);
+            this.VideoPlayer.TabIndex = 0;
+            // 
             // frmCatalises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(855, 660);
+            this.ClientSize = new System.Drawing.Size(1581, 650);
+            this.Controls.Add(this.btnVideoAplicacao);
             this.Controls.Add(this.webBrowser1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lblValorCatalise);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lstAditivosCatalise);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtQuantidade);
-            this.Controls.Add(this.lstCatalises);
+            this.Controls.Add(this.pnInfoTec);
+            this.Controls.Add(this.btnInfotec);
+            this.Controls.Add(this.btnDatasheet);
             this.Controls.Add(this.cboCatalise);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.cboFabricante);
             this.Controls.Add(this.pnCabecalho);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnVideoAplicacao);
+            this.Controls.Add(this.pnPesagemCatalise);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCatalises";
@@ -677,13 +746,16 @@
             this.pnCabecalho.PerformLayout();
             this.btnFechar.ResumeLayout(false);
             this.btnFechar.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnInfoTec.ResumeLayout(false);
+            this.pnInfoTec.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picImagemCatalise)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogoFabricante)).EndInit();
+            this.pnPesagemCatalise.ResumeLayout(false);
+            this.pnPesagemCatalise.PerformLayout();
+            this.pnVideoAplicacao.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -699,7 +771,6 @@
         private System.Windows.Forms.ComboBox cboCatalise;
         private System.Windows.Forms.ListView lstCatalises;
         private System.Windows.Forms.TextBox txtQuantidade;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblValorCatalise;
         private System.Windows.Forms.ListView lstAditivosCatalise;
@@ -708,9 +779,7 @@
         private System.Windows.Forms.PictureBox picLogoFabricante;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblTituloValorCatalise;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.Button btnDatasheet;
         public System.Windows.Forms.WebBrowser webBrowser1;
@@ -735,5 +804,13 @@
         public System.Windows.Forms.TextBox txtIntervaloPassadas;
         public System.Windows.Forms.TextBox txtNumeroPassadas;
         public System.Windows.Forms.TextBox txtSecagem_Cabine;
+        public System.Windows.Forms.Button btnVideoAplicacao;
+        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button btnInfotec;
+        public System.Windows.Forms.Panel pnInfoTec;
+        public System.Windows.Forms.Panel pnPesagemCatalise;
+        public System.Windows.Forms.Panel pnVideoAplicacao;
+        private System.Windows.Forms.Label label2;
+        public AxWMPLib.AxWindowsMediaPlayer VideoPlayer;
     }
 }
