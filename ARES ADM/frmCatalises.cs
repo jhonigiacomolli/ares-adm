@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using ARES_ADM.Classes;
 using ARES_ADM.Properties;
+using System.Threading;
 
 
 namespace ARES_ADM
@@ -16,11 +17,16 @@ namespace ARES_ADM
     {
         bool mouseDown;
         Point lastLocation;
+        string IDveiculo;
+        frmOrdemServico frmOS;
 
-        public frmCatalises()
+        public frmCatalises(string ID_Veidulo, frmOrdemServico frmOrdemServico)
         {
             InitializeComponent();
-            
+
+            frmOS = frmOrdemServico;
+            IDveiculo = ID_Veidulo;
+
             new Classe_Tema().TEMA_frmCatalises(this);
             new Classe_Configuracoes().Leitura_Configuracoes();
             new Classe_Catalises().Get_Catalise_Fabricante(cboFabricante);
@@ -184,7 +190,7 @@ namespace ARES_ADM
             }
 
             if (cboCatalise.Text != " Selecione a CATALISE...")
-            {
+            {                
                 picImagemCatalise.BackgroundImage = (Image)Resources.ResourceManager.GetObject(cboCatalise.Text.Trim(new char[] { ' ', '▐' }));
                 if (Classe_Catalises.TipoBD != null && Classe_Catalises.TipoBD.Equals("ORIGINAL"))
                 {
@@ -218,6 +224,15 @@ namespace ARES_ADM
                 {
                     new Classe_Catalises().Ocultar_VieoPlayer(this);
                     btnVideoAplicacao.Enabled = false;
+                }
+                double QNT = Convert.ToDouble(txtQuantidade.Text);
+                if (QNT > 0 && cboCatalise.Text != " Selecione a CATALISE...")
+                {
+                    btnInserirNaOS.Enabled = true;
+                }
+                else
+                {
+                    btnInserirNaOS.Enabled = false;
                 }
             }
             if (cboCatalise.Text.Equals(" Selecione a CATALISE..."))
@@ -266,9 +281,18 @@ namespace ARES_ADM
             }
 
             if (Classe_Catalises.COD_Catalise != null && txtQuantidade.Text != string.Empty)
-            {     
+            {
                 new Classe_Catalises().Listar_ItensCatalises(this, lstCatalises, Double.Parse(txtQuantidade.Text));
                 if (cboCatalise.Text != " Selecione a CATALISE...") { new Classe_Catalises().Listar_AditivosCatalises(this, lstAditivosCatalise, Double.Parse(txtQuantidade.Text)); } else { lstAditivosCatalise.Items.Clear(); }
+            }
+            double QNT = Convert.ToDouble(txtQuantidade.Text);
+            if(QNT > 0 && cboCatalise.Text != " Selecione a CATALISE...")
+            {
+                btnInserirNaOS.Enabled = true;
+            }
+            else
+            {
+                btnInserirNaOS.Enabled = false;
             }
         }
 
@@ -371,6 +395,38 @@ namespace ARES_ADM
                 new Classe_Catalises().Exibir_VideoPlayer(this);
                 return;
             }
+        }
+
+        private void btnInserirNaOS_Click(object sender, EventArgs e)
+        {
+            string Descricao = cboCatalise.Text;
+            for(int i = 0; i < lstAditivosCatalise.Items.Count; i++)
+            {
+                if (lstAditivosCatalise.Items[i].Checked == true)
+                {
+                    Descricao = string.Concat(Descricao," + ",lstAditivosCatalise.Items[i].Text);
+                }
+            }
+
+            new Classe_Catalises().InserirCatalise_OS(frmOS,IDveiculo, Descricao, txtQuantidade.Text, lblValorCatalise.Text);
+            frmOS.pnCatalise.Visible = false;
+            frmOS.pnItensOS.Visible = true;
+            frmOS.btnPainelFuncionarios.Enabled = true;
+            frmOS.btnPainelGeral.Enabled = true;
+            frmOS.btnPainelGrafico.Enabled = true;
+            frmOS.btnPainelPecas.Enabled = true;
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            frmOS.pnCatalise.Visible = false;
+            frmOS.pnItensOS.Visible = true;
+            frmOS.btnPainelFuncionarios.Enabled = true;
+            frmOS.btnPainelGeral.Enabled = true;
+            frmOS.btnPainelGrafico.Enabled = true;
+            frmOS.btnPainelPecas.Enabled = true;
+            this.Close();
         }
     }
 }

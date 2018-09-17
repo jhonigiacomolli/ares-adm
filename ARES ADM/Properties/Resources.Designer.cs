@@ -93,6 +93,16 @@ namespace ARES_ADM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Botao_Orcamentos {
+            get {
+                object obj = ResourceManager.GetObject("Botao_Orcamentos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Botao_OS {
             get {
                 object obj = ResourceManager.GetObject("Botao_OS", resourceCulture);

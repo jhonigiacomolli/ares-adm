@@ -165,6 +165,7 @@
             this.cboFuncao = new System.Windows.Forms.ComboBox();
             this.lstFuncionarios = new System.Windows.Forms.ListView();
             this.picLogoEmpresa = new System.Windows.Forms.PictureBox();
+            this.pnCatalise = new System.Windows.Forms.Panel();
             this.pnCabecalho.SuspendLayout();
             this.btnFechar.SuspendLayout();
             this.pnItensOS.SuspendLayout();
@@ -199,7 +200,7 @@
             this.lblTituloForm.ForeColor = System.Drawing.Color.Silver;
             this.lblTituloForm.Location = new System.Drawing.Point(42, 8);
             this.lblTituloForm.Name = "lblTituloForm";
-            this.lblTituloForm.Size = new System.Drawing.Size(205, 17);
+            this.lblTituloForm.Size = new System.Drawing.Size(203, 17);
             this.lblTituloForm.TabIndex = 1;
             this.lblTituloForm.Text = "ARES ADM - Orden de Serivço";
             this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
@@ -515,6 +516,7 @@
             this.lstItensOS.UseCompatibleStateImageBehavior = false;
             this.lstItensOS.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lstItensOS_ColumnClick);
             this.lstItensOS.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstItensOS_ColumnWidthChanging);
+            this.lstItensOS.SelectedIndexChanged += new System.EventHandler(this.lstItensOS_SelectedIndexChanged);
             // 
             // lblTicket
             // 
@@ -882,7 +884,7 @@
             // 
             // btnPainelGeral
             // 
-            this.btnPainelGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPainelGeral.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelGeral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelGeral.ForeColor = System.Drawing.Color.Silver;
@@ -966,7 +968,7 @@
             // 
             // btnPainelGrafico
             // 
-            this.btnPainelGrafico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelGrafico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPainelGrafico.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelGrafico.ForeColor = System.Drawing.Color.Silver;
@@ -980,7 +982,7 @@
             // 
             // btnPainelPecas
             // 
-            this.btnPainelPecas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelPecas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPainelPecas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelPecas.ForeColor = System.Drawing.Color.Silver;
@@ -994,7 +996,7 @@
             // 
             // btnPainelFuncionarios
             // 
-            this.btnPainelFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPainelFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPainelFuncionarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnPainelFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPainelFuncionarios.ForeColor = System.Drawing.Color.Silver;
@@ -1988,14 +1990,27 @@
             this.picLogoEmpresa.TabStop = false;
             this.picLogoEmpresa.Click += new System.EventHandler(this.lblTituloLavacao_Click);
             // 
+            // pnCatalise
+            // 
+            this.pnCatalise.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnCatalise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(42)))));
+            this.pnCatalise.Location = new System.Drawing.Point(0, 230);
+            this.pnCatalise.Name = "pnCatalise";
+            this.pnCatalise.Size = new System.Drawing.Size(671, 478);
+            this.pnCatalise.TabIndex = 131;
+            this.pnCatalise.Visible = false;
+            // 
             // frmOrdemServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(671, 707);
-            this.Controls.Add(this.pnPecas);
             this.Controls.Add(this.pnItensOS);
+            this.Controls.Add(this.pnFuncionarios);
+            this.Controls.Add(this.pnPecas);
             this.Controls.Add(this.btnPainelFuncionarios);
             this.Controls.Add(this.btnPainelPecas);
             this.Controls.Add(this.btnPainelGrafico);
@@ -2019,8 +2034,8 @@
             this.Controls.Add(this.lblTituloProprietario);
             this.Controls.Add(this.lblTituloNOS);
             this.Controls.Add(this.pnCabecalho);
+            this.Controls.Add(this.pnCatalise);
             this.Controls.Add(this.pnGraficos);
-            this.Controls.Add(this.pnFuncionarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOrdemServico";
@@ -2175,5 +2190,6 @@
         public System.Windows.Forms.Label lblTituloTicketPEca;
         public System.Windows.Forms.ComboBox cboFiltroPeca2;
         public System.Windows.Forms.ComboBox cboFiltroPEca1;
+        public System.Windows.Forms.Panel pnCatalise;
     }
 }

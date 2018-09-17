@@ -133,7 +133,7 @@ namespace ARES_ADM
 
         private void btnCatalises_Click(object sender, EventArgs e)
         {
-            frmCatalises Catalise = new frmCatalises();
+            frmCatalises Catalise = new frmCatalises(null, null);
             Catalise.ShowDialog();
         }
 
@@ -141,6 +141,22 @@ namespace ARES_ADM
         {
             frmConfiguracoes Config = new frmConfiguracoes();
             Config.ShowDialog();
+        }
+
+        private void btnOrcamentos_Click(object sender, EventArgs e)
+        {
+            frmOrcamentos Orcamento = new frmOrcamentos();
+            Orcamento.ShowDialog();
+        }
+
+        private void btnOrcamentos_MouseEnter(object sender, EventArgs e)
+        {
+            btnOrcamentos.BackColor = Classe_Tema.Botao_Sobre;
+        }
+
+        private void btnOrcamentos_MouseLeave(object sender, EventArgs e)
+        {
+            btnOrcamentos.BackColor = Classe_Tema.Botao_Normal;
         }
     }
 }

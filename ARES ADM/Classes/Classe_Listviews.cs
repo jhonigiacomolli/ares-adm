@@ -276,5 +276,27 @@ namespace ARES_ADM.Classes
             LST.Columns.Add("Tipo_BD", 0);
 
         }
+
+        public void Criar_LST_ItensOrcamento(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = true;
+
+            LST.Columns.Add("ID", 0);
+            LST.Columns.Add("ID Orçamento", 0);
+            LST.Columns.Add("Operação", 60);
+            LST.Columns.Add("Código Peça", 65);
+            LST.Columns.Add("Descrição", 150);
+            LST.Columns.Add("Quantidade", 60);
+            LST.Columns.Add("Valor UN Bruto", 85);
+            LST.Columns.Add("Desconto", 60);
+            LST.Columns.Add("Valor UN Liquido", 85);
+            LST.Columns.Add("Valor Total", 65);
+            LST.Columns.Add("Horas", 50);
+            LST.Columns.Add("Pintura", 50);
+        }
     }
 }

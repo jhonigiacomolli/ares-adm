@@ -110,6 +110,7 @@
     <Compile Include="Classes\Classe_Funcionario.cs" />
     <Compile Include="Classes\Classe_Listviews.cs" />
     <Compile Include="Classes\Classe_Mensagem.cs" />
+    <Compile Include="Classes\Classe_Orcamentos.cs" />
     <Compile Include="Classes\Classe_OrdemServico.cs" />
     <Compile Include="Classes\Classe_Pecas.cs" />
     <Compile Include="Classes\Classe_Produtos.cs" />
@@ -171,6 +172,12 @@
     <Compile Include="frmOrdemServico.Designer.cs">
       <DependentUpon>frmOrdemServico.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrçamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrçamentos.Designer.cs">
+      <DependentUpon>frmOrçamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPaginaInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrdemServico.resx">
       <DependentUpon>frmOrdemServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrçamentos.resx">
+      <DependentUpon>frmOrçamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPaginaInicial.resx">
       <DependentUpon>frmPaginaInicial.cs</DependentUpon>
@@ -350,6 +360,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FavIcon.ico" />
+    <None Include="Resources\Botao_Orcamentos.png" />
+    <None Include="Imagens\Botao_Orcamentos.png" />
     <None Include="Resources\FavIcon1.ico" />
     <None Include="Resources\FavIcon.ico" />
     <None Include="Resources\LogoAres.png" />

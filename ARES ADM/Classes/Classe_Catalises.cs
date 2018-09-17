@@ -658,5 +658,69 @@ namespace ARES_ADM.Classes
             Form.VideoPlayer.currentPlaylist.clear();
 
         }
+
+        public void Redefinir_CataliseOS(frmCatalises Form, frmOrdemServico FormOS)
+        {
+            Form.btnDatasheet.Dispose();
+            Form.btnInfotec.Dispose();
+            Form.btnVideoAplicacao.Dispose();
+            Form.pnCabecalho.Dispose();        
+
+            Form.pnPesagemCatalise.Location = new Point(23, 130);
+            Form.pnImagem.Location = new Point(0, 0);
+            Form.pnImagem.Size = new Size(200, 120);
+            Form.picLogoFabricante.Visible=false;
+            Form.picImagemCatalise.Location = new Point(57, 15);
+            Form.btnInserirNaOS.Visible = true;
+            Form.btnCancelar.Visible = true;
+            Form.Height = 480;
+            
+            Form.TopLevel = false;
+            Form.Dock = DockStyle.Fill;
+            FormOS.pnCatalise.Controls.Add(Form);
+            FormOS.pnCatalise.Visible = true;
+            FormOS.pnItensOS.Visible=false;
+
+            FormOS.btnPainelFuncionarios.Enabled = false;
+            FormOS.btnPainelGeral.Enabled = false;
+            FormOS.btnPainelGrafico.Enabled = false;
+            FormOS.btnPainelPecas.Enabled = false;
+            
+            Form.Show();
+        }
+
+        public void InserirCatalise_OS(frmOrdemServico FormOS, string ID, string Descricao, string Quantidade, string Valor)
+        {
+            double Unitario;
+            double Total = Convert.ToDouble(Valor);
+            double QNT = Convert.ToDouble(Quantidade);
+
+            Unitario = (Total / QNT) * 1000;
+            QNT = QNT / 1000;
+
+            try
+            {
+                SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
+
+                string comandoSQL = "INSERT INTO OrdemServico_Itens(ID_Veiculo,Categoria,CodigoProduto,Descricao,Quantidade,ValorUnitario,ValorTotal)" +
+                            " VALUES ('" + ID + "','CATALISES','','" + Descricao.Trim(new char[] { ' ', '▐' }) + "','" + QNT + "','" + Unitario + "','" + Valor + "')";
+
+                SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
+
+                CONN.Open();
+                CMD.ExecuteNonQuery();
+                CONN.Close();
+
+                Form Messagebox2 = new frmMensagemBox(Classe_Mensagem.ALERTA, "Inclusão", "A catalise foi incluida com sucesso!");
+                Messagebox2.ShowDialog();
+
+                FormOS.AtualizaDadosGeral();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
     }
 }

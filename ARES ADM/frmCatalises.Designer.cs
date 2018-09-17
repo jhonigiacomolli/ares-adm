@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCatalises));
-            this.pnCabecalho = new System.Windows.Forms.Panel();
-            this.lblTituloForm = new System.Windows.Forms.Label();
-            this.pnFavIcon = new System.Windows.Forms.Panel();
-            this.btnFechar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.cboFabricante = new System.Windows.Forms.ComboBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.cboCatalise = new System.Windows.Forms.ComboBox();
@@ -50,109 +45,52 @@
             this.txtSecagem_Cabine = new System.Windows.Forms.TextBox();
             this.txtIntervaloPassadas = new System.Windows.Forms.TextBox();
             this.txtNumeroPassadas = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lbl26 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblTituloAplicacao = new System.Windows.Forms.Label();
+            this.lblTituloSecagemIR = new System.Windows.Forms.Label();
+            this.lblTituloCabine = new System.Windows.Forms.Label();
+            this.lblTituloSecagemCabine = new System.Windows.Forms.Label();
             this.txtSecagem_IRmedias = new System.Windows.Forms.TextBox();
             this.txtSecagem_IRCurtas = new System.Windows.Forms.TextBox();
             this.txtSecagem_Total = new System.Windows.Forms.TextBox();
             this.txtSecagem_Manuseio = new System.Windows.Forms.TextBox();
             this.txtSecagem_Toque = new System.Windows.Forms.TextBox();
             this.txtSecagem_LivrePo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblTituloSecagemAr = new System.Windows.Forms.Label();
+            this.lblTituloLivrePo = new System.Windows.Forms.Label();
+            this.lblTituloToque = new System.Windows.Forms.Label();
+            this.lblTituloManuseio = new System.Windows.Forms.Label();
+            this.lblTituloCuraTotal = new System.Windows.Forms.Label();
+            this.lblTituloOndasCurtas = new System.Windows.Forms.Label();
+            this.lblTituloOndasMedias = new System.Windows.Forms.Label();
+            this.lblTituloPassadas = new System.Windows.Forms.Label();
+            this.lblTituloIntervalo = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.btnDatasheet = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.picImagemCatalise = new System.Windows.Forms.PictureBox();
-            this.picLogoFabricante = new System.Windows.Forms.PictureBox();
             this.btnVideoAplicacao = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnInserirNaOS = new System.Windows.Forms.Button();
             this.pnPesagemCatalise = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnVideoAplicacao = new System.Windows.Forms.Panel();
             this.VideoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
-            this.pnCabecalho.SuspendLayout();
-            this.btnFechar.SuspendLayout();
+            this.btnFechar = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTituloForm = new System.Windows.Forms.Label();
+            this.pnCabecalho = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.pnFavIcon = new System.Windows.Forms.Panel();
+            this.pnImagem = new System.Windows.Forms.Panel();
+            this.picImagemCatalise = new System.Windows.Forms.PictureBox();
+            this.picLogoFabricante = new System.Windows.Forms.PictureBox();
             this.pnInfoTec.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImagemCatalise)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoFabricante)).BeginInit();
             this.pnPesagemCatalise.SuspendLayout();
             this.pnVideoAplicacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).BeginInit();
+            this.btnFechar.SuspendLayout();
+            this.pnCabecalho.SuspendLayout();
+            this.pnImagem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picImagemCatalise)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoFabricante)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnCabecalho
-            // 
-            this.pnCabecalho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.pnCabecalho.Controls.Add(this.lblTituloForm);
-            this.pnCabecalho.Controls.Add(this.pnFavIcon);
-            this.pnCabecalho.Controls.Add(this.btnFechar);
-            this.pnCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnCabecalho.Location = new System.Drawing.Point(0, 0);
-            this.pnCabecalho.Name = "pnCabecalho";
-            this.pnCabecalho.Size = new System.Drawing.Size(1581, 35);
-            this.pnCabecalho.TabIndex = 32;
-            this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
-            this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
-            this.pnCabecalho.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseUp);
-            // 
-            // lblTituloForm
-            // 
-            this.lblTituloForm.AutoSize = true;
-            this.lblTituloForm.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblTituloForm.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloForm.Location = new System.Drawing.Point(42, 8);
-            this.lblTituloForm.Name = "lblTituloForm";
-            this.lblTituloForm.Size = new System.Drawing.Size(151, 17);
-            this.lblTituloForm.TabIndex = 1;
-            this.lblTituloForm.Text = "ARES ADM - Catalises";
-            this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
-            this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
-            this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
-            // 
-            // pnFavIcon
-            // 
-            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pnFavIcon.BackgroundImage = global::ARES_ADM.Properties.Resources.FavIcon;
-            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnFavIcon.Location = new System.Drawing.Point(10, 4);
-            this.pnFavIcon.Name = "pnFavIcon";
-            this.pnFavIcon.Size = new System.Drawing.Size(25, 25);
-            this.pnFavIcon.TabIndex = 2;
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btnFechar.Controls.Add(this.label1);
-            this.btnFechar.Location = new System.Drawing.Point(1546, 0);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(35, 35);
-            this.btnFechar.TabIndex = 1;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cboFabricante
             // 
@@ -305,25 +243,25 @@
             this.pnInfoTec.Controls.Add(this.txtSecagem_Cabine);
             this.pnInfoTec.Controls.Add(this.txtIntervaloPassadas);
             this.pnInfoTec.Controls.Add(this.txtNumeroPassadas);
-            this.pnInfoTec.Controls.Add(this.label18);
-            this.pnInfoTec.Controls.Add(this.label11);
-            this.pnInfoTec.Controls.Add(this.lbl26);
-            this.pnInfoTec.Controls.Add(this.label10);
+            this.pnInfoTec.Controls.Add(this.lblTituloAplicacao);
+            this.pnInfoTec.Controls.Add(this.lblTituloSecagemIR);
+            this.pnInfoTec.Controls.Add(this.lblTituloCabine);
+            this.pnInfoTec.Controls.Add(this.lblTituloSecagemCabine);
             this.pnInfoTec.Controls.Add(this.txtSecagem_IRmedias);
             this.pnInfoTec.Controls.Add(this.txtSecagem_IRCurtas);
             this.pnInfoTec.Controls.Add(this.txtSecagem_Total);
             this.pnInfoTec.Controls.Add(this.txtSecagem_Manuseio);
             this.pnInfoTec.Controls.Add(this.txtSecagem_Toque);
             this.pnInfoTec.Controls.Add(this.txtSecagem_LivrePo);
-            this.pnInfoTec.Controls.Add(this.label9);
-            this.pnInfoTec.Controls.Add(this.label12);
-            this.pnInfoTec.Controls.Add(this.label13);
-            this.pnInfoTec.Controls.Add(this.label14);
-            this.pnInfoTec.Controls.Add(this.label15);
-            this.pnInfoTec.Controls.Add(this.label16);
-            this.pnInfoTec.Controls.Add(this.label17);
-            this.pnInfoTec.Controls.Add(this.label4);
-            this.pnInfoTec.Controls.Add(this.label8);
+            this.pnInfoTec.Controls.Add(this.lblTituloSecagemAr);
+            this.pnInfoTec.Controls.Add(this.lblTituloLivrePo);
+            this.pnInfoTec.Controls.Add(this.lblTituloToque);
+            this.pnInfoTec.Controls.Add(this.lblTituloManuseio);
+            this.pnInfoTec.Controls.Add(this.lblTituloCuraTotal);
+            this.pnInfoTec.Controls.Add(this.lblTituloOndasCurtas);
+            this.pnInfoTec.Controls.Add(this.lblTituloOndasMedias);
+            this.pnInfoTec.Controls.Add(this.lblTituloPassadas);
+            this.pnInfoTec.Controls.Add(this.lblTituloIntervalo);
             this.pnInfoTec.Location = new System.Drawing.Point(23, 536);
             this.pnInfoTec.Name = "pnInfoTec";
             this.pnInfoTec.Size = new System.Drawing.Size(619, 112);
@@ -367,48 +305,48 @@
             this.txtNumeroPassadas.Text = "n/a";
             this.txtNumeroPassadas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label18
+            // lblTituloAplicacao
             // 
-            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.label18.ForeColor = System.Drawing.Color.LightCoral;
-            this.label18.Location = new System.Drawing.Point(0, 5);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(230, 19);
-            this.label18.TabIndex = 38;
-            this.label18.Text = "Aplicação";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.lblTituloAplicacao.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblTituloAplicacao.Location = new System.Drawing.Point(0, 5);
+            this.lblTituloAplicacao.Name = "lblTituloAplicacao";
+            this.lblTituloAplicacao.Size = new System.Drawing.Size(230, 19);
+            this.lblTituloAplicacao.TabIndex = 38;
+            this.lblTituloAplicacao.Text = "Aplicação";
+            this.lblTituloAplicacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // lblTituloSecagemIR
             // 
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.label11.ForeColor = System.Drawing.Color.LightCoral;
-            this.label11.Location = new System.Drawing.Point(428, 51);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(190, 19);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Secagem Infra Vermelho";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloSecagemIR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.lblTituloSecagemIR.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblTituloSecagemIR.Location = new System.Drawing.Point(428, 51);
+            this.lblTituloSecagemIR.Name = "lblTituloSecagemIR";
+            this.lblTituloSecagemIR.Size = new System.Drawing.Size(190, 19);
+            this.lblTituloSecagemIR.TabIndex = 35;
+            this.lblTituloSecagemIR.Text = "Secagem Infra Vermelho";
+            this.lblTituloSecagemIR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbl26
+            // lblTituloCabine
             // 
-            this.lbl26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.lbl26.ForeColor = System.Drawing.Color.Silver;
-            this.lbl26.Location = new System.Drawing.Point(428, 24);
-            this.lbl26.Name = "lbl26";
-            this.lbl26.Size = new System.Drawing.Size(190, 18);
-            this.lbl26.TabIndex = 34;
-            this.lbl26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTituloCabine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloCabine.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloCabine.Location = new System.Drawing.Point(428, 24);
+            this.lblTituloCabine.Name = "lblTituloCabine";
+            this.lblTituloCabine.Size = new System.Drawing.Size(190, 18);
+            this.lblTituloCabine.TabIndex = 34;
+            this.lblTituloCabine.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label10
+            // lblTituloSecagemCabine
             // 
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.label10.ForeColor = System.Drawing.Color.LightCoral;
-            this.label10.Location = new System.Drawing.Point(428, 5);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(190, 19);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Secagem em Cabine (60º)";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloSecagemCabine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.lblTituloSecagemCabine.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblTituloSecagemCabine.Location = new System.Drawing.Point(428, 5);
+            this.lblTituloSecagemCabine.Name = "lblTituloSecagemCabine";
+            this.lblTituloSecagemCabine.Size = new System.Drawing.Size(190, 19);
+            this.lblTituloSecagemCabine.TabIndex = 33;
+            this.lblTituloSecagemCabine.Text = "Secagem em Cabine (60º)";
+            this.lblTituloSecagemCabine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtSecagem_IRmedias
             // 
@@ -482,114 +420,114 @@
             this.txtSecagem_LivrePo.Text = "n/a";
             this.txtSecagem_LivrePo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label9
+            // lblTituloSecagemAr
             // 
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.label9.ForeColor = System.Drawing.Color.LightCoral;
-            this.label9.Location = new System.Drawing.Point(234, 5);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(190, 19);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Secagem ao Ar";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTituloSecagemAr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.lblTituloSecagemAr.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblTituloSecagemAr.Location = new System.Drawing.Point(234, 5);
+            this.lblTituloSecagemAr.Name = "lblTituloSecagemAr";
+            this.lblTituloSecagemAr.Size = new System.Drawing.Size(190, 19);
+            this.lblTituloSecagemAr.TabIndex = 2;
+            this.lblTituloSecagemAr.Text = "Secagem ao Ar";
+            this.lblTituloSecagemAr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label12
+            // lblTituloLivrePo
             // 
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label12.ForeColor = System.Drawing.Color.Silver;
-            this.label12.Location = new System.Drawing.Point(234, 24);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(190, 18);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "  Livre de Pó :";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloLivrePo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloLivrePo.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloLivrePo.Location = new System.Drawing.Point(234, 24);
+            this.lblTituloLivrePo.Name = "lblTituloLivrePo";
+            this.lblTituloLivrePo.Size = new System.Drawing.Size(190, 18);
+            this.lblTituloLivrePo.TabIndex = 29;
+            this.lblTituloLivrePo.Text = "  Livre de Pó :";
+            this.lblTituloLivrePo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label13
+            // lblTituloToque
             // 
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label13.ForeColor = System.Drawing.Color.Silver;
-            this.label13.Location = new System.Drawing.Point(234, 45);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(190, 18);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "  Toque :";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloToque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloToque.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloToque.Location = new System.Drawing.Point(234, 45);
+            this.lblTituloToque.Name = "lblTituloToque";
+            this.lblTituloToque.Size = new System.Drawing.Size(190, 18);
+            this.lblTituloToque.TabIndex = 30;
+            this.lblTituloToque.Text = "  Toque :";
+            this.lblTituloToque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label14
+            // lblTituloManuseio
             // 
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label14.ForeColor = System.Drawing.Color.Silver;
-            this.label14.Location = new System.Drawing.Point(234, 66);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(190, 18);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "  Manuseio :";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloManuseio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloManuseio.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloManuseio.Location = new System.Drawing.Point(234, 66);
+            this.lblTituloManuseio.Name = "lblTituloManuseio";
+            this.lblTituloManuseio.Size = new System.Drawing.Size(190, 18);
+            this.lblTituloManuseio.TabIndex = 31;
+            this.lblTituloManuseio.Text = "  Manuseio :";
+            this.lblTituloManuseio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label15
+            // lblTituloCuraTotal
             // 
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label15.ForeColor = System.Drawing.Color.Silver;
-            this.label15.Location = new System.Drawing.Point(234, 87);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(190, 18);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "  Cura Total :";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloCuraTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloCuraTotal.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloCuraTotal.Location = new System.Drawing.Point(234, 87);
+            this.lblTituloCuraTotal.Name = "lblTituloCuraTotal";
+            this.lblTituloCuraTotal.Size = new System.Drawing.Size(190, 18);
+            this.lblTituloCuraTotal.TabIndex = 32;
+            this.lblTituloCuraTotal.Text = "  Cura Total :";
+            this.lblTituloCuraTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label16
+            // lblTituloOndasCurtas
             // 
-            this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label16.ForeColor = System.Drawing.Color.Silver;
-            this.label16.Location = new System.Drawing.Point(428, 70);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(190, 18);
-            this.label16.TabIndex = 36;
-            this.label16.Text = "   Ondas Curtas :";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloOndasCurtas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloOndasCurtas.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloOndasCurtas.Location = new System.Drawing.Point(428, 70);
+            this.lblTituloOndasCurtas.Name = "lblTituloOndasCurtas";
+            this.lblTituloOndasCurtas.Size = new System.Drawing.Size(190, 18);
+            this.lblTituloOndasCurtas.TabIndex = 36;
+            this.lblTituloOndasCurtas.Text = "   Ondas Curtas :";
+            this.lblTituloOndasCurtas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label17
+            // lblTituloOndasMedias
             // 
-            this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label17.ForeColor = System.Drawing.Color.Silver;
-            this.label17.Location = new System.Drawing.Point(428, 89);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(190, 18);
-            this.label17.TabIndex = 37;
-            this.label17.Text = "   Ondas Médias :";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloOndasMedias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloOndasMedias.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloOndasMedias.Location = new System.Drawing.Point(428, 89);
+            this.lblTituloOndasMedias.Name = "lblTituloOndasMedias";
+            this.lblTituloOndasMedias.Size = new System.Drawing.Size(190, 18);
+            this.lblTituloOndasMedias.TabIndex = 37;
+            this.lblTituloOndasMedias.Text = "   Ondas Médias :";
+            this.lblTituloOndasMedias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblTituloPassadas
             // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(0, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(230, 18);
-            this.label4.TabIndex = 39;
-            this.label4.Text = " Passadas :";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloPassadas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloPassadas.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloPassadas.Location = new System.Drawing.Point(0, 24);
+            this.lblTituloPassadas.Name = "lblTituloPassadas";
+            this.lblTituloPassadas.Size = new System.Drawing.Size(230, 18);
+            this.lblTituloPassadas.TabIndex = 39;
+            this.lblTituloPassadas.Text = " Passadas :";
+            this.lblTituloPassadas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // lblTituloIntervalo
             // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.label8.ForeColor = System.Drawing.Color.Silver;
-            this.label8.Location = new System.Drawing.Point(0, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(230, 18);
-            this.label8.TabIndex = 40;
-            this.label8.Text = " Intervalo :";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTituloIntervalo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.lblTituloIntervalo.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloIntervalo.Location = new System.Drawing.Point(0, 45);
+            this.lblTituloIntervalo.Name = "lblTituloIntervalo";
+            this.lblTituloIntervalo.Size = new System.Drawing.Size(230, 18);
+            this.lblTituloIntervalo.TabIndex = 40;
+            this.lblTituloIntervalo.Text = " Intervalo :";
+            this.lblTituloIntervalo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // webBrowser1
             // 
             this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.webBrowser1.Location = new System.Drawing.Point(670, 52);
+            this.webBrowser1.Location = new System.Drawing.Point(672, 52);
             this.webBrowser1.Margin = new System.Windows.Forms.Padding(0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(467, 586);
+            this.webBrowser1.Size = new System.Drawing.Size(467, 683);
             this.webBrowser1.TabIndex = 51;
             this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
@@ -609,38 +547,6 @@
             this.btnDatasheet.UseVisualStyleBackColor = false;
             this.btnDatasheet.Click += new System.EventHandler(this.button2_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.picImagemCatalise);
-            this.panel1.Controls.Add(this.picLogoFabricante);
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(207, 172);
-            this.panel1.TabIndex = 45;
-            // 
-            // picImagemCatalise
-            // 
-            this.picImagemCatalise.BackColor = System.Drawing.Color.Transparent;
-            this.picImagemCatalise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picImagemCatalise.BackgroundImage")));
-            this.picImagemCatalise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picImagemCatalise.Location = new System.Drawing.Point(47, 54);
-            this.picImagemCatalise.Name = "picImagemCatalise";
-            this.picImagemCatalise.Size = new System.Drawing.Size(100, 103);
-            this.picImagemCatalise.TabIndex = 33;
-            this.picImagemCatalise.TabStop = false;
-            // 
-            // picLogoFabricante
-            // 
-            this.picLogoFabricante.BackColor = System.Drawing.Color.Transparent;
-            this.picLogoFabricante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLogoFabricante.Location = new System.Drawing.Point(42, 22);
-            this.picLogoFabricante.Name = "picLogoFabricante";
-            this.picLogoFabricante.Size = new System.Drawing.Size(111, 26);
-            this.picLogoFabricante.TabIndex = 44;
-            this.picLogoFabricante.TabStop = false;
-            // 
             // btnVideoAplicacao
             // 
             this.btnVideoAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
@@ -657,26 +563,30 @@
             this.btnVideoAplicacao.UseVisualStyleBackColor = false;
             this.btnVideoAplicacao.Click += new System.EventHandler(this.btnVideoAplicacao_Click);
             // 
-            // button3
+            // btnInserirNaOS
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Silver;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(411, 230);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(208, 33);
-            this.button3.TabIndex = 52;
-            this.button3.Text = "Incluir na OS";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnInserirNaOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.btnInserirNaOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInserirNaOS.Enabled = false;
+            this.btnInserirNaOS.FlatAppearance.BorderSize = 0;
+            this.btnInserirNaOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserirNaOS.ForeColor = System.Drawing.Color.Silver;
+            this.btnInserirNaOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInserirNaOS.Location = new System.Drawing.Point(403, 189);
+            this.btnInserirNaOS.Name = "btnInserirNaOS";
+            this.btnInserirNaOS.Size = new System.Drawing.Size(216, 33);
+            this.btnInserirNaOS.TabIndex = 52;
+            this.btnInserirNaOS.Text = "Incluir na OS";
+            this.btnInserirNaOS.UseVisualStyleBackColor = false;
+            this.btnInserirNaOS.Visible = false;
+            this.btnInserirNaOS.Click += new System.EventHandler(this.btnInserirNaOS_Click);
             // 
             // pnPesagemCatalise
             // 
+            this.pnPesagemCatalise.Controls.Add(this.btnCancelar);
             this.pnPesagemCatalise.Controls.Add(this.label2);
             this.pnPesagemCatalise.Controls.Add(this.lstCatalises);
-            this.pnPesagemCatalise.Controls.Add(this.button3);
+            this.pnPesagemCatalise.Controls.Add(this.btnInserirNaOS);
             this.pnPesagemCatalise.Controls.Add(this.txtQuantidade);
             this.pnPesagemCatalise.Controls.Add(this.label3);
             this.pnPesagemCatalise.Controls.Add(this.lstAditivosCatalise);
@@ -719,12 +629,124 @@
             this.VideoPlayer.Size = new System.Drawing.Size(619, 318);
             this.VideoPlayer.TabIndex = 0;
             // 
+            // btnFechar
+            // 
+            this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.btnFechar.Controls.Add(this.label1);
+            this.btnFechar.Location = new System.Drawing.Point(1546, 0);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(35, 35);
+            this.btnFechar.TabIndex = 1;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "X";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblTituloForm
+            // 
+            this.lblTituloForm.AutoSize = true;
+            this.lblTituloForm.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblTituloForm.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloForm.Location = new System.Drawing.Point(42, 8);
+            this.lblTituloForm.Name = "lblTituloForm";
+            this.lblTituloForm.Size = new System.Drawing.Size(149, 17);
+            this.lblTituloForm.TabIndex = 1;
+            this.lblTituloForm.Text = "ARES ADM - Catalises";
+            this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
+            this.lblTituloForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseMove);
+            this.lblTituloForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseUp);
+            // 
+            // pnCabecalho
+            // 
+            this.pnCabecalho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.pnCabecalho.Controls.Add(this.lblTituloForm);
+            this.pnCabecalho.Controls.Add(this.pnFavIcon);
+            this.pnCabecalho.Controls.Add(this.btnFechar);
+            this.pnCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnCabecalho.Location = new System.Drawing.Point(0, 0);
+            this.pnCabecalho.Name = "pnCabecalho";
+            this.pnCabecalho.Size = new System.Drawing.Size(1581, 35);
+            this.pnCabecalho.TabIndex = 32;
+            this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
+            this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
+            this.pnCabecalho.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseUp);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.Silver;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(403, 228);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(216, 33);
+            this.btnCancelar.TabIndex = 54;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // pnFavIcon
+            // 
+            this.pnFavIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pnFavIcon.BackgroundImage = global::ARES_ADM.Properties.Resources.FavIcon;
+            this.pnFavIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnFavIcon.Location = new System.Drawing.Point(10, 4);
+            this.pnFavIcon.Name = "pnFavIcon";
+            this.pnFavIcon.Size = new System.Drawing.Size(25, 25);
+            this.pnFavIcon.TabIndex = 2;
+            // 
+            // pnImagem
+            // 
+            this.pnImagem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnImagem.BackgroundImage")));
+            this.pnImagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnImagem.Controls.Add(this.picImagemCatalise);
+            this.pnImagem.Controls.Add(this.picLogoFabricante);
+            this.pnImagem.Location = new System.Drawing.Point(0, 30);
+            this.pnImagem.Name = "pnImagem";
+            this.pnImagem.Size = new System.Drawing.Size(207, 172);
+            this.pnImagem.TabIndex = 45;
+            // 
+            // picImagemCatalise
+            // 
+            this.picImagemCatalise.BackColor = System.Drawing.Color.Transparent;
+            this.picImagemCatalise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picImagemCatalise.BackgroundImage")));
+            this.picImagemCatalise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picImagemCatalise.Location = new System.Drawing.Point(57, 54);
+            this.picImagemCatalise.Name = "picImagemCatalise";
+            this.picImagemCatalise.Size = new System.Drawing.Size(100, 103);
+            this.picImagemCatalise.TabIndex = 33;
+            this.picImagemCatalise.TabStop = false;
+            // 
+            // picLogoFabricante
+            // 
+            this.picLogoFabricante.BackColor = System.Drawing.Color.Transparent;
+            this.picLogoFabricante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLogoFabricante.Location = new System.Drawing.Point(52, 22);
+            this.picLogoFabricante.Name = "picLogoFabricante";
+            this.picLogoFabricante.Size = new System.Drawing.Size(111, 26);
+            this.picLogoFabricante.TabIndex = 44;
+            this.picLogoFabricante.TabStop = false;
+            // 
             // frmCatalises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(1581, 650);
+            this.ClientSize = new System.Drawing.Size(1581, 747);
             this.Controls.Add(this.btnVideoAplicacao);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.pnInfoTec);
@@ -734,53 +756,35 @@
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.cboFabricante);
             this.Controls.Add(this.pnCabecalho);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnVideoAplicacao);
+            this.Controls.Add(this.pnImagem);
             this.Controls.Add(this.pnPesagemCatalise);
+            this.Controls.Add(this.pnVideoAplicacao);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCatalises";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ARES ADM - Catalises";
-            this.pnCabecalho.ResumeLayout(false);
-            this.pnCabecalho.PerformLayout();
-            this.btnFechar.ResumeLayout(false);
-            this.btnFechar.PerformLayout();
             this.pnInfoTec.ResumeLayout(false);
             this.pnInfoTec.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picImagemCatalise)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoFabricante)).EndInit();
             this.pnPesagemCatalise.ResumeLayout(false);
             this.pnPesagemCatalise.PerformLayout();
             this.pnVideoAplicacao.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).EndInit();
+            this.btnFechar.ResumeLayout(false);
+            this.btnFechar.PerformLayout();
+            this.pnCabecalho.ResumeLayout(false);
+            this.pnCabecalho.PerformLayout();
+            this.pnImagem.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picImagemCatalise)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoFabricante)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        public System.Windows.Forms.Panel pnCabecalho;
-        public System.Windows.Forms.Label lblTituloForm;
-        public System.Windows.Forms.Panel pnFavIcon;
-        public System.Windows.Forms.Panel btnFechar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboFabricante;
-        private System.Windows.Forms.ComboBox cboCategoria;
-        private System.Windows.Forms.ComboBox cboCatalise;
-        private System.Windows.Forms.ListView lstCatalises;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblValorCatalise;
-        private System.Windows.Forms.ListView lstAditivosCatalise;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox picImagemCatalise;
-        private System.Windows.Forms.PictureBox picLogoFabricante;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblTituloValorCatalise;
-        private System.Windows.Forms.Label label9;
         public System.Windows.Forms.Button btnDatasheet;
         public System.Windows.Forms.WebBrowser webBrowser1;
         public System.Windows.Forms.TextBox txtSecagem_IRmedias;
@@ -789,28 +793,46 @@
         public System.Windows.Forms.TextBox txtSecagem_Manuseio;
         public System.Windows.Forms.TextBox txtSecagem_Toque;
         public System.Windows.Forms.TextBox txtSecagem_LivrePo;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        public System.Windows.Forms.Label lbl26;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label lblTituloCabine;
         public System.Windows.Forms.TextBox txtIntervaloPassadas;
         public System.Windows.Forms.TextBox txtNumeroPassadas;
         public System.Windows.Forms.TextBox txtSecagem_Cabine;
         public System.Windows.Forms.Button btnVideoAplicacao;
-        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button btnInserirNaOS;
         public System.Windows.Forms.Button btnInfotec;
         public System.Windows.Forms.Panel pnInfoTec;
         public System.Windows.Forms.Panel pnPesagemCatalise;
         public System.Windows.Forms.Panel pnVideoAplicacao;
         private System.Windows.Forms.Label label2;
         public AxWMPLib.AxWindowsMediaPlayer VideoPlayer;
+        public System.Windows.Forms.Panel btnFechar;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Panel pnFavIcon;
+        public System.Windows.Forms.Label lblTituloForm;
+        public System.Windows.Forms.Panel pnCabecalho;
+        public System.Windows.Forms.ComboBox cboFabricante;
+        public System.Windows.Forms.ComboBox cboCategoria;
+        public System.Windows.Forms.ComboBox cboCatalise;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Panel pnImagem;
+        public System.Windows.Forms.PictureBox picImagemCatalise;
+        public System.Windows.Forms.PictureBox picLogoFabricante;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.ListView lstCatalises;
+        public System.Windows.Forms.ListView lstAditivosCatalise;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label lblTituloValorCatalise;
+        public System.Windows.Forms.Label lblTituloSecagemAr;
+        public System.Windows.Forms.Label lblTituloLivrePo;
+        public System.Windows.Forms.Label lblTituloToque;
+        public System.Windows.Forms.Label lblTituloManuseio;
+        public System.Windows.Forms.Label lblTituloCuraTotal;
+        public System.Windows.Forms.Label lblTituloSecagemIR;
+        public System.Windows.Forms.Label lblTituloSecagemCabine;
+        public System.Windows.Forms.Label lblTituloOndasCurtas;
+        public System.Windows.Forms.Label lblTituloOndasMedias;
+        public System.Windows.Forms.Label lblTituloAplicacao;
+        public System.Windows.Forms.Label lblTituloPassadas;
+        public System.Windows.Forms.Label lblTituloIntervalo;
     }
 }

@@ -104,6 +104,7 @@ namespace ARES_ADM.Classes
             try
             {
                 LST.Items.Clear();
+                LST.ShowItemToolTips = true;
 
                 DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
 
@@ -120,8 +121,10 @@ namespace ARES_ADM.Classes
                         Item.SubItems.Add(Convert.ToDecimal(DR["Quantidade"].ToString().TrimEnd()).ToString("N2"));
                         Item.SubItems.Add(Convert.ToDecimal(DR["ValorUnitario"].ToString().TrimEnd()).ToString("N2"));
                         Item.SubItems.Add(Convert.ToDecimal(DR["ValorTotal"].ToString().TrimEnd()).ToString("N2"));
+                        Item.ToolTipText = DR["Descricao"].ToString().TrimEnd().ToUpper();
 
                         LST.Items.Add(Item);
+                        
                     }
                 }
                 DT.Dispose();

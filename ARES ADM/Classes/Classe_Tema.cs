@@ -10,6 +10,7 @@ namespace ARES_ADM.Classes
     {
         public static Color Botao_Normal = Color.Silver;
         public static Color Botao_Sobre = Color.Maroon;
+        public static Color Botao_Secundario = Color.FromArgb(46, 46, 46);
         public static Color BordaBotao = Color.FromArgb(64, 64, 64);
         public static Color Botao_Desativado = Color.Black;
         public static Color MenuBotao_Normal = Color.FromArgb(26, 26, 26);
@@ -21,11 +22,14 @@ namespace ARES_ADM.Classes
         public static Color Linha_OSFechada = Color.FromArgb(60, 60, 60);
         public static Color Linha_OSAguardando = Color.Black;
 
+        public  Color Back_ItensInfotec = Color.FromArgb(32, 32, 32);
         public Color COR_Primaria = Color.FromArgb(26, 26, 26);
         public Color COR_Background_Listview = Color.FromArgb(224, 224, 224);
         public Color COR_Titulos = Color.Silver;
         public Color COR_Subtitulos = Color.Gray;
         public Color COR_FontePrimaria = Color.Black;
+        public Color COR_TextoSemDestaque = Color.FromArgb(64, 64, 64);
+
 
         public void TEMA_frmPrincipal(frmPaginaInicial Form)
         {
@@ -375,6 +379,84 @@ namespace ARES_ADM.Classes
 
             //Corpor
             Form.BackColor = COR_Primaria;
+
+            Form.cboFabricante.BackColor = Color.White;
+            Form.cboCategoria.BackColor = Color.White;
+            Form.cboCatalise.BackColor = Color.White;
+            Form.cboFabricante.ForeColor = COR_TextoSemDestaque;
+            Form.cboCategoria.ForeColor = COR_TextoSemDestaque;
+            Form.cboCatalise.ForeColor = COR_FontePrimaria;
+
+            Form.btnInfotec.BackColor = Botao_Secundario;
+            Form.btnDatasheet.BackColor = Botao_Secundario;
+            Form.btnVideoAplicacao.BackColor = Botao_Secundario;
+            Form.btnInserirNaOS.BackColor = Botao_Secundario;
+            Form.btnCancelar.BackColor = Botao_Secundario;
+
+            Form.btnInfotec.ForeColor = COR_Titulos;
+            Form.btnDatasheet.ForeColor = COR_Titulos;
+            Form.btnVideoAplicacao.ForeColor = COR_Titulos;
+            Form.btnInserirNaOS.ForeColor = COR_Titulos;
+            Form.btnCancelar.ForeColor = COR_Titulos;
+
+            Form.label5.BackColor = COR_Titulos;
+            Form.label6.BackColor = COR_Titulos;
+            Form.lblTituloValorCatalise.BackColor = COR_Titulos;
+
+            Form.label5.ForeColor = COR_FontePrimaria;
+            Form.label6.ForeColor = COR_FontePrimaria;
+            Form.lblTituloValorCatalise.ForeColor = COR_FontePrimaria;
+
+            Form.lstCatalises.BackColor = COR_Background_Listview;
+            Form.lstAditivosCatalise.BackColor = COR_Background_Listview;
+
+            Form.lblTituloAplicacao.BackColor = Botao_Secundario;
+            Form.lblTituloSecagemAr.BackColor = Botao_Secundario;
+            Form.lblTituloSecagemCabine.BackColor = Botao_Secundario;
+            Form.lblTituloSecagemIR.BackColor = Botao_Secundario;
+
+            Form.lblTituloAplicacao.ForeColor = Color.LightCoral;
+            Form.lblTituloSecagemAr.ForeColor = Color.LightCoral;
+            Form.lblTituloSecagemCabine.ForeColor = Color.LightCoral;
+            Form.lblTituloSecagemIR.ForeColor = Color.LightCoral;
+
+            Form.lblTituloPassadas.BackColor = Back_ItensInfotec;
+            Form.lblTituloIntervalo.BackColor = Back_ItensInfotec;
+            Form.lblTituloLivrePo.BackColor = Back_ItensInfotec;
+            Form.lblTituloToque.BackColor = Back_ItensInfotec;
+            Form.lblTituloManuseio.BackColor = Back_ItensInfotec;
+            Form.lblTituloCuraTotal.BackColor = Back_ItensInfotec;
+            Form.lblTituloCabine.BackColor = Back_ItensInfotec;
+            Form.lblTituloOndasCurtas.BackColor = Back_ItensInfotec;
+            Form.lblTituloOndasMedias.BackColor = Back_ItensInfotec;
+            Form.txtNumeroPassadas.BackColor = Back_ItensInfotec;
+            Form.txtIntervaloPassadas.BackColor = Back_ItensInfotec;
+            Form.txtSecagem_LivrePo.BackColor = Back_ItensInfotec;
+            Form.txtSecagem_Toque.BackColor = Back_ItensInfotec;
+            Form.txtSecagem_Manuseio.BackColor = Back_ItensInfotec;
+            Form.txtSecagem_Total.BackColor = Back_ItensInfotec;
+            Form.txtSecagem_Cabine.BackColor = Back_ItensInfotec;
+            Form.txtSecagem_IRCurtas.BackColor = Back_ItensInfotec;
+            Form.txtSecagem_IRmedias.BackColor = Back_ItensInfotec;
+
+            Form.lblTituloPassadas.ForeColor = COR_Titulos;
+            Form.lblTituloIntervalo.ForeColor = COR_Titulos;
+            Form.lblTituloLivrePo.ForeColor = COR_Titulos;
+            Form.lblTituloToque.ForeColor = COR_Titulos;
+            Form.lblTituloManuseio.ForeColor = COR_Titulos;
+            Form.lblTituloCuraTotal.ForeColor = COR_Titulos;
+            Form.lblTituloCabine.ForeColor = COR_Titulos;
+            Form.lblTituloOndasCurtas.ForeColor = COR_Titulos;
+            Form.lblTituloOndasMedias.ForeColor = COR_Titulos;
+            Form.txtNumeroPassadas.ForeColor = COR_Titulos;
+            Form.txtIntervaloPassadas.ForeColor = COR_Titulos;
+            Form.txtSecagem_LivrePo.ForeColor = COR_Titulos;
+            Form.txtSecagem_Toque.ForeColor = COR_Titulos;
+            Form.txtSecagem_Manuseio.ForeColor = COR_Titulos;
+            Form.txtSecagem_Total.ForeColor = COR_Titulos;
+            Form.txtSecagem_Cabine.ForeColor = COR_Titulos;
+            Form.txtSecagem_IRCurtas.ForeColor = COR_Titulos;
+            Form.txtSecagem_IRmedias.ForeColor = COR_Titulos;
         }
 
         public void TEMA_frmConfiguracoes(frmConfiguracoes Form)
@@ -396,6 +478,20 @@ namespace ARES_ADM.Classes
             Form.lblTituloTelefone.ForeColor = COR_Titulos;
             Form.lblTituloBancoHoras.ForeColor = COR_Titulos;
             
+        }
+
+
+        public void TEMA_frmOrcamentos(frmOrcamentos Form)
+        {
+            Form.Text = "Orçamentos";
+            Form.lblTituloForm.Text = Classe_Configuracoes.NomeModulos + " - Orçamentos";
+
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
         }
     }
 }

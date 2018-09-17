@@ -123,7 +123,7 @@ namespace ARES_ADM.Classes
                 CMD.ExecuteNonQuery();
                 CONN.Close();
 
-                Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Alteração de COnfigurações", "Suas alterações foram salvas com sucesso!");
+                Form messagebox = new frmMensagemBox(Classe_Mensagem.ALERTA, "Alteração de Configurações", "Suas alterações foram salvas com sucesso!");
                 messagebox.ShowDialog();
             }
             catch (SqlCeException ex)

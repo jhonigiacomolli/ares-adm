@@ -51,6 +51,7 @@
             this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnOrdemServico = new System.Windows.Forms.PictureBox();
             this.picBackgorund = new System.Windows.Forms.PictureBox();
+            this.btnOrcamentos = new System.Windows.Forms.PictureBox();
             this.btnProdutos = new System.Windows.Forms.PictureBox();
             this.btnCatalises = new System.Windows.Forms.PictureBox();
             this.btnUsuarios = new System.Windows.Forms.PictureBox();
@@ -62,6 +63,7 @@
             this.pnMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOrdemServico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackgorund)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOrcamentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCatalises)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUsuarios)).BeginInit();
@@ -200,7 +202,7 @@
             this.lblTituloRodape.ForeColor = System.Drawing.Color.Silver;
             this.lblTituloRodape.Location = new System.Drawing.Point(363, 600);
             this.lblTituloRodape.Name = "lblTituloRodape";
-            this.lblTituloRodape.Size = new System.Drawing.Size(183, 14);
+            this.lblTituloRodape.Size = new System.Drawing.Size(180, 14);
             this.lblTituloRodape.TabIndex = 24;
             this.lblTituloRodape.Text = "ARES ADM Laboratory Management";
             // 
@@ -323,12 +325,27 @@
             this.picBackgorund.TabIndex = 1;
             this.picBackgorund.TabStop = false;
             // 
+            // btnOrcamentos
+            // 
+            this.btnOrcamentos.BackColor = System.Drawing.Color.Silver;
+            this.btnOrcamentos.BackgroundImage = global::ARES_ADM.Properties.Resources.Botao_Orcamentos;
+            this.btnOrcamentos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnOrcamentos.Location = new System.Drawing.Point(195, 102);
+            this.btnOrcamentos.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOrcamentos.Name = "btnOrcamentos";
+            this.btnOrcamentos.Size = new System.Drawing.Size(200, 90);
+            this.btnOrcamentos.TabIndex = 32;
+            this.btnOrcamentos.TabStop = false;
+            this.btnOrcamentos.Click += new System.EventHandler(this.btnOrcamentos_Click);
+            this.btnOrcamentos.MouseEnter += new System.EventHandler(this.btnOrcamentos_MouseEnter);
+            this.btnOrcamentos.MouseLeave += new System.EventHandler(this.btnOrcamentos_MouseLeave);
+            // 
             // btnProdutos
             // 
             this.btnProdutos.BackColor = System.Drawing.Color.Silver;
             this.btnProdutos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProdutos.BackgroundImage")));
             this.btnProdutos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnProdutos.Location = new System.Drawing.Point(195, 102);
+            this.btnProdutos.Location = new System.Drawing.Point(390, 102);
             this.btnProdutos.Margin = new System.Windows.Forms.Padding(0);
             this.btnProdutos.Name = "btnProdutos";
             this.btnProdutos.Size = new System.Drawing.Size(200, 90);
@@ -343,7 +360,7 @@
             this.btnCatalises.BackColor = System.Drawing.Color.Silver;
             this.btnCatalises.BackgroundImage = global::ARES_ADM.Properties.Resources.Botao_Catalise;
             this.btnCatalises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCatalises.Location = new System.Drawing.Point(390, 102);
+            this.btnCatalises.Location = new System.Drawing.Point(585, 102);
             this.btnCatalises.Margin = new System.Windows.Forms.Padding(0);
             this.btnCatalises.Name = "btnCatalises";
             this.btnCatalises.Size = new System.Drawing.Size(200, 90);
@@ -358,7 +375,7 @@
             this.btnUsuarios.BackColor = System.Drawing.Color.Silver;
             this.btnUsuarios.BackgroundImage = global::ARES_ADM.Properties.Resources.Botao_Usuario;
             this.btnUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnUsuarios.Location = new System.Drawing.Point(585, 102);
+            this.btnUsuarios.Location = new System.Drawing.Point(780, 102);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(0);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(200, 90);
@@ -373,7 +390,7 @@
             this.btnAlocacao.BackColor = System.Drawing.Color.Silver;
             this.btnAlocacao.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAlocacao.BackgroundImage")));
             this.btnAlocacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAlocacao.Location = new System.Drawing.Point(780, 102);
+            this.btnAlocacao.Location = new System.Drawing.Point(975, 102);
             this.btnAlocacao.Margin = new System.Windows.Forms.Padding(0);
             this.btnAlocacao.Name = "btnAlocacao";
             this.btnAlocacao.Size = new System.Drawing.Size(200, 90);
@@ -388,7 +405,7 @@
             this.btnConfig.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfig.BackgroundImage")));
             this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnConfig.ImageLocation = "";
-            this.btnConfig.Location = new System.Drawing.Point(975, 102);
+            this.btnConfig.Location = new System.Drawing.Point(1170, 102);
             this.btnConfig.Margin = new System.Windows.Forms.Padding(0);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(200, 90);
@@ -416,6 +433,7 @@
             this.Controls.Add(this.pnCabecalho);
             this.Controls.Add(this.btnOrdemServico);
             this.Controls.Add(this.picBackgorund);
+            this.Controls.Add(this.btnOrcamentos);
             this.Controls.Add(this.btnProdutos);
             this.Controls.Add(this.btnCatalises);
             this.Controls.Add(this.btnUsuarios);
@@ -435,6 +453,7 @@
             this.pnMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnOrdemServico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackgorund)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOrcamentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCatalises)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUsuarios)).EndInit();
@@ -473,6 +492,7 @@
         private System.Windows.Forms.Timer timerRelogio;
         public System.Windows.Forms.Label txtRelogio;
         public System.Windows.Forms.Label txtData;
+        public System.Windows.Forms.PictureBox btnOrcamentos;
     }
 }
 

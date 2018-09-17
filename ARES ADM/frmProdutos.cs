@@ -57,33 +57,33 @@ namespace ARES_ADM
         public frmProdutos(frmIncluirItem FormIncluirItem, string SQL)
         {
             InitializeComponent();
-            lblTituloForm.Text = "ARES ADM - Produtos";
             frmIncluir = FormIncluirItem;
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
             new Classe_Produtos().Listar_Produtos(lstProdutos, SQL);
+            lblTituloForm.Text = "ARES ADM - Produtos";
             txtPesquisa.Select();
         }
         public frmProdutos(frmApontamentoFunc frmApontamento, string SQL)
         {
             InitializeComponent();
-            lblTituloForm.Text = "ARES ADM - Funcionarios";
             frmapontamento = frmApontamento;
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
             new Classe_Funcionario().Listar_Funcionarios(lstProdutos, SQL);
+            lblTituloForm.Text = "ARES ADM - Funcionarios";
             txtPesquisa.Select();
         }
         public frmProdutos(frmIncluirPeca frmincluirpeca, string SQL)
         {
             InitializeComponent();
-            lblTituloForm.Text = "ARES ADM - Peças";
             this.frmincluirpeca = frmincluirpeca;
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
             new Classe_Pecas().Listar_Pecas(lstProdutos, SQL);
+            lblTituloForm.Text = "ARES ADM - Peças";
             txtPesquisa.Select();
         }
 

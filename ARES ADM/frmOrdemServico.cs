@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ARES_ADM.Classes;
+using System.Threading;
 
 namespace ARES_ADM
 {
@@ -15,14 +16,13 @@ namespace ARES_ADM
         bool mouseDown;
         public string ID;
         Point lastLocation;
-
+        
         private ListViewColumnSorter lvwColumnSorter;
 
         public frmOrdemServico(string nos, string proprietario, string veiculo, string placa, string cor, string tamanho)
         {
             InitializeComponent();
             ID = nos;
-
             pnItensOS.Visible = true;
 
             //Reordenar Colunas List view 
@@ -139,9 +139,11 @@ namespace ARES_ADM
 
         private void btnCatalise_Click(object sender, EventArgs e)
         {
+            frmCatalises Cat = new frmCatalises(ID, this);
 
+            new Classe_Catalises().Redefinir_CataliseOS(Cat,this);           
         }
-
+       
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             frmIncluirItem Tinta = new frmIncluirItem(this, "Produtos", Convert.ToInt32(txtNos.Text));
@@ -453,7 +455,7 @@ namespace ARES_ADM
 
         private void btnIncluirPecaC_Click(object sender, EventArgs e)
         {
-            frmIncluirPeca complementar = new frmIncluirPeca(this, txtNos.Text, string.Empty, string.Empty);
+            frmIncluirPeca complementar = new frmIncluirPeca(this, txtNos.Text, "PEÇA", string.Empty);
             complementar.Height = 248;
             complementar.ShowDialog();
         }
@@ -612,6 +614,18 @@ namespace ARES_ADM
                 {
                     new Classe_Pecas().Listar_PecasComplementares(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE Aplicacao='" + cboFiltroPeca2.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
                 }
+            }
+        }
+
+        private void lstItensOS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstItensOS.SelectedItems.Count>0 && lstItensOS.FocusedItem.SubItems[3].Text.Equals("CATALISES"))
+            {
+                btnEditar.Enabled = false;
+            }
+            else
+            {
+                btnEditar.Enabled = true;
             }
         }
     }
