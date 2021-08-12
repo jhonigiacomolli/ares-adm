@@ -15,14 +15,15 @@ namespace ARES_ADM.Classes
         public static Color Botao_Desativado = Color.Black;
         public static Color MenuBotao_Normal = Color.FromArgb(26, 26, 26);
         public static Color MenuBotao_Sobre = Color.FromArgb(64, 64, 64);
-        public static Color TextBox_Edicao = Color.YellowGreen;
+        public static Color TextBox_Edicao = Color.FromArgb(255, 226, 209);
+        public static Color TextBox_Destaque = Color.FromArgb(255, 85, 0);
         public static Color TextBox_Normal = Color.White;
         public static Color TextBox_Desativado = Color.FromArgb(80, 80, 80);
         public static Color Linha_OSAberta = Color.Green;
         public static Color Linha_OSFechada = Color.FromArgb(60, 60, 60);
         public static Color Linha_OSAguardando = Color.Black;
 
-        public  Color Back_ItensInfotec = Color.FromArgb(32, 32, 32);
+        public Color Back_ItensInfotec = Color.FromArgb(32, 32, 32);
         public Color COR_Primaria = Color.FromArgb(26, 26, 26);
         public Color COR_Background_Listview = Color.FromArgb(224, 224, 224);
         public Color COR_Titulos = Color.Silver;
@@ -477,7 +478,7 @@ namespace ARES_ADM.Classes
             Form.lblTituloEmail.ForeColor = COR_Titulos;
             Form.lblTituloTelefone.ForeColor = COR_Titulos;
             Form.lblTituloBancoHoras.ForeColor = COR_Titulos;
-            
+
         }
 
 
@@ -492,6 +493,48 @@ namespace ARES_ADM.Classes
 
             //Corpor
             Form.BackColor = COR_Primaria;
+            Form.lstItensOrcamento.BackColor = COR_Background_Listview;
+        }
+
+        public void TEMA_frmIncluirItemOrcamento(frmIncluirItemOrcamento Form)
+        {
+            Form.Text = "Incluir Item";
+            Form.lblTituloForm.Text = Classe_Configuracoes.NomeModulos + " - Incluir Item";
+
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.FromArgb(60, 60, 60);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+
+            //Corpor
+            Form.BackColor = COR_Primaria;
+        }
+
+        public void TEMA_frmCadastroProdutos(frmCadastroProdutos Form)
+        {
+            Form.Text = "Cadastro";
+            Form.lblTituloForm.Text = Classe_Configuracoes.NomeModulos + " - Cadastro Produto";
+            //Corpo
+            Form.BackColor = COR_Primaria;
+
+            Form.lblTituloGrupo.ForeColor = COR_Titulos;
+            Form.lblTituloCodFabrica.ForeColor = COR_Titulos;
+            Form.lblTituloFornecedor.ForeColor = COR_Titulos;
+            Form.lblTituloDescricao.ForeColor = COR_Titulos;
+            Form.lblTituloCusto.ForeColor = COR_Titulos;
+            Form.lblTituloMargem.ForeColor = COR_Titulos;
+            Form.lblTituloVenda.ForeColor = COR_Titulos;
+            Form.lblPercent.ForeColor = COR_Titulos;
+
+            Form.btnGravar.BackColor = COR_Primaria;
+            Form.btnGravar.ForeColor = COR_Titulos;
+            Form.btnCancelar.BackColor = COR_Primaria;
+            Form.btnCancelar.ForeColor = COR_Titulos;
+
+            //Cabeçalho
+            Form.pnCabecalho.BackColor = Color.Black;
+            Form.btnFechar.BackColor = Color.FromArgb(120, 120, 120);
+            Form.lblTituloForm.ForeColor = COR_Titulos;
+            Form.lblTituloForm.Text = Classe_Configuracoes.NomeProjeto;
         }
     }
 }

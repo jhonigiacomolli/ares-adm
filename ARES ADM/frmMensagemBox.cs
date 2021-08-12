@@ -28,11 +28,6 @@ namespace ARES_ADM
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void pnCabecalho_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;

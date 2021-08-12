@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlServerCe;
 using System.Windows.Forms;
-using ARES_ADM.Classes;
 using System.Drawing;
 
 namespace ARES_ADM.Classes
@@ -19,7 +17,7 @@ namespace ARES_ADM.Classes
         public static string TipoBD;
         public static string Fabricante;
         public static string Datasheet;
-        public static string DatasheetIndisponivel = @"D:\Projeto Auto Sharp\SHARP INK\SHARP INK\Imagens\DatasheetIndisponivel.jpg";
+        public static string DatasheetIndisponivel = @"D:\PARTICULAR\Projeto Auto Sharp\ARES ADM\ARES ADM\Imagens\DatasheetIndisponivel.jpg";
         public static bool StatusBotaoDatasheet;
         public static bool VideoAplicacao;
         public static string LinkVideoAplicacao;
@@ -45,7 +43,7 @@ namespace ARES_ADM.Classes
                 //Lista os items para cada catalise do BD Original.
                 if (TipoBD != null && TipoBD.Equals("ORIGINAL"))
                 {
-                    string SQL = "SELECT * FROM Catalises WHERE COD_Catalise='" + COD_Catalise + "'";
+                    string SQL = "SELECT * FROM Catalises WHERE COD_Catalise='" + COD_Catalise + "' ORDER BY Proporcao DESC";
 
                     DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
 
@@ -148,7 +146,6 @@ namespace ARES_ADM.Classes
                 Messagebox.Show();
             }
         }
-
 
         public void Listar_AditivosCatalises(frmCatalises Form, ListView LST, double QNt)
         {

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlServerCe;
 using System.Windows.Forms;
@@ -17,6 +16,8 @@ namespace ARES_ADM.Classes
         public double Venda { get; private set; }
         public string Fornecedor { get; private set; }
 
+        public static string Pecas_Principais = "PEÇAS PRINCIPAIS";
+        public static string Pecas_Complementares = "PEÇAS COMPLEMENTARES";
 
         public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
 
@@ -53,7 +54,35 @@ namespace ARES_ADM.Classes
                 Messagebox.Show();
             }
         }
-        public void Listar_Pecas(string ID)
+        public void Listar_PecasReparacao(ListView LST, string SQL)
+        {
+            try
+            {
+                LST.Items.Clear();
+
+                DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        ListViewItem Item = new ListViewItem(DR["id"].ToString());
+                        Item.SubItems.Add(DR["Peça"].ToString().TrimEnd().ToUpper());
+
+                        LST.Items.Add(Item);
+                    }
+                }
+                DT.Dispose();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:\n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Listar_PecasComplementares_ID(string ID)
         {
             string SQL = "SELECT * FROM Pecas WHERE id='" + ID + "'";
             try
@@ -84,7 +113,34 @@ namespace ARES_ADM.Classes
                 Messagebox.Show();
             }
         }
-        public void Listar_PecasPrincipais(ListView LST, string SQL)
+
+        public void Listar_PecasPrincipais_ID(string ID)
+        {
+            string SQL = "SELECT * FROM Pecas_Reparacao WHERE id='" + ID + "'";
+            try
+            {
+
+                DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        id = DR["id"].ToString();
+                        Descricao = DR["Peça"].ToString().TrimEnd().ToUpper();
+                    }
+                }
+                DT.Dispose();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:\n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Listar_PecasPrincipaisOS(ListView LST, string SQL)
         {
             try
             {
@@ -115,7 +171,73 @@ namespace ARES_ADM.Classes
                 Messagebox.Show();
             }
         }
-        public void Listar_PecasComplementares(ListView LST, string SQL)
+
+        public void Listar_PecasPrincipais(ListView LST)
+        {
+            try
+            {
+                string SQL = "SELECT * FROM Pecas_Reparacao ORDER BY Peça ASC";
+
+                LST.Items.Clear();
+
+                DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        ListViewItem Item = new ListViewItem(DR["id"].ToString());
+                        Item.SubItems.Add(DR["Peça"].ToString().TrimEnd().ToUpper());
+
+                        LST.Items.Add(Item);
+                    }
+                }
+                DT.Dispose();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:\n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Listar_PecasComplementares(ListView LST)
+        {
+            try
+            {
+                string SQL = "SELECT * FROM Pecas ORDER BY Descricao ASC";
+                LST.Items.Clear();
+
+                DataTable DT = Classes_Conexao.Preenche_DataTable(SQL);
+
+                for (int i = 0; i < DT.Rows.Count; i++)
+                {
+                    DataRow DR = DT.Rows[i];
+                    if (DR.RowState != DataRowState.Deleted)
+                    {
+                        ListViewItem Item = new ListViewItem(DR["id"].ToString());
+                        Item.SubItems.Add(DR["Grupo"].ToString().TrimEnd().ToUpper());
+                        Item.SubItems.Add(DR["Descricao"].ToString().TrimEnd().ToUpper());
+                        Item.SubItems.Add(DR["Aplicacao"].ToString().TrimEnd().ToUpper());
+                        Item.SubItems.Add(DR["QuantidadeEstoque"].ToString().TrimEnd().ToUpper());
+                        if (DR["Custo"].ToString().TrimEnd() != null && DR["Custo"].ToString().TrimEnd() != string.Empty) { Item.SubItems.Add(Convert.ToDecimal(DR["Custo"].ToString().TrimEnd()).ToString("N2")); };
+                        if (DR["Venda"].ToString().TrimEnd() != null && DR["Venda"].ToString().TrimEnd() != string.Empty) { Item.SubItems.Add(Convert.ToDecimal(DR["Venda"].ToString().TrimEnd()).ToString("N2")); };
+                        Item.SubItems.Add(DR["Fornecedor"].ToString().TrimEnd());
+
+                        LST.Items.Add(Item);
+                    }
+                }
+                DT.Dispose();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:\n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Listar_PecasComplementaresOS(ListView LST, string SQL)
         {
             try
             {
@@ -534,6 +656,44 @@ namespace ARES_ADM.Classes
                     DataRow DR = Data_Table.Rows[i];
                     CBO.Items.Add(DR["Dano"].ToString().TrimEnd());
                 }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Pesquisa_PecaReparacao(ListView LST, string Criterio, string Pesquisa)
+        {
+            try
+            {
+                string ComandoSQL = string.Empty;
+
+                if (Criterio.Equals("Peça")) { ComandoSQL = "SELECT * FROM Pecas_Reparacao WHERE Peça like '" + Pesquisa + "%'"; }
+                
+
+                Listar_PecasReparacao(LST, ComandoSQL);
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Pesquisa_PecaComplementar(ListView LST, string Criterio, string Pesquisa)
+        {
+            try
+            {
+                string ComandoSQL = string.Empty;
+
+                if (Criterio.Equals("Grupo")) { ComandoSQL = "SELECT * FROM Pecas WHERE Grupo like '" + Pesquisa + "%'"; }
+                if (Criterio.Equals("Descrição")) { ComandoSQL = "SELECT * FROM Pecas WHERE Descricao like '" + Pesquisa + "%'"; }
+                if (Criterio.Equals("Aplicação")) { ComandoSQL = "SELECT * FROM Pecas WHERE Aplicacao like '" + Pesquisa + "%'"; }
+                if (Criterio.Equals("Fornecedor")) { ComandoSQL = "SELECT * FROM Pecas WHERE Fornecedor like '" + Pesquisa + "%'"; }
+
+                Listar_Pecas(LST, ComandoSQL);
             }
             catch (SqlCeException ex)
             {

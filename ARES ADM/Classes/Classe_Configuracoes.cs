@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlServerCe;
 using System.Windows.Forms;
 
@@ -19,6 +18,13 @@ namespace ARES_ADM.Classes
         public static string Datasheet;
         public static string CatalisesOriginais;
         public static string ValorCatalises;
+        public static string HoraFunilaria;
+        public static string HoraPintura;
+        public static string HoraMecanica;
+        public static string HoraEletrica;
+        public static string HoraTapecaria;
+        public static string HoraTerceiros;
+        public static string HoraRecuperacao;
 
         public void Carrega_Configuracoes(frmConfiguracoes Form)
         {

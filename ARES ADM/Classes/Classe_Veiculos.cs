@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlServerCe;
-using System.Text;
 using System.Data;
 using System.Windows.Forms;
-using ARES_ADM.Classes;
 
 namespace ARES_ADM.Classes
 {
@@ -123,6 +120,27 @@ namespace ARES_ADM.Classes
 
                 CONN.Open();
                 CMD.ExecuteNonQuery();
+
+                string comandoSQL2 = "DELETE FROM OrdemServico_BancoHoras WHERE ID_Veiculo=" + ID + "";
+                SqlCeCommand CMD2 = new SqlCeCommand(comandoSQL2, CONN);
+
+                CMD2.ExecuteNonQuery();
+
+                string comandoSQL3 = "DELETE FROM OrdemServico_Itens WHERE ID_Veiculo=" + ID + "";
+                SqlCeCommand CMD3 = new SqlCeCommand(comandoSQL3, CONN);
+
+                CMD3.ExecuteNonQuery();
+
+                string comandoSQL4 = "DELETE FROM OrdemServico_Pecas WHERE ID_Veiculo=" + ID + "";
+                SqlCeCommand CMD4 = new SqlCeCommand(comandoSQL4, CONN);
+
+                CMD4.ExecuteNonQuery();
+
+                string comandoSQL5 = "DELETE FROM OrdemServico_PecasComplementares WHERE ID_Veiculo=" + ID + "";
+                SqlCeCommand CMD5 = new SqlCeCommand(comandoSQL5, CONN);
+
+                CMD5.ExecuteNonQuery();
+
                 CONN.Close();
             }
             catch (SqlCeException ex)

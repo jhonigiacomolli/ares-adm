@@ -92,12 +92,7 @@ namespace ARES_ADM
         {
             mouseDown = false;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -105,18 +100,16 @@ namespace ARES_ADM
 
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
-            string SQL = "";
             if (Tipo == null)
-            {
-                SQL = "SELECT * FROM Pecas WHERE Grupo='PRINCIPAIS' ORDER BY Descricao ASC";
-                frmProdutos pecas = new frmProdutos(this, SQL);                
+            {                
+                frmProdutos pecas = new frmProdutos(Classe_Pecas.Pecas_Principais,this);                
                 pecas.ShowDialog();
                 cboAplicacaoDano.Select();
             }
             else
             {
-                SQL = "SELECT * FROM Pecas WHERE Grupo!='PRINCIPAIS' ORDER BY Descricao ASC";
-                frmProdutos pecas = new frmProdutos(this, SQL);
+                
+                frmProdutos pecas = new frmProdutos(Classe_Pecas.Pecas_Complementares, this);
                 pecas.ShowDialog();
                 txtQuantidade.Select();
             }
@@ -133,11 +126,20 @@ namespace ARES_ADM
             }
             if (e.KeyCode == Keys.Enter)
             {
-                Classe_Pecas Peca = new Classe_Pecas();
-                Peca.Listar_Pecas(txtCodigo.Text);
-                txtDescricao.Text = Peca.Descricao;
-                cboAplicacaoDano.Text = Peca.Aplicacao;
-                txtUnitario.Text = Peca.Venda.ToString("N2");
+                if (Tipo!=null)
+                {
+                    Classe_Pecas Peca = new Classe_Pecas();
+                    Peca.Listar_PecasComplementares_ID(txtCodigo.Text);
+                    txtDescricao.Text = Peca.Descricao;
+                    cboAplicacaoDano.Text = Peca.Aplicacao;
+                    txtUnitario.Text = Peca.Venda.ToString("N2");
+                }
+                if (Tipo==null)
+                {
+                    Classe_Pecas Peca = new Classe_Pecas();
+                    Peca.Listar_PecasPrincipais_ID(txtCodigo.Text);
+                    txtDescricao.Text = Peca.Descricao;
+                }
 
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
                 e.Handled = true;

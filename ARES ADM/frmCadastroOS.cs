@@ -14,7 +14,7 @@ namespace ARES_ADM
     {
         bool mouseDown;
         Point lastLocation;
-        frmListaOS FormListaOS = new frmListaOS();
+        frmListaOS FormListaOS = new frmListaOS("");
         public int ID;
 
         public string TIPO;
@@ -97,10 +97,6 @@ namespace ARES_ADM
 
             new Classe_Veiculos().Listar_Veiculos(this,"SELECT * FROM Veiculos WHERE id='" + ID + "'");
 
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

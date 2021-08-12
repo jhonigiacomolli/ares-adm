@@ -69,14 +69,13 @@
             this.btnVideoAplicacao = new System.Windows.Forms.Button();
             this.btnInserirNaOS = new System.Windows.Forms.Button();
             this.pnPesagemCatalise = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pnVideoAplicacao = new System.Windows.Forms.Panel();
             this.VideoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnFechar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnCabecalho = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.pnFavIcon = new System.Windows.Forms.Panel();
             this.pnImagem = new System.Windows.Forms.Panel();
             this.picImagemCatalise = new System.Windows.Forms.PictureBox();
@@ -85,7 +84,6 @@
             this.pnPesagemCatalise.SuspendLayout();
             this.pnVideoAplicacao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).BeginInit();
-            this.btnFechar.SuspendLayout();
             this.pnCabecalho.SuspendLayout();
             this.pnImagem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImagemCatalise)).BeginInit();
@@ -134,11 +132,13 @@
             // lstCatalises
             // 
             this.lstCatalises.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lstCatalises.HideSelection = false;
             this.lstCatalises.Location = new System.Drawing.Point(0, 24);
             this.lstCatalises.Name = "lstCatalises";
             this.lstCatalises.Size = new System.Drawing.Size(619, 138);
             this.lstCatalises.TabIndex = 37;
             this.lstCatalises.UseCompatibleStateImageBehavior = false;
+            this.lstCatalises.SelectedIndexChanged += new System.EventHandler(this.lstCatalises_SelectedIndexChanged);
             // 
             // txtQuantidade
             // 
@@ -186,6 +186,7 @@
             this.lstAditivosCatalise.TabIndex = 43;
             this.lstAditivosCatalise.UseCompatibleStateImageBehavior = false;
             this.lstAditivosCatalise.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstAditivosCatalise_ItemChecked);
+            this.lstAditivosCatalise.SelectedIndexChanged += new System.EventHandler(this.lstAditivosCatalise_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -599,6 +600,23 @@
             this.pnPesagemCatalise.Size = new System.Drawing.Size(619, 318);
             this.pnPesagemCatalise.TabIndex = 53;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.Silver;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(403, 228);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(216, 33);
+            this.btnCancelar.TabIndex = 54;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
@@ -633,24 +651,13 @@
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btnFechar.Controls.Add(this.label1);
+            this.btnFechar.BackgroundImage = global::ARES_ADM.Properties.Resources.Close;
+            this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnFechar.Location = new System.Drawing.Point(1546, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(35, 35);
             this.btnFechar.TabIndex = 1;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblTituloForm
             // 
@@ -681,23 +688,6 @@
             this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
             this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
             this.pnCabecalho.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseUp);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.ForeColor = System.Drawing.Color.Silver;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(403, 228);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(216, 33);
-            this.btnCancelar.TabIndex = 54;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Visible = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // pnFavIcon
             // 
@@ -770,8 +760,6 @@
             this.pnPesagemCatalise.PerformLayout();
             this.pnVideoAplicacao.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).EndInit();
-            this.btnFechar.ResumeLayout(false);
-            this.btnFechar.PerformLayout();
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
             this.pnImagem.ResumeLayout(false);
@@ -806,7 +794,6 @@
         private System.Windows.Forms.Label label2;
         public AxWMPLib.AxWindowsMediaPlayer VideoPlayer;
         public System.Windows.Forms.Panel btnFechar;
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Panel pnFavIcon;
         public System.Windows.Forms.Label lblTituloForm;
         public System.Windows.Forms.Panel pnCabecalho;

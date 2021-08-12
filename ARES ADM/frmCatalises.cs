@@ -58,11 +58,6 @@ namespace ARES_ADM
             if (Classe_Configuracoes.ValorCatalises.Equals("FALSE")) { lblTituloValorCatalise.Text = string.Empty; }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            VideoPlayer.Ctlcontrols.stop();
-        }
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -427,6 +422,16 @@ namespace ARES_ADM
             frmOS.btnPainelGrafico.Enabled = true;
             frmOS.btnPainelPecas.Enabled = true;
             this.Close();
+        }
+
+        private void lstCatalises_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            new Classe_Listviews().AlteraCorSelecao(lstCatalises);
+        }
+
+        private void lstAditivosCatalise_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            new Classe_Listviews().AlteraCorSelecao(lstAditivosCatalise);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlServerCe;
 using System.Windows.Forms;
@@ -9,10 +8,8 @@ namespace ARES_ADM
 {
     public class Classe_BancoHoras
     {
-
         public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
         public static string Tipo_BancoHoras;
-
         public static double somaLavacao;
         public static double somaDesmontagem;
         public static double somaMontagem;
@@ -149,7 +146,6 @@ namespace ARES_ADM
             {
                 try
                 {
-
                     TimeSpan Tempo = Convert.ToDateTime(Saida).Subtract(Convert.ToDateTime(Entrada));
                     double Valor = Tempo.TotalHours * MO;
 
@@ -162,7 +158,6 @@ namespace ARES_ADM
                     CONN.Open();
                     CMD.ExecuteNonQuery();
                     CONN.Close();
-
                 }
                 catch (SqlCeException ex)
                 {
@@ -302,7 +297,6 @@ namespace ARES_ADM
         public void Soma_Categorias(frmOrdemServico frmOS, string ID_Veiculo)
         {
             string Funcao = "";
-
             somaLavacao=0;
             somaDesmontagem = 0;
             somaMontagem = 0;

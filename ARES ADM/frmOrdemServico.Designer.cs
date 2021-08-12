@@ -39,7 +39,6 @@
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblTituloNOS = new System.Windows.Forms.Label();
             this.lblTituloProprietario = new System.Windows.Forms.Label();
             this.lblTituloVeiculo = new System.Windows.Forms.Label();
@@ -167,7 +166,6 @@
             this.picLogoEmpresa = new System.Windows.Forms.PictureBox();
             this.pnCatalise = new System.Windows.Forms.Panel();
             this.pnCabecalho.SuspendLayout();
-            this.btnFechar.SuspendLayout();
             this.pnItensOS.SuspendLayout();
             this.pnGraficos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico_Apontamentos)).BeginInit();
@@ -221,26 +219,13 @@
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btnFechar.Controls.Add(this.label1);
+            this.btnFechar.BackgroundImage = global::ARES_ADM.Properties.Resources.Close;
+            this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnFechar.Location = new System.Drawing.Point(636, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(35, 35);
             this.btnFechar.TabIndex = 1;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblTituloNOS
             // 
@@ -2008,9 +1993,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(671, 707);
+            this.Controls.Add(this.pnPecas);
             this.Controls.Add(this.pnItensOS);
             this.Controls.Add(this.pnFuncionarios);
-            this.Controls.Add(this.pnPecas);
             this.Controls.Add(this.btnPainelFuncionarios);
             this.Controls.Add(this.btnPainelPecas);
             this.Controls.Add(this.btnPainelGrafico);
@@ -2044,8 +2029,6 @@
             this.Click += new System.EventHandler(this.frmOrdemServico_Click);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
-            this.btnFechar.ResumeLayout(false);
-            this.btnFechar.PerformLayout();
             this.pnItensOS.ResumeLayout(false);
             this.pnGraficos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grafico_Apontamentos)).EndInit();
@@ -2064,7 +2047,6 @@
         public System.Windows.Forms.Label lblTituloForm;
         public System.Windows.Forms.Panel pnFavIcon;
         public System.Windows.Forms.Panel btnFechar;
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lblTituloNOS;
         public System.Windows.Forms.Label lblTituloProprietario;
         public System.Windows.Forms.Label lblTituloVeiculo;

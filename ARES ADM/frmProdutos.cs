@@ -17,7 +17,10 @@ namespace ARES_ADM
         frmIncluirItem frmIncluir;
         frmIncluirPeca frmincluirpeca;
         frmApontamentoFunc frmapontamento;
+        frmOrcamentos frmorcamentos;
+        frmIncluirItemOrcamento frmincluiritemorcamento;
         public string Genero;
+        public string IndexProduto;
 
         public frmProdutos(string Genero)
         {
@@ -44,12 +47,31 @@ namespace ARES_ADM
                 new Classe_Funcionario().Listar_Funcionarios(lstProdutos, "SELECT * FROM Funcionarios ORDER BY Nome ASC");
                 txtPesquisa.Select();
             }
-            if (Genero.Equals("PEÇAS"))
+            if (Genero.Equals(Classe_Pecas.Pecas_Complementares))
             {
-                lblTituloForm.Text = "ARES ADM - Peças";
-                this.Text = "ARES ADM - Peças";
+                lblTituloForm.Text = "ARES ADM - Peças Complementares";
+                this.Text = "ARES ADM - Peças Complementares";
                 new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
-                new Classe_Pecas().Listar_Pecas(lstProdutos, "SELECT * FROM Pecas ORDER BY Descricao ASC");
+                new Classe_Pecas().Listar_PecasComplementares(lstProdutos);
+                txtPesquisa.Select();
+            }
+
+            if (Genero.Equals(Classe_Pecas.Pecas_Principais))
+            {
+                lblTituloForm.Text = "ARES ADM - Peças Principais";
+                this.Text = "ARES ADM - Peças Principais";
+                new Classe_Listviews().Criar_LST_PecasReparacao(lstProdutos);
+                new Classe_Pecas().Listar_PecasPrincipais(lstProdutos);
+                txtPesquisa.Select();
+            }
+
+            if (Genero.Equals("CLIENTE"))
+            {
+                lblTituloForm.Text = "ARES ADM - Clientes";
+                this.Text = "ARES ADM - Clientes";
+                new Classe_Tema().TEMA_frmProdutos(this);
+                new Classe_Listviews().Criar_LST_Clientes(lstProdutos);
+                new Classe_Cliente().Listar_Clientes(lstProdutos, "SELECT * FROM Clientes ORDER BY Nome ASC");
                 txtPesquisa.Select();
             }
         }
@@ -58,6 +80,7 @@ namespace ARES_ADM
         {
             InitializeComponent();
             frmIncluir = FormIncluirItem;
+            Genero = string.Empty;
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Produtos(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaProdutos(cboCampo);
@@ -69,6 +92,7 @@ namespace ARES_ADM
         {
             InitializeComponent();
             frmapontamento = frmApontamento;
+            Genero = string.Empty;
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
             new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
@@ -76,30 +100,87 @@ namespace ARES_ADM
             lblTituloForm.Text = "ARES ADM - Funcionarios";
             txtPesquisa.Select();
         }
-        public frmProdutos(frmIncluirPeca frmincluirpeca, string SQL)
+        public frmProdutos(string Genero, frmIncluirPeca FormIncluirPeca)
+        {
+            if (Genero.Equals(Classe_Pecas.Pecas_Complementares))
+            {
+                InitializeComponent();
+                frmincluirpeca = FormIncluirPeca;
+                this.Genero = Genero;
+
+                lblTituloForm.Text = "ARES ADM - Peças Complementares";
+                this.Text = "ARES ADM - Peças Complementares";
+                new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
+                new Classe_Listviews().Criar_CamposPesquisaPecasComplementares(cboCampo);
+                new Classe_Pecas().Listar_PecasComplementares(lstProdutos);
+                txtPesquisa.Select();
+            }
+
+            if (Genero.Equals(Classe_Pecas.Pecas_Principais))
+            {
+                InitializeComponent();
+                frmincluirpeca = FormIncluirPeca;
+                this.Genero = Genero;
+
+                lblTituloForm.Text = "ARES ADM - Peças Principais";
+                this.Text = "ARES ADM - Peças Principais";
+                new Classe_Listviews().Criar_LST_PecasReparacao(lstProdutos);
+                new Classe_Listviews().Criar_CamposPesquisaPecasReparacao(cboCampo);
+                new Classe_Pecas().Listar_PecasPrincipais(lstProdutos);
+                txtPesquisa.Select();
+            }
+
+            txtPesquisa.Select();
+        }
+
+        public frmProdutos(frmIncluirItemOrcamento frmIncluirItemOrcamentos)
         {
             InitializeComponent();
-            this.frmincluirpeca = frmincluirpeca;
+            frmincluiritemorcamento = frmIncluirItemOrcamentos;
+
             new Classe_Tema().TEMA_frmProdutos(this);
             new Classe_Listviews().Criar_LST_Pecas(lstProdutos);
-            new Classe_Pecas().Listar_Pecas(lstProdutos, SQL);
+            new Classe_Listviews().Criar_CamposPesquisaPecasComplementares(cboCampo);
+            new Classe_Pecas().Listar_PecasComplementares(lstProdutos);
             lblTituloForm.Text = "ARES ADM - Peças";
-            txtPesquisa.Select();
+        }
+
+        public frmProdutos(frmOrcamentos frmOrcamentos, string TIPO, string SQL)
+        {
+            if (TIPO.Equals("FUNCIONÁRIO"))
+            {
+                InitializeComponent();
+                frmorcamentos = frmOrcamentos;
+                Genero = TIPO;
+                new Classe_Tema().TEMA_frmProdutos(this);
+                new Classe_Listviews().Criar_LST_Funcionarios(lstProdutos);
+                new Classe_Listviews().Criar_CamposPesquisaFuncionarios(cboCampo);
+                new Classe_Funcionario().Listar_Funcionarios(lstProdutos, SQL);
+                lblTituloForm.Text = "ARES ADM - Funcionarios";
+                txtPesquisa.Select();
+            }
+            if (TIPO.Equals("CLIENTE"))
+            {
+                InitializeComponent();
+                frmorcamentos = frmOrcamentos;
+                Genero = TIPO;
+                pnInfoClientes.Visible = true;
+                new Classe_Tema().TEMA_frmProdutos(this);
+                new Classe_Listviews().Criar_LST_Clientes(lstProdutos);
+                new Classe_Cliente().Listar_Clientes(lstProdutos, SQL);
+                lblTituloForm.Text = "ARES ADM - Clientes";
+                txtPesquisa.Select();
+            }
         }
 
         private void txtPesquisa_Enter(object sender, EventArgs e)
         {
-            txtPesquisa.BackColor = Classe_Tema.TextBox_Edicao;
+            txtPesquisa.BackColor = Classe_Tema.TextBox_Destaque;
         }
 
         private void txtPesquisa_Leave(object sender, EventArgs e)
         {
             txtPesquisa.BackColor = Classe_Tema.TextBox_Normal;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -217,7 +298,7 @@ namespace ARES_ADM
             {
                 txtPesquisa.Clear();
                 if (e.Shift && e.KeyCode.Equals(Keys.D5)) { txtPesquisa.Text = "%"; } else { txtPesquisa.Text = e.KeyCode.ToString(); }
-                txtPesquisa.Select(txtPesquisa.Text.Length,0);
+                txtPesquisa.Select(txtPesquisa.Text.Length, 0);
                 txtPesquisa.Select();
 
             }
@@ -246,15 +327,33 @@ namespace ARES_ADM
                     new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
                     lstProdutos.Select();
                     if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
-                }                
+                }
                 if (frmapontamento != null)
                 {
                     new Classe_Funcionario().Pesquisa_Funcionario(lstProdutos, cboCampo.Text, txtPesquisa.Text);
                     lstProdutos.Select();
                     if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
                 }
+                if (frmincluiritemorcamento != null)
+                {
+                    new Classe_Pecas().Pesquisa_PecaReparacao(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                    lstProdutos.Select();
+                    if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
+                }
                 if (Genero != null)
                 {
+                    if (Genero.Equals(Classe_Pecas.Pecas_Complementares))
+                    {
+                        new Classe_Pecas().Pesquisa_PecaComplementar(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                        lstProdutos.Select();
+                        if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
+                    }
+                    if (Genero.Equals(Classe_Pecas.Pecas_Principais))
+                    {
+                        new Classe_Pecas().Pesquisa_PecaReparacao(lstProdutos, cboCampo.Text, txtPesquisa.Text);
+                        lstProdutos.Select();
+                        if (lstProdutos.Items.Count > 0) { lstProdutos.Items[0].Selected = true; }
+                    }
                     if (Genero.Equals("PRODUTO"))
                     {
                         new Classe_Produtos().Pesquisa_Produtos(lstProdutos, cboCampo.Text, txtPesquisa.Text);
@@ -273,7 +372,7 @@ namespace ARES_ADM
 
         private void lstProdutos_DoubleClick(object sender, EventArgs e)
         {
-            if (frmIncluir!=null)
+            if (frmIncluir != null)
             {
                 frmIncluir.txtCodigo.Text = lstProdutos.FocusedItem.SubItems[0].Text;
                 frmIncluir.txtDescricao.Text = lstProdutos.FocusedItem.SubItems[4].Text;
@@ -301,12 +400,58 @@ namespace ARES_ADM
 
             if (frmincluirpeca != null)
             {
-                frmincluirpeca.txtCodigo.Text = lstProdutos.FocusedItem.SubItems[0].Text;
-                frmincluirpeca.txtDescricao.Text = lstProdutos.FocusedItem.SubItems[2].Text;
-                frmincluirpeca.txtUnitario.Text = lstProdutos.FocusedItem.SubItems[5].Text;
-                frmincluirpeca.cboAplicacaoDano.Text = lstProdutos.FocusedItem.SubItems[3].Text;
-                this.Close();
-            }        
+                if (Genero.Equals(Classe_Pecas.Pecas_Complementares))
+                {
+                    frmincluirpeca.txtCodigo.Text = lstProdutos.FocusedItem.SubItems[0].Text;
+                    frmincluirpeca.txtDescricao.Text = lstProdutos.FocusedItem.SubItems[2].Text;
+                    frmincluirpeca.txtUnitario.Text = lstProdutos.FocusedItem.SubItems[5].Text;
+                    frmincluirpeca.cboAplicacaoDano.Text = lstProdutos.FocusedItem.SubItems[3].Text;
+                    this.Close();
+                }
+                if (Genero.Equals(Classe_Pecas.Pecas_Principais))
+                {
+                    frmincluirpeca.txtCodigo.Text = lstProdutos.FocusedItem.SubItems[0].Text;
+                    frmincluirpeca.txtDescricao.Text = lstProdutos.FocusedItem.SubItems[1].Text;
+                    this.Close();
+                }
+            }
+
+            if (frmorcamentos != null)
+            {
+                if (Genero.Equals("FUNCIONÁRIO"))
+                {
+                    frmorcamentos.txtOrcamentista.Text = lstProdutos.FocusedItem.SubItems[1].Text;
+                    frmorcamentos.ID_Orcamentista = lstProdutos.FocusedItem.SubItems[0].Text;
+                    Close();
+                }
+                if (Genero.Equals("CLIENTE"))
+                {
+                    frmorcamentos.ID_CLiente = lstProdutos.FocusedItem.SubItems[0].Text;
+                    frmorcamentos.txtProprietario.Text = lstProdutos.FocusedItem.SubItems[2].Text;
+                    frmorcamentos.txtCPF_CNPJ.Text = lstProdutos.FocusedItem.SubItems[4].Text;
+                    frmorcamentos.txtEndereco.Text = lstProdutos.FocusedItem.SubItems[6].Text;
+                    frmorcamentos.txtNumero.Text = lstProdutos.FocusedItem.SubItems[7].Text;
+                    frmorcamentos.txtBairro.Text = lstProdutos.FocusedItem.SubItems[8].Text;
+                    frmorcamentos.txtCidade.Text = lstProdutos.FocusedItem.SubItems[9].Text;
+                    frmorcamentos.txtCEP.Text = lstProdutos.FocusedItem.SubItems[10].Text;
+                    frmorcamentos.cboEstado.Text = lstProdutos.FocusedItem.SubItems[11].Text;
+                    frmorcamentos.txtTelefone.Text = lstProdutos.FocusedItem.SubItems[12].Text;
+
+                    new Classe_Orcamentos().Validar_Campos_Cabecalho(frmorcamentos);
+
+                    Close();
+                }
+            }
+
+            if (frmincluiritemorcamento != null)
+            {
+                frmincluiritemorcamento.txtCodFabrica.Text = lstProdutos.FocusedItem.Text;
+                frmincluiritemorcamento.txtDescricao.Text = lstProdutos.FocusedItem.SubItems[2].Text;
+                frmincluiritemorcamento.txtValorBruto.Text = lstProdutos.FocusedItem.SubItems[6].Text;
+                frmincluiritemorcamento.txtValorLiquido.Text = lstProdutos.FocusedItem.SubItems[6].Text;
+
+                Close();
+            }
         }
 
         private void lstProdutos_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -314,5 +459,85 @@ namespace ARES_ADM
             e.NewWidth = lstProdutos.Columns[e.ColumnIndex].Width;
             e.Cancel = true;
         }
+
+        private void lstProdutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IndexProduto = lstProdutos.FocusedItem.Index.ToString();
+            new Classe_Listviews().AlteraCorSelecao(lstProdutos);
+
+            
+
+            if (Genero != null && Genero.Equals("CLIENTE"))
+            {
+                if (lstProdutos.SelectedItems.Count > 0)
+                {
+                    new Classe_Cliente().Info_CLientes(this, lstProdutos.FocusedItem);
+                }
+                else
+                {
+                    new Classe_Cliente().Limpar_Info_Clientes(this);
+                }
+            }
+        }
+
+        private void btnIncluir_Click(object sender, EventArgs e)
+        {
+            if (Genero.Equals("PRODUTO"))
+            {
+                frmCadastroProdutos frmcadprod = new frmCadastroProdutos(this);
+                frmcadprod.ShowDialog();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (Genero.Equals("PRODUTO"))
+            {
+                if (lstProdutos.FocusedItem.Text != string.Empty)
+                {
+                    int ID = Convert.ToInt32(lstProdutos.FocusedItem.Text);
+                    string grupo = lstProdutos.FocusedItem.SubItems[3].Text;
+                    string codfabrica = lstProdutos.FocusedItem.SubItems[1].Text;
+                    string fornecedor = lstProdutos.FocusedItem.SubItems[2].Text;
+                    string descricao = lstProdutos.FocusedItem.SubItems[4].Text;
+                    double custo = Convert.ToDouble(lstProdutos.FocusedItem.SubItems[6].Text);
+                    double venda = Convert.ToDouble(lstProdutos.FocusedItem.SubItems[7].Text);
+                    double margem = ((venda / custo) - 1) * 100;
+                    frmCadastroProdutos frmcadprod = new frmCadastroProdutos(this, ID, grupo, codfabrica, fornecedor, descricao, custo, margem, venda);
+                    frmcadprod.ShowDialog();
+                }
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Form Messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente exluir permanentemente o produto selecionado?");
+
+            DialogResult Resposta = Messagebox.ShowDialog();
+
+            if (Resposta.Equals(DialogResult.OK))
+            {
+                try
+                {
+                    int ID = Convert.ToInt32(lstProdutos.FocusedItem.Text);
+                    new Classe_Produtos().Excluir_Produto(ID);
+                }
+                catch (Exception)
+                {
+                    Form message = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu um erro durante o processo, tente novamente ou entre em contato com o Administrador");
+                    message.ShowDialog();
+                }
+                finally
+                {
+                    Form message = new frmMensagemBox(Classe_Mensagem.ALERTA, "Exclusão", "Produto excluido com sucesso!");
+                    message.ShowDialog();
+
+                    string SQL = "SELECT * FROM Produtos ORDER BY Descricao ASC";
+                    new Classe_Produtos().Listar_Produtos(lstProdutos, SQL);
+                }
+            }
+        }
+
+
     }
 }

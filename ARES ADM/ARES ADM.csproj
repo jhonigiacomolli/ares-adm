@@ -15,7 +15,7 @@
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\jhoni\Desktop\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,9 +25,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,8 +82,24 @@
   <PropertyGroup>
     <ApplicationIcon>FavIcon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <ManifestCertificateThumbprint>A1A08EE181E8871FDA170B7053E9BC30C7280D33</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ARES ADM_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -105,11 +122,13 @@
   <ItemGroup>
     <Compile Include="Classes\Classes_Conexao.cs" />
     <Compile Include="Classes\Classe_Catalises.cs" />
+    <Compile Include="Classes\Classe_Cliente.cs" />
     <Compile Include="Classes\Classe_Configuracoes.cs" />
     <Compile Include="Classes\Classe_Empresa.cs" />
     <Compile Include="Classes\Classe_Funcionario.cs" />
     <Compile Include="Classes\Classe_Listviews.cs" />
     <Compile Include="Classes\Classe_Mensagem.cs" />
+    <Compile Include="Classes\Classe_MO.cs" />
     <Compile Include="Classes\Classe_Orcamentos.cs" />
     <Compile Include="Classes\Classe_OrdemServico.cs" />
     <Compile Include="Classes\Classe_Pecas.cs" />
@@ -130,6 +149,12 @@
     <Compile Include="frmCadastroOS.Designer.cs">
       <DependentUpon>frmCadastroOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroProdutos.Designer.cs">
+      <DependentUpon>frmCadastroProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCatalises.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +172,12 @@
     </Compile>
     <Compile Include="frmIncluirItem.Designer.cs">
       <DependentUpon>frmIncluirItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIncluirItemOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIncluirItemOrcamento.Designer.cs">
+      <DependentUpon>frmIncluirItemOrcamento.cs</DependentUpon>
     </Compile>
     <Compile Include="frmIncluirPeca.cs">
       <SubType>Form</SubType>
@@ -198,6 +229,9 @@
     <EmbeddedResource Include="frmCadastroOS.resx">
       <DependentUpon>frmCadastroOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroProdutos.resx">
+      <DependentUpon>frmCadastroProdutos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCatalises.resx">
       <DependentUpon>frmCatalises.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIncluirItem.resx">
       <DependentUpon>frmIncluirItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIncluirItemOrcamento.resx">
+      <DependentUpon>frmIncluirItemOrcamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIncluirPeca.resx">
       <DependentUpon>frmIncluirPeca.cs</DependentUpon>
@@ -239,7 +276,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ARES ADM_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -360,6 +399,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FavIcon.ico" />
+    <None Include="Resources\DC40001.png" />
+    <None Include="Resources\DC4000.png" />
+    <None Include="Resources\DC40002.png" />
+    <Content Include="Resources\PRIMER GRAYMATIC G1.png" />
+    <Content Include="Resources\PRIMER GRAYMATIC G2.png" />
+    <Content Include="Resources\PRIMER GRAYMATIC G3.png" />
+    <Content Include="Resources\PRIMER GRAYMATIC G4.png" />
+    <Content Include="Resources\PRIMER GRAYMATIC G5.png" />
+    <Content Include="Resources\PRIMER GRAYMATIC G6.png" />
+    <Content Include="Resources\PRIMER GRAYMATIC G7.png" />
+    <None Include="Imagens\Close.png" />
     <None Include="Resources\Botao_Orcamentos.png" />
     <None Include="Imagens\Botao_Orcamentos.png" />
     <None Include="Resources\FavIcon1.ico" />
@@ -390,6 +440,21 @@
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x64">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2014 %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2014 %28x86%29</ProductName>
+      <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
       <Visible>False</Visible>

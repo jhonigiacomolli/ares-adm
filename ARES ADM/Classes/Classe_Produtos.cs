@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 using System.Data.SqlServerCe;
 using System.Windows.Forms;
@@ -10,6 +7,8 @@ namespace ARES_ADM.Classes
 {
     class Classe_Produtos
     {
+        public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
+
         public string id { get; private set; }
         public string Cod_Fabrica { get; private set; }
         public string Grupo { get; private set; }
@@ -111,6 +110,119 @@ namespace ARES_ADM.Classes
             TipoPesquisa.Items.Add("Fornecedor");
             TipoPesquisa.Items.Add("Descrição");
             TipoPesquisa.SelectedIndex = 4;
+        }
+
+        public void Get_GruposProdutos(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Grupo FROM Produtos_Grupos ORDER BY Grupo ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Grupo"].ToString().ToUpper().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+        public void Get_Fornecedores(ComboBox CBO)
+        {
+            try
+            {
+                string SQL = "SELECT Fornecedor FROM Fornecedores ORDER BY Fornecedor ASC";
+                SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
+                DataSet DS = new DataSet();
+                SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);
+
+                DA.Fill(DS);
+                DataTable Data_Table = DS.Tables[0];
+
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
+                {
+                    DataRow DR = Data_Table.Rows[i];
+                    CBO.Items.Add(DR["Fornecedor"].ToString().ToUpper().TrimEnd());
+                }
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex.Message);
+                Messagebox.Show();
+            }
+        }
+
+        public void Adicionar_Produto(string Grupo, string CodFabrica, string Fornecedor, string Descricao, string Custo, string Venda)
+        {
+            try
+            {
+                SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
+
+                string comandoSQL = "INSERT INTO Produtos(Grupo,Cod_Fabrica,Fornecedor,Descricao,ValorCusto,ValorVenda)" +
+                            " VALUES ('" + Grupo + "','" + CodFabrica + "','" + Fornecedor + "','" + Descricao + "','" + Custo + "','" + Venda + "')";
+
+                SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
+
+                CONN.Open();
+                CMD.ExecuteNonQuery();
+                CONN.Close();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
+        }
+
+       public void Editar_Produto(int ID, string Grupo, string CodFabrica, string Fornecedor, string Descricao, string Custo, string Venda)
+        {
+            try
+            {
+                SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
+
+                string comandoSQL = "UPDATE Produtos SET Grupo='" + Grupo.Replace("'", "''") + "', Cod_Fabrica='" + CodFabrica + "', Fornecedor='" + Fornecedor + "', Descricao='" + Descricao + "', ValorCusto='" + Custo + "', ValorVenda='" + Venda + "' WHERE id='" + ID + "'";
+
+                SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
+
+                CONN.Open();
+                CMD.ExecuteNonQuery();
+                CONN.Close();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
+        }
+
+        public void Excluir_Produto (int ID)
+        {
+            try
+            {
+                SqlCeConnection CONN = new SqlCeConnection(Classes_Conexao.strConnDatabase);
+
+                string comandoSQL = "DELETE FROM Produtos WHERE id='" + ID + "'";
+
+                SqlCeCommand CMD = new SqlCeCommand(comandoSQL, CONN);
+
+                CONN.Open();
+                CMD.ExecuteNonQuery();
+                CONN.Close();
+            }
+            catch (SqlCeException ex)
+            {
+                Form Messagebox = new frmMensagemBox(Classe_Mensagem.CRITICO, "Erro", "Ocorreu o seguinte erro:/n" + ex);
+                Messagebox.Show();
+            }
         }
     }
 }

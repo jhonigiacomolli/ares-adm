@@ -187,6 +187,9 @@
   <data name="DatasheetIndisponivel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DatasheetIndisponivel.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Botao_Orcamentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Botao_Orcamentos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PPG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PPG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,7 +202,34 @@
   <data name="Icone_PDF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icone_PDF1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Botao_Orcamentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Botao_Orcamentos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\Close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRIMER GRAYMATIC G1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRIMER GRAYMATIC G1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRIMER GRAYMATIC G2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRIMER GRAYMATIC G2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRIMER GRAYMATIC G3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRIMER GRAYMATIC G3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRIMER GRAYMATIC G4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRIMER GRAYMATIC G4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRIMER GRAYMATIC G5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRIMER GRAYMATIC G5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRIMER GRAYMATIC G6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRIMER GRAYMATIC G6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRIMER GRAYMATIC G7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRIMER GRAYMATIC G7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VERNIZ DC4000 LENTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DC4000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VERNIZ DC4000 NORMAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DC40002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

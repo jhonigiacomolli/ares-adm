@@ -33,8 +33,6 @@
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTituloProprietario = new System.Windows.Forms.Label();
             this.txtProprietario = new System.Windows.Forms.TextBox();
             this.lblTituloCPF_CNPJ = new System.Windows.Forms.Label();
             this.lblTituloEndereco = new System.Windows.Forms.Label();
@@ -60,10 +58,20 @@
             this.lblTituloPintura = new System.Windows.Forms.Label();
             this.lblTituloCor = new System.Windows.Forms.Label();
             this.pnProprietario = new System.Windows.Forms.Panel();
+            this.btnProprietario = new System.Windows.Forms.Button();
+            this.lblTituloProprietario = new System.Windows.Forms.Label();
+            this.cboTipoTelefone = new System.Windows.Forms.ComboBox();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
+            this.txtCPF_CNPJ = new System.Windows.Forms.MaskedTextBox();
             this.pnDadosVeiculo = new System.Windows.Forms.Panel();
+            this.txtPintura = new System.Windows.Forms.ComboBox();
+            this.txtCor = new System.Windows.Forms.ComboBox();
+            this.txtPlaca = new System.Windows.Forms.MaskedTextBox();
+            this.txtMontadora = new System.Windows.Forms.ComboBox();
             this.lblTituloDataAbertura = new System.Windows.Forms.Label();
             this.txtAbertura = new System.Windows.Forms.TextBox();
-            this.lblTituloOrcamentista = new System.Windows.Forms.Label();
             this.txtOrcamentista = new System.Windows.Forms.TextBox();
             this.txtNOrcamento = new System.Windows.Forms.TextBox();
             this.lblTituloNOrcamento = new System.Windows.Forms.Label();
@@ -73,6 +81,7 @@
             this.icStatusProprietario = new System.Windows.Forms.Panel();
             this.icStatusVeiculo = new System.Windows.Forms.Panel();
             this.pnSeguro = new System.Windows.Forms.Panel();
+            this.cboSeguradora = new System.Windows.Forms.ComboBox();
             this.txtFranquia = new System.Windows.Forms.MaskedTextBox();
             this.cboTipoSeguro = new System.Windows.Forms.ComboBox();
             this.cboSeguro = new System.Windows.Forms.ComboBox();
@@ -84,20 +93,16 @@
             this.lblTituloNSinistro = new System.Windows.Forms.Label();
             this.icStatusSeguro = new System.Windows.Forms.Panel();
             this.btnDadosSeguro = new System.Windows.Forms.Button();
-            this.txtCPF_CNPJ = new System.Windows.Forms.MaskedTextBox();
-            this.cboEstado = new System.Windows.Forms.ComboBox();
             this.cboTipoCadastro = new System.Windows.Forms.ComboBox();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
-            this.cboTipoTelefone = new System.Windows.Forms.ComboBox();
-            this.txtMontadora = new System.Windows.Forms.ComboBox();
-            this.txtPlaca = new System.Windows.Forms.MaskedTextBox();
-            this.txtCor = new System.Windows.Forms.ComboBox();
-            this.txtPintura = new System.Windows.Forms.ComboBox();
-            this.cboSeguradora = new System.Windows.Forms.ComboBox();
             this.lstItensOrcamento = new System.Windows.Forms.ListView();
+            this.btnOrcamentista = new System.Windows.Forms.Button();
+            this.lblTituloOrcamentista = new System.Windows.Forms.Label();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnIncluir = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.pnCabecalho.SuspendLayout();
-            this.btnFechar.SuspendLayout();
             this.pnProprietario.SuspendLayout();
             this.pnDadosVeiculo.SuspendLayout();
             this.pnSeguro.SuspendLayout();
@@ -112,7 +117,7 @@
             this.pnCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnCabecalho.Location = new System.Drawing.Point(0, 0);
             this.pnCabecalho.Name = "pnCabecalho";
-            this.pnCabecalho.Size = new System.Drawing.Size(660, 35);
+            this.pnCabecalho.Size = new System.Drawing.Size(677, 35);
             this.pnCabecalho.TabIndex = 4;
             this.pnCabecalho.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseDown);
             this.pnCabecalho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnCabecalho_MouseMove);
@@ -147,43 +152,21 @@
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btnFechar.Controls.Add(this.label1);
-            this.btnFechar.Location = new System.Drawing.Point(625, 0);
+            this.btnFechar.BackgroundImage = global::ARES_ADM.Properties.Resources.Close;
+            this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFechar.Location = new System.Drawing.Point(642, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(35, 35);
             this.btnFechar.TabIndex = 7;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lblTituloProprietario
-            // 
-            this.lblTituloProprietario.AutoSize = true;
-            this.lblTituloProprietario.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloProprietario.Location = new System.Drawing.Point(8, 16);
-            this.lblTituloProprietario.Name = "lblTituloProprietario";
-            this.lblTituloProprietario.Size = new System.Drawing.Size(60, 13);
-            this.lblTituloProprietario.TabIndex = 37;
-            this.lblTituloProprietario.Text = "Proprietário";
-            // 
             // txtProprietario
             // 
             this.txtProprietario.BackColor = System.Drawing.SystemColors.Window;
-            this.txtProprietario.Location = new System.Drawing.Point(78, 13);
+            this.txtProprietario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProprietario.Location = new System.Drawing.Point(86, 13);
             this.txtProprietario.Name = "txtProprietario";
-            this.txtProprietario.Size = new System.Drawing.Size(327, 20);
+            this.txtProprietario.Size = new System.Drawing.Size(319, 20);
             this.txtProprietario.TabIndex = 4;
             this.txtProprietario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProprietario_KeyDown);
             // 
@@ -210,9 +193,10 @@
             // txtEndereco
             // 
             this.txtEndereco.BackColor = System.Drawing.SystemColors.Window;
-            this.txtEndereco.Location = new System.Drawing.Point(78, 39);
+            this.txtEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEndereco.Location = new System.Drawing.Point(86, 39);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(505, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(497, 20);
             this.txtEndereco.TabIndex = 6;
             this.txtEndereco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEndereco_KeyDown);
             // 
@@ -229,6 +213,7 @@
             // txtBairro
             // 
             this.txtBairro.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBairro.Location = new System.Drawing.Point(288, 65);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(295, 20);
@@ -248,9 +233,10 @@
             // txtNumero
             // 
             this.txtNumero.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNumero.Location = new System.Drawing.Point(78, 65);
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumero.Location = new System.Drawing.Point(86, 65);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(150, 20);
+            this.txtNumero.Size = new System.Drawing.Size(142, 20);
             this.txtNumero.TabIndex = 7;
             this.txtNumero.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumero_KeyDown);
             // 
@@ -277,9 +263,10 @@
             // txtCidade
             // 
             this.txtCidade.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCidade.Location = new System.Drawing.Point(78, 91);
+            this.txtCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCidade.Location = new System.Drawing.Point(86, 91);
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(305, 20);
+            this.txtCidade.Size = new System.Drawing.Size(297, 20);
             this.txtCidade.TabIndex = 9;
             this.txtCidade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCidade_KeyDown);
             // 
@@ -306,6 +293,7 @@
             // txtKM
             // 
             this.txtKM.BackColor = System.Drawing.SystemColors.Window;
+            this.txtKM.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtKM.Location = new System.Drawing.Point(459, 38);
             this.txtKM.Name = "txtKM";
             this.txtKM.Size = new System.Drawing.Size(124, 20);
@@ -335,6 +323,7 @@
             // txtNChassis
             // 
             this.txtNChassis.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNChassis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNChassis.Location = new System.Drawing.Point(78, 64);
             this.txtNChassis.Name = "txtNChassis";
             this.txtNChassis.Size = new System.Drawing.Size(141, 20);
@@ -354,6 +343,7 @@
             // txtMotorizacao
             // 
             this.txtMotorizacao.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMotorizacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMotorizacao.Location = new System.Drawing.Point(78, 38);
             this.txtMotorizacao.Name = "txtMotorizacao";
             this.txtMotorizacao.Size = new System.Drawing.Size(141, 20);
@@ -373,6 +363,7 @@
             // txtVeiculo
             // 
             this.txtVeiculo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtVeiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVeiculo.Location = new System.Drawing.Point(269, 12);
             this.txtVeiculo.Name = "txtVeiculo";
             this.txtVeiculo.Size = new System.Drawing.Size(314, 20);
@@ -412,12 +403,13 @@
             // pnProprietario
             // 
             this.pnProprietario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.pnProprietario.Controls.Add(this.btnProprietario);
+            this.pnProprietario.Controls.Add(this.lblTituloProprietario);
             this.pnProprietario.Controls.Add(this.cboTipoTelefone);
             this.pnProprietario.Controls.Add(this.txtCEP);
             this.pnProprietario.Controls.Add(this.txtTelefone);
             this.pnProprietario.Controls.Add(this.cboEstado);
             this.pnProprietario.Controls.Add(this.txtCPF_CNPJ);
-            this.pnProprietario.Controls.Add(this.lblTituloProprietario);
             this.pnProprietario.Controls.Add(this.txtProprietario);
             this.pnProprietario.Controls.Add(this.lblTituloCPF_CNPJ);
             this.pnProprietario.Controls.Add(this.txtEndereco);
@@ -430,10 +422,94 @@
             this.pnProprietario.Controls.Add(this.txtCidade);
             this.pnProprietario.Controls.Add(this.lblTituloCidade);
             this.pnProprietario.Controls.Add(this.lblTituloEstado);
+            this.pnProprietario.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pnProprietario.Location = new System.Drawing.Point(25, 152);
             this.pnProprietario.Name = "pnProprietario";
-            this.pnProprietario.Size = new System.Drawing.Size(600, 150);
+            this.pnProprietario.Size = new System.Drawing.Size(629, 150);
             this.pnProprietario.TabIndex = 74;
+            // 
+            // btnProprietario
+            // 
+            this.btnProprietario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.btnProprietario.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnProprietario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProprietario.ForeColor = System.Drawing.Color.Silver;
+            this.btnProprietario.Location = new System.Drawing.Point(1, 11);
+            this.btnProprietario.Name = "btnProprietario";
+            this.btnProprietario.Size = new System.Drawing.Size(85, 23);
+            this.btnProprietario.TabIndex = 92;
+            this.btnProprietario.Text = "Proprietário";
+            this.btnProprietario.UseVisualStyleBackColor = false;
+            this.btnProprietario.Click += new System.EventHandler(this.btnProprietario_Click);
+            // 
+            // lblTituloProprietario
+            // 
+            this.lblTituloProprietario.AutoSize = true;
+            this.lblTituloProprietario.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloProprietario.Location = new System.Drawing.Point(8, 16);
+            this.lblTituloProprietario.Name = "lblTituloProprietario";
+            this.lblTituloProprietario.Size = new System.Drawing.Size(60, 13);
+            this.lblTituloProprietario.TabIndex = 93;
+            this.lblTituloProprietario.Text = "Proprietário";
+            // 
+            // cboTipoTelefone
+            // 
+            this.cboTipoTelefone.DisplayMember = "4";
+            this.cboTipoTelefone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoTelefone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboTipoTelefone.FormattingEnabled = true;
+            this.cboTipoTelefone.Items.AddRange(new object[] {
+            "Residencial",
+            "Comercial",
+            "Celular Particular",
+            "Celular Comercial"});
+            this.cboTipoTelefone.Location = new System.Drawing.Point(242, 117);
+            this.cboTipoTelefone.Name = "cboTipoTelefone";
+            this.cboTipoTelefone.Size = new System.Drawing.Size(124, 21);
+            this.cboTipoTelefone.TabIndex = 12;
+            this.cboTipoTelefone.ValueMember = "4";
+            this.cboTipoTelefone.SelectedIndexChanged += new System.EventHandler(this.cboTipoTelefone_SelectedIndexChanged);
+            this.cboTipoTelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboTipoTelefone_KeyDown);
+            // 
+            // txtCEP
+            // 
+            this.txtCEP.Location = new System.Drawing.Point(86, 117);
+            this.txtCEP.Mask = "00000-000";
+            this.txtCEP.Name = "txtCEP";
+            this.txtCEP.Size = new System.Drawing.Size(116, 20);
+            this.txtCEP.TabIndex = 11;
+            this.txtCEP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCEP_KeyDown);
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Location = new System.Drawing.Point(372, 117);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(211, 20);
+            this.txtTelefone.TabIndex = 12;
+            this.txtTelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefone_KeyDown);
+            // 
+            // cboEstado
+            // 
+            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Items.AddRange(new object[] {
+            "PR",
+            "RS",
+            "SC"});
+            this.cboEstado.Location = new System.Drawing.Point(459, 90);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(124, 21);
+            this.cboEstado.TabIndex = 10;
+            this.cboEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboEstado_KeyDown);
+            // 
+            // txtCPF_CNPJ
+            // 
+            this.txtCPF_CNPJ.Location = new System.Drawing.Point(459, 13);
+            this.txtCPF_CNPJ.Name = "txtCPF_CNPJ";
+            this.txtCPF_CNPJ.Size = new System.Drawing.Size(124, 20);
+            this.txtCPF_CNPJ.TabIndex = 5;
+            this.txtCPF_CNPJ.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCPF_CNPJ_KeyDown_1);
             // 
             // pnDadosVeiculo
             // 
@@ -456,15 +532,81 @@
             this.pnDadosVeiculo.Controls.Add(this.lblTituloPlaca);
             this.pnDadosVeiculo.Location = new System.Drawing.Point(25, 152);
             this.pnDadosVeiculo.Name = "pnDadosVeiculo";
-            this.pnDadosVeiculo.Size = new System.Drawing.Size(600, 150);
+            this.pnDadosVeiculo.Size = new System.Drawing.Size(629, 150);
             this.pnDadosVeiculo.TabIndex = 75;
             this.pnDadosVeiculo.Visible = false;
+            // 
+            // txtPintura
+            // 
+            this.txtPintura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtPintura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtPintura.FormattingEnabled = true;
+            this.txtPintura.Items.AddRange(new object[] {
+            "SOLIDA",
+            "METALICA",
+            "PEROLIZADA",
+            "TRICOAT"});
+            this.txtPintura.Location = new System.Drawing.Point(459, 63);
+            this.txtPintura.Name = "txtPintura";
+            this.txtPintura.Size = new System.Drawing.Size(124, 21);
+            this.txtPintura.TabIndex = 20;
+            this.txtPintura.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPintura_KeyDown);
+            // 
+            // txtCor
+            // 
+            this.txtCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtCor.FormattingEnabled = true;
+            this.txtCor.Items.AddRange(new object[] {
+            "BRANCO",
+            "AZUL",
+            "AMARELO",
+            "VERDE",
+            "VERMELHO",
+            "MARROM",
+            "BEGE",
+            "CINZA",
+            "PRETO",
+            "PRATA"});
+            this.txtCor.Location = new System.Drawing.Point(269, 64);
+            this.txtCor.Name = "txtCor";
+            this.txtCor.Size = new System.Drawing.Size(145, 21);
+            this.txtCor.TabIndex = 19;
+            this.txtCor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCor_KeyDown);
+            // 
+            // txtPlaca
+            // 
+            this.txtPlaca.Location = new System.Drawing.Point(269, 39);
+            this.txtPlaca.Mask = ">A>A>A-0000";
+            this.txtPlaca.Name = "txtPlaca";
+            this.txtPlaca.Size = new System.Drawing.Size(144, 20);
+            this.txtPlaca.TabIndex = 16;
+            this.txtPlaca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlaca_KeyDown);
+            // 
+            // txtMontadora
+            // 
+            this.txtMontadora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtMontadora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtMontadora.FormattingEnabled = true;
+            this.txtMontadora.Items.AddRange(new object[] {
+            "VW",
+            "FIAT",
+            "FORD",
+            "GM",
+            "CITROEN",
+            "PEUGEOT",
+            "JEEP"});
+            this.txtMontadora.Location = new System.Drawing.Point(78, 10);
+            this.txtMontadora.Name = "txtMontadora";
+            this.txtMontadora.Size = new System.Drawing.Size(141, 21);
+            this.txtMontadora.TabIndex = 13;
+            this.txtMontadora.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMontadora_KeyDown);
             // 
             // lblTituloDataAbertura
             // 
             this.lblTituloDataAbertura.AutoSize = true;
             this.lblTituloDataAbertura.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloDataAbertura.Location = new System.Drawing.Point(230, 61);
+            this.lblTituloDataAbertura.Location = new System.Drawing.Point(209, 61);
             this.lblTituloDataAbertura.Name = "lblTituloDataAbertura";
             this.lblTituloDataAbertura.Size = new System.Drawing.Size(47, 13);
             this.lblTituloDataAbertura.TabIndex = 81;
@@ -473,37 +615,30 @@
             // txtAbertura
             // 
             this.txtAbertura.BackColor = System.Drawing.SystemColors.Window;
-            this.txtAbertura.Location = new System.Drawing.Point(278, 58);
+            this.txtAbertura.Enabled = false;
+            this.txtAbertura.Location = new System.Drawing.Point(262, 58);
             this.txtAbertura.Name = "txtAbertura";
-            this.txtAbertura.Size = new System.Drawing.Size(147, 20);
+            this.txtAbertura.Size = new System.Drawing.Size(88, 20);
             this.txtAbertura.TabIndex = 1;
             this.txtAbertura.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAbertura_KeyDown);
-            // 
-            // lblTituloOrcamentista
-            // 
-            this.lblTituloOrcamentista.AutoSize = true;
-            this.lblTituloOrcamentista.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloOrcamentista.Location = new System.Drawing.Point(23, 88);
-            this.lblTituloOrcamentista.Name = "lblTituloOrcamentista";
-            this.lblTituloOrcamentista.Size = new System.Drawing.Size(69, 13);
-            this.lblTituloOrcamentista.TabIndex = 79;
-            this.lblTituloOrcamentista.Text = "Orçamentista";
             // 
             // txtOrcamentista
             // 
             this.txtOrcamentista.BackColor = System.Drawing.SystemColors.Window;
-            this.txtOrcamentista.Location = new System.Drawing.Point(103, 85);
+            this.txtOrcamentista.Enabled = false;
+            this.txtOrcamentista.Location = new System.Drawing.Point(108, 85);
             this.txtOrcamentista.Name = "txtOrcamentista";
-            this.txtOrcamentista.Size = new System.Drawing.Size(522, 20);
+            this.txtOrcamentista.Size = new System.Drawing.Size(444, 20);
             this.txtOrcamentista.TabIndex = 3;
             this.txtOrcamentista.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtOrcamentista_KeyDown);
             // 
             // txtNOrcamento
             // 
             this.txtNOrcamento.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNOrcamento.Location = new System.Drawing.Point(103, 58);
+            this.txtNOrcamento.Enabled = false;
+            this.txtNOrcamento.Location = new System.Drawing.Point(108, 58);
             this.txtNOrcamento.Name = "txtNOrcamento";
-            this.txtNOrcamento.Size = new System.Drawing.Size(125, 20);
+            this.txtNOrcamento.Size = new System.Drawing.Size(99, 20);
             this.txtNOrcamento.TabIndex = 0;
             this.txtNOrcamento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNOrcamento_KeyDown);
             // 
@@ -521,7 +656,7 @@
             // 
             this.lblTituloTpoProprietario.AutoSize = true;
             this.lblTituloTpoProprietario.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloTpoProprietario.Location = new System.Drawing.Point(427, 61);
+            this.lblTituloTpoProprietario.Location = new System.Drawing.Point(354, 61);
             this.lblTituloTpoProprietario.Name = "lblTituloTpoProprietario";
             this.lblTituloTpoProprietario.Size = new System.Drawing.Size(73, 13);
             this.lblTituloTpoProprietario.TabIndex = 83;
@@ -592,26 +727,45 @@
             this.pnSeguro.Controls.Add(this.lblTituloNSinistro);
             this.pnSeguro.Location = new System.Drawing.Point(25, 151);
             this.pnSeguro.Name = "pnSeguro";
-            this.pnSeguro.Size = new System.Drawing.Size(600, 150);
+            this.pnSeguro.Size = new System.Drawing.Size(629, 150);
             this.pnSeguro.TabIndex = 75;
             this.pnSeguro.Visible = false;
             // 
+            // cboSeguradora
+            // 
+            this.cboSeguradora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSeguradora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboSeguradora.FormattingEnabled = true;
+            this.cboSeguradora.Items.AddRange(new object[] {
+            "TOKIO MARINE",
+            "MAFRE",
+            "BRADESCO",
+            "AZUL SEGUROS"});
+            this.cboSeguradora.Location = new System.Drawing.Point(141, 62);
+            this.cboSeguradora.Name = "cboSeguradora";
+            this.cboSeguradora.Size = new System.Drawing.Size(295, 21);
+            this.cboSeguradora.TabIndex = 23;
+            this.cboSeguradora.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboSeguradora_KeyDown);
+            // 
             // txtFranquia
             // 
-            this.txtFranquia.Location = new System.Drawing.Point(141, 89);
+            this.txtFranquia.Location = new System.Drawing.Point(141, 87);
             this.txtFranquia.Name = "txtFranquia";
             this.txtFranquia.Size = new System.Drawing.Size(295, 20);
             this.txtFranquia.TabIndex = 24;
             this.txtFranquia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFranquia_KeyDown);
+            this.txtFranquia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFranquia_KeyPress);
+            this.txtFranquia.Validated += new System.EventHandler(this.txtFranquia_Validated);
             // 
             // cboTipoSeguro
             // 
             this.cboTipoSeguro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoSeguro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboTipoSeguro.FormattingEnabled = true;
             this.cboTipoSeguro.Items.AddRange(new object[] {
             "SEGURO CONTRA TERÇEIROS",
             "SEGURO COMPLETO"});
-            this.cboTipoSeguro.Location = new System.Drawing.Point(141, 38);
+            this.cboTipoSeguro.Location = new System.Drawing.Point(141, 37);
             this.cboTipoSeguro.Name = "cboTipoSeguro";
             this.cboTipoSeguro.Size = new System.Drawing.Size(213, 21);
             this.cboTipoSeguro.TabIndex = 22;
@@ -620,6 +774,7 @@
             // cboSeguro
             // 
             this.cboSeguro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSeguro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboSeguro.FormattingEnabled = true;
             this.cboSeguro.Items.AddRange(new object[] {
             "SIM",
@@ -645,7 +800,7 @@
             // 
             this.lblTituloTipoSeguro.AutoSize = true;
             this.lblTituloTipoSeguro.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloTipoSeguro.Location = new System.Drawing.Point(12, 40);
+            this.lblTituloTipoSeguro.Location = new System.Drawing.Point(12, 39);
             this.lblTituloTipoSeguro.Name = "lblTituloTipoSeguro";
             this.lblTituloTipoSeguro.Size = new System.Drawing.Size(80, 13);
             this.lblTituloTipoSeguro.TabIndex = 41;
@@ -655,7 +810,7 @@
             // 
             this.lblTituloSeguradora.AutoSize = true;
             this.lblTituloSeguradora.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloSeguradora.Location = new System.Drawing.Point(12, 66);
+            this.lblTituloSeguradora.Location = new System.Drawing.Point(12, 64);
             this.lblTituloSeguradora.Name = "lblTituloSeguradora";
             this.lblTituloSeguradora.Size = new System.Drawing.Size(112, 13);
             this.lblTituloSeguradora.TabIndex = 43;
@@ -665,7 +820,7 @@
             // 
             this.lblTituloFranquia.AutoSize = true;
             this.lblTituloFranquia.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloFranquia.Location = new System.Drawing.Point(12, 92);
+            this.lblTituloFranquia.Location = new System.Drawing.Point(12, 89);
             this.lblTituloFranquia.Name = "lblTituloFranquia";
             this.lblTituloFranquia.Size = new System.Drawing.Size(75, 13);
             this.lblTituloFranquia.TabIndex = 49;
@@ -674,7 +829,8 @@
             // txtNSinistro
             // 
             this.txtNSinistro.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNSinistro.Location = new System.Drawing.Point(141, 114);
+            this.txtNSinistro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNSinistro.Location = new System.Drawing.Point(141, 111);
             this.txtNSinistro.Name = "txtNSinistro";
             this.txtNSinistro.Size = new System.Drawing.Size(295, 20);
             this.txtNSinistro.TabIndex = 25;
@@ -684,7 +840,7 @@
             // 
             this.lblTituloNSinistro.AutoSize = true;
             this.lblTituloNSinistro.ForeColor = System.Drawing.Color.Silver;
-            this.lblTituloNSinistro.Location = new System.Drawing.Point(12, 118);
+            this.lblTituloNSinistro.Location = new System.Drawing.Point(12, 114);
             this.lblTituloNSinistro.Name = "lblTituloNSinistro";
             this.lblTituloNSinistro.Size = new System.Drawing.Size(81, 13);
             this.lblTituloNSinistro.TabIndex = 53;
@@ -715,173 +871,138 @@
             this.btnDadosSeguro.UseVisualStyleBackColor = false;
             this.btnDadosSeguro.Click += new System.EventHandler(this.btnDadosSeguro_Click);
             // 
-            // txtCPF_CNPJ
-            // 
-            this.txtCPF_CNPJ.Location = new System.Drawing.Point(459, 13);
-            this.txtCPF_CNPJ.Name = "txtCPF_CNPJ";
-            this.txtCPF_CNPJ.Size = new System.Drawing.Size(124, 20);
-            this.txtCPF_CNPJ.TabIndex = 5;
-            this.txtCPF_CNPJ.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCPF_CNPJ_KeyDown_1);
-            // 
-            // cboEstado
-            // 
-            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Items.AddRange(new object[] {
-            "PR",
-            "RS",
-            "SC"});
-            this.cboEstado.Location = new System.Drawing.Point(459, 90);
-            this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(124, 21);
-            this.cboEstado.TabIndex = 10;
-            this.cboEstado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboEstado_KeyDown);
-            // 
             // cboTipoCadastro
             // 
             this.cboTipoCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboTipoCadastro.FormattingEnabled = true;
             this.cboTipoCadastro.Items.AddRange(new object[] {
             "PESSOA FISICA",
             "PESSOA JURÍDICA"});
-            this.cboTipoCadastro.Location = new System.Drawing.Point(500, 58);
+            this.cboTipoCadastro.Location = new System.Drawing.Point(427, 58);
             this.cboTipoCadastro.Name = "cboTipoCadastro";
             this.cboTipoCadastro.Size = new System.Drawing.Size(125, 21);
             this.cboTipoCadastro.TabIndex = 2;
             this.cboTipoCadastro.SelectedIndexChanged += new System.EventHandler(this.cboTipoCadastro_SelectedIndexChanged);
             this.cboTipoCadastro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboTipoCadastro_KeyDown);
             // 
-            // txtTelefone
-            // 
-            this.txtTelefone.Location = new System.Drawing.Point(372, 117);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(211, 20);
-            this.txtTelefone.TabIndex = 12;
-            this.txtTelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefone_KeyDown);
-            // 
-            // txtCEP
-            // 
-            this.txtCEP.Location = new System.Drawing.Point(78, 117);
-            this.txtCEP.Mask = "00000-000";
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(124, 20);
-            this.txtCEP.TabIndex = 11;
-            this.txtCEP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCEP_KeyDown);
-            // 
-            // cboTipoTelefone
-            // 
-            this.cboTipoTelefone.DisplayMember = "4";
-            this.cboTipoTelefone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoTelefone.FormattingEnabled = true;
-            this.cboTipoTelefone.Items.AddRange(new object[] {
-            "Residencial",
-            "Comercial",
-            "Celular Particular",
-            "Celular Comercial"});
-            this.cboTipoTelefone.Location = new System.Drawing.Point(242, 117);
-            this.cboTipoTelefone.Name = "cboTipoTelefone";
-            this.cboTipoTelefone.Size = new System.Drawing.Size(124, 21);
-            this.cboTipoTelefone.TabIndex = 12;
-            this.cboTipoTelefone.ValueMember = "4";
-            this.cboTipoTelefone.SelectedIndexChanged += new System.EventHandler(this.cboTipoTelefone_SelectedIndexChanged);
-            this.cboTipoTelefone.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboTipoTelefone_KeyDown);
-            // 
-            // txtMontadora
-            // 
-            this.txtMontadora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtMontadora.FormattingEnabled = true;
-            this.txtMontadora.Items.AddRange(new object[] {
-            "VW",
-            "FIAT",
-            "FORD",
-            "GM",
-            "CITROEN",
-            "PEUGEOT",
-            "JEEP"});
-            this.txtMontadora.Location = new System.Drawing.Point(78, 10);
-            this.txtMontadora.Name = "txtMontadora";
-            this.txtMontadora.Size = new System.Drawing.Size(141, 21);
-            this.txtMontadora.TabIndex = 13;
-            this.txtMontadora.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMontadora_KeyDown);
-            // 
-            // txtPlaca
-            // 
-            this.txtPlaca.Location = new System.Drawing.Point(269, 39);
-            this.txtPlaca.Mask = "AAA-0000";
-            this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(144, 20);
-            this.txtPlaca.TabIndex = 16;
-            this.txtPlaca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlaca_KeyDown);
-            // 
-            // txtCor
-            // 
-            this.txtCor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtCor.FormattingEnabled = true;
-            this.txtCor.Items.AddRange(new object[] {
-            "BRANCO",
-            "AZUL",
-            "AMARELO",
-            "VERDE",
-            "VERMELHO",
-            "MARROM",
-            "BEGE",
-            "CINZA",
-            "PRETO",
-            "PRATA"});
-            this.txtCor.Location = new System.Drawing.Point(269, 64);
-            this.txtCor.Name = "txtCor";
-            this.txtCor.Size = new System.Drawing.Size(145, 21);
-            this.txtCor.TabIndex = 19;
-            this.txtCor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCor_KeyDown);
-            // 
-            // txtPintura
-            // 
-            this.txtPintura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtPintura.FormattingEnabled = true;
-            this.txtPintura.Items.AddRange(new object[] {
-            "SOLIDA",
-            "METALICA",
-            "PEROLIZADA",
-            "TRICOAT"});
-            this.txtPintura.Location = new System.Drawing.Point(459, 63);
-            this.txtPintura.Name = "txtPintura";
-            this.txtPintura.Size = new System.Drawing.Size(124, 21);
-            this.txtPintura.TabIndex = 20;
-            this.txtPintura.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPintura_KeyDown);
-            // 
-            // cboSeguradora
-            // 
-            this.cboSeguradora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSeguradora.FormattingEnabled = true;
-            this.cboSeguradora.Items.AddRange(new object[] {
-            "TOKIO MARINE",
-            "MAFRE",
-            "BRADESCO",
-            "AZUL SEGUROS"});
-            this.cboSeguradora.Location = new System.Drawing.Point(141, 63);
-            this.cboSeguradora.Name = "cboSeguradora";
-            this.cboSeguradora.Size = new System.Drawing.Size(295, 21);
-            this.cboSeguradora.TabIndex = 23;
-            this.cboSeguradora.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboSeguradora_KeyDown);
-            // 
             // lstItensOrcamento
             // 
             this.lstItensOrcamento.BackColor = System.Drawing.Color.Silver;
+            this.lstItensOrcamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
             this.lstItensOrcamento.Location = new System.Drawing.Point(25, 303);
             this.lstItensOrcamento.Name = "lstItensOrcamento";
-            this.lstItensOrcamento.Size = new System.Drawing.Size(600, 290);
+            this.lstItensOrcamento.Size = new System.Drawing.Size(629, 285);
             this.lstItensOrcamento.TabIndex = 90;
             this.lstItensOrcamento.UseCompatibleStateImageBehavior = false;
+            // 
+            // btnOrcamentista
+            // 
+            this.btnOrcamentista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnOrcamentista.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnOrcamentista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrcamentista.ForeColor = System.Drawing.Color.Silver;
+            this.btnOrcamentista.Location = new System.Drawing.Point(17, 83);
+            this.btnOrcamentista.Name = "btnOrcamentista";
+            this.btnOrcamentista.Size = new System.Drawing.Size(87, 23);
+            this.btnOrcamentista.TabIndex = 91;
+            this.btnOrcamentista.Text = "Orçamentista";
+            this.btnOrcamentista.UseVisualStyleBackColor = false;
+            this.btnOrcamentista.Click += new System.EventHandler(this.btnOrcamentista_Click);
+            // 
+            // lblTituloOrcamentista
+            // 
+            this.lblTituloOrcamentista.AutoSize = true;
+            this.lblTituloOrcamentista.ForeColor = System.Drawing.Color.Silver;
+            this.lblTituloOrcamentista.Location = new System.Drawing.Point(23, 88);
+            this.lblTituloOrcamentista.Name = "lblTituloOrcamentista";
+            this.lblTituloOrcamentista.Size = new System.Drawing.Size(69, 13);
+            this.lblTituloOrcamentista.TabIndex = 92;
+            this.lblTituloOrcamentista.Text = "Orçamentista";
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnGravar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGravar.ForeColor = System.Drawing.Color.Silver;
+            this.btnGravar.Location = new System.Drawing.Point(567, 58);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(87, 23);
+            this.btnGravar.TabIndex = 93;
+            this.btnGravar.Text = "Salvar";
+            this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.Silver;
+            this.btnCancelar.Location = new System.Drawing.Point(567, 82);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(87, 23);
+            this.btnCancelar.TabIndex = 94;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnIncluir.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnIncluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIncluir.ForeColor = System.Drawing.Color.Silver;
+            this.btnIncluir.Location = new System.Drawing.Point(144, 594);
+            this.btnIncluir.Name = "btnIncluir";
+            this.btnIncluir.Size = new System.Drawing.Size(170, 42);
+            this.btnIncluir.TabIndex = 95;
+            this.btnIncluir.Text = "Incluir";
+            this.btnIncluir.UseVisualStyleBackColor = false;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.ForeColor = System.Drawing.Color.Silver;
+            this.btnEditar.Location = new System.Drawing.Point(314, 594);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(170, 42);
+            this.btnEditar.TabIndex = 96;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.ForeColor = System.Drawing.Color.Silver;
+            this.btnExcluir.Location = new System.Drawing.Point(484, 594);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(170, 42);
+            this.btnExcluir.TabIndex = 97;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // frmOrcamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(660, 660);
-            this.Controls.Add(this.pnDadosVeiculo);
+            this.ClientSize = new System.Drawing.Size(677, 660);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnIncluir);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.btnOrcamentista);
+            this.Controls.Add(this.lblTituloOrcamentista);
             this.Controls.Add(this.cboTipoCadastro);
-            this.Controls.Add(this.pnSeguro);
             this.Controls.Add(this.icStatusSeguro);
             this.Controls.Add(this.btnDadosSeguro);
             this.Controls.Add(this.icStatusVeiculo);
@@ -891,13 +1012,14 @@
             this.Controls.Add(this.lblTituloTpoProprietario);
             this.Controls.Add(this.lblTituloDataAbertura);
             this.Controls.Add(this.txtAbertura);
-            this.Controls.Add(this.lblTituloOrcamentista);
             this.Controls.Add(this.txtOrcamentista);
             this.Controls.Add(this.txtNOrcamento);
             this.Controls.Add(this.lblTituloNOrcamento);
             this.Controls.Add(this.pnCabecalho);
-            this.Controls.Add(this.pnProprietario);
             this.Controls.Add(this.lstItensOrcamento);
+            this.Controls.Add(this.pnSeguro);
+            this.Controls.Add(this.pnDadosVeiculo);
+            this.Controls.Add(this.pnProprietario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOrcamentos";
@@ -905,8 +1027,6 @@
             this.Text = "frmOrçamentos";
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
-            this.btnFechar.ResumeLayout(false);
-            this.btnFechar.PerformLayout();
             this.pnProprietario.ResumeLayout(false);
             this.pnProprietario.PerformLayout();
             this.pnDadosVeiculo.ResumeLayout(false);
@@ -924,8 +1044,6 @@
         public System.Windows.Forms.Label lblTituloForm;
         public System.Windows.Forms.Panel pnFavIcon;
         public System.Windows.Forms.Panel btnFechar;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label lblTituloProprietario;
         public System.Windows.Forms.TextBox txtProprietario;
         public System.Windows.Forms.Label lblTituloCPF_CNPJ;
         public System.Windows.Forms.Label lblTituloEndereco;
@@ -952,7 +1070,6 @@
         public System.Windows.Forms.Label lblTituloCor;
         public System.Windows.Forms.Label lblTituloDataAbertura;
         public System.Windows.Forms.TextBox txtAbertura;
-        public System.Windows.Forms.Label lblTituloOrcamentista;
         public System.Windows.Forms.TextBox txtOrcamentista;
         public System.Windows.Forms.TextBox txtNOrcamento;
         public System.Windows.Forms.Label lblTituloNOrcamento;
@@ -987,5 +1104,14 @@
         public System.Windows.Forms.MaskedTextBox txtPlaca;
         public System.Windows.Forms.ComboBox cboSeguradora;
         public System.Windows.Forms.ListView lstItensOrcamento;
+        public System.Windows.Forms.Button btnOrcamentista;
+        public System.Windows.Forms.Button btnProprietario;
+        public System.Windows.Forms.Label lblTituloProprietario;
+        public System.Windows.Forms.Label lblTituloOrcamentista;
+        public System.Windows.Forms.Button btnGravar;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnIncluir;
+        public System.Windows.Forms.Button btnEditar;
+        public System.Windows.Forms.Button btnExcluir;
     }
 }

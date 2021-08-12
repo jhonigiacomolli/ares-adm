@@ -12,10 +12,21 @@ namespace ARES_ADM
 {
     public partial class frmPaginaInicial : Form
     {
+        public static bool Formulario_Orcamento = false;
+        public static bool FOrmulario_OS = false;
+        public static bool Formulario_Cliente = false;
+        public static bool Formulario_Produtos = false;
+
+        frmListaOS frmORCAMENTOS;
+        frmListaOS frmOS;
+        frmProdutos frmPRODUTOS;
+        frmCatalises frmCATALISES;
+        frmConfiguracoes frmCONFIG;
+
         public frmPaginaInicial()
         {
             InitializeComponent();
-            
+
             this.Height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height - 40;
             this.Width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
             this.DesktopLocation = new System.Drawing.Point(0, 0);
@@ -27,14 +38,19 @@ namespace ARES_ADM
             new Classe_BancoHoras().Get_TipoBanco();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnOrcamentos_MouseEnter(object sender, EventArgs e)
+        {
+            btnOrcamentos.BackColor = Classe_Tema.Botao_Sobre;
+        }
+
+        private void btnOrcamentos_MouseLeave(object sender, EventArgs e)
+        {
+            btnOrcamentos.BackColor = Classe_Tema.Botao_Normal;
         }
 
         private void btnOrdemServico_MouseEnter(object sender, EventArgs e)
@@ -99,7 +115,7 @@ namespace ARES_ADM
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void pnMinimizar_Click(object sender, EventArgs e)
@@ -115,48 +131,57 @@ namespace ARES_ADM
 
         private void btnOrdemServico_Click(object sender, EventArgs e)
         {
-            frmListaOS ListaOS = new frmListaOS();
-            ListaOS.ShowDialog();
+            if (!FOrmulario_OS)
+            {
+                frmOS = new frmListaOS("OS");
+                frmOS.Show();
+
+                FOrmulario_OS = true;
+            }
+            if (FOrmulario_OS)
+            {
+                frmOS.Focus();
+            }
         }
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
-            frmProdutos Produtos = new frmProdutos("PRODUTO");
-            Produtos.ShowDialog();
+            frmPRODUTOS = new frmProdutos("PRODUTO");
+            frmPRODUTOS.ShowDialog();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            frmProdutos Pecas = new frmProdutos("PEÇAS");
-            Pecas.ShowDialog();
+
         }
 
         private void btnCatalises_Click(object sender, EventArgs e)
         {
-            frmCatalises Catalise = new frmCatalises(null, null);
-            Catalise.ShowDialog();
+            frmCATALISES = new frmCatalises(null, null);
+            frmCATALISES.ShowDialog();
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            frmConfiguracoes Config = new frmConfiguracoes();
-            Config.ShowDialog();
+            frmCONFIG = new frmConfiguracoes();
+            frmCONFIG.ShowDialog();
         }
-
+        
         private void btnOrcamentos_Click(object sender, EventArgs e)
         {
-            frmOrcamentos Orcamento = new frmOrcamentos();
-            Orcamento.ShowDialog();
+            if (!Formulario_Orcamento)
+            {
+                frmORCAMENTOS = new frmListaOS("ORÇAMENTO");
+                frmORCAMENTOS.Show();
+
+                Formulario_Orcamento = true;
+            }
+            if (Formulario_Orcamento)
+            {
+                frmORCAMENTOS.Focus();
+            }
         }
 
-        private void btnOrcamentos_MouseEnter(object sender, EventArgs e)
-        {
-            btnOrcamentos.BackColor = Classe_Tema.Botao_Sobre;
-        }
-
-        private void btnOrcamentos_MouseLeave(object sender, EventArgs e)
-        {
-            btnOrcamentos.BackColor = Classe_Tema.Botao_Normal;
-        }
+       
     }
 }

@@ -56,10 +56,6 @@ namespace ARES_ADM
             new Classe_OrdemServico().GraficoOS(this);
             new Classe_BancoHoras().GraicoApontamento(this);
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
@@ -594,25 +590,25 @@ namespace ARES_ADM
             {
                 if (cboFiltroPeca2.Text.Equals("Selecione o tipo"))
                 {
-                    new Classe_Pecas().Listar_PecasPrincipais(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Pecas ASC");
-                    new Classe_Pecas().Listar_PecasComplementares(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Peca ASC");
+                    new Classe_Pecas().Listar_PecasPrincipaisOS(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Pecas ASC");
+                    new Classe_Pecas().Listar_PecasComplementaresOS(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Peca ASC");
 
                 }
                 else
                 {
-                    new Classe_Pecas().Listar_PecasPrincipais(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE Tipo='" + cboFiltroPeca2.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
+                    new Classe_Pecas().Listar_PecasPrincipaisOS(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE Tipo='" + cboFiltroPeca2.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
                 }
             }
             if (cboFiltroPEca1.Text.Equals("Peça Complementar"))
             {
                 if (cboFiltroPeca2.Text.Equals("Selecione a aplicação"))
                 {
-                    new Classe_Pecas().Listar_PecasPrincipais(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Pecas ASC");
-                    new Classe_Pecas().Listar_PecasComplementares(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Peca ASC");
+                    new Classe_Pecas().Listar_PecasPrincipaisOS(lstPecasPrincipais, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Pecas ASC");
+                    new Classe_Pecas().Listar_PecasComplementaresOS(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + txtNos.Text + "' ORDER BY Peca ASC");
                 }
                 else
                 {
-                    new Classe_Pecas().Listar_PecasComplementares(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE Aplicacao='" + cboFiltroPeca2.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
+                    new Classe_Pecas().Listar_PecasComplementaresOS(lstPecasComplementares, "SELECT * FROM OrdemServico_PecasComplementares WHERE Aplicacao='" + cboFiltroPeca2.Text + "' AND ID_Veiculo='" + txtNos.Text + "'");
                 }
             }
         }

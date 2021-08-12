@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ARES_ADM.Classes
 {
     class Classe_Listviews
     {
+        public string SelecaoAnterior;
+
         // LST_Veiculos
         public void Criar_LST_Veiculos(ListView LST)
         {
@@ -98,6 +96,7 @@ namespace ARES_ADM.Classes
             LST.Columns.Add("Quantidade", 100, HorizontalAlignment.Right);
             LST.Columns.Add("Valor de Custo", 150, HorizontalAlignment.Right);
             LST.Columns.Add("Valor de Venda", 150, HorizontalAlignment.Right);
+
         }
         public void Criar_CamposPesquisaProdutos(ComboBox TipoPesquisa)
         {
@@ -163,6 +162,21 @@ namespace ARES_ADM.Classes
             TipoPesquisa.SelectedIndex = 0;
         }
 
+        public void Criar_CamposPesquisaPecasReparacao(ComboBox TipoPesquisa)
+        {
+            TipoPesquisa.Items.Add("Peça");
+            TipoPesquisa.SelectedIndex = 0;
+        }
+
+        public void Criar_CamposPesquisaPecasComplementares(ComboBox TipoPesquisa)
+        {
+            TipoPesquisa.Items.Add("Grupo");
+            TipoPesquisa.Items.Add("Descrição");
+            TipoPesquisa.Items.Add("Aplicação");
+            TipoPesquisa.Items.Add("Fornecedor");
+            TipoPesquisa.SelectedIndex = 1;
+        }
+
         //LST_PecasPrincipais
         public void Criar_LST_Pecas(ListView LST)
         {
@@ -180,6 +194,18 @@ namespace ARES_ADM.Classes
             LST.Columns.Add("Valor de Custo", 100, HorizontalAlignment.Right);
             LST.Columns.Add("Valor de Venda", 150, HorizontalAlignment.Right);
             LST.Columns.Add("Fornecedor", 105, HorizontalAlignment.Right);
+        }
+
+        public void Criar_LST_PecasReparacao(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = false;
+
+            LST.Columns.Add("Código", 50);
+            LST.Columns.Add("Peca", 200);
         }
 
         public void Criar_LST_PecasPrincipais(ListView LST)
@@ -244,16 +270,16 @@ namespace ARES_ADM.Classes
             LST.FullRowSelect = true;
             LST.AllowColumnReorder = true;
             LST.View = View.Details;
-            LST.HideSelection = true;
+            LST.HideSelection = false;
 
             LST.Columns.Add("ID", 0);
             LST.Columns.Add("Codigo Catalise", 0);
             LST.Columns.Add("Codigo Produto", 0);
             LST.Columns.Add("Produto", 300);
-            LST.Columns.Add("Proporção", 70,HorizontalAlignment.Center);
+            LST.Columns.Add("Proporção", 70, HorizontalAlignment.Center);
             LST.Columns.Add("Peso Especifico", 0);
-            LST.Columns.Add("Quantidade (Gramas)", 115,HorizontalAlignment.Right);
-            if (Classe_Configuracoes.ValorCatalises.Equals("TRUE")){ LST.Columns.Add("Valor", 85, HorizontalAlignment.Right); } else { LST.Columns.Add("Valor", 0); }
+            LST.Columns.Add("Quantidade (Gramas)", 115, HorizontalAlignment.Right);
+            if (Classe_Configuracoes.ValorCatalises.Equals("TRUE")) { LST.Columns.Add("Valor", 85, HorizontalAlignment.Right); } else { LST.Columns.Add("Valor", 0); }
             LST.Columns.Add("Tipo_BD", 0);
         }
 
@@ -263,6 +289,7 @@ namespace ARES_ADM.Classes
             //LST.FullRowSelect = true;
             LST.AllowColumnReorder = true;
             LST.View = View.Details;
+            LST.HideSelection = false;
             LST.CheckBoxes = true;
 
             LST.Columns.Add("Produto", 180);
@@ -285,18 +312,142 @@ namespace ARES_ADM.Classes
             LST.View = View.Details;
             LST.HideSelection = true;
 
+
             LST.Columns.Add("ID", 0);
             LST.Columns.Add("ID Orçamento", 0);
-            LST.Columns.Add("Operação", 60);
-            LST.Columns.Add("Código Peça", 65);
-            LST.Columns.Add("Descrição", 150);
-            LST.Columns.Add("Quantidade", 60);
-            LST.Columns.Add("Valor UN Bruto", 85);
-            LST.Columns.Add("Desconto", 60);
-            LST.Columns.Add("Valor UN Liquido", 85);
-            LST.Columns.Add("Valor Total", 65);
-            LST.Columns.Add("Horas", 50);
-            LST.Columns.Add("Pintura", 50);
+            LST.Columns.Add("Operação", 130);
+            LST.Columns.Add("Código Peça", 95);
+            LST.Columns.Add("Descrição", 245);
+            LST.Columns.Add("Quantidade", 70, HorizontalAlignment.Right);
+            LST.Columns.Add("Valor Bruto", 75, HorizontalAlignment.Right);
+            LST.Columns.Add("Desconto (%)", 75, HorizontalAlignment.Center);
+            LST.Columns.Add("Valor Liquido", 75, HorizontalAlignment.Right);
+            LST.Columns.Add("Valor Total", 75, HorizontalAlignment.Center);
+            LST.Columns.Add("Horas", 50, HorizontalAlignment.Center);
+            LST.Columns.Add("Pintura", 50, HorizontalAlignment.Center);
+        }
+
+        public void Criar_LST_Orcamentos(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = true;
+
+
+            LST.Columns.Add("Nº Orçamento", 80);
+            LST.Columns.Add("Data Abertura", 80);
+            LST.Columns.Add("ID_Proprietario", 0);
+            LST.Columns.Add("Proprietário", 280);
+            LST.Columns.Add("Montadora", 95);
+            LST.Columns.Add("Veiculo", 130);
+            LST.Columns.Add("Placa", 95);
+            LST.Columns.Add("Seguro", 100);
+            LST.Columns.Add("Total", 120);
+            LST.Columns.Add("ID_Orçamentista", 0);
+            LST.Columns.Add("Orçamentista", 180);
+        }
+
+        public void Criar_LST_Clientes(ListView LST)
+        {
+            LST.GridLines = true;
+            LST.FullRowSelect = true;
+            LST.AllowColumnReorder = true;
+            LST.View = View.Details;
+            LST.HideSelection = true;
+
+
+            LST.Columns.Add("Código", 40);
+            LST.Columns.Add("TipoCadastro", 120);
+            LST.Columns.Add("Nome/Razão Social", 280);
+            LST.Columns.Add("Apelido/Fantasia", 280);
+            LST.Columns.Add("CPF/CNPJ", 0);
+            LST.Columns.Add("Data Nascimento", 0);
+            LST.Columns.Add("Endereço", 0);
+            LST.Columns.Add("Numero", 0);
+            LST.Columns.Add("Bairro", 0);
+            LST.Columns.Add("Cidade", 95);
+            LST.Columns.Add("CEP", 0);
+            LST.Columns.Add("Estado", 55);
+            LST.Columns.Add("Telefone", 0);
+            LST.Columns.Add("Email", 0);
+        }
+
+        public void AlteraCorSelecao(ListView LST)
+        {
+            //foreach (ListViewItem item2 in LST.Items)
+            //{
+            //    item2.BackColor = new Classe_Tema().COR_Background_Listview;
+            //    item2.ForeColor = Color.Black;
+            //}
+            //var item = LST.FocusedItem;
+
+            //item.Selected = false;
+            //if (LST.Items[item.Index].Focused)
+            //{
+            //    LST.Items[item.Index].BackColor = Classe_Tema.TextBox_Destaque;
+            //    LST.Items[item.Index].ForeColor = Color.White;
+            //}
+
+            //var item = LST.FocusedItem;
+
+            //item.Selected = false;
+            //if (LST.Items[item.Index].Focused)
+            //{
+            //    LST.Items[item.Index].BackColor = Classe_Tema.TextBox_Destaque;
+            //    LST.Items[item.Index].ForeColor = Color.White;
+
+            //    if (SelecaoAnterior.Equals(string.Empty))
+            //    {
+            //        SelecaoAnterior = item.Index.ToString();
+            //        LST.Items[int.Parse(SelecaoAnterior)].BackColor = new Classe_Tema().COR_Background_Listview;
+            //        LST.Items[int.Parse(SelecaoAnterior)].ForeColor = Color.Black;
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        LST.Items[int.Parse(SelecaoAnterior)].BackColor = new Classe_Tema().COR_Background_Listview;
+            //        LST.Items[int.Parse(SelecaoAnterior)].ForeColor = Color.Black;
+            //    }
+
+
+            //    SelecaoAnterior = item.Index.ToString();
+            //}
+        }
+        public void AlteraCorSelecao(ListView LST, string Tipo)
+        {
+            //foreach (ListViewItem item2 in LST.Items)
+            //{
+            //    if (Tipo.Equals("OS"))
+            //    {
+            //        item2.BackColor = new Classe_Tema().COR_Background_Listview;
+            //        ColorirLinhas_veiculos(LST);
+            //    }
+            //    else
+            //    {
+            //        item2.BackColor = new Classe_Tema().COR_Background_Listview;
+            //        item2.ForeColor = Color.Black;
+            //    }
+
+            //}
+            //var item = LST.FocusedItem;
+
+            //item.Selected = false;
+            //if (LST.Items[item.Index].Focused)
+            //{
+            //    LST.Items[item.Index].BackColor = Classe_Tema.TextBox_Destaque;
+            //    LST.Items[item.Index].ForeColor = Color.White;
+
+            //    if (SelecaoAnterior != null)
+            //    {
+            //        LST.Items[SelecaoAnterior.Index].BackColor = new Classe_Tema().COR_Background_Listview;
+            //        LST.Items[SelecaoAnterior.Index].ForeColor = Color.Black;
+            //    }
+
+
+            //    SelecaoAnterior = item;
+            //}
         }
     }
 }

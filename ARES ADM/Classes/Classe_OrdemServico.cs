@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.SqlServerCe;
 using System.Data;
-using ARES_ADM.Classes;
 using System.Windows.Forms;
 
 
@@ -10,7 +9,6 @@ namespace ARES_ADM.Classes
     class Classe_OrdemServico
     {
         public string strConnDatabase = Classes_Conexao.strConnDatabase.ToString();
-
 
         public void Atualizar_DadosGeral(frmOrdemServico Form, ListView LST, string SQL, string nos, Label Abrasivos, Label Catalises, Label Tintas, Label Polimentos, Label Diversos, Label Ticket)
         {
@@ -48,8 +46,8 @@ namespace ARES_ADM.Classes
 
             new Classe_Listviews().Criar_LST_PecasPrincipais(LSTPecasPrin);
             new Classe_Listviews().Criar_LST_PecasComplementares(LSTPecasComp);
-            new Classe_Pecas().Listar_PecasPrincipais(LSTPecasPrin, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Pecas ASC");
-            new Classe_Pecas().Listar_PecasComplementares(LSTPecasComp, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Peca ASC");
+            new Classe_Pecas().Listar_PecasPrincipaisOS(LSTPecasPrin, "SELECT * FROM OrdemServico_Pecas WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Pecas ASC");
+            new Classe_Pecas().Listar_PecasComplementaresOS(LSTPecasComp, "SELECT * FROM OrdemServico_PecasComplementares WHERE ID_Veiculo='" + IDVeiculo + "' ORDER BY Peca ASC");
             frmos.cboFiltroPeca2.Items.Add("Selecione o tipo");
             new Classe_Pecas().Get_TipoPeca(frmos.cboFiltroPeca2);
             frmos.cboFiltroPEca1.SelectedIndex = 0;
@@ -391,7 +389,7 @@ namespace ARES_ADM.Classes
         {
             try
             {
-                string SQL = "SELECT Nome FROM Proprietario ORDER BY Nome ASC";
+                string SQL = "SELECT Nome FROM Clientes ORDER BY Nome ASC";
                 SqlCeConnection CONN = new SqlCeConnection(strConnDatabase);
                 DataSet DS = new DataSet();
                 SqlCeDataAdapter DA = new SqlCeDataAdapter(SQL, CONN);

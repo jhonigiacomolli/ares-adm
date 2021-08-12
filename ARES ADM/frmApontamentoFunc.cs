@@ -66,12 +66,7 @@ namespace ARES_ADM
                 lblEntrada.Visible = false;
                 lblSaida.Visible = false;
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        }        
 
         private void btnFechar_Click(object sender, EventArgs e)
         {

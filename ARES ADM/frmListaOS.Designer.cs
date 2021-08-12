@@ -33,7 +33,6 @@
             this.pnCabecalho = new System.Windows.Forms.Panel();
             this.pnFavIcon = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lstVeiculos = new System.Windows.Forms.ListView();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.btnAbrir = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@
             this.lblTipoPesquisa = new System.Windows.Forms.Label();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.pnCabecalho.SuspendLayout();
-            this.btnFechar.SuspendLayout();
             this.pnMenuOS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +57,7 @@
             this.lblTituloForm.ForeColor = System.Drawing.Color.Silver;
             this.lblTituloForm.Location = new System.Drawing.Point(42, 8);
             this.lblTituloForm.Name = "lblTituloForm";
-            this.lblTituloForm.Size = new System.Drawing.Size(238, 20);
+            this.lblTituloForm.Size = new System.Drawing.Size(237, 20);
             this.lblTituloForm.TabIndex = 1;
             this.lblTituloForm.Text = "ARES ADM - Ordens de Serivço";
             this.lblTituloForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTituloForm_MouseDown);
@@ -96,26 +94,13 @@
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btnFechar.Controls.Add(this.label1);
+            this.btnFechar.BackgroundImage = global::ARES_ADM.Properties.Resources.Close;
+            this.btnFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnFechar.Location = new System.Drawing.Point(1145, 0);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(35, 35);
             this.btnFechar.TabIndex = 1;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "X";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lstVeiculos
             // 
@@ -143,6 +128,7 @@
             this.btnFinalizar.TabIndex = 7;
             this.btnFinalizar.Text = "Finalizar OS";
             this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             this.btnFinalizar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnFinalizar_KeyDown);
             // 
             // btnAbrir
@@ -297,8 +283,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmListaOS_KeyDown);
             this.pnCabecalho.ResumeLayout(false);
             this.pnCabecalho.PerformLayout();
-            this.btnFechar.ResumeLayout(false);
-            this.btnFechar.PerformLayout();
             this.pnMenuOS.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,7 +295,6 @@
         public System.Windows.Forms.Panel pnFavIcon;
         public System.Windows.Forms.Panel pnCabecalho;
         public System.Windows.Forms.Panel btnFechar;
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ListView lstVeiculos;
         public System.Windows.Forms.Panel pnMenuOS;
         public System.Windows.Forms.Button btnExcluir;

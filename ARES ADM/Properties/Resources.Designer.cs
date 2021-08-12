@@ -131,6 +131,16 @@ namespace ARES_ADM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Close {
+            get {
+                object obj = ResourceManager.GetObject("Close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] DatasheetIndisponivel {
@@ -313,6 +323,76 @@ namespace ARES_ADM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_GRAYMATIC_G1 {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER GRAYMATIC G1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_GRAYMATIC_G2 {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER GRAYMATIC G2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_GRAYMATIC_G3 {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER GRAYMATIC G3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_GRAYMATIC_G4 {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER GRAYMATIC G4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_GRAYMATIC_G5 {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER GRAYMATIC G5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_GRAYMATIC_G6 {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER GRAYMATIC G6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PRIMER_GRAYMATIC_G7 {
+            get {
+                object obj = ResourceManager.GetObject("PRIMER GRAYMATIC G7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ROBERLO {
             get {
                 object obj = ResourceManager.GetObject("ROBERLO", resourceCulture);
@@ -326,6 +406,26 @@ namespace ARES_ADM.Properties {
         internal static System.Drawing.Bitmap SEMIMAGEM {
             get {
                 object obj = ResourceManager.GetObject("SEMIMAGEM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VERNIZ_DC4000_LENTO {
+            get {
+                object obj = ResourceManager.GetObject("VERNIZ DC4000 LENTO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VERNIZ_DC4000_NORMAL {
+            get {
+                object obj = ResourceManager.GetObject("VERNIZ DC4000 NORMAL", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

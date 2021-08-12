@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlServerCe;
@@ -10,8 +8,11 @@ namespace ARES_ADM.Classes
     public class Classes_Conexao
     {
         private static string Password_DB = "++060188jhoni.fg";
-        public static string strConnDatabase = @"Data Source=D:\Projeto Auto Sharp\ARES ADM\ARES ADM\Database\Database.sdf;Password=" + Password_DB + "";
-        public static string CaminhoLogo = @"D:\Projeto Auto Sharp\ARES ADM\ARES ADM\Logo\Logo.png";
+
+        public static string path = AppDomain.CurrentDomain.BaseDirectory.ToString();
+        //public static string strConnDatabase = @"Data Source=" + path + @"Database\Database.sdf;Password=" + Password_DB + "";
+        public static string strConnDatabase = @"Data Source=D:\PARTICULAR\Projeto Auto Sharp\ARES ADM\ARES ADM\Database\Database.sdf;Password=" + Password_DB + "";
+        public static string CaminhoLogo = path + @"\Logo\Logo.png";
 
         public static DataTable Preenche_DataTable(string SQL)
         {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Threading;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -14,22 +14,42 @@ namespace ARES_ADM
         bool mouseDown;
         Point lastLocation;
         public int ItemSelecionado;
+        public string TIPO;
         private ListViewColumnSorter lvwColumnSorter;
 
-        public frmListaOS()
+        public frmListaOS(string Tipo)
         {
             InitializeComponent();
             pnMenuOS.Height = 0;
+            TIPO = Tipo;
 
             //Reordenar Colunas List view 
             lvwColumnSorter = new ListViewColumnSorter();
             this.lstVeiculos.ListViewItemSorter = lvwColumnSorter;
 
-            new Classe_Tema().TEMA_frmListaOS(this);
-            new Classe_Listviews().Criar_LST_Veiculos(lstVeiculos);
-            new Classe_Listviews().Criar_CamposPesquisa(cboTipoPesquisa);
-            new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
-            new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+            if (TIPO.Equals("OS"))
+            {
+                new Classe_Tema().TEMA_frmListaOS(this);
+                new Classe_Listviews().Criar_LST_Veiculos(lstVeiculos);
+                new Classe_Listviews().Criar_CamposPesquisa(cboTipoPesquisa);
+                new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+
+                Text = Classe_Configuracoes.NomeModulos + " - Ordens de Serviço";
+                lblTituloForm.Text = Classe_Configuracoes.NomeModulos + " - Ordens de Serviço";
+                btnOS.Text = "Ordem de Serviço";
+            }
+
+            if (TIPO.Equals("ORÇAMENTO"))
+            {
+                new Classe_Tema().TEMA_frmListaOS(this);
+                new Classe_Listviews().Criar_LST_Orcamentos(lstVeiculos);
+                new Classe_Orcamentos().Listar_Orcamento(lstVeiculos);
+
+                Text = Classe_Configuracoes.NomeModulos + " - Orçamentos";
+                lblTituloForm.Text = Classe_Configuracoes.NomeModulos + " - Orçamentos";
+                btnOS.Text = "Orçamentos";
+            }
         }
 
         private void pnCabecalho_MouseDown(object sender, MouseEventArgs e)
@@ -72,13 +92,17 @@ namespace ARES_ADM
             mouseDown = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnFechar_Click(object sender, EventArgs e)
         {
+            if (TIPO.Equals("ORÇAMENTO"))
+            {
+                frmPaginaInicial.Formulario_Orcamento = false;
+            }
+            if (TIPO.Equals("OS"))
+            {
+                frmPaginaInicial.FOrmulario_OS = false;
+            }
+
             this.Close();
         }
 
@@ -108,6 +132,8 @@ namespace ARES_ADM
         {
             pnMenuOS.Height = 0;
             ItemSelecionado =int.Parse(lstVeiculos.FocusedItem.Text);
+
+            new Classe_Listviews().AlteraCorSelecao(lstVeiculos,TIPO);
         }
 
         private void lstVeiculos_MouseDown(object sender, MouseEventArgs e)
@@ -117,58 +143,109 @@ namespace ARES_ADM
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            pnMenuOS.Height = 0;
+            if (TIPO.Equals("OS"))
+            {
+                pnMenuOS.Height = 0;
 
-            frmCadastroOS cadastro = new frmCadastroOS(0 ,this);
-            cadastro.ShowDialog();
+                frmCadastroOS cadastro = new frmCadastroOS(0, this);
+                cadastro.ShowDialog();
+            }
+
+            if (TIPO.Equals("ORÇAMENTO"))
+            {
+                pnMenuOS.Height = 0;
+
+                frmOrcamentos orcamento = new frmOrcamentos(this,string.Empty, Classe_Orcamentos.Formulario_Novo);
+                Visible = false;
+                orcamento.ShowDialog();
+                Visible = true;
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            pnMenuOS.Height = 0;
-
-            string id = lstVeiculos.FocusedItem.Text.TrimEnd();
-            string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text.TrimEnd();
-            string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text.TrimEnd();
-            string Placa = lstVeiculos.FocusedItem.SubItems[3].Text.TrimEnd();
-            string Cor = lstVeiculos.FocusedItem.SubItems[4].Text.TrimEnd();
-            string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
-
-            Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente excluir a OS Nº " + id + "\n" + "Proprietario: " + Proprietario + "\nVeiculo: " + Veiculo + "\nPlaca: " + Placa);
-            DialogResult Resposta=messagebox.ShowDialog();
-
-            if (Resposta.Equals(DialogResult.OK))
+            if (TIPO.Equals("OS"))
             {
-                new Classe_Veiculos().Excluir_Veiculos(int.Parse(id));
-                new Classe_Veiculos().Listar_Veiculos(lstVeiculos,"SELECT * FROM Veiculos ORDER BY Situacao ASC");
-                new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+                pnMenuOS.Height = 0;
+
+                string id = lstVeiculos.FocusedItem.Text.TrimEnd();
+                string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text.TrimEnd();
+                string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text.TrimEnd();
+                string Placa = lstVeiculos.FocusedItem.SubItems[3].Text.TrimEnd();
+                string Cor = lstVeiculos.FocusedItem.SubItems[4].Text.TrimEnd();
+                string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
+
+                Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente excluir a OS Nº " + id + "\n" + "Proprietario: " + Proprietario + "\nVeiculo: " + Veiculo + "\nPlaca: " + Placa);
+                DialogResult Resposta = messagebox.ShowDialog();
+
+                if (Resposta.Equals(DialogResult.OK))
+                {
+                    new Classe_Veiculos().Excluir_Veiculos(int.Parse(id));
+                    new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                    new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+                }
+                else
+                {
+                    return;
+                }
             }
-            else
+
+            if (TIPO.Equals("ORÇAMENTO"))
             {
-                return;
+                pnMenuOS.Height = 0;
+
+                string id = lstVeiculos.FocusedItem.Text.TrimEnd();
+                string Proprietario = lstVeiculos.FocusedItem.SubItems[3].Text.TrimEnd();
+                string Veiculo = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
+                string Placa = lstVeiculos.FocusedItem.SubItems[6].Text.TrimEnd();
+
+                Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Exclusão", "Deseja realmente excluir o Orçamento Nº " + id + "\n" + "Proprietario: " + Proprietario + "\nVeiculo: " + Veiculo + "\nPlaca: " + Placa);
+                DialogResult Resposta = messagebox.ShowDialog();
+
+                if (Resposta.Equals(DialogResult.OK))
+                {
+                    new Classe_Orcamentos().Excluir_Orcamento(id);
+                    new Classe_Orcamentos().Listar_Orcamento(lstVeiculos);
+                }
+                else
+                {
+                    return;
+                }
             }
-
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            pnMenuOS.Height = 0;
+            if (TIPO.Equals("OS"))
+            {
+                pnMenuOS.Height = 0;
 
-            string id = lstVeiculos.FocusedItem.Text.TrimEnd();
-            string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text.TrimEnd();
-            string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text.TrimEnd();
-            string Placa = lstVeiculos.FocusedItem.SubItems[3].Text.TrimEnd();
-            string Cor = lstVeiculos.FocusedItem.SubItems[4].Text.TrimEnd();
-            string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
+                string id = lstVeiculos.FocusedItem.Text.TrimEnd();
+                string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text.TrimEnd();
+                string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text.TrimEnd();
+                string Placa = lstVeiculos.FocusedItem.SubItems[3].Text.TrimEnd();
+                string Cor = lstVeiculos.FocusedItem.SubItems[4].Text.TrimEnd();
+                string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text.TrimEnd();
 
-            frmCadastroOS Edicao = new frmCadastroOS(int.Parse(id),this);
-            Edicao.txtNumeroOS.Text = id;
-            new Classe_Veiculos().Listar_Veiculos(Edicao, "SELECT * FROM Veiculos WHERE id='" + id + "'");
-            Edicao.lblTituloForm.Text = "ARES ADM - Edição";         
-            Edicao.ShowDialog();
+                frmCadastroOS Edicao = new frmCadastroOS(int.Parse(id), this);
+                Edicao.txtNumeroOS.Text = id;
+                new Classe_Veiculos().Listar_Veiculos(Edicao, "SELECT * FROM Veiculos WHERE id='" + id + "'");
+                Edicao.lblTituloForm.Text = "ARES ADM - Edição";
+                Edicao.ShowDialog();
+            }
 
+            if (TIPO.Equals("ORÇAMENTO"))
+            {
+                pnMenuOS.Height = 0;
 
+                string ID = lstVeiculos.FocusedItem.Text;
+                frmOrcamentos Orcamento = new frmOrcamentos(this, ID, Classe_Orcamentos.Formulario_Edicao);
+                new Classe_Orcamentos().Cabecalho_Orcamento(lstVeiculos.FocusedItem.Text, Orcamento);
+                
+                Visible = false;
+                Orcamento.ShowDialog();
+                Visible = true;
+            }
         }
 
         private void txtPesquisa_Enter(object sender, EventArgs e)
@@ -192,7 +269,10 @@ namespace ARES_ADM
             }
             if (e.KeyCode == Keys.Enter)
             {
-                new Classe_Veiculos().Pesquisar_Veiculos(lstVeiculos, cboTipoPesquisa.Text, txtPesquisa.Text);
+                if (TIPO.Equals("OS"))
+                {
+                    new Classe_Veiculos().Pesquisar_Veiculos(lstVeiculos, cboTipoPesquisa.Text, txtPesquisa.Text);
+                }
             }
         }
 
@@ -205,10 +285,13 @@ namespace ARES_ADM
         {
             txtPesquisa.Clear();
 
-            if (cboTipoPesquisa.Text.Equals("Todos"))
+            if (TIPO.Equals("OS"))
             {
-                new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
-                new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+                if (cboTipoPesquisa.Text.Equals("Todos"))
+                {
+                    new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                    new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+                }
             }
         }
 
@@ -294,32 +377,47 @@ namespace ARES_ADM
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            if (lstVeiculos.FocusedItem.SubItems[8].Text.Equals("AGUARDANDO"))
-            {
-                Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Ordem Serviço", "A Ordem de Serviço selecionada ainda não foi aberta.\n\nDeseja abri-la para ver os detalhes?");
-                DialogResult Resposta = messagebox.ShowDialog();
-
-                if (Resposta == DialogResult.OK)
+            if (TIPO.Equals("OS")){
+                if (lstVeiculos.FocusedItem.SubItems[8].Text.Equals("AGUARDANDO"))
                 {
-                    new Classe_Veiculos().Abrir_OS(int.Parse(lstVeiculos.FocusedItem.Text));
-                    new Classe_Veiculos().Listar_Veiculos(lstVeiculos,"SELECT * FROM Veiculos ORDER BY Situacao ASC");
-                    new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+                    Form messagebox = new frmMensagemBox(Classe_Mensagem.QUESTAO, "Ordem Serviço", "A Ordem de Serviço selecionada ainda não foi aberta.\n\nDeseja abri-la para ver os detalhes?");
+                    DialogResult Resposta = messagebox.ShowDialog();
+
+                    if (Resposta == DialogResult.OK)
+                    {
+                        new Classe_Veiculos().Abrir_OS(int.Parse(lstVeiculos.FocusedItem.Text));
+                        new Classe_Veiculos().Listar_Veiculos(lstVeiculos, "SELECT * FROM Veiculos ORDER BY Situacao ASC");
+                        new Classe_Listviews().ColorirLinhas_veiculos(lstVeiculos);
+                    }
+                }
+
+                if (lstVeiculos.FocusedItem.SubItems[8].Text.Equals("ABERTA"))
+                {
+                    string NOS = lstVeiculos.FocusedItem.SubItems[0].Text;
+                    string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text;
+                    string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text;
+                    string Placa = lstVeiculos.FocusedItem.SubItems[3].Text;
+                    string Cor = lstVeiculos.FocusedItem.SubItems[4].Text;
+                    string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text;
+
+                    frmOrdemServico OS = new frmOrdemServico(NOS, Proprietario, Veiculo, Placa, Cor, Tamanho);
+                    Visible = false;
+                    OS.ShowDialog();
+                    Visible = true;
                 }
             }
 
-            if (lstVeiculos.FocusedItem.SubItems[8].Text.Equals("ABERTA"))
+            if (TIPO.Equals("ORÇAMENTO"))
             {
-                string NOS = lstVeiculos.FocusedItem.SubItems[0].Text;
-                string Proprietario = lstVeiculos.FocusedItem.SubItems[1].Text;
-                string Veiculo = lstVeiculos.FocusedItem.SubItems[2].Text;
-                string Placa = lstVeiculos.FocusedItem.SubItems[3].Text;
-                string Cor = lstVeiculos.FocusedItem.SubItems[4].Text;
-                string Tamanho = lstVeiculos.FocusedItem.SubItems[5].Text;
+                string ID = lstVeiculos.FocusedItem.Text; 
+                frmOrcamentos Orcamento = new frmOrcamentos(this,ID, Classe_Orcamentos.Formulario_Visualizacao);
+                new Classe_Orcamentos().Cabecalho_Orcamento(lstVeiculos.FocusedItem.Text, Orcamento);
                 
-                frmOrdemServico OS = new frmOrdemServico(NOS,Proprietario,Veiculo,Placa,Cor,Tamanho);
-                OS.ShowDialog();
+                Visible = false;
+                new Classe_Orcamentos().Bloquear_Cabecalho(Orcamento);
+                Orcamento.ShowDialog();
+                Visible = true;
             }
-
         }
 
         private void lstVeiculos_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -352,6 +450,11 @@ namespace ARES_ADM
         {
             e.NewWidth = lstVeiculos.Columns[e.ColumnIndex].Width;
             e.Cancel = true;
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

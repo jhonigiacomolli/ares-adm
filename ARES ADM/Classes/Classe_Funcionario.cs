@@ -1,7 +1,5 @@
-﻿using System;
-using System.Data.SqlServerCe;
+﻿using System.Data.SqlServerCe;
 using System.Data;
-using ARES_ADM.Classes;
 using System.Windows.Forms;
 
 namespace ARES_ADM.Classes
